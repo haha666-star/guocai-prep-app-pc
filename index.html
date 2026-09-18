@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="B5qsKkX9jVRQ8lVjN490Sa">
+<head data-page-node-id="f0IzMVAA3oJKAoZzO14HAG"><meta charset="UTF-8" data-page-node-id="To75vsSl5c6adED6QKToll">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="gTeLzk7AugWrzkomGpMbLg">
+<meta name="theme-color" content="#050914" data-page-node-id="s0dClQrjo94BksAnID8VId">
+<meta name="apple-mobile-web-app-capable" content="yes" data-page-node-id="kkWrsyjAmFAstTJV3yAsoF">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" data-page-node-id="Np83VPFLtFMxtIbHo6HLiC">
+<title>国才笔译·备考台 PC</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050914'/%3E%3Cpath d='M14 20h36M32 20v26M22 46c4 4 16 4 20 0' stroke='%2300e5ff' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" data-page-node-id="Tzvv2bVejp1PeFK3MtAp25">
+<style>
+:root{
+  --bg:#050914;--card:#0c101d;--card2:#0f1424;--line:#1b2232;
+  --cy:#00e5ff;--cy2:#66f2ff;--grn:#30e89c;--pur:#8b55f6;--pink:#f53d7a;
+  --tx:#e2e9e9;--mut:#818a98;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{font-family:inherit}
+html,body{background:var(--bg);color:var(--tx);
+  background-image:radial-gradient(ellipse 80% 45% at 50% -8%,rgba(0,229,255,.10),transparent 62%),
+  linear-gradient(rgba(0,229,255,.028) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,229,255,.028) 1px,transparent 1px);
+  background-size:auto,34px 34px,34px 34px;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif}
+body{padding-bottom:80px;min-height:100vh}
+.app{max-width:520px;margin:0 auto;padding:14px 14px 26px}
+/* header */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:4px 2px 14px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:11px;background:linear-gradient(140deg,#06262e,#0a3b48);border:1px solid rgba(0,229,255,.35);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 18px rgba(0,229,255,.22),inset 0 0 12px rgba(0,229,255,.12)}
+.logo svg{filter:drop-shadow(0 0 4px rgba(0,229,255,.8))}
+.tt{font-size:17px;font-weight:800;letter-spacing:.5px}
+.tt span{color:var(--cy);text-shadow:0 0 10px rgba(0,229,255,.55)}
+.sub{font-size:9.5px;color:#4d7d90;letter-spacing:2.5px;margin-top:2px;font-family:Consolas,"Courier New",monospace}
+.status{display:flex;align-items:center;gap:6px;background:rgba(48,232,156,.07);border:1px solid rgba(48,232,156,.35);border-radius:999px;padding:6px 11px;font-size:11px;font-weight:700;color:var(--grn);font-family:Consolas,"Courier New",monospace;letter-spacing:1px}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--grn);box-shadow:0 0 8px var(--grn);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+/* hero */
+.hero{background:linear-gradient(165deg,#0d1726 0%,#0a111f 60%,#080e19 100%);border:1px solid rgba(0,229,255,.22);border-radius:18px;padding:18px 16px 16px;position:relative;margin-bottom:14px;box-shadow:0 0 26px rgba(0,229,255,.07),inset 0 0 40px rgba(0,229,255,.04);overflow:hidden}
+.hero:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.7),transparent)}
+.hero .hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.hero .lab{font-size:11px;color:var(--mut);letter-spacing:2.5px;font-family:Consolas,"Courier New",monospace}
+.hero .lab b{color:var(--cy)}
+.cd{font-size:38px;font-weight:900;color:#fff;line-height:1.05;text-shadow:0 0 22px rgba(0,229,255,.5)}
+.cd em{font-style:normal;font-size:20px;color:var(--cy);margin-right:2px}
+.cd span{font-size:17px;color:var(--cy2);font-weight:700;margin-left:2px}
+.tg{font-size:12px;color:var(--mut);margin-top:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tg input{background:#080e1a;border:1px solid #24304a;color:var(--tx);border-radius:8px;padding:5px 9px;font-size:12px;width:132px;color-scheme:dark}
+.tg button{background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.4);color:var(--cy);border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;font-weight:700;box-shadow:0 0 10px rgba(0,229,255,.15)}
+/* section headers */
+.sec{margin-bottom:16px}
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sec-h .t{font-size:12px;font-weight:800;color:#b9c6d8;letter-spacing:1.5px;display:flex;align-items:center;gap:7px;font-family:Consolas,"Courier New",monospace}
+.sec-h .t em{font-style:normal;color:var(--cy)}
+.sec-h .more{font-size:12px;color:var(--cy);cursor:pointer;display:flex;align-items:center;gap:3px;background:none;border:none;font-family:inherit;font-weight:600}
+/* panels */
+.panel{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;position:relative}
+.panel:before{content:"";position:absolute;top:0;left:16px;right:16px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.35),transparent)}
+.panel .p-lab{font-size:10px;color:#55708a;letter-spacing:2px;font-family:Consolas,"Courier New",monospace;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.panel .p-lab b{color:var(--cy);font-size:11px;letter-spacing:1px}
+/* mastery */
+.mast-big{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.mast-big .n{font-size:34px;font-weight:900;color:var(--cy);text-shadow:0 0 18px rgba(0,229,255,.5)}
+.mast-big .u{font-size:13px;color:var(--mut)}
+.mast-note{font-size:12px;color:var(--mut);margin:8px 0 4px;display:flex;justify-content:space-between;align-items:center}
+.mast-note a{color:var(--cy);text-decoration:none;font-weight:700;cursor:pointer;border-bottom:1px dashed rgba(0,229,255,.5)}
+.bar{height:7px;background:#101a2c;border-radius:99px;overflow:hidden;border:1px solid #16223a}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#00b3d9,var(--cy));box-shadow:0 0 10px rgba(0,229,255,.6);transition:width .4s}
+.bar i.grn{background:linear-gradient(90deg,#1dbb7f,var(--grn));box-shadow:0 0 10px rgba(48,232,156,.6)}
+.bar i.pur{background:linear-gradient(90deg,#6b3fd4,var(--pur));box-shadow:0 0 10px rgba(139,85,246,.6)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.stat{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center;position:relative}
+.stat:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.4),transparent)}
+.stat .n{font-size:22px;font-weight:900;color:var(--cy);text-shadow:0 0 12px rgba(0,229,255,.45)}
+.stat .n.grn{color:var(--grn);text-shadow:0 0 12px rgba(48,232,156,.45)}
+.stat .n.pur{color:var(--pur);text-shadow:0 0 12px rgba(139,85,246,.45)}
+.stat .n.pink{color:var(--pink);text-shadow:0 0 12px rgba(245,61,122,.45)}
+.stat .l{font-size:10px;color:var(--mut);margin-top:4px;letter-spacing:.5px}
+/* quick buttons */
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.qk{background:linear-gradient(160deg,rgba(0,229,255,.09),rgba(0,229,255,.02) 60%);border:1px solid rgba(0,229,255,.35);border-radius:14px;padding:13px;display:flex;align-items:center;gap:11px;cursor:pointer;box-shadow:0 0 16px rgba(0,229,255,.08);position:relative;overflow:hidden}
+.qk.purple{background:linear-gradient(160deg,rgba(139,85,246,.14),rgba(139,85,246,.02) 60%);border-color:rgba(139,85,246,.45);box-shadow:0 0 16px rgba(139,85,246,.1)}
+.qk .ic{width:38px;height:38px;border-radius:10px;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.3);display:flex;align-items:center;justify-content:center;flex:none}
+.qk.purple .ic{background:rgba(139,85,246,.14);border-color:rgba(139,85,246,.4)}
+.qk .ic svg{color:var(--cy);width:19px;height:19px}
+.qk.purple .ic svg{color:var(--pur)}
+.qk .tx{font-size:13px;font-weight:800}
+.qk .tx small{display:block;font-size:10px;color:var(--mut);font-weight:400;margin-top:2px}
+/* module mastery */
+.mmods{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mmod{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:12px;position:relative}
+.mmod:before{content:"";position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.3),transparent)}
+.mmod .n{font-size:13px;font-weight:800;color:#c7d3e2}
+.mmod .p{font-size:11px;color:var(--cy);margin:5px 0 6px;font-weight:800;font-family:Consolas,"Courier New",monospace}
+.mmod .d{font-size:10px;color:var(--mut)}
+.mmod .bar{height:5px;margin-top:8px}
+/* list cards */
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;cursor:pointer;position:relative}
+.card:before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:2px;border-radius:2px;background:linear-gradient(180deg,var(--cy),transparent);opacity:.5}
+.reveal{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed #233252}
+.card.open .reveal{display:block}
+.fc-cat{font-size:10px;color:#4f8ba3;letter-spacing:1.5px;margin-bottom:7px;font-family:Consolas,"Courier New",monospace}
+.fc-cn{font-size:17px;font-weight:800;line-height:1.5;color:#eef4f7}
+.fc-en{font-size:14px;font-weight:700;color:var(--cy);line-height:1.55;margin-bottom:6px;text-shadow:0 0 8px rgba(0,229,255,.25)}
+.fc-note{font-size:12px;color:var(--mut);line-height:1.65}
+/* buttons */
+.btns{display:flex;gap:8px;margin-top:12px}
+.btn{flex:1;border:none;border-radius:10px;padding:11px 0;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;text-align:center}
+.btn.ok{background:rgba(48,232,156,.12);color:var(--grn);border:1px solid rgba(48,232,156,.4)}
+.btn.ok.on{background:rgba(48,232,156,.85);color:#03251a}
+.btn.no{background:rgba(245,61,122,.1);color:var(--pink);border:1px solid rgba(245,61,122,.4)}
+.btn.no.on{background:var(--pink);color:#fff}
+.btn.star{flex:0 0 auto;width:46px;background:rgba(139,85,246,.12);color:var(--pur);border-radius:10px;padding:11px 0;cursor:pointer;border:1px solid rgba(139,85,246,.4);font-size:16px}
+.btn.star.on{background:var(--pur);color:#fff}
+.btn.ghost{background:#101a2e;color:#b9c6d8;border:1px solid #24304a}
+.btn.cyan{background:linear-gradient(135deg,#00b3d9,var(--cy));color:#02141a;box-shadow:0 0 18px rgba(0,229,255,.35)}
+.btn.cyan.outline{background:rgba(0,229,255,.08);color:var(--cy);border:1px solid rgba(0,229,255,.45);box-shadow:none}
+.btn.sm{padding:8px 0;font-size:12px;border-radius:8px}
+/* pills / seg / search */
+.pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:10px;-webkit-overflow-scrolling:touch}
+.pill{flex:none;background:#0d1526;border:1px solid #223052;color:var(--mut);border-radius:999px;padding:7px 14px;font-size:12px;cursor:pointer;font-family:Consolas,"Courier New",monospace}
+.pill.on{background:rgba(0,229,255,.12);border-color:var(--cy);color:var(--cy);font-weight:800;box-shadow:0 0 12px rgba(0,229,255,.25)}
+.search{display:flex;align-items:center;gap:8px;background:#0c1322;border:1px solid #223052;border-radius:12px;padding:10px 12px;margin-bottom:12px}
+.search svg{color:#45657d;width:16px;height:16px;flex:none}
+.search input{flex:1;background:none;border:none;outline:none;color:var(--tx);font-size:14px;font-family:inherit}
+.search input::placeholder{color:#45657d}
+.seg{display:flex;background:#0c1322;border:1px solid #223052;border-radius:12px;padding:4px;gap:4px;margin-bottom:12px}
+.seg-i{flex:1;text-align:center;padding:9px 0;border-radius:9px;font-size:13px;font-weight:800;color:var(--mut);cursor:pointer}
+.seg-i.on{background:rgba(0,229,255,.14);color:var(--cy);box-shadow:0 0 12px rgba(0,229,255,.2)}
+/* quiz */
+.qcard{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:18px 16px;position:relative}
+.qcard:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cy),transparent)}
+.qmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;color:var(--mut);font-family:Consolas,"Courier New",monospace}
+.qmeta .idx{color:var(--cy);font-weight:800;font-size:13px}
+.qtext{font-size:15px;line-height:1.7;font-weight:700;margin-bottom:16px;color:#eef4f7}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{border:1px solid #223052;background:#0d1526;border-radius:12px;padding:12px 13px;font-size:13.5px;line-height:1.55;cursor:pointer;color:#c7d3e2;display:flex;gap:9px;align-items:flex-start}
+.opt .k{flex:none;width:22px;height:22px;border-radius:7px;background:#16223a;color:var(--mut);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:Consolas,"Courier New",monospace}
+.opt.on{background:rgba(0,229,255,.12);border-color:var(--cy);color:var(--cy)}
+.opt.on .k{background:var(--cy);color:#02141a}
+.opt.right{background:rgba(48,232,156,.12);border-color:var(--grn)}
+.opt.right .k{background:var(--grn);color:#03251a}
+.opt.wrong{background:rgba(245,61,122,.12);border-color:var(--pink)}
+.opt.wrong .k{background:var(--pink);color:#fff}
+.opt.dim{opacity:.4}
+.fb{margin-top:13px;border-radius:11px;padding:11px 13px;font-size:12.5px;line-height:1.65;display:none}
+.fb.show{display:block}
+.fb.right{background:rgba(48,232,156,.08);border:1px solid rgba(48,232,156,.4);color:#a7f3d0}
+.fb.wrong{background:rgba(245,61,122,.08);border:1px solid rgba(245,61,122,.4);color:#fecdd3}
+/* modes */
+.modes{display:flex;gap:8px;margin-bottom:12px}
+.mode{flex:1;text-align:center;padding:10px 0;border-radius:12px;background:#0d1526;border:1px solid #223052;color:var(--mut);font-size:13px;font-weight:800;cursor:pointer}
+.mode.on{background:rgba(0,229,255,.14);border-color:var(--cy);color:var(--cy);box-shadow:0 0 12px rgba(0,229,255,.2)}
+/* wrong */
+.witem{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px}
+.witem .wq{font-size:13.5px;font-weight:800;line-height:1.6;margin-bottom:8px;color:#eef4f7}
+.witem .wa{font-size:12px;color:var(--pink);margin-bottom:4px;line-height:1.5}
+.witem .wc{font-size:12px;color:var(--grn);line-height:1.5}
+.witem .wb{display:flex;gap:8px;margin-top:10px}
+.witem .wb button{flex:1;border:none;border-radius:9px;padding:9px 0;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit}
+.witem .wb .r{background:rgba(0,229,255,.12);color:var(--cy);border:1px solid rgba(0,229,255,.4)}
+.witem .wb .d{background:#101a2e;color:var(--mut);border:1px solid #24304a}
+/* modal */
+.mask{position:fixed;inset:0;background:rgba(2,5,12,.78);z-index:50;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.mask.show{display:flex}
+.dlg{width:100%;max-width:520px;background:#0b1120;border:1px solid #223052;border-top:1px solid rgba(0,229,255,.5);border-top-left-radius:20px;border-top-right-radius:20px;padding:20px 16px 28px;max-height:86vh;overflow-y:auto}
+.dlg .h{font-size:15px;font-weight:800;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.dlg .h .x{background:#101a2e;border:none;color:var(--mut);width:30px;height:30px;border-radius:9px;font-size:15px;cursor:pointer}
+.frm label{display:block;font-size:12px;color:var(--mut);margin:10px 0 5px}
+.frm input,.frm textarea{width:100%;background:#080e1a;border:1px solid #223052;border-radius:10px;padding:11px;color:var(--tx);font-size:14px;font-family:inherit;outline:none}
+.frm textarea{resize:none;min-height:60px}
+/* toast */
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(12px);background:#0d1a2e;border:1px solid rgba(0,229,255,.5);color:var(--tx);font-size:13px;padding:10px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:all .25s;z-index:80;max-width:86vw;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 0 20px rgba(0,229,255,.2)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* result */
+.result{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center;position:relative}
+.result:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cy),transparent)}
+.result .rbig{font-size:38px;font-weight:900;color:var(--cy);margin:6px 0;text-shadow:0 0 18px rgba(0,229,255,.5)}
+.result .rbig.red{color:var(--pink);text-shadow:0 0 18px rgba(245,61,122,.5)}
+.result .rrow{display:flex;justify-content:center;gap:22px;margin:14px 0;font-size:12px;color:var(--mut)}
+.result .rrow b{display:block;font-size:18px;color:#eef4f7;margin-top:2px}
+/* bottom nav */
+.nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:520px;background:rgba(5,9,20,.94);backdrop-filter:blur(12px);border-top:1px solid #16223a;display:flex;z-index:40;padding-bottom:env(safe-area-inset-bottom)}
+.nav:before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:140px;height:1px;background:linear-gradient(90deg,transparent,var(--cy),transparent);box-shadow:0 0 10px rgba(0,229,255,.6)}
+.nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 7px;color:#4d607a;text-decoration:none;font-size:10px;cursor:pointer;background:none;border:none;font-family:inherit}
+.nav a svg{width:20px;height:20px}
+.nav a.on{color:var(--cy);text-shadow:0 0 10px rgba(0,229,255,.5)}
+.nav a.on svg{color:var(--cy);filter:drop-shadow(0 0 5px rgba(0,229,255,.7))}
+.empty{text-align:center;color:#45657d;font-size:13px;padding:34px 0;line-height:1.8;font-family:Consolas,"Courier New",monospace}
+.mt{font-size:11px;color:#45657d;text-align:center;padding:18px 0 6px;line-height:1.8;font-family:Consolas,"Courier New",monospace}
+/* hot topics */
+.ht{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:9px;display:flex;gap:11px;align-items:flex-start}
+.ht .num{flex:none;width:22px;height:22px;border-radius:7px;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.35);color:var(--cy);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;font-family:Consolas,"Courier New",monospace}
+.ht .tx{font-size:13px;line-height:1.6;color:#c7d3e2;font-weight:700}
+.ht .tx small{display:block;color:var(--mut);font-size:11px;margin-top:3px;font-weight:400}
+/* tasks */
+.taskrow{display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:8px}
+.taskrow .ck{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid #2a3a5c;cursor:pointer;display:flex;align-items:center;justify-content:center;color:transparent}
+.taskrow.done .ck{background:var(--grn);border-color:var(--grn);color:#03251a;box-shadow:0 0 10px rgba(48,232,156,.4)}
+.taskrow .tk{font-size:13px;flex:1}
+.taskrow.done .tk{color:#45657d;text-decoration:line-through}
+.taskrow .tk small{display:block;color:#45657d;font-size:10px;margin-top:2px}
+/* equipment-style exam map */
+.eqgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.eq{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:12px;position:relative;overflow:hidden}
+.eq:before{content:"";position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.35),transparent)}
+.eq .ic{width:34px;height:34px;border-radius:9px;background:rgba(0,229,255,.09);border:1px solid rgba(0,229,255,.28);display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.eq .ic svg{color:var(--cy);width:17px;height:17px}
+.eq .nm{font-size:13px;font-weight:800}
+.eq .pt{font-size:16px;font-weight:900;color:var(--cy);margin:3px 0;font-family:Consolas,"Courier New",monospace;text-shadow:0 0 10px rgba(0,229,255,.4)}
+.eq .dt{font-size:10px;color:var(--mut);line-height:1.5}
+/* timer / prov */
+.timer{text-align:center;font-size:30px;font-weight:900;color:var(--cy);font-variant-numeric:tabular-nums;margin:4px 0 12px;text-shadow:0 0 16px rgba(0,229,255,.5);font-family:Consolas,"Courier New",monospace}
+.timer.warn{color:var(--pink);text-shadow:0 0 16px rgba(245,61,122,.5)}
+.view{display:none}
+.view.on{display:block}
+.recall-in{width:100%;background:#080e1a;border:1px solid #223052;border-radius:10px;padding:10px 11px;color:var(--tx);font-size:13px;font-family:inherit;outline:none;margin-top:8px}
+.prov-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:10px}
+.prov-stat{font-size:11px;color:var(--mut);font-family:Consolas,"Courier New",monospace}
+.prov-card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;position:relative}
+.prov-card:before{content:"";position:absolute;top:0;left:16px;right:16px;height:1px;background:linear-gradient(90deg,transparent,rgba(139,85,246,.45),transparent)}
+.prov-card .src{font-size:14px;line-height:1.85;font-weight:600;margin:8px 0;color:#eef4f7}
+.prov-card .ref{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed #2a3a5c;font-size:13px;line-height:1.85;color:var(--cy)}
+.pt-area{width:100%;background:#080e1a;border:1px solid #223052;border-radius:10px;padding:10px 11px;color:var(--tx);font-size:13px;font-family:inherit;outline:none;margin-top:8px;min-height:52px;resize:vertical}
+.grade-btns{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap}
+.gbtn{flex:1;border:none;border-radius:9px;padding:9px 0;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;min-width:46px}
+.gbtn.ok{background:rgba(48,232,156,.12);color:var(--grn);border:1px solid rgba(48,232,156,.4)}
+.gbtn.no{background:rgba(245,61,122,.1);color:var(--pink);border:1px solid rgba(245,61,122,.4)}
+.todo-chip{font-size:11px;color:var(--cy);font-family:Consolas,"Courier New",monospace;border:1px solid rgba(0,229,255,.4);border-radius:999px;padding:3px 10px;background:rgba(0,229,255,.07)}
+/* 长篇互译结果卡 */
+.pg-res{background:linear-gradient(180deg,#0d1a2e,#0a1120);border:1px solid rgba(0,229,255,.35);border-radius:14px;padding:16px;margin-top:12px;position:relative}
+.pg-res:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cy),transparent)}
+.pg-score{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.pg-score .n{font-size:34px;font-weight:900;font-family:Consolas,"Courier New",monospace;text-shadow:0 0 16px currentColor}
+.pg-score .g{font-size:15px;font-weight:800}
+.pg-pair{margin-bottom:10px}
+.pg-lb{font-size:10px;color:#55708a;letter-spacing:1.5px;font-family:Consolas,"Courier New",monospace;margin-bottom:4px}
+.pg-user{font-size:13px;line-height:1.8;color:#f0d9a0;background:#0a0f1c;border:1px dashed #3a3f52;border-radius:10px;padding:10px 12px;white-space:pre-wrap}
+.pg-ref{font-size:13px;line-height:1.8;color:var(--cy);background:#080e1a;border:1px solid #1d2c4a;border-radius:10px;padding:10px 12px;white-space:pre-wrap}
+/* ===== PC 桌面版适配（宽屏 ≥1024px）===== */
+@media (min-width:1024px){
+  body{padding-bottom:96px}
+  .app{max-width:1200px;padding:20px 28px 30px}
+  .nav{max-width:1200px;border-radius:14px 14px 0 0}
+  .nav a{padding:11px 0 9px}
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}
+  .hero .hero-top{grid-column:1 / -1;margin-bottom:0}
+  .hero .tg{margin-top:10px}
+  .sec-h .t{font-size:13px}
+  .quick{grid-template-columns:repeat(4,1fr)}
+  .mmods{grid-template-columns:repeat(4,1fr)}
+  #termList,#phraseList,#senList{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  #termList .card,#phraseList .card,#senList .card{margin-bottom:0}
+  #hotList{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  #hotList .ht{margin-bottom:0}
+  .eqgrid{grid-template-columns:repeat(4,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .taskrow{grid-column:1 / -1}
+  #taskList{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  #taskList .taskrow{margin-bottom:0}
+  .dlg{max-width:720px;border-radius:18px;align-self:center;margin:0 auto}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .mt{font-size:12px}
+  /* 省赛：术语/长篇练习区加宽 */
+  .prov-card{padding:18px}
+  .prov-card .src{font-size:15px}
+  .pt-area{min-height:120px;font-size:14px}
+  /* 总览 hero 内 CD 尺寸不变，保持紧凑 */
+  .view-prov-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+}
+</style>
+</head>
+<body data-page-node-id="901OcHdFMhNOOUXQ4SVGW1">
+<div class="app" id="app" data-page-node-id="tQNtZvrnuh6WCVdegtZzog">
+  <!-- ===== 视图：总览 ===== -->
+  <section class="view on" id="view-overview" data-page-node-id="m5ehHV4SGe6H9CKzpAZtXa">
+    <header class="hdr" data-page-node-id="SG1k14HHlumFY2SHDlRRkN">
+      <div class="brand" data-page-node-id="rR7Ef4B19IdLZGFHZnJF2c">
+        <div class="logo" data-page-node-id="CnhsBqZ5jiHJ5C1Pfa2YFq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="njmjSOUgF58FAY53x2UbV5"><path d="M4 7h16M12 7v11M8 18c2.5 2 5.5 2 8 0" data-page-node-id="1FhY7tCphgmXvZACgJkL4U"/></svg></div>
+        <div data-page-node-id="tPVq7eqrCo10HSbOG5MsRC"><div class="tt" data-page-node-id="UzZp3AQRNn5vINWShhoUGR">国才笔译<span data-page-node-id="0qnCA7ELAwYocj2jEtwdJd">·备考台</span></div><div class="sub" data-page-node-id="LcSrBLExbuGtF9FqI9MCuS">// TRANSLATION CORE v2.2 · DESKTOP PC</div></div>
+      </div>
+      <div class="status" data-page-node-id="3iM0nw2eyFQtRER9qk4vRh"><i data-page-node-id="tdDUOwKzA3xej0F6Ypdy2Q"></i>ONLINE</div>
+    </header>
+
+    <div class="hero" data-page-node-id="qE3kYYv7f2LvUX4EgSiPjE">
+      <div class="hero-top" data-page-node-id="I4duabjHOVB0DHvSVyVOcQ"><span class="lab" data-page-node-id="6OzKvZoKepVzsc9KibCAep">// 备考总览 <b data-page-node-id="lM48KBKR71uFj8WiL636Bk">OVERVIEW</b></span><span class="lab" data-page-node-id="CCceefXwzNrMai2Ced6BQe">COUNTDOWN</span></div>
+      <div class="cd" id="cdBig" data-page-node-id="ucd7xyAR9ySjVynOyUBaG1">--<em data-page-node-id="ciz5W8KcNXrXAemA9M2R24">天</em><span id="cdH" data-page-node-id="nY3S2DXaa3poknNGC7RF3D">--h</span></div>
+      <div class="tg" data-page-node-id="ZxpxgGIa1SBadsanndAUb9">TARGET: <input type="date" id="tgInput" data-page-node-id="c8lWrynhYRBGfRBdZxxBDb"> <button onclick="setTarget()" data-page-node-id="1JQONReQX4vEHI4PvkA02F">设置日期</button></div>
+    </div>
+
+    <div class="panel" data-page-node-id="zR0UwPXw50JUJiN6OzcUPe">
+      <div class="p-lab" data-page-node-id="nEH8CIRyYP2a3o9xz6ZwAf"><span data-page-node-id="61S5kvTGi9lPwF8sPVoVsZ">整体掌握度 MASTERY</span><b id="mastV" data-page-node-id="GqJiGxHrZbUBtZTsqverOc">0%</b></div>
+      <div class="mast-big" data-page-node-id="ZNFktyqDmikdsoDKURta0l"><span class="n" id="mastNum" data-page-node-id="gG9N6rBGIGbqwP5gGzXEkt">0%</span><span class="u" data-page-node-id="u7u0FOB0y9Y579akf6JWC1">已掌握 <b id="mastNote2" style="color:#eef4f7" data-page-node-id="TFomMNCjGZo4MgOLUGDZVw">0 / 0</b> 个知识点</span></div>
+      <div class="bar" data-page-node-id="nD2jhSb7VKRBzYUScHsI8c"><i id="mastBar" style="width:0%" data-page-node-id="mqQo0QUkPUBJqbbSVjX61P"></i></div>
+      <div class="mast-note" data-page-node-id="vytCDfJOe4pBjHccXRNDma"><span id="mastNote" data-page-node-id="aBTrlIWSkbgw34qDd55Gre"></span><a onclick="go('terms')" data-page-node-id="ffls9aMDXJjqtGNTWD8dpL">查看知识体系</a></div>
+    </div>
+
+    <div class="sec" data-page-node-id="D6B44EHLqyUbqA3hHzUJGA">
+      <div class="sec-h" data-page-node-id="bGBnVqZuDRP3iytt1JfwSf"><span class="t" data-page-node-id="YjBzmALuIOZAlumZz4UYzt"><em data-page-node-id="mkNYny7SSI6ZX1b4eTlF3M">//</em> 刷题概览 QUIZ</span><button class="more" onclick="go('quiz')" data-page-node-id="plzIbGvyKn84Y6LbaIzftD">开始刷题</button></div>
+      <div class="stats" data-page-node-id="MP7Dt4aG54wa6ln3QaXgu2">
+        <div class="stat" data-page-node-id="OkQ26AEWDcpcSFnnk3y5lt"><div class="n" id="stTotal" data-page-node-id="ZMJFDxBunInenbPhInyASE">0</div><div class="l" data-page-node-id="bvozHoXkdfyFOjJRmikzv0">累计题数</div></div>
+        <div class="stat" data-page-node-id="F0LxMy9RouejMiY2fdY1Sr"><div class="n grn" id="stAcc" data-page-node-id="vmUFKDI2HiETAnSiL8ipmN">0%</div><div class="l" data-page-node-id="UJyn7oSF8UohhI0t4HGT3w">正确率</div></div>
+        <div class="stat" data-page-node-id="Ao8na1PvJXILpZhN8XWmIb"><div class="n pink" id="stWrong" data-page-node-id="0r83qHfH6Vli1CScLARzcn">0</div><div class="l" data-page-node-id="hMvVyxfFXJu0cC2kt4Jb8A">错题</div></div>
+      </div>
+    </div>
+
+    <div class="sec" data-page-node-id="IAq1cWZXiFhmHbM1k4VtKp">
+      <div class="sec-h" data-page-node-id="Xe6FBmwlHkcvnpP9aN7qrB"><span class="t" data-page-node-id="oT4DzJKRhfzRi2PFZbu9Yk"><em data-page-node-id="PjgDAG0wynk2SzS7WgKFSM">//</em> 快捷入口</span></div>
+      <div class="quick" data-page-node-id="7jz9UmG3HaHsLA9CxzGlHq">
+        <div class="qk" onclick="go('mock')" data-page-node-id="Wk2YOdXSLskDwSTtClO0S6"><div class="ic" data-page-node-id="0Yx0sB2i7cMF3xJMHCCKof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="H5nCoNB7SEs3a4n6JrCCoj"><circle cx="12" cy="13" r="8" data-page-node-id="ch6gnTFNU5shwc1kXuC0Kd"/><path d="M12 9v4l2.5 2.5M9 2h6" data-page-node-id="JnKse3JOObr6r6TSuOVYAt"/></svg></div><div class="tx" data-page-node-id="cDYA2X80A8Z7YehHNpnFIo">全真模考<small data-page-node-id="YExybsby2WX9jJytSmlBSC">120分钟限时模拟</small></div></div>
+        <div class="qk purple" onclick="go('prov')" data-page-node-id="nAw3NZUKnJXT4hegKpHu4K"><div class="ic" data-page-node-id="so9J98Q3S6FlQxmmRG5c12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="VDMxy5IONFQrQbncQ6OzAT"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM5 4H3m18 0h-2" data-page-node-id="mJMQ32EhsWD5jnmdCCQQ5I"/></svg></div><div class="tx" data-page-node-id="MAle1vfjmn5rijjyUu6TP7">省赛专项<small data-page-node-id="oPet4j1AujGq9FhY3tw3MG">术语阐释·长篇互译</small></div></div>
+        <div class="qk" onclick="go('wrong')" data-page-node-id="u47BeFuC1dqPAGNAqrwXnr"><div class="ic" data-page-node-id="l5VehuMWAjHFuKn7yMqNsx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="5n2ubw6EXgFP3eY5cawzFO"><path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1.1 6L12 16.9 6.6 19.6l1.1-6L3.3 9.4l6-.9z" data-page-node-id="KjI6scOLrU7GoeqCmsgN37"/></svg></div><div class="tx" data-page-node-id="47IdXk6OzoK3nCX882I8Rd">错题本<small id="wrongCnt" data-page-node-id="ruAytXTdxAOJyYPLbpJihM">0 道待复习</small></div></div>
+        <div class="qk purple" onclick="go('sentences')" data-page-node-id="kPYi9LB0Ci33XCm4xL2e2z"><div class="ic" data-page-node-id="CF8LImQNqr9dRTL7C5FgLI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="k7Rw7q1FxD5reIwEtGmHUn"><path d="M4 6h16M4 12h10M4 18h7" data-page-node-id="uJ0YkO4TBtrunkhwVnKTxE"/><path d="m17 14 3 3-3 3" data-page-node-id="HwoKwO8DqiRscBxslfsS2B"/></svg></div><div class="tx" data-page-node-id="Ny5C0vlBDeuDdm9Bg3Bho5">句子实战<small data-page-node-id="HdzshMXlyhuSGF5XEAwesZ">汉译英 · 英译汉</small></div></div>
+      </div>
+    </div>
+
+    <div class="sec" data-page-node-id="lTO7GzVd222EfYqEWDs2AN">
+      <div class="sec-h" data-page-node-id="jdTot6kkLafWu87GMyFzcn"><span class="t" data-page-node-id="hIkCBrFtCzpqFRunhtdK9d"><em data-page-node-id="ABKCWLHLkGBXMa0Dsjxw87">//</em> 各模块掌握度 MODULE MASTERY</span></div>
+      <div class="mmods" id="mmods" data-page-node-id="Vrjal8pQFZsufecQCPSWwa"></div>
+    </div>
+
+    <div class="sec" data-page-node-id="Gksyf3QvJVNUgOcQOchvXR">
+      <div class="sec-h" data-page-node-id="pAB2fINuggqagwv9Y2PTiq"><span class="t" data-page-node-id="gcdgIAxJxeoGDZ41G7Xpji"><em data-page-node-id="OPOiPpLGCbXuN4wbSJv7tB">//</em> 今日任务 TODAY</span><button class="more" onclick="resetTasks()" data-page-node-id="cuVlKEoY2iHqS8UYOGqPOe">重置</button></div>
+      <div id="taskList" data-page-node-id="qDOq0LSoPh3qljrUjCWZuK"></div>
+    </div>
+
+    <div class="sec" data-page-node-id="f7M7rw30PDlSyyUvZPjfaw">
+      <div class="sec-h" data-page-node-id="2GV8BF8ejUF6cy6WTVirOW"><span class="t" data-page-node-id="p3yDRuDHeV302UQdCdyDtN"><em data-page-node-id="IT633SwIifw3wFktXDvb0E">//</em> 题型构成 EXAM MAP</span></div>
+      <div class="eqgrid" data-page-node-id="w0T64ibNNLbGkljz0WuvaI">
+        <div class="eq" data-page-node-id="k9l3JX2NiA9ev3m8eRSFEy"><div class="ic" data-page-node-id="LCfnsr73uFYvSKJ1ibKJWB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="f9hHYjj9np7JQehF2zO9tj"><path d="M4 7h16M9 12h11M9 17h7" data-page-node-id="xQiB4CdnrvpmvePgoKBWdS"/></svg></div><div class="nm" data-page-node-id="BE2mLqsH6ARW4DX9NhQQEo">选词填空</div><div class="pt" data-page-node-id="xRJ2kwm7GzGqFq2mEqYqsJ">50分</div><div class="dt" data-page-node-id="KGlLbIltP1T5zcGxvT46Ou">25题 · 25分钟 · 术语与搭配</div></div>
+        <div class="eq" data-page-node-id="10khMeX3IchsWAkry4cvX4"><div class="ic" data-page-node-id="ByVup9FybOVxiDmp58iHj5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="DWmXyug3IeYEyNgWtZu1du"><path d="M4 7h16M4 12h16M4 17h10" data-page-node-id="EoKU3AXXGpZ4xKfNlpdSGt"/></svg></div><div class="nm" data-page-node-id="Cxb1BG0eJks0VVK6AdEs2e">完形填空</div><div class="pt" data-page-node-id="EVTR4dNVX1OHCVrUWfZiLI">20分</div><div class="dt" data-page-node-id="Dzt7ik2LxValjfCHyCfYxh">10题 · 15分钟 · 语篇与词形</div></div>
+        <div class="eq" data-page-node-id="kkROIOvLsp9gpLd0symmjm"><div class="ic" data-page-node-id="bCVFzwcjXJ91HNccyHFXWx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="5ppbY8COZ8oa36InEgQsVV"><path d="M3 5h14M3 12h10M3 19h7" data-page-node-id="D1sF8Jzc47ZiQA2vAAllLe"/><path d="m17 15 4 4-4 4" data-page-node-id="u0x4eTGEzGJNs7lx2qovqc"/></svg></div><div class="nm" data-page-node-id="ttS7PUCiG8mCyDR59gvyiy">英译汉</div><div class="pt" data-page-node-id="v6dkvBia6J5LUWyn3GB18k">15分</div><div class="dt" data-page-node-id="QNDXHWCiexR4tfE0BnvB28">1篇 · 40分钟 · 长难句</div></div>
+        <div class="eq" data-page-node-id="vAUhcJEILY0Y9wVLAjKyld"><div class="ic" data-page-node-id="GEzU5dM6ZOWNAu4ZwLtKNv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="KfpvppEDUS7FrAyjnXBswZ"><path d="M3 5h9M3 12h6M3 19h10" data-page-node-id="Wr4tZojHGsNlPVOn8kpCWR"/><path d="m17 6 4 4-4 4" data-page-node-id="U6oXy3XSzH3QUkZ7DBTzV9"/></svg></div><div class="nm" data-page-node-id="SlfRHZWOBJiotAzvTnDXVH">汉译英</div><div class="pt" data-page-node-id="yG7qAo8kHaMaNPBUwdIx8t">15分</div><div class="dt" data-page-node-id="tugOdERGxrG4nxZ579rAnj">1篇 · 40分钟 · 术语输出</div></div>
+      </div>
+    </div>
+
+    <div class="sec" data-page-node-id="UQdadgTHnDzdglsb09kNrS">
+      <div class="sec-h" data-page-node-id="ZPNz5K44dyDSjrk4WOAR1D"><span class="t" data-page-node-id="eKXVYFwYPlovAfFB7AGy8g"><em data-page-node-id="ZHBCTO3cH0bREH5C3vkXXE">//</em> 高频考点 HOT TOPICS</span></div>
+      <div id="hotList" data-page-node-id="zDuhNLTbPCZZFK5lvxsJME"></div>
+    </div>
+
+    <div class="mt" data-page-node-id="eJIQoZgxQhjkoTaVt9pREq">// 答题节奏 25+15+40+40 · 120分钟100分<br data-page-node-id="j3dGkbx6HHzLOF9oX6MKIM">// 评分 内容60% + 形式40% · 平实准确胜过堆长难句</div>
+  </section>
+
+  <!-- ===== 视图：术语 ===== -->
+  <section class="view" id="view-terms" data-page-node-id="hImZOBhWcghvqvNVjzgKF5">
+    <div class="pills" id="termPills" data-page-node-id="YWl3Nvc4dMkDHQQspXv2Sy"></div>
+    <div class="search" data-page-node-id="MZh4QcrsfOR1xD2c4bLjny"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" data-page-node-id="5UWYABeSwBGca0yIRUPecC"><circle cx="11" cy="11" r="7" data-page-node-id="YB0VJSRZKz2ovmHGGa43da"/><path d="m20 20-3.5-3.5" data-page-node-id="MSrIpjGe6mGuZ0pT6qh9wr"/></svg><input id="termSearch" placeholder="搜索术语（中/英）" oninput="renderTerms()" data-page-node-id="brSsoTSroBJR281Vm2mizF"></div>
+    <div class="seg" id="termSeg" data-page-node-id="OjEtMO9UbrjkrSyftP5az7">
+      <div class="seg-i on" onclick="setTermMode('browse')" data-page-node-id="bDIg0Xvcz2omuAY4L7jACJ">浏览识别</div>
+      <div class="seg-i" onclick="setTermMode('recall')" data-page-node-id="ZGTKlK352CgZ3TgtyVPjn1">默写产出</div>
+    </div>
+    <div id="termList" data-page-node-id="KRALcxa5w1YUpD7PzhwO2D"></div>
+    <button class="btn ghost" style="width:100%;margin-top:6px" onclick="openAddTerm()" data-page-node-id="9gEiRBfTJMYbqgG2LWBk0p">+ 添加自定义术语</button>
+  </section>
+
+  <!-- ===== 视图：词组 ===== -->
+  <section class="view" id="view-phrases" data-page-node-id="lLapS8YLVWdNbirRugYPGb">
+    <div class="pills" id="phrasePills" data-page-node-id="ZWnwtLG1DE2AiCjHCBHQNi"></div>
+    <div class="search" data-page-node-id="SxGnEBl3YI0Qjfn5kWi3Db"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" data-page-node-id="TKHhA5sOAtKMB3cAbqL6RS"><circle cx="11" cy="11" r="7" data-page-node-id="jLfzAXs4IdKTmf7z0Btx6K"/><path d="m20 20-3.5-3.5" data-page-node-id="d7hxCbaqzu1MgEGKh9HAg7"/></svg><input id="phraseSearch" placeholder="搜索词组（中/英）" oninput="renderPhrases()" data-page-node-id="FwqdHWWXETAwK82shP5m1R"></div>
+    <div id="phraseList" data-page-node-id="udX8Gxc3klFvzS6EzL0zDz"></div>
+  </section>
+
+  <!-- ===== 视图：句子 ===== -->
+  <section class="view" id="view-sentences" data-page-node-id="FtCI26n6weUCuVRQWSFwgX">
+    <div class="modes" id="senModes" data-page-node-id="hCoB2zrxR26snQbw8pJFYX">
+      <div class="mode on" data-d="ce" onclick="setSenMode('ce')" data-page-node-id="3XBbXtuIZ6Yq0Gmz4eIN99">汉译英</div>
+      <div class="mode" data-d="ec" onclick="setSenMode('ec')" data-page-node-id="g2Iqq4RKBqQXFWG8ZAXzpN">英译汉</div>
+      <div class="mode" data-d="all" onclick="setSenMode('all')" data-page-node-id="Tf3py21G0ugDRC1LiegKyw">混合</div>
+    </div>
+    <div id="senList" data-page-node-id="0Kemo7HDPlCEFQqL546uVF"></div>
+  </section>
+
+  <!-- ===== 视图：刷题 ===== -->
+  <section class="view" id="view-quiz" data-page-node-id="m6hYue7SYGaZSU8sGBsAm3">
+    <div id="quizHome" data-page-node-id="u7RIGRYu3D0B7UEBptaPBS">
+      <div class="sec-h" data-page-node-id="Eaqwaw44Sf4EJC9aWwd6nU"><span class="t" data-page-node-id="67IeAqT0AUg5V9UnPd9KkD"><em data-page-node-id="qdPCFev0lV24kTUQEtKCId">//</em> 选择练习模块</span></div>
+      <div class="pills" id="quizPills" style="flex-wrap:wrap;overflow:visible" data-page-node-id="0ODBe18I1SKt6UgXIqrvBg"></div>
+      <div class="sec-h" style="margin-top:6px" data-page-node-id="LSNcDgopOwrjShl7uH2GfY"><span class="t" style="font-size:12px" data-page-node-id="ibNoR17yHznZZUmVzVJXVn"><em data-page-node-id="kYFcARPkh55DSIKAEzr2iq">//</em> 题目数量</span></div>
+      <div class="pills" id="countPills" style="flex-wrap:wrap;overflow:visible" data-page-node-id="lIUQlguEsJNh2q8LO9Gwdc">
+        <div class="pill on" data-c="10" onclick="setQuizCount(10)" data-page-node-id="m8LmbZW6e0cjTcpYdoXBVg">10 题</div>
+        <div class="pill" data-c="20" onclick="setQuizCount(20)" data-page-node-id="7X45W4hFkRBuPZQq5C0IZY">20 题</div>
+      </div>
+      <button class="btn cyan" style="width:100%;margin-top:16px" onclick="startQuiz()" data-page-node-id="F3f9865pR4Vq1DKwfB310Z">开始刷题</button>
+      <div class="mt" style="text-align:left;padding-top:14px" data-page-node-id="9z3CjRpCyvyNZGuBFJdOyT">
+        术语选择：给中文选官方译法（对应校赛选词填空50分）<br data-page-node-id="PcdmAdCr76F8IQU3KopfFB">
+        完形填空：句中选词，注意词形与搭配<br data-page-node-id="lLhEsVHeGnxLj5LduzhIXL">
+        搭配选择：时政固定搭配辨析<br data-page-node-id="myxpL2yZfT7Fxk0aBgz3Cc">
+        混合：三种题型随机抽组
+      </div>
+    </div>
+    <div id="quizRun" style="display:none" data-page-node-id="uZdGuYjcrpOTYCorvZ2Shh"></div>
+    <div id="quizRes" style="display:none" data-page-node-id="F6FN9sZtPUZ2PaAjvBeDXE"></div>
+  </section>
+
+  <!-- ===== 视图：模考 ===== -->
+  <section class="view" id="view-mock" data-page-node-id="g7yiu7RMwOEUwxFaQuEPx8">
+    <div id="mockHome" data-page-node-id="fEXrHUcPxEUcoCM2852gm3">
+      <div class="hero" data-page-node-id="sCxLFu2K8oy7HetZw8Niv8">
+        <div class="hero-top" data-page-node-id="KKmPg277CA73aaH4usIl81"><span class="lab" data-page-node-id="GxLTbzODpb8Hb3upJxgYRG">// MOCK EXAM 全真模拟卷</span><span class="lab" data-page-node-id="Y1f3Ljdk1ro5APXgJ9jNPP">TIMED</span></div>
+        <div style="font-size:13px;line-height:1.9;color:var(--mut);margin-top:4px" data-page-node-id="W4KU1gCSG8SEKmyvS4cGmI">客观题12道（术语＋完形＋搭配）＋英译汉2句＋汉译英2句，总限时120分钟。</div>
+      </div>
+      <button class="btn cyan" style="width:100%" onclick="startMock()" data-page-node-id="d29ZhoiHG11HKtBFrckcvk">开始模考</button>
+      <div class="mt" style="text-align:left;padding-top:14px" data-page-node-id="kJeis6TizlHWTYplasmGZF">
+        客观题自动判分并计入错题本；翻译题对照参考译文自评。<br data-page-node-id="0f301oN7QSueWeZIu4rwLB">
+        模考成绩单独统计，不混入日常刷题正确率。
+      </div>
+      <div id="mockLog" style="margin-top:10px" data-page-node-id="ZyAwrq6SfDczvVBgTvpFiD"></div>
+    </div>
+    <div id="mockRun" style="display:none" data-page-node-id="C9RH4g8AJqEBFcoyIXth2B"></div>
+    <div id="mockRes" style="display:none" data-page-node-id="uOpt7XW1cprDlaQAipKyMG"></div>
+  </section>
+
+  <!-- ===== 视图：省赛专项 ===== -->
+  <section class="view" id="view-prov" data-page-node-id="OeLLfOLWjm34qAaqD38o0s">
+    <div class="seg" id="provSeg" data-page-node-id="AXWgvWVPG9FN1kuGyzoKgV">
+      <div class="seg-i on" onclick="setProv('term')" data-page-node-id="sYmGggsywGaMC6T8RWSpSj">术语翻译+阐释</div>
+      <div class="seg-i" onclick="setProv('passage')" data-page-node-id="5Lbx02ChG2ZaVnp5SUC2ah">长篇互译</div>
+    </div>
+    <div class="prov-head" data-page-node-id="PzWVc0IEKDXsYjI8Ad7c0a">
+      <div class="prov-stat" id="provStat" data-page-node-id="GvZbjhUz4cmaUvr9Sfi3lq"></div>
+      <button class="btn ghost sm" id="provTimerBtn" onclick="provTimerToggle()" data-page-node-id="7RMve8Ocw7Kwa6RxJDDu7Q">练习计时 00:00</button>
+    </div>
+    <div id="provTerm" data-page-node-id="4wW9ug6rt2nBG7IVu5BIGO"></div>
+    <div id="provPassage" style="display:none" data-page-node-id="j8AYQtFuFyhbhvnlxobuKk"></div>
+  </section>
+
+  <!-- ===== 视图：错题本 ===== -->
+  <section class="view" id="view-wrong" data-page-node-id="lrPJhWtkolpRCPZncFQVEV">
+    <div class="sec-h" data-page-node-id="HcC4dyfayrLkxShXNutJY2"><span class="t" data-page-node-id="8aGngT49z2Mn6BXQ6aVHjI"><em data-page-node-id="e4T6IoX0sG0cRYyRsT85UB">//</em> 错题本</span><button class="more" onclick="clearWrong()" data-page-node-id="N5FxLuuvfbao1ZgyFT5lD5">清空</button></div>
+    <div id="wrongList" data-page-node-id="hbLuFT9J4MAHqUn2UnuexZ"></div>
+  </section>
+</div>
+
+<!-- modal -->
+<div class="mask" id="mask" data-page-node-id="cJ9rgox2hyZdM53YtDdpNw"><div class="dlg" id="dlg" data-page-node-id="BOX3c24xHyD3EGwQePDyYK"></div></div>
+<div class="toast" id="toast" data-page-node-id="vBZrHrCpYauLJ8K7QBrYIf"></div>
+
+<!-- bottom nav -->
+<nav class="nav" id="nav" data-page-node-id="tw17Smf9x27U8v2gp8LpBt">
+  <a data-v="overview" class="on" onclick="go('overview')" data-page-node-id="r31FjEIv2eYzFEIQVKKXHT"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="bpsmbEFJNBQhe8td9o7w3Y"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" data-page-node-id="nxu5JkpJR7m1izYEKq4vau"/></svg>总览</a>
+  <a data-v="terms" onclick="go('terms')" data-page-node-id="9NpWvibnELNls50HpCQduU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="ZNA74yHJefKnSet2LLzlFl"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5" data-page-node-id="ETJt9TQi09OxjvHjo5OYp3"/></svg>术语</a>
+  <a data-v="phrases" onclick="go('phrases')" data-page-node-id="5MxNX5tAxFp2KJKWJyPJaf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="5GEAkcA6Ur3RoiUiHDANDR"><path d="M12 5c-1.5-1-3-1.5-5-1.5S4 4 3 5.5V19c1-1.5 2.5-2 4-2s4 .5 5 2c1-1.5 2.5-2 4-2s3 .5 4 2V5.5C20 4 18.5 3.5 17 3.5S13.5 4 12 5zm0 0v14" data-page-node-id="bxwLbB2XVLHMt3HV0VPoa8"/></svg>词组</a>
+  <a data-v="sentences" onclick="go('sentences')" data-page-node-id="JQMA0D1RJNSYUbGgPCQ6lL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="CBQYqSiTyRZYRJyAnMKZT0"><path d="M4 6h16M4 12h10M4 18h7" data-page-node-id="HISeYCAnircPOkxgwP90aX"/><path d="m17 14 3 3-3 3" data-page-node-id="WUMBtfx6wu3PKmCPbvfzpy"/></svg>句子</a>
+  <a data-v="prov" onclick="go('prov')" data-page-node-id="AR7Ac59nERXbETuYUgR847"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="ZGxX9WKffp44MB0DrRdbUt"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM5 4H3m18 0h-2" data-page-node-id="4cNXEzIkD1pnrEI31IejL7"/></svg>省赛</a>
+  <a data-v="quiz" onclick="go('quiz')" data-page-node-id="BQo5CbnOK3nwjFgRQSPbxs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="67fVe0edzEJwxyFdUdQJlu"><path d="M9 11l3 3 8-8M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11" data-page-node-id="YOqZjbUkkdWx6EmjvS2JVF"/></svg>刷题</a>
+</nav>
+
+<script>
+// ================= 数据：术语库 =================
+var TERMS=[
+{c:'sz',cn:'中国梦',en:'the Chinese Dream',note:'实现中华民族伟大复兴，是近代以来最伟大的梦想'},
+{c:'sz',cn:'中华民族伟大复兴',en:'the great rejuvenation of the Chinese nation',note:'中国梦的核心内涵'},
+{c:'sz',cn:'中国式现代化',en:'Chinese modernization',note:'人口规模巨大、全体人民共同富裕、物质文明与精神文明相协调、人与自然和谐共生、走和平发展道路'},
+{c:'sz',cn:'人类命运共同体',en:'a community with a shared future for mankind',note:'构建人类命运共同体是中国特色大国外交的崇高目标'},
+{c:'sz',cn:'一带一路倡议',en:'the Belt and Road Initiative',note:'共商共建共享原则'},
+{c:'sz',cn:'共同富裕',en:'common prosperity',note:'社会主义的本质要求'},
+{c:'sz',cn:'全过程人民民主',en:'whole-process people\u2019s democracy',note:'人民当家作主的制度体现'},
+{c:'sz',cn:'高质量发展',en:'high-quality development',note:'全面建设社会主义现代化国家的首要任务'},
+{c:'sz',cn:'新发展理念',en:'the new development philosophy',note:'创新、协调、绿色、开放、共享'},
+{c:'sz',cn:'新发展格局',en:'a new development paradigm',note:'以国内大循环为主体、国内国际双循环相互促进'},
+{c:'sz',cn:'双循环',en:'dual circulation',note:'国内国际双循环相互促进'},
+{c:'sz',cn:'供给侧结构性改革',en:'supply-side structural reform',note:'三去一降一补：去产能、去库存、去杠杆、降成本、补短板'},
+{c:'sz',cn:'新质生产力',en:'new quality productive forces',note:'创新起主导作用的先进生产力质态'},
+{c:'sz',cn:'乡村振兴',en:'rural revitalization',note:'产业、人才、文化、生态、组织五大振兴'},
+{c:'sz',cn:'脱贫攻坚',en:'the fight against poverty',note:'打赢脱贫攻坚战，全面建成小康社会'},
+{c:'sz',cn:'全面建成小康社会',en:'building a moderately prosperous society in all respects',note:'第一个百年奋斗目标'},
+{c:'sz',cn:'社会主义现代化强国',en:'a great modern socialist country',note:'第二个百年奋斗目标：全面建成社会主义现代化强国'},
+{c:'sz',cn:'社会主义核心价值观',en:'the core socialist values',note:'富强民主文明和谐、自由平等公正法治、爱国敬业诚信友善'},
+{c:'sz',cn:'四个全面战略布局',en:'the Four-Pronged Comprehensive Strategy',note:'全面建设社会主义现代化国家、全面深化改革、全面依法治国、全面从严治党'},
+{c:'sz',cn:'五位一体总体布局',en:'the five-sphere integrated plan',note:'经济、政治、文化、社会、生态文明建设'},
+{c:'sz',cn:'百年未有之大变局',en:'major changes unseen in a century',note:'世界正经历百年未有之大变局'},
+{c:'sz',cn:'以人民为中心的发展思想',en:'the people-centered development philosophy',note:'发展为了人民、发展依靠人民、发展成果由人民共享'},
+{c:'sz',cn:'绿水青山就是金山银山',en:'lucid waters and lush mountains are invaluable assets',note:'生态文明建设核心理念'},
+{c:'sz',cn:'碳达峰碳中和',en:'carbon peaking and carbon neutrality',note:'双碳目标：力争2030年前碳达峰、2060年前碳中和'},
+{c:'sz',cn:'全面依法治国',en:'law-based governance in all respects',note:'坚持全面依法治国，推进法治中国建设'},
+{c:'sz',cn:'科教兴国战略',en:'the strategy of invigorating China through science and education',note:'科技是第一生产力'},
+{c:'sz',cn:'人才强国战略',en:'the strategy of building a talent-powered country',note:'人才是第一资源'},
+{c:'sz',cn:'文化自信',en:'cultural confidence',note:'更基础、更广泛、更深厚的自信'},
+{c:'sz',cn:'中华优秀传统文化',en:'fine traditional Chinese culture',note:'创造性转化、创新性发展'},
+{c:'sz',cn:'讲好中国故事',en:'tell China\u2019s stories well',note:'传播好中国声音，展现可信可爱可敬的中国形象'},
+{c:'sz',cn:'国际传播能力',en:'international communication capacity',note:'构建中国话语和叙事体系'},
+{c:'sz',cn:'伟大建党精神',en:'the great founding spirit of the Party',note:'坚持真理、坚守理想，践行初心、担当使命，不怕牺牲、英勇斗争，对党忠诚、不负人民'},
+{c:'sz',cn:'改革开放',en:'reform and opening up',note:'决定当代中国命运的关键一招'},
+{c:'sz',cn:'稳中求进',en:'seek progress while maintaining stability',note:'稳字当头、稳中求进'},
+{c:'sz',cn:'扩大内需',en:'expand domestic demand',note:'实施扩大内需战略'},
+{c:'sz',cn:'营商环境',en:'business environment',note:'市场化、法治化、国际化一流营商环境'},
+{c:'sz',cn:'产业链供应链',en:'industrial and supply chains',note:'提升产业链供应链韧性和安全水平'},
+{c:'sz',cn:'关键核心技术',en:'core technologies in key fields',note:'打好关键核心技术攻坚战'},
+{c:'sz',cn:'科技自立自强',en:'self-reliance and strength in science and technology',note:'实现高水平科技自立自强'},
+{c:'sz',cn:'民生福祉',en:'the well-being of the people',note:'增进民生福祉是发展的根本目的'},
+{c:'sz',cn:'自我革命',en:'self-reform',note:'党的自我革命是跳出历史周期率的第二个答案'},
+{c:'sz',cn:'实事求是',en:'seek truth from facts',note:'党的思想路线的核心'},
+{c:'wh',cn:'天人合一',en:'the unity of Heaven and humanity',note:'人与自然和谐统一的哲学观'},
+{c:'wh',cn:'知行合一',en:'the unity of knowledge and action',note:'认识与实践相统一'},
+{c:'wh',cn:'和为贵',en:'harmony is the most precious',note:'礼之用，和为贵'},
+{c:'wh',cn:'和而不同',en:'harmony in diversity',note:'君子和而不同'},
+{c:'wh',cn:'民惟邦本',en:'the people are the foundation of the state',note:'民惟邦本，本固邦宁'},
+{c:'wh',cn:'天下为公',en:'the world is for all',note:'大道之行也，天下为公'},
+{c:'wh',cn:'自强不息',en:'ceaseless self-improvement',note:'天行健，君子以自强不息'},
+{c:'wh',cn:'厚德载物',en:'carrying all things with great virtue',note:'地势坤，君子以厚德载物'},
+{c:'wh',cn:'中庸',en:'the doctrine of the mean',note:'不偏不倚、无过无不及'},
+{c:'wh',cn:'仁义礼智信',en:'benevolence, righteousness, propriety, wisdom and faithfulness',note:'儒家五常'},
+{c:'wh',cn:'革故鼎新',en:'discarding the old and introducing the new',note:'推陈出新、守正创新'},
+{c:'wh',cn:'文以载道',en:'literature serves as the vehicle of the Way',note:'文章承载思想道理'},
+{c:'wh',cn:'己所不欲，勿施于人',en:'do not do unto others what you would not have done unto you',note:'孔子论恕道'},
+{c:'wh',cn:'上善若水',en:'the highest good is like water',note:'水善利万物而不争'},
+{c:'wh',cn:'言必信，行必果',en:'promises must be kept and actions must be resolute',note:'重承诺、守信用'},
+{c:'wh',cn:'苟日新，日日新，又日新',en:'if one can renovate oneself day by day, one should do so every day',note:'《大学》引汤之盘铭，喻日日自新'},
+{c:'wh',cn:'精忠报国',en:'serving the country with utmost loyalty',note:'岳飞精神，尽忠报国'},
+{c:'wh',cn:'兼收并蓄',en:'embracing all cultures with inclusiveness',note:'文明交流互鉴、包容并蓄'},
+{c:'wh',cn:'温良恭俭让',en:'warmth, kindness, courtesy, frugality and modesty',note:'儒家推崇的五种德行'}
+,
+  {"c":"政治","cn":"高质量发展","en":"high-quality development","note":"二十大核心关键词，注意 high-quality 连字符"},
+  {"c":"政治","cn":"新质生产力","en":"new quality productive forces","note":"2024 年新提法，new quality productive forces"},
+  {"c":"政治","cn":"全过程人民民主","en":"whole-process people’s democracy","note":"whole-process 为固定译法"},
+  {"c":"政治","cn":"全面依法治国","en":"comprehensive law-based governance","note":"law-based 非 rule-by-law"},
+  {"c":"政治","cn":"国家治理体系和治理能力现代化","en":"modernization of the national governance system and capacity","note":"governance system and capacity 固定搭配"},
+  {"c":"政治","cn":"中国特色社会主义","en":"socialism with Chinese characteristics","note":"fixed translation"},
+  {"c":"政治","cn":"中华民族伟大复兴","en":"the great rejuvenation of the Chinese nation","note":"rejuvenation 易拼错"},
+  {"c":"政治","cn":"以人民为中心","en":"people-centered","note":"people-centered 复合形容词"},
+  {"c":"政治","cn":"稳中求进","en":"seek progress while maintaining stability","note":"fixed translation"},
+  {"c":"政治","cn":"统筹发展和安全","en":"coordinate development and security","note":"coordinate 表统筹"},
+  {"c":"政治","cn":"中国式现代化","en":"Chinese modernization","note":"二十大英文版固定译法"},
+  {"c":"政治","cn":"第二个百年奋斗目标","en":"the Second Centenary Goal","note":"Centenary 拼写注意"},
+  {"c":"政治","cn":"两步走战略","en":"the two-stage strategy","note":"two-stage 表两步"},
+  {"c":"政治","cn":"本世纪中叶","en":"the middle of this century","note":"时间表述"},
+  {"c":"思想","cn":"新的发展理念","en":"the new development philosophy","note":"innovation, coordination, green, openness, sharing"},
+  {"c":"思想","cn":"供给侧结构性改革","en":"supply-side structural reform","note":"supply-side 连字符"},
+  {"c":"政治","cn":"两个确立","en":"the Two Establishments","note":"确立习近平同志党中央核心、全党核心地位，确立习近平新时代中国特色社会主义思想指导地位"},
+  {"c":"思想","cn":"四个意识","en":"the Four Consciousnesses","note":"政治意识、大局意识、核心意识、看齐意识"},
+  {"c":"思想","cn":"四个自信","en":"the Four Confidences","note":"道路、理论、制度、文化自信"},
+  {"c":"思想","cn":"两个维护","en":"the Two Safeguards","note":"维护习近平总书记核心地位、维护党中央权威和集中统一领导"},
+  {"c":"思想","cn":"不忘初心、牢记使命","en":"stay true to our original aspiration and founding mission","note":"fixed translation"},
+  {"c":"思想","cn":"守正创新","en":"uphold fundamental principles and break new ground","note":"uphold...and break new ground"},
+  {"c":"思想","cn":"问题导向","en":"problem-oriented approach","note":"problem-oriented 复合词"},
+  {"c":"思想","cn":"系统观念","en":"systems thinking","note":"systems 复数"},
+  {"c":"思想","cn":"胸怀天下","en":"maintain a global vision","note":"global vision 表胸怀天下"},
+  {"c":"经济","cn":"新发展格局","en":"the new development paradigm","note":"paradigm 表格局"},
+  {"c":"经济","cn":"国内国际双循环","en":"domestic and international dual circulation","note":"dual circulation 固定"},
+  {"c":"经济","cn":"共同富裕","en":"common prosperity","note":"common prosperity"},
+  {"c":"经济","cn":"乡村振兴","en":"rural revitalization","note":"revitalization 拼写"},
+  {"c":"经济","cn":"区域协调发展","en":"coordinated regional development","note":"coordinated regional"},
+  {"c":"经济","cn":"创新驱动发展","en":"innovation-driven development","note":"innovation-driven 复合词"},
+  {"c":"经济","cn":"实体经济","en":"the real economy","note":"real economy 表实体"},
+  {"c":"经济","cn":"数字经济","en":"the digital economy","note":"digital economy"},
+  {"c":"经济","cn":"碳达峰","en":"carbon peaking","note":"peaking 动名词"},
+  {"c":"经济","cn":"碳中和","en":"carbon neutrality","note":"neutrality"},
+  {"c":"经济","cn":"全国统一大市场","en":"a unified national market","note":"unified national market"},
+  {"c":"经济","cn":"高水平对外开放","en":"high-level opening up","note":"high-level opening up"},
+  {"c":"经济","cn":"制造强国","en":"a manufacturing power","note":"manufacturing power"},
+  {"c":"生态","cn":"生态文明","en":"ecological civilization","note":"ecological civilization"},
+  {"c":"生态","cn":"美丽中国","en":"the Beautiful China Initiative","note":"Initiative 首字母大写"},
+  {"c":"生态","cn":"绿色发展","en":"green development","note":"green development"},
+  {"c":"生态","cn":"低碳发展","en":"low-carbon development","note":"low-carbon 连字符"},
+  {"c":"生态","cn":"生物多样性","en":"biodiversity","note":"biodiversity"},
+  {"c":"生态","cn":"山水林田湖草沙一体化保护","en":"integrated conservation of mountains, rivers, forests, farmlands, lakes, grasslands and deserts","note":"列举顺序固定"},
+  {"c":"外交","cn":"人类命运共同体","en":"a community with a shared future for mankind","note":"shared future for mankind 介词固定"},
+  {"c":"外交","cn":"一带一路","en":"the Belt and Road Initiative","note":"Belt and Road 首字母大写"},
+  {"c":"外交","cn":"共商共建共享","en":"extensive consultation, joint contribution and shared benefits","note":"三类并列固定"},
+  {"c":"外交","cn":"亲诚惠容","en":"amity, sincerity, mutual benefit and inclusiveness","note":"周边外交理念"},
+  {"c":"外交","cn":"多边主义","en":"multilateralism","note":"multilateralism"},
+  {"c":"外交","cn":"全球发展倡议","en":"the Global Development Initiative (GDI)","note":"GDI 缩写"},
+  {"c":"外交","cn":"全球安全倡议","en":"the Global Security Initiative (GSI)","note":"GSI 缩写"},
+  {"c":"外交","cn":"全球文明倡议","en":"the Global Civilization Initiative (GCI)","note":"GCI 缩写"},
+  {"c":"外交","cn":"新型国际关系","en":"a new type of international relations","note":"new type of"},
+  {"c":"外交","cn":"合作共赢","en":"win-win cooperation","note":"win-win 连字符"},
+  {"c":"外交","cn":"全人类共同价值","en":"the common values of humanity","note":"peace, development, fairness, justice, democracy, freedom"},
+  {"c":"外交","cn":"真正的多边主义","en":"true multilateralism","note":"true multilateralism"},
+  {"c":"文化","cn":"文化自信","en":"cultural confidence","note":"cultural confidence"},
+  {"c":"文化","cn":"中华优秀传统文化","en":"fine traditional Chinese culture","note":"fine traditional"},
+  {"c":"文化","cn":"创造性转化、创新性发展","en":"creative transformation and innovative development","note":"creative + innovative"},
+  {"c":"文化","cn":"社会主义核心价值观","en":"the core socialist values","note":"core socialist values"},
+  {"c":"文化","cn":"精神文明建设","en":"cultural and ethical progress","note":"cultural and ethical"},
+  {"c":"文化","cn":"讲好中国故事","en":"tell China’s stories well","note":"tell ... stories well"},
+  {"c":"民生","cn":"获得感、幸福感、安全感","en":"sense of gain, happiness and security","note":"三者并列固定"},
+  {"c":"民生","cn":"健康中国","en":"the Healthy China Initiative","note":"Initiative 大写"},
+  {"c":"民生","cn":"就业优先战略","en":"the employment-first strategy","note":"employment-first"},
+  {"c":"民生","cn":"民生福祉","en":"people’s wellbeing","note":"wellbeing 拼写"},
+  {"c":"党建","cn":"全面从严治党","en":"full and rigorous self-governance of the Party","note":"rigorous self-governance"},
+  {"c":"党建","cn":"党风廉政建设","en":"build a clean and honest Party conduct","note":"clean and honest"},
+  {"c":"党建","cn":"反腐败斗争","en":"the fight against corruption","note":"fight against corruption"},
+  {"c":"党建","cn":"中央八项规定","en":"the eight-point decision of the CPC Central Committee","note":"eight-point decision"},
+  {"c":"科技","cn":"科技自立自强","en":"self-reliance and strength in science and technology","note":"self-reliance and strength"},
+  {"c":"科技","cn":"关键核心技术突破","en":"breakthroughs in core technologies in key fields","note":"core technologies"},
+  {"c":"科技","cn":"人工智能","en":"artificial intelligence","note":"AI"},
+  {"c":"现代化","cn":"人口规模巨大的现代化","en":"modernization of a huge population","note":"huge population"},
+  {"c":"现代化","cn":"全体人民共同富裕的现代化","en":"modernization of common prosperity for all","note":"common prosperity for all"},
+  {"c":"现代化","cn":"物质文明和精神文明相协调的现代化","en":"modernization with material and cultural-ethical advancement","note":"material and cultural-ethical"},
+  {"c":"现代化","cn":"走和平发展道路的现代化","en":"modernization following a path of peaceful development","note":"peaceful development"},
+  {"c":"现代化","cn":"高质量发展是首要任务","en":"high-quality development is the top priority","note":"top priority"},
+  {"c":"思想文化","cn":"小康社会","en":"a moderately prosperous society","note":"moderately prosperous"},
+  {"c":"思想文化","cn":"大同","en":"grand harmony","note":"儒家理想社会"},
+  {"c":"思想文化","cn":"天人合一","en":"unity between man and nature","note":"heaven and man in unity"},
+  {"c":"思想文化","cn":"知行合一","en":"the unity of knowledge and practice","note":"knowledge and practice"},
+  {"c":"思想文化","cn":"和而不同","en":"harmony in diversity","note":"harmony in diversity"},
+  {"c":"思想文化","cn":"天下为公","en":"the world is for all","note":"《礼记》名句"},
+  {"c":"思想文化","cn":"自强不息","en":"unceasing self-improvement","note":"《周易》"},
+  {"c":"思想文化","cn":"厚德载物","en":"virtue sustains all things","note":"《周易》"},
+  {"c":"思想文化","cn":"民为邦本","en":"the people are the foundation of the state","note":"民本思想"}];
+
+// ================= 数据：词组库 =================
+var PHRASES=[
+{c:'外交',cn:'和平共处五项原则',en:'the Five Principles of Peaceful Coexistence',note:'互相尊重主权和领土完整、互不侵犯、互不干涉内政、平等互利、和平共处'},
+{c:'外交',cn:'亲诚惠容',en:'amity, sincerity, mutual benefit and inclusiveness',note:'周边外交理念'},
+{c:'外交',cn:'共商共建共享',en:'extensive consultation, joint contribution and shared benefits',note:'一带一路建设原则'},
+{c:'外交',cn:'全球发展倡议',en:'the Global Development Initiative',note:'坚持发展优先、以人民为中心'},
+{c:'外交',cn:'全球安全倡议',en:'the Global Security Initiative',note:'共同、综合、合作、可持续的安全观'},
+{c:'外交',cn:'全球文明倡议',en:'the Global Civilization Initiative',note:'四个共同倡导'},
+{c:'外交',cn:'互联互通',en:'connectivity',note:'政策沟通、设施联通、贸易畅通、资金融通、民心相通'},
+{c:'外交',cn:'命运与共、休戚相关',en:'sharing weal and woe with a shared future',note:'人类命运共同体理念'},
+{c:'治理',cn:'简政放权',en:'streamline administration and delegate power',note:'放管服改革第一环'},
+{c:'治理',cn:'放管服改革',en:'reform to streamline administration, delegate power, improve regulation and upgrade services',note:'简政放权、放管结合、优化服务'},
+{c:'治理',cn:'共建共治共享',en:'co-building, co-governance and co-sharing',note:'社会治理格局'},
+{c:'治理',cn:'两个毫不动摇',en:'the two unswervings',note:'巩固发展公有制经济，鼓励支持引导非公有制经济发展'},
+{c:'治理',cn:'钉钉子精神',en:'the spirit of driving nails',note:'一锤接着一锤敲，久久为功'},
+{c:'治理',cn:'一张蓝图绘到底',en:'carry the blueprint through to the end',note:'保持政策的连续性和稳定性'},
+{c:'治理',cn:'马上就办、真抓实干',en:'act promptly and deliver solid results',note:'实干作风'},
+{c:'治理',cn:'敢闯敢试、敢为人先',en:'daring to explore and blaze new trails',note:'改革创新精神'},
+{c:'民生',cn:'以人民为中心',en:'people-centered',note:'坚持以人民为中心的发展思想'},
+{c:'民生',cn:'就业优先政策',en:'the employment-first policy',note:'就业是最大的民生'},
+{c:'民生',cn:'六稳六保',en:'ensure stability in six key areas and security in six other areas',note:'稳就业稳金融稳外贸稳外资稳投资稳预期；保居民就业保基本民生保市场主体保粮食能源安全保产业链供应链稳定保基层运转'},
+{c:'民生',cn:'幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶',en:'child care, education, employment, medical services, elderly care, housing and social assistance for those in need',note:'民生保障七有目标'},
+{c:'发展',cn:'扩大高水平对外开放',en:'expand high-standard opening up',note:'稳步扩大规则、规制、管理、标准等制度型开放'},
+{c:'发展',cn:'全国统一大市场',en:'a unified national market',note:'构建新发展格局的内在要求'},
+{c:'生态',cn:'人与自然和谐共生',en:'harmonious coexistence of humanity and nature',note:'中国式现代化的重要特征'},
+{c:'生态',cn:'山水林田湖草沙一体化保护',en:'integrated conservation of mountains, rivers, forests, farmlands, lakes, grasslands and deserts',note:'一体化保护和系统治理'},
+{c:'生态',cn:'简约适度、绿色低碳',en:'simple, moderate, green and low-carbon',note:'绿色生活方式'},
+{c:'文化',cn:'中华文明探源工程',en:'the Project to Trace the Origins of Chinese Civilization',note:'实证中华五千多年文明史'},
+{c:'文化',cn:'讲仁爱、重民本、守诚信、崇正义、尚和合、求大同',en:'valuing benevolence, people-orientation, integrity, justice, harmony and unity',note:'中华文明的突出特性'},
+{c:'文化',cn:'创造性转化、创新性发展',en:'creative transformation and innovative development',note:'推动中华优秀传统文化传承发展'}
+,
+  {"c":"政经","cn":"把……摆在突出位置","en":"give prominence to ...","note":"give prominence to"},
+  {"c":"政经","cn":"扎实推进","en":"make solid progress in","note":"solid progress"},
+  {"c":"政经","cn":"迈出坚实步伐","en":"make solid strides","note":"strides 复数"},
+  {"c":"政经","cn":"取得历史性成就","en":"achieve historic successes","note":"historic successes"},
+  {"c":"政经","cn":"如期打赢……攻坚战","en":"win the tough battle against ... as scheduled","note":"as scheduled"},
+  {"c":"政经","cn":"统筹推进","en":"advance in a coordinated way","note":"coordinated way"},
+  {"c":"政经","cn":"标本兼治","en":"address both symptoms and root causes","note":"symptoms and root causes"},
+  {"c":"政经","cn":"攻坚克难","en":"tackle difficulties","note":"tackle difficulties"},
+  {"c":"政经","cn":"行稳致远","en":"advance steadily for long-term success","note":"steady + long-term"},
+  {"c":"政经","cn":"落到实处","en":"implement in real earnest","note":"in real earnest"},
+  {"c":"政经","cn":"落地生根","en":"take root","note":"take root"},
+  {"c":"政经","cn":"凝心聚力","en":"pool wisdom and strength","note":"pool efforts"},
+  {"c":"政经","cn":"砥砺前行","en":"forge ahead","note":"forge ahead"},
+  {"c":"政经","cn":"来之不易","en":"hard-won","note":"hard-won 连字符"},
+  {"c":"政经","cn":"历史性跨越","en":"historic leap","note":"historic leap"},
+  {"c":"政经","cn":"系统性重塑","en":"systemic reshaping","note":"systemic"},
+  {"c":"政经","cn":"整体性重构","en":"overall restructuring","note":"overall"},
+  {"c":"政经","cn":"站在……的历史交汇点","en":"stand at the historic juncture of","note":"historic juncture"},
+  {"c":"政经","cn":"继往开来","en":"build on past achievements and open up the future","note":"build on ... and open up"},
+  {"c":"政经","cn":"一以贯之","en":"consistently","note":"consistently"},
+  {"c":"政经","cn":"与时俱进","en":"advance with the times","note":"with the times"},
+  {"c":"政经","cn":"惠及……","en":"benefit ...","note":"benefit"},
+  {"c":"政经","cn":"谱写……新篇章","en":"write a new chapter in","note":"new chapter"},
+  {"c":"政经","cn":"迎来……历史性时机","en":"usher in a historic opportunity for","note":"usher in"},
+  {"c":"政经","cn":"同……紧密相连","en":"be closely linked with","note":"closely linked with"},
+  {"c":"政经","cn":"迎难而上","en":"rise to the challenge","note":"rise to the challenge"},
+  {"c":"政经","cn":"率先垂范","en":"take the lead by example","note":"take the lead"},
+  {"c":"政经","cn":"守正创新","en":"uphold fundamental principles and break new ground","note":"uphold...break new ground"}];
+// ================= 数据：句子翻译 =================
+var SENTENCES=[
+{d:'ce',src:'人民对美好生活的向往，就是我们的奋斗目标。',ref:'The people\u2019s aspiration for a better life is our goal of endeavor.',note:'以人民为中心，奋斗目标类句式'},
+{d:'ce',src:'绿水青山就是金山银山。',ref:'Lucid waters and lush mountains are invaluable assets.',note:'生态金句，官方固定译法'},
+{d:'ce',src:'发展是解决我国一切问题的基础和关键。',ref:'Development is the foundation and key to solving all problems in our country.',note:'发展观类表述'},
+{d:'ce',src:'科技是第一生产力、人才是第一资源、创新是第一动力。',ref:'Science and technology are the primary productive forces, talent the primary resource, and innovation the primary driver of growth.',note:'三个"第一"排比，注意省略与对应'},
+{d:'ce',src:'中国坚持走和平发展道路，坚持互利共赢的开放战略。',ref:'China stays committed to the path of peaceful development and the strategy of opening up for mutual benefit and win-win.',note:'对外政策类表述'},
+{d:'ce',src:'我们要讲好中国故事，传播好中国声音。',ref:'We should tell China\u2019s stories well and make China\u2019s voice heard.',note:'国际传播高频句式'},
+{d:'ce',src:'共同富裕是社会主义的本质要求。',ref:'Common prosperity is an essential requirement of socialism.',note:'共同富裕定位句'},
+{d:'ce',src:'中国式现代化是人口规模巨大的现代化。',ref:'Chinese modernization is the modernization of a huge population.',note:'中国式现代化五个特征之一'},
+{d:'ce',src:'文化自信是更基础、更广泛、更深厚的自信。',ref:'Cultural confidence is a more basic, broader and deeper confidence.',note:'三"更"排比'},
+{d:'ce',src:'人类命运共同体理念顺应了时代潮流。',ref:'The vision of a community with a shared future for mankind follows the trend of the times.',note:'外交理念评价句'},
+{d:'ce',src:'我们要像保护眼睛一样保护生态环境。',ref:'We should protect the ecological environment as carefully as we protect our own eyes.',note:'比喻句的英文处理'},
+{d:'ce',src:'改革开放是决定当代中国命运的关键一招。',ref:'Reform and opening up was a crucial move that determined the fate of contemporary China.',note:'改革开放定位句'},
+{d:'ce',src:'创新是引领发展的第一动力。',ref:'Innovation is the primary driving force for development.',note:'创新观高频句'},
+{d:'ce',src:'青年强，则国家强。',ref:'A nation will prosper when its young people thrive.',note:'青年主题，条件句处理'},
+{d:'ce',src:'民之所忧，我必念之；民之所盼，我必行之。',ref:'What the people are concerned about is what I am concerned about; what the people expect is what I will do.',note:'对仗句式的英文重构'},
+{d:'ce',src:'大道不孤，天下一家。',ref:'The great road is not lonely; all under Heaven are one family.',note:'金句，注意断句'},
+{d:'ec',src:'A community with a shared future for mankind is a noble goal pursued by China.',ref:'构建人类命运共同体是中国追求的一个崇高目标。',note:'抽象名词短语转中文动宾'},
+{d:'ec',src:'China is committed to building an open world economy.',ref:'中国致力于建设开放型世界经济。',note:'be committed to 的常用译法'},
+{d:'ec',src:'The Chinese Dream is about the great rejuvenation of the Chinese nation.',ref:'中国梦就是实现中华民族伟大复兴。',note:'名词化结构转中文动词'},
+{d:'ec',src:'High-quality development is the first and foremost task of building a modern socialist country in all respects.',ref:'高质量发展是全面建设社会主义现代化国家的首要任务。',note:'长定语的处理'},
+{d:'ec',src:'We must ensure that the gains of reform and development are shared by all our people.',ref:'我们要确保全体人民共享改革发展成果。',note:'被动转主动，成果共享'},
+{d:'ec',src:'Culture is the soul of a country and a nation.',ref:'文化是一个国家、一个民族的灵魂。',note:'简单句直译示例'},
+{d:'ec',src:'The world is closely connected, and all countries share weal and woe.',ref:'世界紧密相连，各国休戚与共。',note:'share weal and woe 的译法'},
+{d:'ec',src:'Green development is an inevitable choice for building a beautiful China.',ref:'绿色发展是建设美丽中国的必然选择。',note:'绿色发展定位句'},
+{d:'ec',src:'Talent is the primary resource of a nation.',ref:'人才是国家的第一资源。',note:'人才观表述'},
+{d:'ec',src:'The Party and the government always put the people first in everything they do.',ref:'党和政府始终把人民放在心中最高位置。',note:'put the people first 的意译'}
+,
+  {"d":"ce","src":"高质量发展是全面建设社会主义现代化国家的首要任务。","ref":"High-quality development is the top priority in building a modern socialist country in all respects.","note":"top priority 表首要任务"},
+  {"d":"ce","src":"科技是第一生产力，人才是第一资源，创新是第一动力。","ref":"Science and technology are the primary productive force, talent is the primary resource, and innovation is the primary driver.","note":"三个第一并列"},
+  {"d":"ce","src":"江山就是人民，人民就是江山。","ref":"The country is its people; the people are the country.","note":"对仗句式"},
+  {"d":"ce","src":"打铁必须自身硬。","ref":"To forge iron, one must be strong.","note":"比喻性表达，宜意译"},
+  {"d":"ce","src":"绿水青山就是金山银山。","ref":"Lucid waters and lush mountains are invaluable assets.","note":"固定译法"},
+  {"d":"ce","src":"中国式现代化是人口规模巨大的现代化。","ref":"Chinese modernization is the modernization of a huge population.","note":"of a huge population"},
+  {"d":"ce","src":"我们要加快发展新质生产力，扎实推进高质量发展。","ref":"We should accelerate the development of new quality productive forces and make solid progress in high-quality development.","note":"new quality productive forces"},
+  {"d":"ce","src":"人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾，是我国社会主要矛盾。","ref":"The principal challenge facing Chinese society is the gap between the ever-growing needs of the people for a better life and unbalanced, inadequate development.","note":"principal challenge"},
+  {"d":"ce","src":"坚持稳中求进工作总基调。","ref":"We must adhere to the underlying principle of pursuing progress while ensuring stability.","note":"underlying principle"},
+  {"d":"ce","src":"中国始终是世界和平的建设者、全球发展的贡献者、国际秩序的维护者。","ref":"China is always a builder of world peace, a contributor to global development, and a defender of the international order.","note":"三个者并列"},
+  {"d":"ce","src":"要把论文写在祖国的大地上。","ref":"We should write research papers on the motherland’s soil.","note":"形象表达，直译保留意象"},
+  {"d":"ce","src":"幸福不会从天而降，梦想不会自动成真。","ref":"Happiness does not fall from the sky, nor do dreams come true by themselves.","note":"nor 倒装"},
+  {"d":"ce","src":"改革是由问题倒逼而产生，又在不断解决问题中得以深化。","ref":"Reform is prompted by problems and deepened by continuously solving them.","note":"prompted by"},
+  {"d":"ec","src":"China will stay committed to its fundamental national policy of opening up and pursue a mutually beneficial strategy of opening up.","ref":"中国将坚持对外开放的基本国策，奉行互利共赢的开放战略。","note":"mutually beneficial 互利共赢"},
+  {"d":"ec","src":"We must balance development and security, and advance the Peaceful China Initiative to a higher level.","ref":"我们要统筹发展和安全，建设更高水平的平安中国。","note":"Peaceful China Initiative 平安中国"},
+  {"d":"ec","src":"The Chinese nation has achieved a tremendous transformation: it has stood up, grown rich, and is becoming strong.","ref":"中华民族迎来了从站起来、富起来到强起来的伟大飞跃。","note":"stood up, grown rich, becoming strong"},
+  {"d":"ec","src":"We should foster a closely-knit community of human destiny and work together to realize the Chinese Dream of national rejuvenation.","ref":"我们要培育紧密的人类命运共同体，共同实现民族复兴的中国梦。","note":"closely-knit community"},
+  {"d":"ec","src":"Poverty is not predestined, nor is it unconquerable.","ref":"贫困不是命定的，也不是不可战胜的。","note":"predestined / unconquerable"},
+  {"d":"ec","src":"Reform and opening up is a key move that has made China what it is today.","ref":"改革开放是决定当代中国命运的关键一招。","note":"key move"},
+  {"d":"ec","src":"Only by grounding our work in reality can we find the right path forward.","ref":"只有立足实际，才能找到前进的正确道路。","note":"only by 倒装"},
+  {"d":"ec","src":"True multilateralism means respecting the sovereignty and territorial integrity of all countries.","ref":"真正的多边主义意味着尊重各国主权和领土完整。","note":"sovereignty and territorial integrity"},
+  {"d":"ec","src":"The wise adapt themselves to circumstances, as water shapes its course according to the ground.","ref":"智者顺时而谋，如水赴形。","note":"文言意象，宜意译"},
+  {"d":"ce","src":"我们要以中国式现代化全面推进中华民族伟大复兴。","ref":"We must advance the great rejuvenation of the Chinese nation on all fronts through Chinese modernization.","note":"on all fronts"},
+  {"d":"ce","src":"全过程人民民主是最广泛、最真实、最管用的社会主义民主。","ref":"Whole-process people’s democracy is the broadest, most genuine, and most effective socialist democracy.","note":"broadest, most genuine, most effective"},
+  {"d":"ce","src":"文化是一个国家、一个民族的灵魂。","ref":"Culture is the soul of a country and a nation.","note":"soul 喻体保留"},
+  {"d":"ce","src":"教育、科技、人才是全面建设社会主义现代化国家的基础性、战略性支撑。","ref":"Education, science and technology, and human resources are the foundational and strategic pillars for building a modern socialist country in all respects.","note":"foundational and strategic pillars"}];
+
+// ================= 数据：刷题题库 =================
+var QTERM=[
+{q:'人类命运共同体',o:['a community with a shared future for mankind','a community of common destiny for all nations','a shared future community for mankind','a community with shared destiny'],a:0,n:'官方固定译法，注意 shared future for mankind 的介词搭配'},
+{q:'中国式现代化',o:['China-style modernization','Chinese modernization','Chinese-style modernization','modernization with Chinese characteristics'],a:1,n:'二十大报告英文版固定译法'},
+{q:'共同富裕',o:['common wealth','shared prosperity','common prosperity','collective affluence'],a:2,n:'common prosperity 是官方译法'},
+{q:'一带一路倡议',o:['the One Belt One Road','the Belt and Road Project','the Belt and Road Initiative','the Belt and Road Program'],a:2,n:'Belt and Road Initiative，缩写 BRI'},
+{q:'全过程人民民主',o:['whole-process people\u2019s democracy','people\u2019s whole-process democracy','whole-course people\u2019s democracy','whole-process democracy of the people'],a:0,n:'whole-process 前置修饰，官方固定译法'},
+{q:'新质生产力',o:['new productive forces','new-quality productivity','new quality production forces','new quality productive forces'],a:3,n:'new quality productive forces，官方译法'},
+{q:'绿水青山就是金山银山',o:['clear waters and green mountains are gold and silver mountains','lucid waters and lush mountains are invaluable assets','green mountains are gold mountains','lucid waters and green mountains are gold and silver mountains'],a:1,n:'lucid/lush/invaluable 三词是官方关键词'},
+{q:'高质量发展',o:['high-quality growth','high-quality development','development of high quality','quality development'],a:1,n:'high-quality development 固定译法'},
+{q:'社会主义核心价值观',o:['the core socialist values','the socialist core values','core values of socialism','the core values of socialist society'],a:0,n:'core 与 socialist 位置固定，官方译法'},
+{q:'供给侧结构性改革',o:['structural reform on the supply side','reform of the supply-side structure','supply-side structural reform','supply-side reform'],a:2,n:'supply-side structural reform 官方译法'},
+{q:'乡村振兴',o:['rural revival','rural rejuvenation','rural renaissance','rural revitalization'],a:3,n:'rural revitalization 官方译法'},
+{q:'碳达峰碳中和',o:['carbon peak and carbon neutral','carbon peaking and carbon neutrality','peaking carbon emissions and achieving carbon neutrality','carbon peak and carbon neutrality goals'],a:1,n:'peaking/neutrality 名词化表达'},
+{q:'自我革命',o:['self-revolution','self-renewal','self-reform','self-innovation'],a:2,n:'党的自我革命 official 为 self-reform'},
+{q:'全面依法治国',o:['comprehensive rule of law','law-based governance in all aspects','full governance according to law','law-based governance in all respects'],a:3,n:'in all respects 固定搭配'},
+{q:'中国智慧和中国方案',o:['China\u2019s wisdom and China\u2019s proposal','China\u2019s wisdom and China\u2019s approach','China\u2019s intelligence and China\u2019s plan','China\u2019s wisdom and China\u2019s solution'],a:1,n:'China\u2019s approach 更贴合"方案"语境'},
+{q:'天人合一',o:['the unity of Heaven and humanity','the integration of Heaven and man','the oneness of sky and people','harmony between man and heaven'],a:0,n:'中华思想文化术语库译法'},
+{q:'知行合一',o:['the unity of knowing and doing','the unity of knowledge and action','the combination of knowledge and practice','the oneness of knowledge and action'],a:1,n:'knowledge and action 是关键词'},
+{q:'民惟邦本',o:['the people are the root of the country','the people are the foundation of the state','people are the foundation of the nation','the people are the basis of state power'],a:1,n:'foundation of the state 官方译法'},
+{q:'和而不同',o:['harmony without uniformity','harmony in difference','harmony in diversity','harmonious yet different'],a:2,n:'harmony in diversity 固定译法'},
+{q:'苟日新，日日新，又日新',o:['if one can renovate oneself day by day, one should do so every day','renewal every day','make progress every day','self-renewal day after day'],a:0,n:'《大学》名句，考试常考阐释题'}
+,
+  {"q":"高质量发展","o":["high-speed development","high-quality development","rapid growth","large-scale development"],"a":1,"n":"high-quality 固定"},
+  {"q":"新质生产力","o":["new productive forces","new quality productive forces","quality productivity","fresh productive power"],"a":1,"n":"new quality productive forces"},
+  {"q":"全过程人民民主","o":["whole-process people’s democracy","full-process democracy","complete people’s democracy","total democratic process"],"a":0,"n":"whole-process 固定"},
+  {"q":"供给侧结构性改革","o":["supply-side structural reform","demand-side reform","supply structural change","side supply reform"],"a":0,"n":"supply-side 连字符"},
+  {"q":"国内国际双循环","o":["double circulation","domestic and international dual circulation","two-way circulation","twin cycle"],"a":1,"n":"dual circulation"},
+  {"q":"共同富裕","o":["common wealth","common prosperity","shared affluence","collective riches"],"a":1,"n":"common prosperity"},
+  {"q":"碳达峰","o":["carbon peak","carbon peaking","carbon top","carbon summit"],"a":1,"n":"peaking 动名词"},
+  {"q":"碳中和","o":["carbon neutral","carbon neutrality","carbon zero","carbon balance"],"a":1,"n":"neutrality"},
+  {"q":"乡村振兴","o":["rural revitalization","countryside revival","village rejuvenation","rural renaissance"],"a":0,"n":"revitalization"},
+  {"q":"数字经济","o":["digital economy","number economy","cyber economy","virtual economy"],"a":0,"n":"digital economy"},
+  {"q":"生态文明建设","o":["ecological civilization building","eco-civilization construction","environment culture","green society building"],"a":0,"n":"ecological civilization"},
+  {"q":"人类命运共同体","o":["a community with a shared future for mankind","a community of common destiny","a shared future community","mankind’s community"],"a":0,"n":"shared future for mankind"},
+  {"q":"全球发展倡议","o":["Global Growth Initiative","Global Development Initiative","World Development Plan","International Development Initiative"],"a":1,"n":"GDI"},
+  {"q":"全球安全倡议","o":["Global Security Initiative","Global Safety Initiative","World Security Plan","International Security Act"],"a":0,"n":"GSI"},
+  {"q":"全球文明倡议","o":["Global Civilization Initiative","Global Culture Initiative","World Civilization Plan","International Civilization Act"],"a":0,"n":"GCI"},
+  {"q":"新型国际关系","o":["a new type of international relations","new international relation","novel global relations","fresh diplomatic ties"],"a":0,"n":"new type of"},
+  {"q":"文化自信","o":["cultural confidence","culture self-trust","civilization faith","cultural belief"],"a":0,"n":"cultural confidence"},
+  {"q":"创造性转化、创新性发展","o":["creative transformation and innovative development","creative change and new development","inventive transition","original transformation"],"a":0,"n":"creative + innovative"},
+  {"q":"社会主义核心价值观","o":["the core socialist values","the central socialist values","key socialist values","main socialist values"],"a":0,"n":"core socialist values"},
+  {"q":"全面从严治党","o":["full and rigorous self-governance of the Party","comprehensive party discipline","strict party management","total party control"],"a":0,"n":"rigorous self-governance"},
+  {"q":"科技自立自强","o":["self-reliance and strength in science and technology","technological independence","science self-sufficiency","tech self-rule"],"a":0,"n":"self-reliance and strength"},
+  {"q":"关键核心技术","o":["core technologies in key fields","key core technology","critical core techniques","essential key tech"],"a":0,"n":"core technologies in key fields"},
+  {"q":"人口规模巨大的现代化","o":["modernization of a huge population","modernization of big population","huge-population modernization","large-scale modernization"],"a":0,"n":"of a huge population"},
+  {"q":"物质文明和精神文明相协调的现代化","o":["modernization with material and cultural-ethical advancement","modernization coordinating material and spirit","dual-civilization modernization","material-spirit modernization"],"a":0,"n":"material and cultural-ethical"},
+  {"q":"中国特色社会主义","o":["socialism with Chinese characteristics","Chinese-style socialism","socialism of China’s features","China-character socialism"],"a":0,"n":"with Chinese characteristics"},
+  {"q":"中华民族伟大复兴","o":["the great rejuvenation of the Chinese nation","the great revival of Chinese nation","China’s great renaissance","the grand rejuvenation of China"],"a":0,"n":"rejuvenation"},
+  {"q":"以人民为中心","o":["people-centered","people as center","citizen-centered","population-centered"],"a":0,"n":"people-centered"},
+  {"q":"人与自然和谐共生","o":["harmonious coexistence between humanity and nature","harmony between man and nature","human-nature harmony","nature-people coexistence"],"a":0,"n":"harmonious coexistence"},
+  {"q":"天下为公","o":["the world is for all","the world belongs to public","all under heaven is public","the world for common good"],"a":0,"n":"《礼记》"},
+  {"q":"知行合一","o":["the unity of knowledge and practice","knowing and doing as one","unity of theory and practice","knowledge-action unity"],"a":0,"n":"knowledge and practice"},
+  {"q":"厚德载物","o":["virtue sustains all things","thick virtue carries things","great virtue bears all","moral carries matter"],"a":0,"n":"《周易》"}];
+var QCLOZE=[
+{q:'The Chinese Dream is about the great rejuvenation of the Chinese ______.',o:['dynasty','nation','empire','colony'],a:1,n:'the Chinese nation 固定搭配'},
+{q:'China is committed to building a community with a shared ______ for mankind.',o:['past','future','wealth','power'],a:1,n:'a community with a shared future for mankind'},
+{q:'The people\u2019s aspiration for a better life is our ______.',o:['obstacle','history','goal','souvenir'],a:2,n:'aspiration 与 goal 呼应'},
+{q:'Innovation is the primary ______ force for development.',o:['sleeping','stopping','breaking','driving'],a:3,n:'primary driving force 固定搭配'},
+{q:'Common prosperity is an essential ______ of socialism.',o:['decoration','requirement','exception','weakness'],a:1,n:'an essential requirement of socialism'},
+{q:'We should tell China\u2019s stories well and spread China\u2019s ______.',o:['noise','silence','voice','anger'],a:2,n:'make China\u2019s voice heard'},
+{q:'Culture is the soul of a country and a ______.',o:['machine','market','battlefield','nation'],a:3,n:'country and nation 对应国家与民族'},
+{q:'A nation will prosper if its young people ______.',o:['vanish','thrive','sleep','hesitate'],a:1,n:'thrive 表兴旺发展'},
+{q:'The new development philosophy features innovative, coordinated, green, open and ______ development.',o:['decoration','pollution','loneliness','shared'],a:3,n:'共享发展 = shared development'},
+{q:'We should protect the ecological environment as carefully as we protect our ______.',o:['shoes','bags','hats','eyes'],a:3,n:'像保护眼睛一样保护生态环境'},
+{q:'High-quality development is the first and foremost task of building a great modern socialist ______.',o:['museum','kitchen','beach','country'],a:3,n:'a great modern socialist country'},
+{q:'Talent is the primary ______ of a nation.',o:['burden','rumor','traffic','resource'],a:3,n:'人才是第一资源 = talent is the primary resource'}
+,
+  {"q":"We must advance the ______ development of the nation through high-quality growth.","o":["modern","modernize","modernization","modest"],"a":2,"n":"modernization 名词"},
+  {"q":"The Party must exercise ______ and rigorous self-governance.","o":["full","fully","fill","fall"],"a":0,"n":"full and rigorous"},
+  {"q":"We should pursue ______, coordinated, green, open and shared development.","o":["innovation","innovative","innovate","invention"],"a":0,"n":"innovation 名词"},
+  {"q":"China is committed to building a community with a ______ future for mankind.","o":["shared","sharing","shares","share"],"a":0,"n":"shared future"},
+  {"q":"We will promote the ______ transformation and innovative development of traditional culture.","o":["creative","create","creation","creator"],"a":0,"n":"creative 形容词"},
+  {"q":"The people’s aspiration for a better life is the Party’s ______ mission.","o":["founding","found","founded","find"],"a":0,"n":"founding mission"},
+  {"q":"We must uphold fundamental principles and break ______ ground.","o":["new","news","knew","now"],"a":0,"n":"break new ground"},
+  {"q":"Scientific and technological ______ is the primary productive force.","o":["are","is","being","been"],"a":1,"n":"science and technology 单数概念"},
+  {"q":"We should write research papers on the motherland’s ______.","o":["soil","soul","solar","sole"],"a":0,"n":"soil 喻体"},
+  {"q":"Reform is prompted by problems and ______ by solving them.","o":["deepened","deep","depth","deeply"],"a":0,"n":"deepened 过去分词"},
+  {"q":"True multilateralism means respecting the ______ of all countries.","o":["sovereignty","sovereign","sovereignly","sovereignity"],"a":0,"n":"sovereignty 拼写"},
+  {"q":"China will stay ______ to its fundamental national policy of opening up.","o":["committed","committing","commit","commits"],"a":0,"n":"stay committed to"},
+  {"q":"The Chinese nation has ______ up, grown rich, and is becoming strong.","o":["stood","stand","stands","standing"],"a":0,"n":"stood up 固定"}];
+var QCOLLOC=[
+{q:'简政放权',o:['simplify government and release power','streamline administration and delegate power','streamline administration and decentralize rights','cut red tape and devolve power'],a:1,n:'streamline administration and delegate power 官方译法'},
+{q:'基础设施互联互通',o:['infrastructure interconnection','infrastructure connectivity','infrastructure interlinking','infrastructure connection'],a:1,n:'connectivity 表互联互通'},
+{q:'共商共建共享',o:['joint discussion, joint construction and sharing','co-consultation, co-construction and co-sharing','extensive consultation, joint contribution and shared benefits','consult, build and share together'],a:2,n:'extensive consultation, joint contribution and shared benefits'},
+{q:'亲诚惠容',o:['amity, sincerity, mutual benefit and inclusiveness','amity, sincerity, mutual benefit and tolerance','friendship, honesty, benefit and tolerance','amity, sincerity, reciprocity and inclusiveness'],a:0,n:'周边外交理念固定译法'},
+{q:'稳中求进',o:['seek progress while maintaining stability','seek progress in stability','advance steadily regardless of stability','pursue stability over progress'],a:0,n:'seek progress while maintaining stability'},
+{q:'人与自然和谐共生',o:['harmonious coexistence of humanity and nature','harmonious cohabitation of man and nature','harmonious living of people and nature','peaceful coexistence of people and environment'],a:0,n:'harmonious coexistence of humanity and nature 官方译法'}
+,
+  {"q":"高质量发展","o":["high-quality development","high-speed development","big development","quick growth"],"a":0,"n":"high-quality 固定"},
+  {"q":"稳中求进","o":["seek progress while maintaining stability","seek progress in stability","advance regardless of stability","pursue stability only"],"a":0,"n":"fixed"},
+  {"q":"供给侧结构性","o":["supply-side structural","demand-side structural","supply structural","side supply"],"a":0,"n":"supply-side"},
+  {"q":"国内国际双循环","o":["domestic and international dual circulation","double circulation","two-way cycle","twin flow"],"a":0,"n":"dual circulation"},
+  {"q":"碳达峰碳中和","o":["carbon peaking and carbon neutrality","carbon top and neutral","carbon peak and zero","carbon summit and balance"],"a":0,"n":"peaking + neutrality"},
+  {"q":"乡村振兴","o":["rural revitalization","countryside revival","village renew","rural renaissance"],"a":0,"n":"revitalization"},
+  {"q":"数字经济","o":["digital economy","number economy","cyber economy","virtual economy"],"a":0,"n":"digital economy"},
+  {"q":"生态文明","o":["ecological civilization","eco-civilization","environment culture","green society"],"a":0,"n":"ecological civilization"},
+  {"q":"人类命运共同体","o":["a community with a shared future for mankind","a community of common destiny","shared future community","mankind community"],"a":0,"n":"shared future for mankind"},
+  {"q":"共商共建共享","o":["extensive consultation, joint contribution and shared benefits","mutual discussion and construction","co-talk co-build co-share","joint consult build share"],"a":0,"n":"三类并列固定"},
+  {"q":"亲诚惠容","o":["amity, sincerity, mutual benefit and inclusiveness","friendliness honesty benefit tolerance","amity sincerity reciprocity inclusiveness","kindness truth profit tolerance"],"a":0,"n":"周边外交理念"},
+  {"q":"文化自信","o":["cultural confidence","culture self-trust","civilization faith","cultural belief"],"a":0,"n":"cultural confidence"},
+  {"q":"创造性转化","o":["creative transformation","creative change","inventive transition","original transform"],"a":0,"n":"creative transformation"},
+  {"q":"社会主义核心价值观","o":["the core socialist values","central socialist values","key socialist values","main socialist values"],"a":0,"n":"core socialist values"},
+  {"q":"全面从严治党","o":["full and rigorous self-governance of the Party","comprehensive party discipline","strict party rule","total party control"],"a":0,"n":"rigorous self-governance"},
+  {"q":"科技自立自强","o":["self-reliance and strength in science and technology","tech independence","science self-sufficiency","tech self-rule"],"a":0,"n":"self-reliance and strength"},
+  {"q":"关键核心技术","o":["core technologies in key fields","key core tech","critical core technique","essential key technology"],"a":0,"n":"core technologies in key fields"},
+  {"q":"全国统一大市场","o":["a unified national market","a united national market","a uniform country market","a whole national market"],"a":0,"n":"unified national market"},
+  {"q":"高水平对外开放","o":["high-level opening up","high-level open","high standard opening","high degree opening"],"a":0,"n":"high-level opening up"},
+  {"q":"制造强国","o":["a manufacturing power","a making power","a manufacture strong country","a factory power"],"a":0,"n":"manufacturing power"},
+  {"q":"绿水青山就是金山银山","o":["lucid waters and lush mountains are invaluable assets","green water blue mountain are gold silver","clear rivers green hills are treasure","lucid water lush hill are money"],"a":0,"n":"fixed translation"},
+  {"q":"人与自然和谐共生","o":["harmonious coexistence between humanity and nature","harmony of man and nature","human-nature harmony","nature-people coexist"],"a":0,"n":"harmonious coexistence"},
+  {"q":"不忘初心、牢记使命","o":["stay true to our original aspiration and founding mission","not forget heart remember mission","keep initial heart bear mission","not lose heart keep task"],"a":0,"n":"fixed"},
+  {"q":"守正创新","o":["uphold fundamental principles and break new ground","keep right innovate","guard correct create new","hold principle break ground"],"a":0,"n":"uphold...break new ground"},
+  {"q":"以人民为中心","o":["people-centered","people as center","citizen-centered","population-centered"],"a":0,"n":"people-centered"},
+  {"q":"中国式现代化","o":["Chinese modernization","China-style modernization","Chinese-style modernization","modernization of China"],"a":0,"n":"二十大固定译法"},
+  {"q":"全过程人民民主","o":["whole-process people’s democracy","full-process democracy","complete people democracy","total democratic process"],"a":0,"n":"whole-process"},
+  {"q":"美丽中国","o":["the Beautiful China Initiative","the Beautiful China Plan","the Pretty China Initiative","the Charming China Project"],"a":0,"n":"Initiative 大写"}];
+
+// ================= 数据：省赛长篇互译语料 =================
+var PROV_PASSAGES=[
+ {d:'ce',src:'中国坚持绿水青山就是金山银山的理念，推动绿色发展，促进人与自然和谐共生。我们全面推进美丽中国建设，加快经济社会发展全面绿色转型，统筹推进山水林田湖草沙一体化保护和系统治理，协同推进降碳、减污、扩绿、增长，努力建设人与自然和谐共生的现代化。',ref:'China adheres to the philosophy that lucid waters and lush mountains are invaluable assets, promotes green development, and fosters harmonious coexistence between humanity and nature. We will advance the Beautiful China Initiative in all respects, accelerate the comprehensive green transition of economic and social development, pursue the integrated conservation and systematic governance of mountains, rivers, forests, farmlands, lakes, grasslands and deserts, and coordinate efforts to cut carbon emissions, reduce pollution, expand green coverage and pursue growth, so as to build a modernization characterized by harmony between humanity and nature.'},
+ {d:'ce',src:'中华文化源远流长、博大精深，是中华民族生生不息、发展壮大的丰厚滋养。我们要坚定文化自信，推动中华优秀传统文化创造性转化、创新性发展，不断铸就中华文化新辉煌，增强中华文明传播力影响力，讲好中国故事，展现可信、可爱、可敬的中国形象。',ref:'Chinese culture, with its long history and rich profundity, is a wealth of nourishment that sustains the Chinese nation\u2019s continuous growth and development. We should strengthen our cultural confidence, promote the creative transformation and innovative development of fine traditional Chinese culture, continually create new glories for Chinese culture, enhance the reach and influence of Chinese civilization, tell China\u2019s stories well, and present a China that is credible, appealing and respectable.'},
+ {d:'ec',src:'The Belt and Road Initiative, proposed by China, aims to promote connectivity and shared prosperity. Guided by the principles of extensive consultation, joint contribution and shared benefits, it has launched a large number of cooperation projects in trade, infrastructure, finance and people-to-people exchanges. By deepening economic cooperation and cultural mutual learning among countries, the initiative contributes to building an open, inclusive and interconnected world economy and a community with a shared future for mankind.',ref:'中国提出的“一带一路”倡议，旨在促进互联互通与共同繁荣。在共商共建共享原则指引下，该倡议已在贸易、基础设施、金融和人文交流等领域启动大量合作项目。通过深化各国间的经济合作与文明互鉴，这一倡议为构建开放、包容、互联互通的世界经济以及人类命运共同体作出了贡献。'},
+ {d:'ec',src:'High-quality development is the first and foremost task in building a modern socialist country in all respects. It means pursuing economic growth that is driven by innovation, coordinated, green, open and shared. We must accelerate the formation of a new development model, enhance the capacity for independent innovation, and strive to achieve greater breakthroughs in core technologies in key fields, so as to lay a solid material and technological foundation for Chinese modernization.',ref:'高质量发展是全面建设社会主义现代化国家的首要任务。它意味着推动创新驱动、协调、绿色、开放、共享的经济增长。我们必须加快形成新发展模式，提升自主创新能力，努力在关键核心技术上取得更大突破，为以中国式现代化全面推进中华民族伟大复兴夯实物质技术基础。'}
+,
+  {"d":"ce","src":"教育、科技、人才是全面建设社会主义现代化国家的基础性、战略性支撑。必须坚持科技是第一生产力、人才是第一资源、创新是第一动力，深入实施科教兴国战略、人才强国战略、创新驱动发展战略，开辟发展新领域新赛道，不断塑造发展新动能新优势。我们要办好人民满意的教育，全面贯彻党的教育方针，落实立德树人根本任务。","ref":"Education, science and technology, and human resources are the foundational and strategic pillars for building a modern socialist country in all respects. We must regard science and technology as the primary productive force, talent as the primary resource, and innovation as the primary driver. We should implement the strategies for invigorating China through science and education, developing a quality workforce, and driving development through innovation, so as to open up new areas and arenas in development and constantly foster new growth drivers and strengths. We must develop education that meets the people’s expectations, fully implement the Party’s educational policy, and fulfill the fundamental task of fostering virtue through education."},
+  {"d":"ce","src":"我们要推进高水平对外开放，稳步扩大规则、规制、管理、标准等制度型开放，营造市场化、法治化、国际化一流营商环境。推动共建“一带一路”高质量发展，维护多元稳定的国际经济格局和经贸关系。中国坚持对外开放的基本国策，坚定奉行互利共赢的开放战略，不断以中国新发展为世界提供新机遇。","ref":"We will promote high-level opening up, steadily expand institutional opening up with regard to rules, regulations, management and standards, and foster a world-class business environment that is market-oriented, law-based and internationalized. We will promote the high-quality development of the Belt and Road Initiative, and safeguard a diversified and stable international economic landscape and trade relations. China remains committed to its fundamental national policy of opening up, firmly pursues a mutually beneficial strategy of opening up, and keeps generating new opportunities for the world with its own development."},
+  {"d":"ce","src":"发展全过程人民民主，保障人民当家作主。全过程人民民主是社会主义民主政治的本质属性，是最广泛、最真实、最管用的民主。我们必须坚定不移走中国特色社会主义政治发展道路，坚持党的领导、人民当家作主、依法治国有机统一，充分体现人民意志、保障人民权益、激发人民创造活力。","ref":"We must develop whole-process people’s democracy and ensure that the people run the country. Whole-process people’s democracy is the defining feature of socialist democracy; it is democracy in its broadest, most genuine, and most effective form. We must firmly follow the path of socialist political advancement with Chinese characteristics, uphold the unity of Party leadership, the running of the country by the people, and law-based governance, and fully reflect the people’s will, protect their rights and interests, and stimulate their creativity."},
+  {"d":"ce","src":"青年强，则国家强。当代中国青年生逢其时，施展才干的舞台无比广阔，实现梦想的前景无比光明。全党要把青年工作作为战略性工作来抓，用党的科学理论武装青年，用党的初心使命感召青年，做青年朋友的知心人、青年工作的热心人、青年群众的引路人。","ref":"A nation will prosper only when its young people thrive. Today’s Chinese youth are fortunate to live in a time where they have boundless opportunities to fulfill their potential, and the prospects for realizing their dreams are brighter than ever. The whole Party must regard the work concerning young people as a strategic task, equip them with the Party’s scientific theories, and inspire them with the Party’s original aspiration and founding mission, so as to be their confidants, advocates, and guides."},
+  {"d":"ec","src":"China’s modernization is the modernization of a huge population. So far, no country with a population of more than 1.4 billion has ever achieved modernization. This unprecedented feat, once accomplished, will completely reshape the world’s modernization landscape and have a profound impact on human progress. We must always act in light of our specific national conditions and never blindly copy the models of other countries.","ref":"中国式现代化是人口规模巨大的现代化。迄今为止，还没有一个人口超过14亿的国家实现现代化。这一前所未有的壮举一旦完成，将彻底重塑世界的现代化格局，并对人类进步产生深远影响。我们必须始终从自身具体国情出发，决不可盲目照搬别国模式。"},
+  {"d":"ec","src":"The Chinese nation has achieved a tremendous transformation: it has stood up, grown rich, and is becoming strong. Behind this transformation lies the unyielding spirit of self-reliance and hard work of the Chinese people. Looking ahead, we must stay confident in our path, theory and system, and foster a powerful spirit of unity, struggle and enterprising in the whole society.","ref":"中华民族实现了伟大飞跃：站起来、富起来、强起来。这一转变的背后，是中华民族自力更生、艰苦奋斗的不屈精神。展望未来，我们必须坚定道路自信、理论自信、制度自信，在全社会凝聚起团结、奋斗、进取的强大精神力量。"},
+  {"d":"ec","src":"Green development is a prerequisite for high-quality development. We must pursue a model of sound development that ensures high production and high incomes while keeping resource consumption and environmental costs low. We should accelerate the comprehensive green transformation of economic and social development, and promote the building of a beautiful China.","ref":"绿色发展是高质量发展的前提。我们必须走生产发展、生活富裕、生态良好的文明发展道路，加快经济社会发展全面绿色转型，推进美丽中国建设。"},
+  {"d":"ec","src":"Innovation is the primary driving force for development. We should make scientific and technological self-reliance and strength a strategic pillar for national development, concentrate resources on original and pioneering scientific and technological research, and strive to achieve greater breakthroughs in core technologies in key fields.","ref":"创新是引领发展的第一动力。我们要把科技自立自强作为国家发展的战略支撑，集中力量开展原创性、引领性科技攻关，努力在关键核心技术上取得更大突破。"},
+  {"d":"ec","src":"The Global Development Initiative calls on all countries to put development first, keep pace with the times, and build a global community of development with a shared future. It aims to re-energize international cooperation on development, and promote more balanced, coordinated and inclusive global development.","ref":"全球发展倡议呼吁各国把发展置于首位，与时俱进，构建全球发展命运共同体。其目标是重新激活国际发展合作，推动更加平衡、协调、包容的全球发展。"}];
+// ================= 应用逻辑 =================
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return document.querySelectorAll(s)};
+var LS='gcprep_pc_v1';
+var S={};
+function load(){var raw=null;try{raw=localStorage.getItem(LS)}catch(e){}
+ try{S=raw?JSON.parse(raw):null}catch(e){S=null}
+ if(!S){S={target:'2026-10-11',terms:{},phrases:{},sentences:{},quiz:{total:0,right:0},wrong:[],tasks:{date:'',done:[]},custom:[],mocks:[],prov:{termAttempts:0,termTransPass:0,termExpPass:0}}}}
+function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function fmt2(n){return n<10?'0'+n:''+n}
+function fmtTime(s){s=Math.max(0,Math.floor(s));return fmt2(Math.floor(s/60))+':'+fmt2(s%60)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var toastT;
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show')},1800)}
+function openDlg(html){$('#dlg').innerHTML=html;$('#mask').classList.add('show')}
+function closeDlg(){$('#mask').classList.remove('show')}
+$('#mask').addEventListener('click',function(e){if(e.target.id==='mask')closeDlg()});
+
+// ---- 倒计时 ----
+function updCountdown(){
+ var d=new Date(S.target+'T00:00:00');var now=new Date();
+ var diff=d-now;var days=Math.max(0,Math.ceil(diff/86400000));
+ var h=Math.max(0,Math.floor((diff%86400000)/3600000));
+ $('#cdBig').innerHTML=days+'<em>天</em><span>'+h+'h</span>';
+ $('#tgInput').value=S.target;
+}
+function setTarget(){var v=$('#tgInput').value;if(v){S.target=v;save();updCountdown();toast('考试日期已更新')}}
+
+// ---- 数据聚合 ----
+function allTerms(){return TERMS.map(function(t,i){return {id:'t'+i,c:t.c,cn:t.cn,en:t.en,note:t.note}}).concat(S.custom.map(function(t){return {id:'c'+t.id,c:'自定义',cn:t.cn,en:t.en,note:t.note||''}}))}
+function totalCount(){return allTerms().length+PHRASES.length+SENTENCES.length}
+function masteredCount(){var n=0;
+ allTerms().forEach(function(t){if(S.terms[t.id]&&S.terms[t.id].st==='m')n++});
+ PHRASES.forEach(function(p,i){if(S.phrases['p'+i]&&S.phrases['p'+i].st==='m')n++});
+ SENTENCES.forEach(function(s,i){if(S.sentences['s'+i]&&S.sentences['s'+i].st==='m')n++});
+ return n}
+
+// ---- 总览 ----
+var HOT=[
+ ['术语官方译法是最大杠杆','校赛选词填空50分＋汉译英都用得上；省赛升级为"翻译＋阐释"'],
+ ['评分标准：内容60%+形式40%','笔译为专家人工评审，译文须忠实无错漏、通顺且语域一致；平实准确胜过堆砌长难句'],
+ ['汉译英：流水句整合','把中文流水句重构为逻辑清晰的英文句式，套用术语'],
+ ['英译汉：拆长难句','识别主干与修饰，断句、转序，避免"翻译腔"'],
+ ['完形先通读再填','注意备选词的词性与形态变化'],
+ ['答题节奏 25/15/40/40','120分钟100分，客观题控制在40分钟内'],
+ ['背时政高频文本','习近平谈治国理政四卷、二十大报告、白皮书、政府工作报告'],
+ ['省赛提前量：术语阐释','每天用自己的话解释2个术语，练"翻译＋阐释"']
+];
+var TASKS=[
+ {t:'过50张术语卡',d:'掌握/再练，重点官方译法'},
+ {t:'过20条词组卡',d:'固定搭配辨析'},
+ {t:'汉译英2句＋英译汉1句',d:'先译再看参考译文'},
+ {t:'刷1组客观题（10题）',d:'术语/完形/搭配'},
+ {t:'复盘错题本',d:'重做错题，直到掌握'}
+];
+function todayStr(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function modCard(name,total,done,color,detail){
+ var p=total?Math.round(done/total*100):0;var learn=total-done;
+ var d=detail||('已掌握 '+done+'/'+total+' · 学习中 '+learn);
+ return '<div class="mmod"><div class="n">'+name+'</div><div class="p">'+(total?p+'%':'—')+'</div><div class="d">'+d+'</div><div class="bar"><i style="width:'+p+'%;background:linear-gradient(90deg,'+color+','+color+');box-shadow:0 0 10px '+color+'"></i></div></div>';
+}
+function renderOverview(){
+ var tot=totalCount(),mas=masteredCount(),pct=tot?Math.round(mas/tot*100):0;
+ $('#stTotal').textContent=S.quiz.total;
+ var q=S.quiz;var acc=q.total?Math.round(q.right/q.total*100):0;
+ $('#stAcc').textContent=acc+'%';
+ $('#stWrong').textContent=S.wrong.length;
+ $('#mastV').textContent=pct+'%';$('#mastNum').textContent=pct+'%';
+ $('#mastBar').style.width=pct+'%';
+ $('#mastNote2').innerHTML=mas+' / '+tot;
+ $('#mastNote').textContent='整体掌握度 '+pct+'% · 共 '+tot+' 个知识点';
+ var at=allTerms(),mp=0;at.forEach(function(t){if(S.terms[t.id]&&S.terms[t.id].st==='m')mp++});
+ var pp=0;PHRASES.forEach(function(p,i){if(S.phrases['p'+i]&&S.phrases['p'+i].st==='m')pp++});
+ var sp=0;SENTENCES.forEach(function(s,i){if(S.sentences['s'+i]&&S.sentences['s'+i].st==='m')sp++});
+ $('#mmods').innerHTML=
+  modCard('术语库',at.length,mp,'#00e5ff')+
+  modCard('词组库',PHRASES.length,pp,'#30e89c')+
+  modCard('句子库',SENTENCES.length,sp,'#8b55f6')+
+  modCard('刷题',Math.max(q.total,1),q.right,'#f53d7a',q.total?('答对 '+q.right+'/'+q.total+' · 待复习 '+S.wrong.length):'暂未开刷 · 去刷一组');
+ if(S.tasks.date!==todayStr()){S.tasks={date:todayStr(),done:TASKS.map(function(){return false})};save()}
+ var doneN=S.tasks.done.filter(function(d){return d}).length;
+ $('#taskList').innerHTML='<div class="ht" style="align-items:center"><div class="num">'+doneN+'/'+TASKS.length+'</div><div class="tx">'+(doneN===TASKS.length?'今日任务全部完成':'今日任务进度')+'<small>点击任务勾选，自动按天重置</small></div></div>'+TASKS.map(function(t,i){
+  return '<div class="taskrow'+(S.tasks.done[i]?' done':'')+'" onclick="toggleTask('+i+')"><div class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></div><div class="tk">'+t.t+'<small>'+t.d+'</small></div></div>'}).join('');
+ $('#hotList').innerHTML=HOT.map(function(h,i){return '<div class="ht"><div class="num">'+(i+1)+'</div><div class="tx">'+h[0]+'<small>'+h[1]+'</small></div></div>'}).join('');
+ $('#wrongCnt').textContent=S.wrong.length+' 道待复习';
+}
+function toggleTask(i){S.tasks.done[i]=!S.tasks.done[i];save();renderOverview()}
+function resetTasks(){S.tasks.done=TASKS.map(function(){return false});save();renderOverview();toast('今日任务已重置')}
+
+// ---- 术语库 ----
+var termCat='all';
+function termCats(){var s=['all'];TERMS.forEach(function(t){if(s.indexOf(t.c)<0)s.push(t.c)});if(S.custom.length&&s.indexOf('自定义')<0)s.push('自定义');return s}
+function renderTermPills(){
+ $('#termPills').innerHTML=termCats().map(function(x){return '<div class="pill'+(termCat===x?' on':'')+'" onclick="setTermCat(\''+x+'\')">'+(x==='all'?'ALL':x)+'</div>'}).join('');
+}
+function setTermCat(c){termCat=c;renderTermPills();renderTerms()}
+function renderTerms(){
+ var q=($('#termSearch').value||'').toLowerCase().trim();
+ var list=allTerms().filter(function(t){return (termCat==='all'||t.c===termCat)&&(!q||t.cn.toLowerCase().indexOf(q)>=0||t.en.toLowerCase().indexOf(q)>=0)});
+ if(!list.length){$('#termList').innerHTML='<div class="empty">NO MATCH<br>没有匹配的术语，可添加自定义术语</div>';return}
+ if(termMode==='recall'){
+  $('#termList').innerHTML=list.map(function(t){
+   var st=S.terms[t.id]||{};
+   return '<div class="card"><div class="fc-cat">'+t.c+' · 默写产出 RECALL</div><div class="fc-cn">'+esc(t.cn)+'</div><input class="recall-in" placeholder="写出官方英文译法"><div class="btns"><button class="btn cyan outline sm" onclick="checkRecall(this,\''+t.id+'\')">对答案</button><button class="btn star'+(st.fav?' on':'')+'" onclick="favTerm(\''+t.id+'\')">'+(st.fav?'★':'☆')+'</button></div><div class="reveal"></div></div>';
+  }).join('');
+  return;
+ }
+ $('#termList').innerHTML=list.map(function(t){
+  var st=S.terms[t.id]||{};var mas=st.st==='m';
+  return '<div class="card" onclick="openCard(this)"><div class="fc-cat">'+t.c+' · 术语</div><div class="fc-cn">'+esc(t.cn)+'</div><div class="reveal"><div class="fc-en">'+esc(t.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markTerm(\''+t.id+'\')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favTerm(\''+t.id+'\')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
+}
+function openCard(el){el.classList.toggle('open')}
+function markTerm(id){S.terms[id]=S.terms[id]||{};S.terms[id].st=(S.terms[id].st==='m'?'l':'m');save();renderTerms();toast(S.terms[id].st==='m'?'已标记掌握':'已改为学习中')}
+function favTerm(id){S.terms[id]=S.terms[id]||{};S.terms[id].fav=S.terms[id].fav?0:1;save();renderTerms()}
+function openAddTerm(){openDlg('<div class="h">添加自定义术语<button class="x" onclick="closeDlg()">×</button></div><div class="frm"><label>中文术语</label><input id="aCn" placeholder="如：一带一路"><label>英文译法</label><input id="aEn" placeholder="the Belt and Road Initiative"><label>备注（选填）</label><textarea id="aNote" placeholder="记忆要点"></textarea><button class="btn cyan" style="width:100%;margin-top:14px" onclick="addTerm()">保存</button></div>')}
+function addTerm(){var cn=$('#aCn').value.trim(),en=$('#aEn').value.trim();if(!cn||!en){toast('请填写中文与英文');return}
+ S.custom.push({id:Date.now(),cn:cn,en:en,note:$('#aNote').value.trim()});save();closeDlg();toast('已添加');renderTermPills();renderTerms()}
+
+// ---- 词组库 ----
+var phraseCat='all';
+function phraseCats(){var s=['all'];PHRASES.forEach(function(p){if(s.indexOf(p.c)<0)s.push(p.c)});return s}
+function renderPhrasePills(){
+ $('#phrasePills').innerHTML=phraseCats().map(function(x){return '<div class="pill'+(phraseCat===x?' on':'')+'" onclick="setPhraseCat(\''+x+'\')">'+(x==='all'?'ALL':x)+'</div>'}).join('');
+}
+function setPhraseCat(c){phraseCat=c;renderPhrasePills();renderPhrases()}
+function renderPhrases(){
+ var q=($('#phraseSearch').value||'').toLowerCase().trim();
+ var list=PHRASES.filter(function(p){return (phraseCat==='all'||p.c===phraseCat)&&(!q||p.cn.toLowerCase().indexOf(q)>=0||p.en.toLowerCase().indexOf(q)>=0)});
+ if(!list.length){$('#phraseList').innerHTML='<div class="empty">NO MATCH<br>没有匹配的词组</div>';return}
+ $('#phraseList').innerHTML=list.map(function(p,i){
+  var id='p'+i;var st=S.phrases[id]||{};var mas=st.st==='m';
+  return '<div class="card" onclick="openCard(this)"><div class="fc-cat">'+p.c+' · 词组</div><div class="fc-cn">'+esc(p.cn)+'</div><div class="reveal"><div class="fc-en">'+esc(p.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(p.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markPhrase(\''+id+'\')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favPhrase(\''+id+'\')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
+}
+function markPhrase(id){S.phrases[id]=S.phrases[id]||{};S.phrases[id].st=(S.phrases[id].st==='m'?'l':'m');save();renderPhrases();toast(S.phrases[id].st==='m'?'已标记掌握':'已改为学习中')}
+function favPhrase(id){S.phrases[id]=S.phrases[id]||{};S.phrases[id].fav=S.phrases[id].fav?0:1;save();renderPhrases()}
+// ---- 句子翻译 ----
+var senMode='ce';
+function setSenMode(m){senMode=m;$$('#senModes .mode').forEach(function(el){el.classList.toggle('on',el.dataset.d===m)});renderSens()}
+function renderSens(){
+ var list=SENTENCES.filter(function(s){return senMode==='all'||s.d===senMode});
+ if(!list.length){$('#senList').innerHTML='<div class="empty">NO DATA</div>';return}
+ $('#senList').innerHTML=list.map(function(s,i){
+  var id='s'+i;var st=S.sentences[id]||{};var mas=st.st==='m';
+  var dir=s.d==='ce'?'汉译英 C-E':'英译汉 E-C';
+  return '<div class="card" onclick="openSen('+i+')"><div class="fc-cat">'+dir+' · 句子翻译</div><div class="fc-cn">'+esc(s.src)+'</div><div class="reveal"><div class="fc-en">'+esc(s.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(s.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markSen('+i+')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favSen('+i+')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
+}
+function openSen(i){var cards=$$('#senList .card');if(cards[i])cards[i].classList.toggle('open')}
+function markSen(i){var id='s'+i;S.sentences[id]=S.sentences[id]||{};S.sentences[id].st=(S.sentences[id].st==='m'?'l':'m');
+ if(S.sentences[id].st==='m'){S.wrong=S.wrong.filter(function(w){return !(w.k==='sen'&&w.id===i)});}
+ save();renderSens();toast(S.sentences[id].st==='m'?'已标记掌握，移出错题本':'已改为学习中')}
+function favSen(i){var id='s'+i;S.sentences[id]=S.sentences[id]||{};S.sentences[id].fav=S.sentences[id].fav?0:1;save();renderSens()}
+
+// ---- 刷题 ----
+var quizState={bank:'mix',count:10,list:[],i:0,right:0,rec:[]};
+function quizPool(b){
+ if(b==='term')return QTERM.map(function(x){return {k:'qterm',q:x}});
+ if(b==='cloze')return QCLOZE.map(function(x){return {k:'qcloze',q:x}});
+ if(b==='colloc')return QCOLLOC.map(function(x){return {k:'qcolloc',q:x}});
+ return QTERM.map(function(x){return {k:'qterm',q:x}}).concat(QCLOZE.map(function(x){return {k:'qcloze',q:x}})).concat(QCOLLOC.map(function(x){return {k:'qcolloc',q:x}}));
+}
+function setQuizBank(b){quizState.bank=b;$$('#quizPills .pill').forEach(function(el){el.classList.toggle('on',el.dataset.b===b)})}
+function setQuizCount(c){quizState.count=c;$$('#countPills .pill').forEach(function(el){el.classList.toggle('on',+el.dataset.c===c)})}
+function qLabel(k){return {qterm:'术语选择',qcloze:'完形填空',qcolloc:'搭配选择',sen:'句子翻译',recall:'默写产出'}[k]||'题目'}
+function startQuiz(){
+ var pool=quizPool(quizState.bank);
+ quizState.list=shuffle(pool).slice(0,Math.min(quizState.count,pool.length));
+ quizState.i=0;quizState.right=0;quizState.rec=[];
+ $('#quizHome').style.display='none';$('#quizRes').style.display='none';$('#quizRun').style.display='block';
+ renderQuizQ();
+}
+function renderQuizQ(){
+ var st=quizState;
+ if(st.i>=st.list.length){showQuizRes();return}
+ var it=st.list[st.i],q=it.q;
+ $('#quizRun').innerHTML='<div class="qcard"><div class="qmeta"><span>'+qLabel(it.k)+'</span><span class="idx">'+(st.i+1)+' / '+st.list.length+'</span></div><div class="qtext">'+esc(q.q)+'</div><div class="opts" id="qOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="pick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="qFb"></div></div>';
+}
+function pick(oi){
+ var st=quizState,it=st.list[st.i],q=it.q;
+ var opts=$$('#qOpts .opt'),fb=$('#qFb');
+ var isR=oi===q.a;
+ if(isR)st.right++;
+ else{S.wrong.push({k:it.k,id:-1,q:q.q,ua:q.o[oi],ca:q.o[q.a],ts:Date.now()});save()}
+ S.quiz.total++;if(isR)S.quiz.right++;save();
+ st.rec.push({k:it.k,q:q,oi:oi,isR:isR});
+ for(var i=0;i<opts.length;i++){opts[i].classList.add('dim');if(i===q.a)opts[i].classList.add('right');if(i===oi&&!isR)opts[i].classList.add('wrong')}
+ fb.className='fb show '+(isR?'right':'wrong');
+ fb.innerHTML=(isR?'回答正确':'回答错误，已加入错题本')+'<br><b>'+esc(q.o[q.a])+'</b><br><span style="color:#45657d">'+esc(q.n)+'</span>';
+ setTimeout(function(){st.i++;renderQuizQ()},1400);
+}
+function showQuizRes(){
+ var st=quizState;var acc=st.list.length?Math.round(st.right/st.list.length*100):0;
+ $('#quizRun').style.display='none';$('#quizRes').style.display='block';
+ // 逐题回顾：题干 + 四个选项 + 对错标注 + 解析
+ var review='';
+ for(var ri=0;ri<st.rec.length;ri++){
+  var r=st.rec[ri],q=r.q;
+  var optsHtml=q.o.map(function(o,oi){
+   var cls='opt';
+   if(oi===q.a)cls+=' right';            // 正确答案
+   else if(oi===r.oi)cls+=' wrong';      // 用户错选
+   else cls+=' dim';
+   return '<div class="'+cls+'"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>';
+  }).join('');
+  review+='<div class="qcard" style="margin-top:12px;text-align:left"><div class="qmeta"><span>'+qLabel(r.k)+'</span><span class="idx">'+(r.isR?'✓ 答对':'✗ 答错')+'</span></div><div class="qtext" style="margin-bottom:12px;font-size:14px">'+(ri+1)+'. '+esc(q.q)+'</div><div class="opts">'+optsHtml+'</div><div class="fb show '+(r.isR?'right':'wrong')+'" style="margin-top:10px">'+(r.isR?'回答正确':'回答错误')+'<br><b>'+esc(q.o[q.a])+'</b><br><span style="color:#45657d">'+esc(q.n||'')+'</span></div></div>';
+ }
+ $('#quizRes').innerHTML='<div class="result"><div class="lab" style="font-size:11px;color:#45657d;font-family:Consolas,monospace;letter-spacing:2px">本次练习完成 RESULT</div><div class="rbig'+(acc<60?' red':'')+'">'+acc+'%</div><div class="rrow"><span>答对<b>'+st.right+'</b></span><span>总题<b>'+st.list.length+'</b></span><span>错题<b>'+Math.max(0,st.list.length-st.right)+'</b></span></div><div style="display:flex;gap:9px;margin-top:16px"><button class="btn ghost" onclick="backQuizHome()">返回</button><button class="btn cyan" onclick="startQuiz()">再练一组</button></div></div>'+(review?'<div class="sec-h" style="margin-top:20px"><span class="t" style="font-size:12px"><em>//</em> 本次作答回顾 REVIEW</span></div>'+review:'');
+}
+function backQuizHome(){$('#quizHome').style.display='block';$('#quizRun').style.display='none';$('#quizRes').style.display='none'}
+
+// ---- 模考 ----
+var mockState={items:[],i:0,right:0,left:7200,timer:null,marks:0};
+function startMock(){
+ var objs=shuffle(QTERM).slice(0,6).map(function(x){return {k:'qterm',q:x}})
+  .concat(shuffle(QCLOZE).slice(0,4).map(function(x){return {k:'qcloze',q:x}}))
+  .concat(shuffle(QCOLLOC).slice(0,2).map(function(x){return {k:'qcolloc',q:x}}));
+ var tr=shuffle(SENTENCES.map(function(s,i){return {s:s,i:i}}).filter(function(x){return x.s.d==='ec'})).slice(0,2).map(function(x){return {k:'sen',q:x.s,id:x.i}})
+  .concat(shuffle(SENTENCES.map(function(s,i){return {s:s,i:i}}).filter(function(x){return x.s.d==='ce'})).slice(0,2).map(function(x){return {k:'sen',q:x.s,id:x.i}}));
+ mockState.items=objs.concat(tr);
+ mockState.i=0;mockState.right=0;mockState.marks=0;mockState.left=7200;mockState.started=Date.now();
+ $('#mockHome').style.display='none';$('#mockRes').style.display='none';$('#mockRun').style.display='block';
+ clearInterval(mockState.timer);
+ mockState.timer=setInterval(function(){
+  mockState.left--;
+  var el=$('#mockTimer');
+  if(el){el.textContent=fmtTime(mockState.left);if(mockState.left<=600)el.classList.add('warn')}
+  if(mockState.left<=0)finishMock(true);
+ },1000);
+ renderMockQ();
+}
+function renderMockQ(){
+ var st=mockState;
+ if(st.i>=st.items.length){finishMock(false);return}
+ var it=st.items[st.i];
+ var label=it.k==='sen'?('翻译题 '+(st.i-11)+' / 4'):('客观题 '+(st.i+1)+' / 12');
+ $('#mockRun').innerHTML='<div class="timer" id="mockTimer">'+fmtTime(st.left)+'</div>'+
+  '<div class="qcard"><div class="qmeta"><span>'+label+'</span><span class="idx">'+qLabel(it.k)+'</span></div>';
+ if(it.k==='sen'){
+  var dir=it.q.d==='ce'?'汉译英':'英译汉';
+  $('#mockRun').innerHTML+='<div class="qtext">'+esc(it.q.src)+'</div><div class="reveal" id="mSenR" style="display:none"><div class="fc-en">'+esc(it.q.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(it.q.note)+'</div></div><button class="btn ghost sm" style="width:100%;margin-top:10px" onclick="showMockSen()">查看参考译文</button><div class="btns"><button class="btn ok" onclick="mockMark(1)">译对了</button><button class="btn no" onclick="mockMark(0)">译错了</button></div></div>';
+ }else{
+  var q=it.q;
+  $('#mockRun').innerHTML+='<div class="qtext">'+esc(q.q)+'</div><div class="opts" id="mOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="mockPick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="mFb"></div></div>';
+ }
+}
+function showMockSen(){var el=$('#mSenR');if(el){el.style.display=el.style.display==='none'?'block':'none'}}
+function mockPick(oi){
+ var st=mockState,it=st.items[st.i],q=it.q;
+ var opts=$$('#mOpts .opt'),fb=$('#mFb');
+ var isR=oi===q.a;
+ if(isR)st.right++;
+ else{S.wrong.push({k:it.k,id:-1,q:q.q,ua:q.o[oi],ca:q.o[q.a],ts:Date.now()});save()}
+ for(var i=0;i<opts.length;i++){opts[i].classList.add('dim');if(i===q.a)opts[i].classList.add('right');if(i===oi&&!isR)opts[i].classList.add('wrong')}
+ fb.className='fb show '+(isR?'right':'wrong');
+ fb.innerHTML=(isR?'回答正确':'回答错误，已加入错题本')+'<br><b>'+esc(q.o[q.a])+'</b>';
+ setTimeout(function(){st.i++;renderMockQ()},1100);
+}
+function mockMark(ok){
+ var st=mockState,it=st.items[st.i];
+ if(ok)st.marks++;
+ else S.wrong.push({k:'sen',id:it.id,q:it.q.src,ua:'自评未通过',ca:it.q.ref,ts:Date.now()});
+ save();st.i++;renderMockQ();
+}
+function finishMock(force){
+ clearInterval(mockState.timer);
+ var st=mockState;var used=Math.round((Date.now()-st.started)/1000)||0;
+ var objAcc=Math.round(st.right/12*100);
+ S.mocks.push({ts:Date.now(),obj:st.right+'/12',acc:objAcc,marks:st.marks,used:used});
+ save();
+ $('#mockRun').style.display='none';$('#mockRes').style.display='block';
+ $('#mockRes').innerHTML='<div class="result"><div class="lab" style="font-size:11px;color:#45657d;font-family:Consolas,monospace;letter-spacing:2px">'+(force?'时间到 · 模考结束':'模考完成 MOCK RESULT')+'</div><div class="rbig'+(objAcc<60?' red':'')+'">'+objAcc+'%</div><div style="font-size:12px;color:#45657d">客观题正确率（'+st.right+'/12）</div><div class="rrow"><span>翻译通过<b>'+st.marks+'/4</b></span><span>用时<b>'+fmtTime(used)+'</b></span></div><div style="display:flex;gap:9px;margin-top:16px"><button class="btn ghost" onclick="backMockHome()">返回</button><button class="btn cyan" onclick="startMock()">再考一次</button></div></div>';
+ renderMockLog();
+}
+function backMockHome(){clearInterval(mockState.timer);$('#mockHome').style.display='block';$('#mockRun').style.display='none';$('#mockRes').style.display='none';renderMockLog()}
+function renderMockLog(){
+ var m=S.mocks.slice(-6).reverse();
+ $('#mockLog').innerHTML=m.length?('<div class="sec-h"><span class="t" style="font-size:12px"><em>//</em> 模考记录</span></div>'+m.map(function(x){
+  var d=new Date(x.ts);
+  return '<div class="ht"><div class="num" style="background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.35)">'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2)+'</div><div class="tx">客观题正确率 '+x.acc+'%<small>翻译通过 '+x.marks+'/4 · 用时 '+fmtTime(x.used)+'</small></div></div>'}).join(''))
+  :'<div class="empty" style="padding:16px 0">NO LOG<br>暂无模考记录</div>';
+}
+
+// ---- 错题本 ----
+function renderWrong(){
+ $('#wrongCnt').textContent=S.wrong.length+' 道待复习';
+ if(!S.wrong.length){$('#wrongList').innerHTML='<div class="empty">NO ERRORS<br>暂无错题，刷题或模考中的错题会自动收录</div>';return}
+ $('#wrongList').innerHTML=S.wrong.map(function(x,i){
+  return '<div class="witem"><div class="wq">['+qLabel(x.k)+'] '+esc(x.q)+'</div><div class="wa">你的答案：'+esc(x.ua)+'</div><div class="wc">正确答案：'+esc(x.ca)+'</div><div class="wb"><button class="r" onclick="retryWrong('+i+')">重新作答</button><button class="d" onclick="dropWrong('+i+')">移出</button></div></div>'}).join('');
+}
+function retryWrong(i){
+ var x=S.wrong[i];
+ if(x.k==='sen'||x.k==='recall'){
+  openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(x.q)+'</div><div class="fc-en">'+esc(x.ca)+'</div><div class="btns"><button class="btn ok" onclick="dropWrong('+i+');closeDlg();toast(\'已移出错题本\')">掌握了</button><button class="btn ghost" onclick="closeDlg()">再想想</button></div>');
+  return;
+ }
+ var bank=x.k==='qterm'?QTERM:(x.k==='qcloze'?QCLOZE:QCOLLOC);
+ var q=null;for(var j=0;j<bank.length;j++){if(bank[j].q===x.q){q=bank[j];break}}
+ if(!q){openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(x.q)+'</div><div class="fc-en">'+esc(x.ca)+'</div><div class="btns"><button class="btn ok" onclick="dropWrong('+i+');closeDlg();toast(\'已移出错题本\')">掌握了</button><button class="btn ghost" onclick="closeDlg()">再想想</button></div>');return}
+ openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(q.q)+'</div><div class="opts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="retryPick('+i+','+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div>');
+}
+function retryPick(wi,oi){
+ var x=S.wrong[wi];
+ var bank=x.k==='qterm'?QTERM:(x.k==='qcloze'?QCLOZE:QCOLLOC);
+ var q=null;for(var j=0;j<bank.length;j++){if(bank[j].q===x.q){q=bank[j];break}}
+ if(!q)return;
+ if(oi===q.a){S.wrong.splice(wi,1);save();closeDlg();renderWrong();toast('答对了，已移出错题本')}
+ else toast('再想想，正确答案是：'+q.o[q.a]);
+}
+function dropWrong(i){S.wrong.splice(i,1);save();renderWrong()}
+function clearWrong(){if(!S.wrong.length)return;S.wrong=[];save();renderWrong();toast('错题本已清空')}
+
+// ---- 导航 ----
+var VIEWS=['overview','terms','phrases','sentences','prov','quiz','mock','wrong'];
+function go(v){
+ VIEWS.forEach(function(x){var el=$('#view-'+x);if(el)el.classList.toggle('on',x===v)});
+ $$('#nav a').forEach(function(a){a.classList.toggle('on',a.dataset.v===v)});
+ window.scrollTo(0,0);
+ if(v!=='mock')clearInterval(mockState.timer);
+ if(v!=='prov')clearInterval(provTimer.iv);
+ if(v==='overview')renderOverview();
+ if(v==='terms'){renderTermPills();renderTerms()}
+ if(v==='phrases'){renderPhrasePills();renderPhrases()}
+ if(v==='sentences')renderSens();
+ if(v==='prov')renderProv();
+ if(v==='wrong')renderWrong();
+ if(v==='mock')renderMockLog();
+}
+
+// ================= 省赛专项 + 术语默写产出 =================
+var termMode='browse';
+function setTermMode(m){termMode=m;$$('#termSeg .seg-i').forEach(function(el){el.classList.toggle('on',(m==='browse'&&el.textContent.indexOf('浏览')>=0)||(m==='recall'&&el.textContent.indexOf('默写')>=0))});renderTerms()}
+function termById(id){var a=allTerms();for(var i=0;i<a.length;i++)if(a[i].id===id)return a[i];return {en:'',note:''}}
+function checkRecall(btn,id){
+ var card=btn.closest('.card');var rev=card.querySelector('.reveal');
+ var t=termById(id);
+ rev.innerHTML='<div class="fc-en">'+esc(t.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div><div class="btns"><button class="btn ok" onclick="recallResult(\''+id+'\',1)">写对了</button><button class="btn no" onclick="recallResult(\''+id+'\',0)">没写对</button></div>';
+ rev.style.display='block';btn.style.display='none';
+}
+function recallResult(id,ok){
+ if(ok){S.terms[id]=S.terms[id]||{};S.terms[id].st='m';save();renderTerms();toast('已标记掌握');return}
+ S.wrong.push({k:'recall',id:id,q:termById(id).cn,ua:'默写未通过',ca:termById(id).en,ts:Date.now()});save();renderTerms();toast('已加入错题本，多背几遍');
+}
+
+// 省赛：术语翻译+阐释
+var provMode='term',provTermQ=[],provTermIdx=null;
+var provTimer={sec:0,iv:null};
+var provTermStarted=false,provPgIdx=null,provPgTimers={};
+function provInit(){if(!S.prov)S.prov={};var p=S.prov;if(typeof p.termAttempts!=='number')p.termAttempts=0;if(typeof p.termTransPass!=='number')p.termTransPass=0;if(typeof p.termExpPass!=='number')p.termExpPass=0;if(typeof p.passageAttempts!=='number')p.passageAttempts=0;if(typeof p.passagePass!=='number')p.passagePass=0;if(typeof p.passageScore!=='number')p.passageScore=0;return p}
+function setProv(m){provMode=m;$$('#provSeg .seg-i').forEach(function(el){el.classList.toggle('on',(m==='term'&&el.textContent.indexOf('术语')>=0)||(m==='passage'&&el.textContent.indexOf('长篇')>=0))});$('#provTerm').style.display=m==='term'?'block':'none';$('#provPassage').style.display=m==='passage'?'block':'none';if(m==='term')renderProvTerm();else renderProvPassage();updateProvStat()}
+function renderProv(){
+ provInit();
+ if(provMode==='term'){$('#provTerm').style.display='block';$('#provPassage').style.display='none';renderProvTerm()}
+ else{$('#provTerm').style.display='none';$('#provPassage').style.display='block';renderProvPassage()}
+ updateProvStat();
+}
+function updateProvStat(){
+ var p=provInit();
+ var tr=p.termAttempts?Math.round(p.termTransPass/p.termAttempts*100):0;
+ var er=p.termAttempts?Math.round(p.termExpPass/p.termAttempts*100):0;
+ var pr=p.passageAttempts?Math.round(p.passageScore/p.passageAttempts):0;
+ $('#provStat').textContent='术语：翻译 '+tr+'% · 阐释 '+er+'% ｜ 长篇互译：正确率 '+pr+'%（通过 '+p.passagePass+'/'+p.passageAttempts+' 篇）';
+}
+// 术语子模块：开始按钮 → 出题
+function renderProvTerm(){
+ provInit();
+ if(!provTermStarted){$('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">术语翻译+阐释 · 赛前自测</div><div class="fc-cn" style="font-size:16px;font-weight:800">随机抽取术语，写出英文译文并用英语阐释</div><div class="fc-note" style="margin:8px 0 4px">对照参考译文后自评「翻译/阐释 对/错」，统计正确率。共 '+TERMS.length+' 个术语，每轮打乱顺序。</div><div class="btns"><button class="btn cyan" onclick="startProvTerm()">开始术语自测</button></div></div>';return}
+ if(!provTermQ.length)provTermQ=shuffle(TERMS.map(function(t,i){return i}));
+ var idx=provTermQ.pop();
+ if(idx===undefined){provTermIdx=null;$('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">本轮完成</div><div class="fc-cn" style="font-size:15px">本轮术语已练完，下次进入自动重置</div><div class="btns"><button class="btn cyan outline" onclick="provTermReset()">再来一轮</button></div></div>';return}
+ provTermIdx=idx;var t=TERMS[idx];
+ $('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">'+t.c+' · 术语翻译+阐释</div><div class="fc-cn" style="font-size:17px;font-weight:800">'+esc(t.cn)+'</div><div class="fc-note" style="margin:8px 0 4px">写出英文译文，并用英语简要阐释（2–3句，说明内涵/背景）</div><textarea class="pt-area" id="ptEn" placeholder="英文译文"></textarea><textarea class="pt-area" id="ptExp" placeholder="英文阐释"></textarea><div class="btns"><button class="btn cyan" onclick="provTermReveal()">对答案</button></div><div class="reveal" id="ptReveal" style="display:none"></div></div>';
+}
+function startProvTerm(){provTermStarted=true;provTermQ=[];provTermIdx=null;renderProvTerm()}
+function provTermReset(){provTermQ=[];provTermIdx=null;renderProvTerm()}
+function provTermReveal(){
+ if(provTermIdx===null)return;var t=TERMS[provTermIdx];
+ $('#ptReveal').style.display='block';
+ $('#ptReveal').innerHTML='<div class="fc-en">'+esc(t.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div><div class="grade-btns"><span style="font-size:12px;color:#45657d;align-self:center">翻译</span><button class="gbtn ok" onclick="provGrade(\'trans\',1)">对</button><button class="gbtn no" onclick="provGrade(\'trans\',0)">错</button><span style="font-size:12px;color:#45657d;align-self:center;margin-left:8px">阐释</span><button class="gbtn ok" onclick="provGrade(\'exp\',1)">对</button><button class="gbtn no" onclick="provGrade(\'exp\',0)">错</button><button class="btn cyan outline sm" style="flex:0 0 auto;padding:0 16px" onclick="renderProvTerm()">下一题</button></div>';
+}
+function provGrade(type,ok){
+ var p=provInit();
+ p.termAttempts++;if(type==='trans'&&ok)p.termTransPass++;if(type==='exp'&&ok)p.termExpPass++;save();updateProvStat();
+}
+// 长篇互译：开始按钮 → 输入框 → 提交 → 正确率
+function renderProvPassage(){
+ $('#provPassage').innerHTML=PROV_PASSAGES.map(function(p,i){
+  var dir=p.d==='ce'?'汉译英 C-E（建议限时 50 分钟）':'英译汉 E-C（建议限时 50 分钟）';
+  var state=provPgTimers[i]?provPgTimers[i].state:'idle'; // idle | typing | done
+  var body='';
+  if(state==='typing'){
+   body+='<textarea class="pt-area" id="ptg-'+i+'" placeholder="在此输入你的译文…" style="min-height:180px"></textarea>';
+   body+='<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="submitProvPg('+i+')">提交译文</button><button class="btn ghost" onclick="toggleProvRef('+i+')">显示参考译文</button></div>';
+   body+='<div class="ref" id="pref-'+i+'" style="display:none">'+esc(p.ref)+'</div>';
+  }
+  return '<div class="prov-card"><div class="fc-cat">'+dir+'</div><div class="src">'+esc(p.src)+'</div>'+
+   (state==='done'?provPgResultHTML(i):'')+
+   (state==='idle'?'<div class="btns"><button class="btn cyan" onclick="startProvPg('+i+')">开始翻译</button><button class="btn ghost" onclick="toggleProvRef('+i+')">显示参考译文</button></div><div class="ref" id="pref-'+i+'" style="display:none">'+esc(p.ref)+'</div>':'')+
+   body+'</div>';
+ }).join('');
+}
+function startProvPg(i){
+ provInit();
+ provPgTimers[i]=provPgTimers[i]||{};provPgTimers[i].state='typing';
+ renderProvPassage();
+ var el=$('#ptg-'+i);if(el){el.focus();el.scrollIntoView({behavior:'smooth',block:'center'})}
+}
+function submitProvPg(i){
+ var p=PROV_PASSAGES[i];var el=$('#ptg-'+i);if(!el||!el.value.trim()){toast('先写下你的译文再提交');return}
+ var user=el.value.trim();
+ var score=transSim(user,p.ref,p.d);
+ provPgTimers[i]=provPgTimers[i]||{};provPgTimers[i].state='done';provPgTimers[i].user=user;provPgTimers[i].score=score;
+ var sp=provInit();
+ sp.passageAttempts++;sp.passageScore+=score;if(score>=60)sp.passagePass++;save();updateProvStat();
+ renderProvPassage();
+ toast('翻译正确率 '+score+'%');
+}
+function provPgResultHTML(i){
+ var s=provPgTimers[i];var p=PROV_PASSAGES[i];
+ var grade=s.score>=85?'优秀':s.score>=70?'良好':s.score>=60?'及格':'需加强';
+ var color=s.score>=85?'var(--grn)':s.score>=70?'var(--cy)':s.score>=60?'#ffd166':'var(--pink)';
+ return '<div class="pg-res"><div class="pg-score"><span class="n" style="color:'+color+'">'+s.score+'%</span><span class="g" style="color:'+color+'">'+grade+'</span></div>'+
+  '<div class="pg-pair"><div class="pg-lb">你的译文</div><div class="pg-user">'+esc(s.user)+'</div></div>'+
+  '<div class="pg-pair"><div class="pg-lb">参考译文</div><div class="pg-ref">'+esc(p.ref)+'</div></div>'+
+  '<div class="btns"><button class="btn ghost" onclick="retryProvPg('+i+')">重译一篇</button></div></div>';
+}
+function retryProvPg(i){provPgTimers[i].state='typing';provPgTimers[i].score=null;renderProvPassage();var el=$('#ptg-'+i);if(el)el.focus()}
+// 翻译正确率：词元/二元组重合度（0-100）
+function transSim(user,ref,dir){
+ var uk=tokenize(user,dir),rk=tokenize(ref,dir);
+ if(!rk.length)return 0;
+ var rs={};rk.forEach(function(w){rs[w]=1});
+ var hit=0;uk.forEach(function(w){if(rs[w])hit++});
+ // 覆盖率：用户译文中命中参考译文的词元占比（近似准确率）
+ var cov=hit/rk.length*100;
+ // 长度惩罚：用户译文过短时按比例折算
+ var lr=Math.min(1,uk.length/rk.length*1.1);
+ return Math.max(0,Math.min(100,Math.round(cov*(0.7+0.3*lr))));
+}
+function tokenize(t,dir){
+ var s=t.toLowerCase();
+ if(dir==='ce'){ // 目标为英文：按单词切分
+  return s.replace(/[^a-z0-9\u00c0-\u024f']/g,' ').split(/\s+/).filter(function(w){return w&&w.length>1});
+ }else{ // 目标为中文：按连续汉字二元组切分
+  var han=s.match(/[\u4e00-\u9fa5]+/g)||[];
+  var out=[];
+  han.forEach(function(h){for(var i=0;i<h.length-1;i++)out.push(h.substr(i,2))});
+  return out;
+ }
+}
+function toggleProvRef(i){var el=$('#pref-'+i);if(el)el.style.display=el.style.display==='block'?'none':'block'}
+function provTimerToggle(){
+ if(provTimer.iv){clearInterval(provTimer.iv);provTimer.iv=null;$('#provTimerBtn').textContent='练习计时 '+fmtTime(provTimer.sec);return}
+ provTimer.iv=setInterval(function(){provTimer.sec++;$('#provTimerBtn').textContent='练习计时 '+fmtTime(provTimer.sec)},1000);
+}
+
+// ---- 初始化 ----
+load();
+$('#quizPills').innerHTML=[['mix','MIX 混合'],['term','术语选择'],['cloze','完形填空'],['colloc','搭配选择']].map(function(b){return '<div class="pill'+(quizState.bank===b[0]?' on':'')+'" data-b="'+b[0]+'" onclick="setQuizBank(\''+b[0]+'\')">'+b[1]+'</div>'}).join('');
+setSenMode('ce');
+updCountdown();
+renderOverview();
+renderTermPills();renderTerms();
+renderPhrasePills();renderPhrases();
+renderSens();
+renderWrong();
+renderMockLog();
+</script>
+</body>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js').then(function(){console.log('SW_OK')}).catch(function(e){console.log('SW_FAIL:'+e)});
+  });
+}
+</script>
+</html>
