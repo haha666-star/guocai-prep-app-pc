@@ -1,4 +1,4 @@
-﻿var CACHE = 'gcprep-pc-v3';
+﻿var CACHE = 'gcprep-pc-v4';
 self.addEventListener('install', function (e) {
   self.skipWaiting();
 });
@@ -25,4 +25,5 @@ self.addEventListener('fetch', function (e) {
     }).catch(function () { return fetch(e.request); })
   );
 });
+
 
