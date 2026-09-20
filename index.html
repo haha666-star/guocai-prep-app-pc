@@ -224,6 +224,14 @@ body{padding-bottom:80px;min-height:100vh}
 .prov-card .src{font-size:14px;line-height:1.85;font-weight:600;margin:8px 0;color:#eef4f7}
 .prov-card .ref{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed #2a3a5c;font-size:13px;line-height:1.85;color:var(--cy)}
 .pt-area{width:100%;background:#080e1a;border:1px solid #223052;border-radius:10px;padding:10px 11px;color:var(--tx);font-size:13px;font-family:inherit;outline:none;margin-top:8px;min-height:52px;resize:vertical}
+.autograde{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:10px;margin-top:4px}
+.autograde.ok{background:rgba(0,200,120,.12);border:1px solid rgba(0,200,120,.4)}
+.autograde.no{background:rgba(255,90,120,.12);border:1px solid rgba(255,90,120,.4)}
+.autograde .b{font-weight:800;font-size:15px}
+.autograde.ok .b{color:var(--grn)}
+.autograde.no .b{color:var(--pink)}
+.autograde .t{font-size:12px;color:#7fa0bb}
+.pg-time{font-size:12px;color:#7fa0bb;margin:2px 0 6px}
 .grade-btns{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap}
 .gbtn{flex:1;border:none;border-radius:9px;padding:9px 0;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;min-width:46px}
 .gbtn.ok{background:rgba(48,232,156,.12);color:var(--grn);border:1px solid rgba(48,232,156,.4)}
@@ -310,7 +318,7 @@ body{padding-bottom:80px;min-height:100vh}
       <div class="sec-h" data-page-node-id="Xe6FBmwlHkcvnpP9aN7qrB"><span class="t" data-page-node-id="oT4DzJKRhfzRi2PFZbu9Yk"><em data-page-node-id="PjgDAG0wynk2SzS7WgKFSM">//</em> 快捷入口</span></div>
       <div class="quick" data-page-node-id="7jz9UmG3HaHsLA9CxzGlHq">
         <div class="qk" onclick="go('mock')" data-page-node-id="Wk2YOdXSLskDwSTtClO0S6"><div class="ic" data-page-node-id="0Yx0sB2i7cMF3xJMHCCKof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="H5nCoNB7SEs3a4n6JrCCoj"><circle cx="12" cy="13" r="8" data-page-node-id="ch6gnTFNU5shwc1kXuC0Kd"/><path d="M12 9v4l2.5 2.5M9 2h6" data-page-node-id="JnKse3JOObr6r6TSuOVYAt"/></svg></div><div class="tx" data-page-node-id="cDYA2X80A8Z7YehHNpnFIo">全真模考<small data-page-node-id="YExybsby2WX9jJytSmlBSC">120分钟限时模拟</small></div></div>
-        <div class="qk purple" onclick="go('prov')" data-page-node-id="nAw3NZUKnJXT4hegKpHu4K"><div class="ic" data-page-node-id="so9J98Q3S6FlQxmmRG5c12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="VDMxy5IONFQrQbncQ6OzAT"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM5 4H3m18 0h-2" data-page-node-id="mJMQ32EhsWD5jnmdCCQQ5I"/></svg></div><div class="tx" data-page-node-id="MAle1vfjmn5rijjyUu6TP7">省赛专项<small data-page-node-id="oPet4j1AujGq9FhY3tw3MG">术语阐释·长篇互译</small></div></div>
+        <div class="qk purple" onclick="go('prov')" data-page-node-id="nAw3NZUKnJXT4hegKpHu4K"><div class="ic" data-page-node-id="so9J98Q3S6FlQxmmRG5c12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="VDMxy5IONFQrQbncQ6OzAT"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM5 4H3m18 0h-2" data-page-node-id="mJMQ32EhsWD5jnmdCCQQ5I"/></svg></div><div class="tx" data-page-node-id="MAle1vfjmn5rijjyUu6TP7">省赛专项<small data-page-node-id="oPet4j1AujGq9FhY3tw3MG">术语翻译·长篇互译</small></div></div>
         <div class="qk" onclick="go('wrong')" data-page-node-id="u47BeFuC1dqPAGNAqrwXnr"><div class="ic" data-page-node-id="l5VehuMWAjHFuKn7yMqNsx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="5n2ubw6EXgFP3eY5cawzFO"><path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1.1 6L12 16.9 6.6 19.6l1.1-6L3.3 9.4l6-.9z" data-page-node-id="KjI6scOLrU7GoeqCmsgN37"/></svg></div><div class="tx" data-page-node-id="47IdXk6OzoK3nCX882I8Rd">错题本<small id="wrongCnt" data-page-node-id="ruAytXTdxAOJyYPLbpJihM">0 道待复习</small></div></div>
         <div class="qk purple" onclick="go('sentences')" data-page-node-id="kPYi9LB0Ci33XCm4xL2e2z"><div class="ic" data-page-node-id="CF8LImQNqr9dRTL7C5FgLI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="k7Rw7q1FxD5reIwEtGmHUn"><path d="M4 6h16M4 12h10M4 18h7" data-page-node-id="uJ0YkO4TBtrunkhwVnKTxE"/><path d="m17 14 3 3-3 3" data-page-node-id="HwoKwO8DqiRscBxslfsS2B"/></svg></div><div class="tx" data-page-node-id="Ny5C0vlBDeuDdm9Bg3Bho5">句子实战<small data-page-node-id="HdzshMXlyhuSGF5XEAwesZ">汉译英 · 英译汉</small></div></div>
       </div>
@@ -416,12 +424,11 @@ body{padding-bottom:80px;min-height:100vh}
   <!-- ===== 视图：省赛专项 ===== -->
   <section class="view" id="view-prov" data-page-node-id="OeLLfOLWjm34qAaqD38o0s">
     <div class="seg" id="provSeg" data-page-node-id="AXWgvWVPG9FN1kuGyzoKgV">
-      <div class="seg-i on" onclick="setProv('term')" data-page-node-id="sYmGggsywGaMC6T8RWSpSj">术语翻译+阐释</div>
+      <div class="seg-i on" onclick="setProv('term')" data-page-node-id="sYmGggsywGaMC6T8RWSpSj">术语翻译</div>
       <div class="seg-i" onclick="setProv('passage')" data-page-node-id="5Lbx02ChG2ZaVnp5SUC2ah">长篇互译</div>
     </div>
     <div class="prov-head" data-page-node-id="PzWVc0IEKDXsYjI8Ad7c0a">
       <div class="prov-stat" id="provStat" data-page-node-id="GvZbjhUz4cmaUvr9Sfi3lq"></div>
-      <button class="btn ghost sm" id="provTimerBtn" onclick="provTimerToggle()" data-page-node-id="7RMve8Ocw7Kwa6RxJDDu7Q">练习计时 00:00</button>
     </div>
     <div id="provTerm" data-page-node-id="4wW9ug6rt2nBG7IVu5BIGO"></div>
     <div id="provPassage" style="display:none" data-page-node-id="j8AYQtFuFyhbhvnlxobuKk"></div>
@@ -599,7 +606,36 @@ var TERMS=[
   {"c":"思想文化","cn":"天下为公","en":"the world is for all","note":"《礼记》名句"},
   {"c":"思想文化","cn":"自强不息","en":"unceasing self-improvement","note":"《周易》"},
   {"c":"思想文化","cn":"厚德载物","en":"virtue sustains all things","note":"《周易》"},
-  {"c":"思想文化","cn":"民为邦本","en":"the people are the foundation of the state","note":"民本思想"}];
+  {"c":"思想文化","cn":"民为邦本","en":"the people are the foundation of the state","note":"民本思想"},
+{"c":"sz","cn":"中国式现代化道路","en":"the path of Chinese modernization","note":"既有各国现代化共同特征，更有基于自己国情的中国特色"},
+{"c":"sz","cn":"两个结合","en":"the two combinations","note":"把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合"},
+{"c":"sz","cn":"六个必须坚持","en":"the six musts","note":"必须坚持人民至上、自信自立、守正创新、问题导向、系统观念、胸怀天下"},
+{"c":"sz","cn":"伟大建党精神","en":"the great founding spirit of the Party","note":"坚持真理、坚守理想，践行初心、担当使命，不怕牺牲、英勇斗争，对党忠诚、不负人民"},
+{"c":"sz","cn":"中国共产党的初心和使命","en":"the original aspiration and the founding mission of the CPC","note":"为中国人民谋幸福、为中华民族谋复兴"},
+{"c":"sz","cn":"四个意识","en":"the Four Consciousnesses","note":"政治意识、大局意识、核心意识、看齐意识"},
+{"c":"sz","cn":"四个自信","en":"the Four Confidences","note":"道路自信、理论自信、制度自信、文化自信"},
+{"c":"sz","cn":"两个维护","en":"the Two Upholds","note":"坚决维护习近平总书记党中央的核心、全党的核心地位，坚决维护党中央权威和集中统一领导"},
+{"c":"sz","cn":"伟大斗争、伟大工程、伟大事业、伟大梦想","en":"the great struggle, the great project, the great cause, and the great dream","note":"四个伟大"},
+{"c":"sz","cn":"新发展阶段","en":"the new stage of development","note":"社会主义初级阶段中的一个阶段"},
+{"c":"sz","cn":"贯彻新发展理念","en":"apply the new development philosophy","note":"创新、协调、绿色、开放、共享"},
+{"c":"sz","cn":"构建新发展格局","en":"foster a new development paradigm","note":"以国内大循环为主体、国内国际双循环相互促进"},
+{"c":"sz","cn":"高水平社会主义市场经济体制","en":"a high-standard socialist market economy","note":"坚持和完善社会主义基本经济制度"},
+{"c":"sz","cn":"实体经济","en":"the real economy","note":"实体经济是一国经济的立身之本"},
+{"c":"sz","cn":"数字中国","en":"Digital China","note":"加快数字中国建设，发展数字经济"},
+{"c":"sz","cn":"网络强国","en":"a cyber power","note":"加快建设网络强国、数字中国"},
+{"c":"sz","cn":"制造强国","en":"a manufacturing powerhouse","note":"推动制造业高端化、智能化、绿色化发展"},
+{"c":"sz","cn":"质量强国","en":"a quality powerhouse","note":"把发展的立足点转到提高质量和效益上来"},
+{"c":"sz","cn":"交通强国","en":"a transport powerhouse","note":"加快建设交通强国"},
+{"c":"sz","cn":"贸易强国","en":"a trader of quality","note":"推动货物贸易优化升级，创新服务贸易发展机制"},
+{"c":"sz","cn":"海洋强国","en":"a maritime power","note":"发展海洋经济，保护海洋生态环境"},
+{"c":"sz","cn":"科技强国","en":"a sci-tech powerhouse","note":"加快建设科技强国"},
+{"c":"sz","cn":"教育强国","en":"an education powerhouse","note":"加快建设教育强国"},
+{"c":"sz","cn":"人才强国","en":"a country rich in talent","note":"深入实施人才强国战略"},
+{"c":"sz","cn":"体育强国","en":"a leading sporting nation","note":"加快建设体育强国"},
+{"c":"sz","cn":"健康中国","en":"Healthy China","note":"推进健康中国建设，把保障人民健康放在优先发展的战略位置"},
+{"c":"sz","cn":"平安中国","en":"Peaceful China","note":"建设更高水平的平安中国"},
+{"c":"sz","cn":"法治中国","en":"the rule of law in China","note":"坚持全面依法治国，推进法治中国建设"},
+{"c":"sz","cn":"美丽中国","en":"Beautiful China","note":"协同推进降碳、减污、扩绿、增长，推进美丽中国建设"}];
 
 // ================= 数据：词组库 =================
 var PHRASES=[
@@ -659,7 +695,26 @@ var PHRASES=[
   {"c":"政经","cn":"同……紧密相连","en":"be closely linked with","note":"closely linked with"},
   {"c":"政经","cn":"迎难而上","en":"rise to the challenge","note":"rise to the challenge"},
   {"c":"政经","cn":"率先垂范","en":"take the lead by example","note":"take the lead"},
-  {"c":"政经","cn":"守正创新","en":"uphold fundamental principles and break new ground","note":"uphold...break new ground"}];
+  {"c":"政经","cn":"守正创新","en":"uphold fundamental principles and break new ground","note":"uphold...break new ground"},
+{"c":"政经","cn":"自信自立","en":"maintain confidence and stand on our own efforts","note":"六个必须坚持之一"},
+{"c":"政经","cn":"问题导向","en":"a problem-oriented approach","note":"六个必须坚持之一"},
+{"c":"政经","cn":"系统观念","en":"systems thinking","note":"六个必须坚持之一"},
+{"c":"政经","cn":"胸怀天下","en":"a global vision","note":"六个必须坚持之一"},
+{"c":"政经","cn":"人民至上","en":"put the people first","note":"六个必须坚持之首"},
+{"c":"政经","cn":"稳中求进、以进促稳","en":"pursue progress while ensuring stability, and promote stability through progress","note":"2024 年经济工作总基调"},
+{"c":"政经","cn":"先立后破","en":"establish the new before abolishing the old","note":"宏观政策要求"},
+{"c":"政经","cn":"因地制宜、分类施策","en":"adapt to local conditions and take targeted measures","note":"政策落实要求"},
+{"c":"政经","cn":"统筹兼顾","en":"make coordinated efforts","note":"coordinated"},
+{"c":"政经","cn":"综合施策","en":"take a full range of measures","note":"full range"},
+{"c":"政经","cn":"标本兼治、系统治理","en":"address both symptoms and root causes through systematic governance","note":"systematic governance"},
+{"c":"政经","cn":"底线思维","en":"think in terms of worst-case scenarios","note":"树立底线思维，居安思危"},
+{"c":"政经","cn":"极限思维","en":"prepare for worst-case scenarios","note":"加强极限思维，守住安全底线"},
+{"c":"政经","cn":"居安思危、未雨绸缪","en":"be prepared for danger in times of peace and take preventive measures in advance","note":"忧患意识"},
+{"c":"政经","cn":"真抓实干、务求实效","en":"work diligently and deliver solid results","note":"务实作风"},
+{"c":"政经","cn":"钉钉子精神","en":"the spirit of driving nails","note":"一锤接着一锤敲"},
+{"c":"政经","cn":"功成不必在我、功成必定有我","en":"not every success need be on my watch, but I must contribute to every success","note":"正确政绩观"},
+{"c":"政经","cn":"撸起袖子加油干","en":"roll up our sleeves and go to work","note":"实干风貌"},
+{"c":"政经","cn":"一步一个脚印","en":"take one step at a time","note":"脚踏实地"}];
 // ================= 数据：句子翻译 =================
 var SENTENCES=[
 {d:'ce',src:'人民对美好生活的向往，就是我们的奋斗目标。',ref:'The people\u2019s aspiration for a better life is our goal of endeavor.',note:'以人民为中心，奋斗目标类句式'},
@@ -769,7 +824,23 @@ var QTERM=[
   {"q":"人与自然和谐共生","o":["harmonious coexistence between humanity and nature","harmony between man and nature","human-nature harmony","nature-people coexistence"],"a":0,"n":"harmonious coexistence"},
   {"q":"天下为公","o":["the world is for all","the world belongs to public","all under heaven is public","the world for common good"],"a":0,"n":"《礼记》"},
   {"q":"知行合一","o":["the unity of knowledge and practice","knowing and doing as one","unity of theory and practice","knowledge-action unity"],"a":0,"n":"knowledge and practice"},
-  {"q":"厚德载物","o":["virtue sustains all things","thick virtue carries things","great virtue bears all","moral carries matter"],"a":0,"n":"《周易》"}];
+  {"q":"厚德载物","o":["virtue sustains all things","thick virtue carries things","great virtue bears all","moral carries matter"],"a":0,"n":"《周易》"},
+{"q":"两个结合","o":["the two combinations","the two integrations","the two unions","two combinations"],"a":0,"n":"马克思主义基本原理同中国具体实际、同中华优秀传统文化相结合"},
+{"q":"四个意识","o":["the Four Consciousnesses","the Four Awarenesses","four minds","four senses"],"a":0,"n":"政治、大局、核心、看齐意识"},
+{"q":"四个自信","o":["the Four Confidences","four beliefs","four self-confidences","four trusts"],"a":0,"n":"道路、理论、制度、文化自信"},
+{"q":"伟大建党精神","o":["the great founding spirit of the Party","the great Party-building spirit","the spirit of CPC founding","the Party spirit"],"a":0,"n":"坚持真理、坚守理想等32字"},
+{"q":"新发展阶段","o":["the new stage of development","new development phase","new developing era","fresh growth stage"],"a":0,"n":"新发展阶段、新发展理念、新发展格局"},
+{"q":"实体经济","o":["the real economy","the solid economy","the tangible economy","actual economy"],"a":0,"n":"实体经济是立身之本"},
+{"q":"数字中国","o":["Digital China","digital nation","the digital state","online China"],"a":0,"n":"D 大写"},
+{"q":"网络强国","o":["a cyber power","an internet strong country","network giant","web superpower"],"a":0,"n":"cyber power 官方译法"},
+{"q":"制造强国","o":["a manufacturing powerhouse","a making strong country","factory power","manufacture superpower"],"a":0,"n":"powerhouse"},
+{"q":"质量强国","o":["a quality powerhouse","a quality strong nation","quality great power","premium country"],"a":0,"n":"quality powerhouse"},
+{"q":"教育强国","o":["an education powerhouse","an educational strong country","study superpower","learning nation"],"a":0,"n":"education powerhouse"},
+{"q":"健康中国","o":["Healthy China","a healthy nation","healthy country","well China"],"a":0,"n":"H/C 大写"},
+{"q":"平安中国","o":["Peaceful China","a safe China","secure China","quiet nation"],"a":0,"n":"Peaceful China 官方译法"},
+{"q":"立德树人","o":["foster virtue through education","build moral through learning","cultivate people","moral education"],"a":0,"n":"教育根本任务"},
+{"q":"四个面向","o":["the four orientations","four faces","four directions","four fronts"],"a":0,"n":"面向世界科技前沿等"},
+{"q":"高水平科技自立自强","o":["greater self-reliance and strength in sci-tech at a higher level","high tech independence","top science power","max tech self-rule"],"a":0,"n":"higher level self-reliance"}];
 var QCLOZE=[
 {q:'The Chinese Dream is about the great rejuvenation of the Chinese ______.',o:['dynasty','nation','empire','colony'],a:1,n:'the Chinese nation 固定搭配'},
 {q:'China is committed to building a community with a shared ______ for mankind.',o:['past','future','wealth','power'],a:1,n:'a community with a shared future for mankind'},
@@ -796,7 +867,15 @@ var QCLOZE=[
   {"q":"Reform is prompted by problems and ______ by solving them.","o":["deepened","deep","depth","deeply"],"a":0,"n":"deepened 过去分词"},
   {"q":"True multilateralism means respecting the ______ of all countries.","o":["sovereignty","sovereign","sovereignly","sovereignity"],"a":0,"n":"sovereignty 拼写"},
   {"q":"China will stay ______ to its fundamental national policy of opening up.","o":["committed","committing","commit","commits"],"a":0,"n":"stay committed to"},
-  {"q":"The Chinese nation has ______ up, grown rich, and is becoming strong.","o":["stood","stand","stands","standing"],"a":0,"n":"stood up 固定"}];
+  {"q":"The Chinese nation has ______ up, grown rich, and is becoming strong.","o":["stood","stand","stands","standing"],"a":0,"n":"stood up 固定"},
+{"q":"We must remain committed to putting the ______ first in all our work.","o":["people","nation","country","party"],"a":0,"n":"put the people first"},
+{"q":"Self-reliance and strength in science and technology are the foundation of a ______ nation.","o":["strong","stronger","strength","strengthen"],"a":0,"n":"a strong nation"},
+{"q":"We will foster a new development paradigm with the domestic ______ as the mainstay.","o":["circulation","cycle","loop","market"],"a":0,"n":"domestic circulation"},
+{"q":"The core socialist values advocate prosperity, democracy, civility, harmony, freedom, equality, justice, the rule of law, patriotism, dedication, integrity, and ______.","o":["friendship","fraternity","charity","benevolence"],"a":0,"n":"友善 = friendship"},
+{"q":"We should tell China's stories well and make China's ______ heard.","o":["voice","noise","sound","shout"],"a":0,"n":"make China's voice heard"},
+{"q":"Reform and opening up was a ______ move that determined the fate of contemporary China.","o":["crucial","cruelly","crude","cruel"],"a":0,"n":"crucial move"},
+{"q":"We will expand the size of the ______ income group.","o":["middle","medium","central","mid"],"a":0,"n":"middle-income group"},
+{"q":"The rule of law is the ______ stone of good governance.","o":["corner","core","foundation","keystone"],"a":0,"n":"cornerstone 基石"}];
 var QCOLLOC=[
 {q:'简政放权',o:['simplify government and release power','streamline administration and delegate power','streamline administration and decentralize rights','cut red tape and devolve power'],a:1,n:'streamline administration and delegate power 官方译法'},
 {q:'基础设施互联互通',o:['infrastructure interconnection','infrastructure connectivity','infrastructure interlinking','infrastructure connection'],a:1,n:'connectivity 表互联互通'},
@@ -832,7 +911,18 @@ var QCOLLOC=[
   {"q":"以人民为中心","o":["people-centered","people as center","citizen-centered","population-centered"],"a":0,"n":"people-centered"},
   {"q":"中国式现代化","o":["Chinese modernization","China-style modernization","Chinese-style modernization","modernization of China"],"a":0,"n":"二十大固定译法"},
   {"q":"全过程人民民主","o":["whole-process people’s democracy","full-process democracy","complete people democracy","total democratic process"],"a":0,"n":"whole-process"},
-  {"q":"美丽中国","o":["the Beautiful China Initiative","the Beautiful China Plan","the Pretty China Initiative","the Charming China Project"],"a":0,"n":"Initiative 大写"}];
+  {"q":"美丽中国","o":["the Beautiful China Initiative","the Beautiful China Plan","the Pretty China Initiative","the Charming China Project"],"a":0,"n":"Initiative 大写"},
+{"q":"两个结合","o":["the two combinations","the two unions","two fusions","two links"],"a":0,"n":"the two combinations"},
+{"q":"四个意识","o":["the Four Consciousnesses","the Four Awarenesses","four minds","four senses"],"a":0,"n":"Consciousnesses"},
+{"q":"四个自信","o":["the Four Confidences","four beliefs","four self-trust","four trusts"],"a":0,"n":"Confidences"},
+{"q":"伟大建党精神","o":["the great founding spirit of the Party","the great building spirit","the Party founding soul","the Party spirit"],"a":0,"n":"founding spirit"},
+{"q":"立德树人","o":["foster virtue through education","cultivate moral people","build virtue through schooling","moral education"],"a":0,"n":"foster virtue through education"},
+{"q":"科教兴国战略","o":["the strategy of invigorating China through science and education","science education strategy","national revival by science","tech education plan"],"a":0,"n":"invigorate through science and education"},
+{"q":"人才强国战略","o":["the strategy of developing a quality workforce","talent power strategy","strong people plan","brain power drive"],"a":0,"n":"quality workforce"},
+{"q":"创新驱动发展战略","o":["the strategy of driving development through innovation","innovation strategy","creative drive plan","new innovation force"],"a":0,"n":"driving development through innovation"},
+{"q":"初次分配、再分配、第三次分配","o":["primary distribution, redistribution, and tertiary distribution","first/second/third sharing","initial redistribution","three-tier distribution"],"a":0,"n":"primary/redistribution/tertiary"},
+{"q":"中等收入群体","o":["the middle-income group","middle income mass","mid revenue class","average earners"],"a":0,"n":"middle-income group"},
+{"q":"高质量教育体系","o":["a high-quality education system","quality schooling system","top education network","elite education system"],"a":0,"n":"high-quality education system"}];
 
 // ================= 数据：省赛长篇互译语料 =================
 var PROV_PASSAGES=[
@@ -849,7 +939,13 @@ var PROV_PASSAGES=[
   {"d":"ec","src":"The Chinese nation has achieved a tremendous transformation: it has stood up, grown rich, and is becoming strong. Behind this transformation lies the unyielding spirit of self-reliance and hard work of the Chinese people. Looking ahead, we must stay confident in our path, theory and system, and foster a powerful spirit of unity, struggle and enterprising in the whole society.","ref":"中华民族实现了伟大飞跃：站起来、富起来、强起来。这一转变的背后，是中华民族自力更生、艰苦奋斗的不屈精神。展望未来，我们必须坚定道路自信、理论自信、制度自信，在全社会凝聚起团结、奋斗、进取的强大精神力量。"},
   {"d":"ec","src":"Green development is a prerequisite for high-quality development. We must pursue a model of sound development that ensures high production and high incomes while keeping resource consumption and environmental costs low. We should accelerate the comprehensive green transformation of economic and social development, and promote the building of a beautiful China.","ref":"绿色发展是高质量发展的前提。我们必须走生产发展、生活富裕、生态良好的文明发展道路，加快经济社会发展全面绿色转型，推进美丽中国建设。"},
   {"d":"ec","src":"Innovation is the primary driving force for development. We should make scientific and technological self-reliance and strength a strategic pillar for national development, concentrate resources on original and pioneering scientific and technological research, and strive to achieve greater breakthroughs in core technologies in key fields.","ref":"创新是引领发展的第一动力。我们要把科技自立自强作为国家发展的战略支撑，集中力量开展原创性、引领性科技攻关，努力在关键核心技术上取得更大突破。"},
-  {"d":"ec","src":"The Global Development Initiative calls on all countries to put development first, keep pace with the times, and build a global community of development with a shared future. It aims to re-energize international cooperation on development, and promote more balanced, coordinated and inclusive global development.","ref":"全球发展倡议呼吁各国把发展置于首位，与时俱进，构建全球发展命运共同体。其目标是重新激活国际发展合作，推动更加平衡、协调、包容的全球发展。"}];
+  {"d":"ec","src":"The Global Development Initiative calls on all countries to put development first, keep pace with the times, and build a global community of development with a shared future. It aims to re-energize international cooperation on development, and promote more balanced, coordinated and inclusive global development.","ref":"全球发展倡议呼吁各国把发展置于首位，与时俱进，构建全球发展命运共同体。其目标是重新激活国际发展合作，推动更加平衡、协调、包容的全球发展。"},
+{"d":"ce","src":"教育是国之大计、党之大计。培养什么人、怎样培养人、为谁培养人，是教育的根本问题。我们要全面贯彻党的教育方针，落实立德树人根本任务，培养德智体美劳全面发展的社会主义建设者和接班人。加快建设高质量教育体系，发展素质教育，促进教育公平。","ref":"Education is of vital importance to the country and the Party. The fundamental questions for education are who to train, how to train them, and for whom. We should fully implement the Party's educational policy, fulfill the fundamental task of fostering virtue through education, and train a new generation of young people with all-round moral, intellectual, physical, aesthetic and hands-on development who are well-prepared to continue the socialist cause. We will accelerate the development of a high-quality education system, develop well-rounded education, and promote equality in education."},
+{"d":"ce","src":"科技自立自强是国家强盛之基、安全之要。我们必须深入实施科教兴国战略、人才强国战略、创新驱动发展战略，完善国家创新体系，加快建设科技强国。要坚持四个面向：面向世界科技前沿、面向经济主战场、面向国家重大需求、面向人民生命健康，加快实现高水平科技自立自强。","ref":"Self-reliance and strength in science and technology are the foundation of a strong nation and the key to its security. We must fully implement the strategies for invigorating China through science and education, developing a quality workforce, and driving development through innovation, improve the national innovation system, and accelerate the building of China into a sci-tech powerhouse. We must keep in mind the four orientations: frontiers of science, the main economic battlefield, the country's major strategic needs, and people's life and health, so as to achieve greater self-reliance and strength in science and technology at a higher level."},
+{"d":"ce","src":"我们要完善分配制度，构建初次分配、再分配、第三次分配协调配套的制度体系。努力提高居民收入在国民收入分配中的比重，提高劳动报酬在初次分配中的比重。坚持多劳多得，鼓励勤劳致富，促进机会公平，增加低收入者收入，扩大中等收入群体。","ref":"We will improve the system of income distribution and establish an institutional framework in which primary distribution, redistribution, and tertiary distribution are well-coordinated and mutually supportive. We will work to raise the share of personal income in the national income distribution and the share of labor remuneration in primary distribution. We will ensure work earns a proper reward, encourage people to become rich through hard work, promote equal opportunity, increase the incomes of low- and middle-income groups, and expand the size of the middle-income group."},
+{"d":"ec","src":"The rule of law is the cornerstone of good governance. China has established a socialist system of law with Chinese characteristics, and the system has been continuously improved over the years. The country now has over 300 active national laws, covering all major sectors of social life. Upholding the rule of law means the rule of law must be observed in governance, in the exercise of state power, and in all aspects of social conduct.","ref":"法治是良政善治的基石。中国已经建立起中国特色社会主义法律体系，并在多年实践中不断完善。目前现行有效国家法律三百余部，覆盖社会生活各主要领域。坚持依法治国，就是要在治国理政、行使国家权力、社会生活各方面都遵守法治原则。"},
+{"d":"ec","src":"Innovation is the primary driving force of development, and it holds the strategic position at the heart of China's modernization drive. Over the past decade, China has made historic achievements in sci-tech innovation, with significant breakthroughs in manned spaceflight, lunar and Martian exploration, deep-sea diving, supercomputing, and quantum information. China now ranks among the top countries globally in a number of frontier technology fields.","ref":"创新是引领发展的第一动力，在中国现代化建设全局中居于核心战略地位。过去十年，中国科技创新取得历史性成就，在载人航天、探月探火、深海深地探测、超级计算机、量子信息等领域取得重大突破。中国在若干前沿科技领域已位居世界前列。"},
+{"d":"ce","src":"我们要推进文化自信自强，铸就社会主义文化新辉煌。坚持马克思主义在意识形态领域指导地位的根本制度，坚持为人民服务、为社会主义服务，坚持百花齐放、百家争鸣。建设具有强大凝聚力和引领力的社会主义意识形态，培育和践行社会主义核心价值观，提高全社会文明程度。","ref":"We will promote cultural confidence and strength, and create new brilliance in socialist culture. We will uphold the fundamental system whereby Marxism holds the guiding position in the ideological field, serve the people and socialism, and let a hundred flowers bloom and a hundred schools of thought contend. We will develop socialist ideology that has the power to unite and inspire the people, foster and apply the core socialist values, and raise the cultural-ethical standards of the whole nation."}];
 // ================= 应用逻辑 =================
 var $=function(s){return document.querySelector(s)};
 var $$=function(s){return document.querySelectorAll(s)};
@@ -1208,26 +1304,45 @@ function renderProv(){
 function updateProvStat(){
  var p=provInit();
  var tr=p.termAttempts?Math.round(p.termTransPass/p.termAttempts*100):0;
- var er=p.termAttempts?Math.round(p.termExpPass/p.termAttempts*100):0;
  var pr=p.passageAttempts?Math.round(p.passageScore/p.passageAttempts):0;
- $('#provStat').textContent='术语：翻译 '+tr+'% · 阐释 '+er+'% ｜ 长篇互译：正确率 '+pr+'%（通过 '+p.passagePass+'/'+p.passageAttempts+' 篇）';
+ $('#provStat').textContent='术语：自动判分通过率 '+tr+'%（'+p.termTransPass+'/'+p.termAttempts+'）｜ 长篇互译：正确率 '+pr+'%（通过 '+p.passagePass+'/'+p.passageAttempts+' 篇）';
 }
-// 术语子模块：开始按钮 → 出题
+// 术语子模块：开始按钮 → 出题 → 自动判分
 function renderProvTerm(){
  provInit();
- if(!provTermStarted){$('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">术语翻译+阐释 · 赛前自测</div><div class="fc-cn" style="font-size:16px;font-weight:800">随机抽取术语，写出英文译文并用英语阐释</div><div class="fc-note" style="margin:8px 0 4px">对照参考译文后自评「翻译/阐释 对/错」，统计正确率。共 '+TERMS.length+' 个术语，每轮打乱顺序。</div><div class="btns"><button class="btn cyan" onclick="startProvTerm()">开始术语自测</button></div></div>';return}
+ if(!provTermStarted){$('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">术语翻译 · 官方译法自测</div><div class="fc-cn" style="font-size:16px;font-weight:800">写出中文术语的英文官方译法</div><div class="fc-note" style="margin:8px 0 4px">提交后系统自动比对官方译法判分（词元重合度，≥70 分判通过），不再靠手点对错。英文阐释为选填，仅作参考。共 '+TERMS.length+' 个术语，每轮打乱顺序。</div><div class="btns"><button class="btn cyan" onclick="startProvTerm()">开始术语自测</button></div></div>';return}
  if(!provTermQ.length)provTermQ=shuffle(TERMS.map(function(t,i){return i}));
  var idx=provTermQ.pop();
  if(idx===undefined){provTermIdx=null;$('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">本轮完成</div><div class="fc-cn" style="font-size:15px">本轮术语已练完，下次进入自动重置</div><div class="btns"><button class="btn cyan outline" onclick="provTermReset()">再来一轮</button></div></div>';return}
  provTermIdx=idx;var t=TERMS[idx];
- $('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">'+t.c+' · 术语翻译+阐释</div><div class="fc-cn" style="font-size:17px;font-weight:800">'+esc(t.cn)+'</div><div class="fc-note" style="margin:8px 0 4px">写出英文译文，并用英语简要阐释（2–3句，说明内涵/背景）</div><textarea class="pt-area" id="ptEn" placeholder="英文译文"></textarea><textarea class="pt-area" id="ptExp" placeholder="英文阐释"></textarea><div class="btns"><button class="btn cyan" onclick="provTermReveal()">对答案</button></div><div class="reveal" id="ptReveal" style="display:none"></div></div>';
+ $('#provTerm').innerHTML='<div class="prov-card"><div class="fc-cat">'+t.c+' · 术语翻译</div><div class="fc-cn" style="font-size:17px;font-weight:800">'+esc(t.cn)+'</div><div class="fc-note" style="margin:8px 0 4px">写出英文官方译法（阐释选填，可不写）</div><textarea class="pt-area" id="ptEn" placeholder="英文官方译法"></textarea><textarea class="pt-area" id="ptExp" placeholder="英文阐释（选填）" style="min-height:52px"></textarea><div class="btns"><button class="btn cyan" onclick="provTermReveal()">提交判分</button></div><div class="reveal" id="ptReveal" style="display:none"></div></div>';
 }
 function startProvTerm(){provTermStarted=true;provTermQ=[];provTermIdx=null;renderProvTerm()}
 function provTermReset(){provTermQ=[];provTermIdx=null;renderProvTerm()}
+function normEn(s){return String(s||'').toLowerCase().replace(/[^a-z0-9\s']/g,' ').replace(/\b(a|an|the)\b/g,' ').replace(/\s+/g,' ').trim()}
+function termScore(user,ref){
+ var u=normEn(user).split(' ').filter(Boolean);var r=normEn(ref).split(' ').filter(Boolean);
+ if(!u.length||!r.length)return 0;
+ var rs={};r.forEach(function(w){rs[w]=1});
+ var hit=0;u.forEach(function(w){if(rs[w])hit++});
+ var rec=hit/r.length,prec=hit/u.length;
+ return Math.round(Math.min(1,rec*0.7+prec*0.3)*100);
+}
 function provTermReveal(){
  if(provTermIdx===null)return;var t=TERMS[provTermIdx];
+ var ua=($('#ptEn').value||'').trim();
+ if(!ua){toast('先写下英文译法再判分');return}
+ var sc=termScore(ua,t.en);
+ var pass=sc>=70;
+ var sp=provInit();sp.termAttempts++;if(pass)sp.termTransPass++;save();updateProvStat();
  $('#ptReveal').style.display='block';
- $('#ptReveal').innerHTML='<div class="fc-en">'+esc(t.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div><div class="grade-btns"><span style="font-size:12px;color:#45657d;align-self:center">翻译</span><button class="gbtn ok" onclick="provGrade(\'trans\',1)">对</button><button class="gbtn no" onclick="provGrade(\'trans\',0)">错</button><span style="font-size:12px;color:#45657d;align-self:center;margin-left:8px">阐释</span><button class="gbtn ok" onclick="provGrade(\'exp\',1)">对</button><button class="gbtn no" onclick="provGrade(\'exp\',0)">错</button><button class="btn cyan outline sm" style="flex:0 0 auto;padding:0 16px" onclick="renderProvTerm()">下一题</button></div>';
+ var badge=pass
+  ?'<div class="autograde ok"><span class="b">✓ 自动判分：'+sc+' 分</span><span class="t">译法正确</span></div>'
+  :'<div class="autograde no"><span class="b">✗ 自动判分：'+sc+' 分</span><span class="t">与官方译法有出入，对照下方</span></div>';
+ $('#ptReveal').innerHTML=badge+
+  '<div class="fc-en" style="margin-top:8px">'+esc(t.en)+'</div>'+
+  '<div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div>'+
+  '<div class="grade-btns"><button class="btn cyan outline sm" style="flex:0 0 auto;padding:0 18px" onclick="renderProvTerm()">下一题</button></div>';
 }
 function provGrade(type,ok){
  var p=provInit();
@@ -1252,7 +1367,7 @@ function renderProvPassage(){
 }
 function startProvPg(i){
  provInit();
- provPgTimers[i]=provPgTimers[i]||{};provPgTimers[i].state='typing';
+ provPgTimers[i]=provPgTimers[i]||{};provPgTimers[i].state='typing';provPgTimers[i].start=Date.now();provPgTimers[i].elapsed=null;
  renderProvPassage();
  var el=$('#ptg-'+i);if(el){el.focus();el.scrollIntoView({behavior:'smooth',block:'center'})}
 }
@@ -1261,6 +1376,7 @@ function submitProvPg(i){
  var user=el.value.trim();
  var score=transSim(user,p.ref,p.d);
  provPgTimers[i]=provPgTimers[i]||{};provPgTimers[i].state='done';provPgTimers[i].user=user;provPgTimers[i].score=score;
+ if(provPgTimers[i].start)provPgTimers[i].elapsed=Math.round((Date.now()-provPgTimers[i].start)/1000);
  var sp=provInit();
  sp.passageAttempts++;sp.passageScore+=score;if(score>=60)sp.passagePass++;save();updateProvStat();
  renderProvPassage();
@@ -1270,7 +1386,8 @@ function provPgResultHTML(i){
  var s=provPgTimers[i];var p=PROV_PASSAGES[i];
  var grade=s.score>=85?'优秀':s.score>=70?'良好':s.score>=60?'及格':'需加强';
  var color=s.score>=85?'var(--grn)':s.score>=70?'var(--cy)':s.score>=60?'#ffd166':'var(--pink)';
- return '<div class="pg-res"><div class="pg-score"><span class="n" style="color:'+color+'">'+s.score+'%</span><span class="g" style="color:'+color+'">'+grade+'</span></div>'+
+ var timeStr=(s.elapsed!=null)?'<div class="pg-time">用时 '+fmtTime(s.elapsed)+'（本次练习）</div>':'';
+ return '<div class="pg-res"><div class="pg-score"><span class="n" style="color:'+color+'">'+s.score+'%</span><span class="g" style="color:'+color+'">'+grade+'</span></div>'+timeStr+
   '<div class="pg-pair"><div class="pg-lb">你的译文</div><div class="pg-user">'+esc(s.user)+'</div></div>'+
   '<div class="pg-pair"><div class="pg-lb">参考译文</div><div class="pg-ref">'+esc(p.ref)+'</div></div>'+
   '<div class="btns"><button class="btn ghost" onclick="retryProvPg('+i+')">重译一篇</button></div></div>';
@@ -1300,10 +1417,6 @@ function tokenize(t,dir){
  }
 }
 function toggleProvRef(i){var el=$('#pref-'+i);if(el)el.style.display=el.style.display==='block'?'none':'block'}
-function provTimerToggle(){
- if(provTimer.iv){clearInterval(provTimer.iv);provTimer.iv=null;$('#provTimerBtn').textContent='练习计时 '+fmtTime(provTimer.sec);return}
- provTimer.iv=setInterval(function(){provTimer.sec++;$('#provTimerBtn').textContent='练习计时 '+fmtTime(provTimer.sec)},1000);
-}
 
 // ---- 初始化 ----
 load();
