@@ -408,11 +408,11 @@ body{padding-bottom:80px;min-height:100vh}
     <div id="mockHome" data-page-node-id="fEXrHUcPxEUcoCM2852gm3">
       <div class="hero" data-page-node-id="sCxLFu2K8oy7HetZw8Niv8">
         <div class="hero-top" data-page-node-id="KKmPg277CA73aaH4usIl81"><span class="lab" data-page-node-id="GxLTbzODpb8Hb3upJxgYRG">// MOCK EXAM 全真模拟卷</span><span class="lab" data-page-node-id="Y1f3Ljdk1ro5APXgJ9jNPP">TIMED</span></div>
-        <div style="font-size:13px;line-height:1.9;color:var(--mut);margin-top:4px" data-page-node-id="W4KU1gCSG8SEKmyvS4cGmI">客观题12道（术语＋完形＋搭配）＋英译汉2句＋汉译英2句，总限时120分钟。</div>
+        <div style="font-size:13px;line-height:1.9;color:var(--mut);margin-top:4px" data-page-node-id="W4KU1gCSG8SEKmyvS4cGmI">客观题35道（选词填空25＋完形10）＋英译汉1篇＋汉译英1篇，总限时120分钟。</div>
       </div>
       <button class="btn cyan" style="width:100%" onclick="startMock()" data-page-node-id="d29ZhoiHG11HKtBFrckcvk">开始模考</button>
       <div class="mt" style="text-align:left;padding-top:14px" data-page-node-id="kJeis6TizlHWTYplasmGZF">
-        客观题自动判分并计入错题本；翻译题对照参考译文自评。<br data-page-node-id="0f301oN7QSueWeZIu4rwLB">
+        客观题自动判分并计入错题本；翻译题按官方标准自评（内容60%+形式40%）。<br data-page-node-id="0f301oN7QSueWeZIu4rwLB">
         模考成绩单独统计，不混入日常刷题正确率。
       </div>
       <div id="mockLog" style="margin-top:10px" data-page-node-id="ZyAwrq6SfDczvVBgTvpFiD"></div>
@@ -946,15 +946,77 @@ var PROV_PASSAGES=[
 {"d":"ec","src":"The rule of law is the cornerstone of good governance. China has established a socialist system of law with Chinese characteristics, and the system has been continuously improved over the years. The country now has over 300 active national laws, covering all major sectors of social life. Upholding the rule of law means the rule of law must be observed in governance, in the exercise of state power, and in all aspects of social conduct.","ref":"法治是良政善治的基石。中国已经建立起中国特色社会主义法律体系，并在多年实践中不断完善。目前现行有效国家法律三百余部，覆盖社会生活各主要领域。坚持依法治国，就是要在治国理政、行使国家权力、社会生活各方面都遵守法治原则。"},
 {"d":"ec","src":"Innovation is the primary driving force of development, and it holds the strategic position at the heart of China's modernization drive. Over the past decade, China has made historic achievements in sci-tech innovation, with significant breakthroughs in manned spaceflight, lunar and Martian exploration, deep-sea diving, supercomputing, and quantum information. China now ranks among the top countries globally in a number of frontier technology fields.","ref":"创新是引领发展的第一动力，在中国现代化建设全局中居于核心战略地位。过去十年，中国科技创新取得历史性成就，在载人航天、探月探火、深海深地探测、超级计算机、量子信息等领域取得重大突破。中国在若干前沿科技领域已位居世界前列。"},
 {"d":"ce","src":"我们要推进文化自信自强，铸就社会主义文化新辉煌。坚持马克思主义在意识形态领域指导地位的根本制度，坚持为人民服务、为社会主义服务，坚持百花齐放、百家争鸣。建设具有强大凝聚力和引领力的社会主义意识形态，培育和践行社会主义核心价值观，提高全社会文明程度。","ref":"We will promote cultural confidence and strength, and create new brilliance in socialist culture. We will uphold the fundamental system whereby Marxism holds the guiding position in the ideological field, serve the people and socialism, and let a hundred flowers bloom and a hundred schools of thought contend. We will develop socialist ideology that has the power to unite and inspire the people, foster and apply the core socialist values, and raise the cultural-ethical standards of the whole nation."}];
-// ================= 应用逻辑 =================
+// ================= 数据：模考语篇翻译（官方校赛 1 EC + 1 CE） =================
+var MOCK_TRANS=[
+{d:'ec',src:'Innovation is the primary driving force behind development, and holding innovation at the heart of China’s modernization drive has long been a national strategy. Over the past decade, China has made historic achievements in science and technology, with major breakthroughs in manned spaceflight, lunar and Martian exploration, deep-sea diving, supercomputing, and quantum information. China now ranks among the world’s leading countries in a number of frontier technology fields. Looking ahead, China will continue to pool resources to strengthen original and pioneering research, accelerate the transformation of scientific and technological achievements into real productive forces, and foster a favourable environment in which innovators can thrive. The goal is to achieve greater self-reliance and strength in science and technology, so that development rests on a more secure and solid foundation.',ref:'创新是引领发展的第一动力，把创新摆在我国现代化建设全局中的核心地位，是长期坚持的国家战略。十年来，我国科技事业取得历史性成就，在载人航天、探月探火、深海深地探测、超级计算机、量子信息等领域取得重大突破，已在若干前沿领域跻身世界前列。展望未来，我国将继续集中力量加强原创性、引领性科技攻关，加快科技成果向现实生产力转化，营造有利于创新人才成长的良好环境。目标是实现更高水平的科技自立自强，让发展建立在更加安全、更为坚实的基础之上。',note:'官方校赛英译汉语篇，约 250 词'},
+{d:'ce',src:'我们要全面贯彻以人民为中心的发展思想，在发展中保障和改善民生。就业是最大的民生，要落实就业优先政策，促进高质量充分就业。完善分配制度，增加低收入者收入，扩大中等收入群体，扎实推进共同富裕。健全社会保障体系，筑牢民生安全网。推进健康中国建设，把保障人民健康放在优先发展的战略位置。这些工作归根到底，就是要让现代化建设成果更多更公平惠及全体人民，不断实现人民对美好生活的向往。',ref:'We must fully implement the people-centered development philosophy and ensure and improve people’s wellbeing through development. Employment is the most fundamental issue of people’s lives; we will pursue the employment-first policy and promote high-quality and full employment. We will improve the income distribution system, raise the incomes of low-income groups, and expand the size of the middle-income group, so as to make solid progress toward common prosperity. We will improve the social security system and strengthen the safety net for people’s wellbeing. We will advance the Healthy China initiative and make protecting people’s health a strategic priority. In the final analysis, all these efforts are intended to ensure that the fruits of modernization benefit all people more equitably and that we continue to fulfill the people’s aspiration for a better life.',note:'官方校赛汉译英语篇，约 220 字'}
+];
+
+// ================= 数据：篇章级选词填空（校赛 50 分手感） =================
+var CLOZE_PASSAGES=[
+{title:'Chinese Modernization (篇章填空)',
+text:'Chinese modernization is the modernization of a huge {{0}}. Unlike any other country, China is pursuing modernization on a scale {{1}} seen before. This is both a historic challenge and a {{2}} opportunity. We must always proceed from China\'s own {{3}}, follow our own path, and never {{4}} copy the models of other countries. High-quality development is the first and foremost {{5}} for building a modern socialist country. Innovation is the primary {{6}} force behind such development. We will accelerate the comprehensive {{7}} transition of the economy, pursue green and low-carbon growth, and promote {{8}} coexistence between humanity and nature. We will also expand high-level opening up and build an open world {{9}}. Ultimately, the goal is to ensure that the fruits of modernization benefit all people more {{10}}, and to steadily realize the people\'s aspiration for a better {{11}}. This path is long and {{12}}, but with confidence and unity, the Chinese nation will surely {{13}} its goal and make even greater contributions to human {{14}}.',
+blanks:[
+{o:['population','people','nation','country'],a:0,n:'a huge population 固定搭配'},
+{o:['never','ever','once','often'],a:1,n:'scale never seen before 前所未有的规模'},
+{o:['precious','worthless','trivial','minor'],a:0,n:'precious opportunity 宝贵机遇'},
+{o:['conditions','climate','weather','atmosphere'],a:0,n:'from China\'s own conditions 立足国情'},
+{o:['blindly','clearly','wisely','cautiously'],a:0,n:'never blindly copy 绝不盲目照搬'},
+{o:['task','home','dream','story'],a:0,n:'the first and foremost task 首要任务'},
+{o:['driving','sleeping','stopping','breaking'],a:0,n:'primary driving force 第一动力'},
+{o:['green','red','blue','black'],a:0,n:'green transition 绿色转型'},
+{o:['harmonious','hostile','competitive','indifferent'],a:0,n:'harmonious coexistence 和谐共生'},
+{o:['economy','market','system','order'],a:0,n:'open world economy 开放型世界经济'},
+{o:['equitably','unequally','barely','rarely'],a:0,n:'more equitably 更加公平地'},
+{o:['life','death','future','yesterday'],a:0,n:'a better life 美好生活'},
+{o:['hard','easy','short','fast'],a:0,n:'long and hard 任重道远'},
+{o:['achieve','miss','abandon','change'],a:0,n:'achieve its goal 实现目标'},
+{o:['progress','regress','conflict','isolation'],a:0,n:'human progress 人类进步'}
+]}
+];
+
+// ================= 应用逻辑 ===================
 var $=function(s){return document.querySelector(s)};
 var $$=function(s){return document.querySelectorAll(s)};
 var LS='gcprep_pc_v1';
 var S={};
 function load(){var raw=null;try{raw=localStorage.getItem(LS)}catch(e){}
  try{S=raw?JSON.parse(raw):null}catch(e){S=null}
- if(!S){S={target:'2026-10-11',terms:{},phrases:{},sentences:{},quiz:{total:0,right:0},wrong:[],tasks:{date:'',done:[]},custom:[],mocks:[],prov:{termAttempts:0,termTransPass:0,termExpPass:0}}}}
+ if(!S){S={target:'2026-10-11',terms:{},phrases:{},sentences:{},quiz:{total:0,right:0},wrong:[],tasks:{date:'',done:[]},custom:[],mocks:[],prov:{termAttempts:0,termTransPass:0,termExpPass:0}}}
+ if(!S.wrong)S.wrong=[];
+ var now=Date.now();
+ S.wrong.forEach(function(w){if(typeof w.due!=='number')w.due=now;if(typeof w.box!=='number')w.box=1;if(typeof w.last!=='number')w.last=now;if(typeof w.reps!=='number')w.reps=0});
+ if(!S.mock)S.mock={wrongFilter:'all'};
+ if(typeof S.mock.wrongFilter!=='string')S.mock.wrongFilter='all';}
 function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
+// Leitner 间隔复习：box 1-5，答对升级，间隔 1/3/7/16/30 天
+var LEITNER_INTERVALS=[0,86400000,3*86400000,7*86400000,16*86400000,30*86400000];
+function pushWrong(k,id,q,ua,ca){
+ var now=Date.now();
+ S.wrong.push({k:k,id:id,q:q,ua:ua,ca:ca,ts:now,due:now,box:1,last:now,reps:0});
+ save();
+}
+function wrongDueCount(){
+ var now=Date.now(),n=0;
+ S.wrong.forEach(function(w){if(w.due<=now)n++});
+ return n;
+}
+function markWrongReviewed(wi,ok){
+ var w=S.wrong[wi];if(!w)return;
+ var now=Date.now();
+ if(ok){
+  w.reps=(w.reps||0)+1;
+  w.box=Math.min(5,(w.box||1)+1);
+  w.due=now+LEITNER_INTERVALS[w.box];
+  w.last=now;
+  if(w.box>=5 && w.reps>=3){ // 第5盒第3次答对 -> 毕业移走
+   S.wrong.splice(wi,1);
+  }
+ }else{
+  w.box=1;w.due=now;w.last=now;
+ }
+ save();
+}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 function fmt2(n){return n<10?'0'+n:''+n}
 function fmtTime(s){s=Math.max(0,Math.floor(s));return fmt2(Math.floor(s/60))+':'+fmt2(s%60)}
@@ -1031,7 +1093,7 @@ function renderOverview(){
  $('#taskList').innerHTML='<div class="ht" style="align-items:center"><div class="num">'+doneN+'/'+TASKS.length+'</div><div class="tx">'+(doneN===TASKS.length?'今日任务全部完成':'今日任务进度')+'<small>点击任务勾选，自动按天重置</small></div></div>'+TASKS.map(function(t,i){
   return '<div class="taskrow'+(S.tasks.done[i]?' done':'')+'" onclick="toggleTask('+i+')"><div class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></div><div class="tk">'+t.t+'<small>'+t.d+'</small></div></div>'}).join('');
  $('#hotList').innerHTML=HOT.map(function(h,i){return '<div class="ht"><div class="num">'+(i+1)+'</div><div class="tx">'+h[0]+'<small>'+h[1]+'</small></div></div>'}).join('');
- $('#wrongCnt').textContent=S.wrong.length+' 道待复习';
+ var _now=Date.now();var _due=S.wrong.filter(function(w){return (w.due||0)<=_now}).length;$('#wrongCnt').textContent=_due+' 道今日待复习 / 共 '+S.wrong.length;
 }
 function toggleTask(i){S.tasks.done[i]=!S.tasks.done[i];save();renderOverview()}
 function resetTasks(){S.tasks.done=TASKS.map(function(){return false});save();renderOverview();toast('今日任务已重置')}
@@ -1105,11 +1167,12 @@ function quizPool(b){
  if(b==='term')return QTERM.map(function(x){return {k:'qterm',q:x}});
  if(b==='cloze')return QCLOZE.map(function(x){return {k:'qcloze',q:x}});
  if(b==='colloc')return QCOLLOC.map(function(x){return {k:'qcolloc',q:x}});
+ if(b==='clozeP')return CLOZE_PASSAGES.map(function(x,i){return {k:'clozeP',q:x,pidx:i}});
  return QTERM.map(function(x){return {k:'qterm',q:x}}).concat(QCLOZE.map(function(x){return {k:'qcloze',q:x}})).concat(QCOLLOC.map(function(x){return {k:'qcolloc',q:x}}));
 }
 function setQuizBank(b){quizState.bank=b;$$('#quizPills .pill').forEach(function(el){el.classList.toggle('on',el.dataset.b===b)})}
 function setQuizCount(c){quizState.count=c;$$('#countPills .pill').forEach(function(el){el.classList.toggle('on',+el.dataset.c===c)})}
-function qLabel(k){return {qterm:'术语选择',qcloze:'完形填空',qcolloc:'搭配选择',sen:'句子翻译',recall:'默写产出'}[k]||'题目'}
+function qLabel(k){return {qterm:'术语选择',qcloze:'完形填空',qcolloc:'搭配选择',tran:'语篇翻译',sen:'句子翻译',recall:'默写产出',clozeP:'篇章选词'}[k]||'题目'}
 function startQuiz(){
  var pool=quizPool(quizState.bank);
  quizState.list=shuffle(pool).slice(0,Math.min(quizState.count,pool.length));
@@ -1120,15 +1183,57 @@ function startQuiz(){
 function renderQuizQ(){
  var st=quizState;
  if(st.i>=st.list.length){showQuizRes();return}
- var it=st.list[st.i],q=it.q;
+ var it=st.list[st.i];
+ if(it.k==='clozeP'){renderClozePassageQ(it);return}
+ var q=it.q;
  $('#quizRun').innerHTML='<div class="qcard"><div class="qmeta"><span>'+qLabel(it.k)+'</span><span class="idx">'+(st.i+1)+' / '+st.list.length+'</span></div><div class="qtext">'+esc(q.q)+'</div><div class="opts" id="qOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="pick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="qFb"></div></div>';
+}
+// 篇章级选词：一次渲染整段，逐空作答，提交后批量判分
+var clozeState=null;
+function renderClozePassageQ(it){
+ var p=it.q;
+ clozeState={p:p,answers:[],done:false};
+ var html='<div class="qcard"><div class="qmeta"><span>篇章选词填空</span><span class="idx">'+p.title+'</span></div>';
+ // 渲染正文：把 {{n}} 替换为下拉
+ var txt=p.text;
+ p.blanks.forEach(function(b,i){
+  var sel='<select class="cloze-sel" id="cz-'+i+'" onchange="clozePick('+i+',this.value)" style="background:#0d2237;color:#7fd8ff;border:1px solid #1d3a52;border-radius:6px;padding:2px 6px;margin:0 2px">'+
+   '<option value="-1">____</option>'+
+   b.o.map(function(o,oi){return '<option value="'+oi+'">'+esc(o)+'</option>'}).join('')+'</select>';
+  txt=txt.split('{{'+i+'}}').join(sel);
+ });
+ html+='<div class="qtext" style="font-size:14px;line-height:2.1">'+txt+'</div>';
+ html+='<div class="btns" style="margin-top:12px"><button class="btn cyan" onclick="submitCloze()">提交本卷</button></div>';
+ html+='<div id="czFb"></div></div>';
+ $('#quizRun').innerHTML=html;
+}
+function clozePick(i,v){clozeState.answers[i]=parseInt(v)}
+function submitCloze(){
+ var p=clozeState.p,done=0,right=0;
+ for(var i=0;i<p.blanks.length;i++){
+  if(clozeState.answers[i]==null||clozeState.answers[i]===-1){toast('第 '+(i+1)+' 空还没选');return}
+ }
+ for(var i=0;i<p.blanks.length;i++){
+  done++;
+  if(clozeState.answers[i]===p.blanks[i].a){right++}
+  else{
+   pushWrong('clozeP',-1,'篇章填空 第'+(i+1)+'空',p.blanks[i].o[clozeState.answers[i]],p.blanks[i].o[p.blanks[i].a]);
+  }
+ }
+ save();
+ S.quiz.total+=done;S.quiz.right+=right;save();
+ quizState.right+=right;
+ quizState.rec.push({k:'clozeP',q:{q:p.title,o:['（篇章 '+'+'+right+'/'+done+'）'],a:0,n:'对 '+right+'/'+done+' 空'},oi:0,isR:right===done});
+ var fb=$('#czFb');
+ if(fb){fb.className='fb show '+(right>=done*0.8?'right':'wrong');fb.innerHTML='篇章完成：对 '+right+'/'+done+' 空'+(right>=done*0.8?'  优秀':'  再对照错空复盘');}
+ setTimeout(function(){quizState.i++;renderQuizQ()},1600);
 }
 function pick(oi){
  var st=quizState,it=st.list[st.i],q=it.q;
  var opts=$$('#qOpts .opt'),fb=$('#qFb');
  var isR=oi===q.a;
  if(isR)st.right++;
- else{S.wrong.push({k:it.k,id:-1,q:q.q,ua:q.o[oi],ca:q.o[q.a],ts:Date.now()});save()}
+ else{pushWrong(it.k,-1,q.q,q.o[oi],q.o[q.a])}
  S.quiz.total++;if(isR)S.quiz.right++;save();
  st.rec.push({k:it.k,q:q,oi:oi,isR:isR});
  for(var i=0;i<opts.length;i++){opts[i].classList.add('dim');if(i===q.a)opts[i].classList.add('right');if(i===oi&&!isR)opts[i].classList.add('wrong')}
@@ -1157,15 +1262,20 @@ function showQuizRes(){
 function backQuizHome(){$('#quizHome').style.display='block';$('#quizRun').style.display='none';$('#quizRes').style.display='none'}
 
 // ---- 模考 ----
-var mockState={items:[],i:0,right:0,left:7200,timer:null,marks:0};
+var mockState={items:[],i:0,right:0,left:7200,timer:null,marks:0,transScores:[]};
 function startMock(){
- var objs=shuffle(QTERM).slice(0,6).map(function(x){return {k:'qterm',q:x}})
-  .concat(shuffle(QCLOZE).slice(0,4).map(function(x){return {k:'qcloze',q:x}}))
-  .concat(shuffle(QCOLLOC).slice(0,2).map(function(x){return {k:'qcolloc',q:x}}));
- var tr=shuffle(SENTENCES.map(function(s,i){return {s:s,i:i}}).filter(function(x){return x.s.d==='ec'})).slice(0,2).map(function(x){return {k:'sen',q:x.s,id:x.i}})
-  .concat(shuffle(SENTENCES.map(function(s,i){return {s:s,i:i}}).filter(function(x){return x.s.d==='ce'})).slice(0,2).map(function(x){return {k:'sen',q:x.s,id:x.i}}));
+ var objs=shuffle(QTERM).slice(0,25).map(function(x){return {k:'qterm',q:x}})
+  .concat(shuffle(QCLOZE).slice(0,10).map(function(x){return {k:'qcloze',q:x}}));
+ var tr=[];
+ if(typeof MOCK_TRANS!=='undefined'&&MOCK_TRANS.length){
+  MOCK_TRANS.forEach(function(t){tr.push({k:'tran',q:t});});
+ }else{
+  shuffle(SENTENCES.filter(function(s){return s.d==='ec'})).slice(0,1)
+   .concat(shuffle(SENTENCES.filter(function(s){return s.d==='ce'})).slice(0,1))
+   .forEach(function(s){tr.push({k:'tran',q:s});});
+ }
  mockState.items=objs.concat(tr);
- mockState.i=0;mockState.right=0;mockState.marks=0;mockState.left=7200;mockState.started=Date.now();
+ mockState.i=0;mockState.right=0;mockState.marks=0;mockState.transScores=[];mockState.left=7200;mockState.started=Date.now();
  $('#mockHome').style.display='none';$('#mockRes').style.display='none';$('#mockRun').style.display='block';
  clearInterval(mockState.timer);
  mockState.timer=setInterval(function(){
@@ -1180,12 +1290,15 @@ function renderMockQ(){
  var st=mockState;
  if(st.i>=st.items.length){finishMock(false);return}
  var it=st.items[st.i];
- var label=it.k==='sen'?('翻译题 '+(st.i-11)+' / 4'):('客观题 '+(st.i+1)+' / 12');
+ var label=it.k==='tran'?('翻译题 '+(st.i-34)+' / 2'):('客观题 '+(st.i+1)+' / 35');
  $('#mockRun').innerHTML='<div class="timer" id="mockTimer">'+fmtTime(st.left)+'</div>'+
   '<div class="qcard"><div class="qmeta"><span>'+label+'</span><span class="idx">'+qLabel(it.k)+'</span></div>';
- if(it.k==='sen'){
-  var dir=it.q.d==='ce'?'汉译英':'英译汉';
-  $('#mockRun').innerHTML+='<div class="qtext">'+esc(it.q.src)+'</div><div class="reveal" id="mSenR" style="display:none"><div class="fc-en">'+esc(it.q.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(it.q.note)+'</div></div><button class="btn ghost sm" style="width:100%;margin-top:10px" onclick="showMockSen()">查看参考译文</button><div class="btns"><button class="btn ok" onclick="mockMark(1)">译对了</button><button class="btn no" onclick="mockMark(0)">译错了</button></div></div>';
+ if(it.k==='tran'){
+  var dir=it.q.d==='ce'?'汉译英 C-E':'英译汉 E-C';
+  $('#mockRun').innerHTML+='<div class="qtext">'+esc(it.q.src)+'</div>'+
+   '<div class="reveal" id="mSenR" style="display:none"><div class="fc-en">'+esc(it.q.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(it.q.note||'')+'</div></div>'+
+   '<button class="btn ghost sm" style="width:100%;margin-top:10px" onclick="showMockSen()">查看参考译文并自评</button>'+
+   '<div class="btns" style="margin-top:8px"><button class="btn ok" onclick="mockMark(1)">优（内容完整+通顺）</button><button class="btn cyan outline" onclick="mockMark(0.5)">中（基本达意）</button><button class="btn no" onclick="mockMark(0)">待改进（错漏译）</button></div></div>';
  }else{
   var q=it.q;
   $('#mockRun').innerHTML+='<div class="qtext">'+esc(q.q)+'</div><div class="opts" id="mOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="mockPick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="mFb"></div></div>';
@@ -1197,26 +1310,25 @@ function mockPick(oi){
  var opts=$$('#mOpts .opt'),fb=$('#mFb');
  var isR=oi===q.a;
  if(isR)st.right++;
- else{S.wrong.push({k:it.k,id:-1,q:q.q,ua:q.o[oi],ca:q.o[q.a],ts:Date.now()});save()}
+ else{pushWrong(it.k,-1,q.q,q.o[oi],q.o[q.a])}
  for(var i=0;i<opts.length;i++){opts[i].classList.add('dim');if(i===q.a)opts[i].classList.add('right');if(i===oi&&!isR)opts[i].classList.add('wrong')}
  fb.className='fb show '+(isR?'right':'wrong');
  fb.innerHTML=(isR?'回答正确':'回答错误，已加入错题本')+'<br><b>'+esc(q.o[q.a])+'</b>';
  setTimeout(function(){st.i++;renderMockQ()},1100);
 }
-function mockMark(ok){
+function mockMark(score){
  var st=mockState,it=st.items[st.i];
- if(ok)st.marks++;
- else S.wrong.push({k:'sen',id:it.id,q:it.q.src,ua:'自评未通过',ca:it.q.ref,ts:Date.now()});
+ st.marks+=score;st.transScores.push(score);
  save();st.i++;renderMockQ();
 }
 function finishMock(force){
  clearInterval(mockState.timer);
  var st=mockState;var used=Math.round((Date.now()-st.started)/1000)||0;
- var objAcc=Math.round(st.right/12*100);
- S.mocks.push({ts:Date.now(),obj:st.right+'/12',acc:objAcc,marks:st.marks,used:used});
+ var objAcc=Math.round(st.right/35*100);
+ S.mocks.push({ts:Date.now(),obj:st.right+'/35',acc:objAcc,marks:st.marks,used:used});
  save();
  $('#mockRun').style.display='none';$('#mockRes').style.display='block';
- $('#mockRes').innerHTML='<div class="result"><div class="lab" style="font-size:11px;color:#45657d;font-family:Consolas,monospace;letter-spacing:2px">'+(force?'时间到 · 模考结束':'模考完成 MOCK RESULT')+'</div><div class="rbig'+(objAcc<60?' red':'')+'">'+objAcc+'%</div><div style="font-size:12px;color:#45657d">客观题正确率（'+st.right+'/12）</div><div class="rrow"><span>翻译通过<b>'+st.marks+'/4</b></span><span>用时<b>'+fmtTime(used)+'</b></span></div><div style="display:flex;gap:9px;margin-top:16px"><button class="btn ghost" onclick="backMockHome()">返回</button><button class="btn cyan" onclick="startMock()">再考一次</button></div></div>';
+ $('#mockRes').innerHTML='<div class="result"><div class="lab" style="font-size:11px;color:#45657d;font-family:Consolas,monospace;letter-spacing:2px">'+(force?'时间到 · 模考结束':'模考完成 MOCK RESULT')+'</div><div class="rbig'+(objAcc<60?' red':'')+'">'+objAcc+'%</div><div style="font-size:12px;color:#45657d">客观题正确率（'+st.right+'/35）</div><div class="rrow"><span>翻译得分<b>'+st.marks+'/2</b></span><span>用时<b>'+fmtTime(used)+'</b></span></div><div style="display:flex;gap:9px;margin-top:16px"><button class="btn ghost" onclick="backMockHome()">返回</button><button class="btn cyan" onclick="startMock()">再考一次</button></div></div>';
  renderMockLog();
 }
 function backMockHome(){clearInterval(mockState.timer);$('#mockHome').style.display='block';$('#mockRun').style.display='none';$('#mockRes').style.display='none';renderMockLog()}
@@ -1224,26 +1336,39 @@ function renderMockLog(){
  var m=S.mocks.slice(-6).reverse();
  $('#mockLog').innerHTML=m.length?('<div class="sec-h"><span class="t" style="font-size:12px"><em>//</em> 模考记录</span></div>'+m.map(function(x){
   var d=new Date(x.ts);
-  return '<div class="ht"><div class="num" style="background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.35)">'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2)+'</div><div class="tx">客观题正确率 '+x.acc+'%<small>翻译通过 '+x.marks+'/4 · 用时 '+fmtTime(x.used)+'</small></div></div>'}).join(''))
+  return '<div class="ht"><div class="num" style="background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.35)">'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2)+'</div><div class="tx">客观题正确率 '+x.acc+'%<small>翻译得分 '+x.marks+'/2 · 用时 '+fmtTime(x.used)+'</small></div></div>'}).join(''))
   :'<div class="empty" style="padding:16px 0">NO LOG<br>暂无模考记录</div>';
 }
 
 // ---- 错题本 ----
 function renderWrong(){
- $('#wrongCnt').textContent=S.wrong.length+' 道待复习';
- if(!S.wrong.length){$('#wrongList').innerHTML='<div class="empty">NO ERRORS<br>暂无错题，刷题或模考中的错题会自动收录</div>';return}
- $('#wrongList').innerHTML=S.wrong.map(function(x,i){
-  return '<div class="witem"><div class="wq">['+qLabel(x.k)+'] '+esc(x.q)+'</div><div class="wa">你的答案：'+esc(x.ua)+'</div><div class="wc">正确答案：'+esc(x.ca)+'</div><div class="wb"><button class="r" onclick="retryWrong('+i+')">重新作答</button><button class="d" onclick="dropWrong('+i+')">移出</button></div></div>'}).join('');
+ var now=Date.now();
+ var due=S.wrong.filter(function(w){return w.due<=now});
+ $('#wrongCnt').textContent=due.length+' 道今日待复习 / 共 '+S.wrong.length;
+ var filter=(S.mock&&S.mock.wrongFilter)||'all';
+ var list=S.wrong.slice().sort(function(a,b){return (a.due||0)-(b.due||0)});
+ if(filter==='due')list=list.filter(function(w){return w.due<=now});
+ var pills='<div class="pills" id="wrongPills" style="margin-bottom:10px">'+
+  '<div class="pill'+(filter==='all'?' on':'')+'" onclick="setWrongFilter(\'all\')">全部 '+S.wrong.length+'</div>'+
+  '<div class="pill'+(filter==='due'?' on':'')+'" onclick="setWrongFilter(\'due\')">今日待复习 '+due.length+'</div></div>';
+ if(!S.wrong.length){$('#wrongList').innerHTML=pills+'<div class="empty">NO ERRORS<br>暂无错题，刷题或模考中的错题会自动收录</div>';return}
+ // 用索引映射到排序后的列表
+ $('#wrongList').innerHTML=pills+list.map(function(x){
+  var wi=S.wrong.indexOf(x);
+  var overdue=(x.due<=now)?'':'<span style="color:#5a7a93;font-size:11px">（'+Math.ceil((x.due-now)/86400000)+'天后复习）</span>';
+  return '<div class="witem"><div class="wq">['+qLabel(x.k)+' · 第'+(x.box||1)+'盒] '+esc(x.q)+' '+overdue+'</div><div class="wa">你的答案：'+esc(x.ua)+'</div><div class="wc">正确答案：'+esc(x.ca)+'</div><div class="wb"><button class="r" onclick="retryWrong('+wi+')">重新作答</button><button class="d" onclick="dropWrong('+wi+')">移出</button></div></div>';
+ }).join('');
 }
+function setWrongFilter(f){S.mock=S.mock||{};S.mock.wrongFilter=f;save();renderWrong()}
 function retryWrong(i){
  var x=S.wrong[i];
  if(x.k==='sen'||x.k==='recall'){
-  openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(x.q)+'</div><div class="fc-en">'+esc(x.ca)+'</div><div class="btns"><button class="btn ok" onclick="dropWrong('+i+');closeDlg();toast(\'已移出错题本\')">掌握了</button><button class="btn ghost" onclick="closeDlg()">再想想</button></div>');
+  openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(x.q)+'</div><div class="fc-en">'+esc(x.ca)+'</div><div class="btns"><button class="btn ok" onclick="markWrongReviewed('+i+',true);closeDlg();renderWrong();toast(\'已安排间隔复习\')">掌握了</button><button class="btn ghost" onclick="closeDlg()">再想想</button></div>');
   return;
  }
  var bank=x.k==='qterm'?QTERM:(x.k==='qcloze'?QCLOZE:QCOLLOC);
  var q=null;for(var j=0;j<bank.length;j++){if(bank[j].q===x.q){q=bank[j];break}}
- if(!q){openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(x.q)+'</div><div class="fc-en">'+esc(x.ca)+'</div><div class="btns"><button class="btn ok" onclick="dropWrong('+i+');closeDlg();toast(\'已移出错题本\')">掌握了</button><button class="btn ghost" onclick="closeDlg()">再想想</button></div>');return}
+ if(!q){openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(x.q)+'</div><div class="fc-en">'+esc(x.ca)+'</div><div class="btns"><button class="btn ok" onclick="markWrongReviewed('+i+',true);closeDlg();renderWrong();toast(\'已安排间隔复习\')">掌握了</button><button class="btn ghost" onclick="closeDlg()">再想想</button></div>');return}
  openDlg('<div class="h">'+qLabel(x.k)+'<button class="x" onclick="closeDlg()">×</button></div><div class="qtext" style="font-size:14px">'+esc(q.q)+'</div><div class="opts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="retryPick('+i+','+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div>');
 }
 function retryPick(wi,oi){
@@ -1251,7 +1376,7 @@ function retryPick(wi,oi){
  var bank=x.k==='qterm'?QTERM:(x.k==='qcloze'?QCLOZE:QCOLLOC);
  var q=null;for(var j=0;j<bank.length;j++){if(bank[j].q===x.q){q=bank[j];break}}
  if(!q)return;
- if(oi===q.a){S.wrong.splice(wi,1);save();closeDlg();renderWrong();toast('答对了，已移出错题本')}
+ if(oi===q.a){markWrongReviewed(wi,true);closeDlg();renderWrong();toast('答对了，已安排间隔复习');save()}
  else toast('再想想，正确答案是：'+q.o[q.a]);
 }
 function dropWrong(i){S.wrong.splice(i,1);save();renderWrong()}
@@ -1286,7 +1411,7 @@ function checkRecall(btn,id){
 }
 function recallResult(id,ok){
  if(ok){S.terms[id]=S.terms[id]||{};S.terms[id].st='m';save();renderTerms();toast('已标记掌握');return}
- S.wrong.push({k:'recall',id:id,q:termById(id).cn,ua:'默写未通过',ca:termById(id).en,ts:Date.now()});save();renderTerms();toast('已加入错题本，多背几遍');
+ pushWrong('recall',id,termById(id).cn,'默写未通过',termById(id).en);renderTerms();toast('已加入错题本，多背几遍');
 }
 
 // 省赛：术语翻译+阐释
@@ -1374,25 +1499,62 @@ function startProvPg(i){
 function submitProvPg(i){
  var p=PROV_PASSAGES[i];var el=$('#ptg-'+i);if(!el||!el.value.trim()){toast('先写下你的译文再提交');return}
  var user=el.value.trim();
- var score=transSim(user,p.ref,p.d);
- provPgTimers[i]=provPgTimers[i]||{};provPgTimers[i].state='done';provPgTimers[i].user=user;provPgTimers[i].score=score;
+ var kw=transSim(user,p.ref,p.d); // 仅作关键词覆盖参考，非官方分
+ provPgTimers[i]=provPgTimers[i]||{};
+ provPgTimers[i].state='done';provPgTimers[i].user=user;provPgTimers[i].kw=kw;
+ provPgTimers[i].contentScore=null;provPgTimers[i].formScore=null;
  if(provPgTimers[i].start)provPgTimers[i].elapsed=Math.round((Date.now()-provPgTimers[i].start)/1000);
- var sp=provInit();
- sp.passageAttempts++;sp.passageScore+=score;if(score>=60)sp.passagePass++;save();updateProvStat();
  renderProvPassage();
- toast('翻译正确率 '+score+'%');
+ toast('已提交，请对照参考译文自评');
+ openProvSelfEval(i);
+}
+// 官方口径自评：内容60% + 形式40%，每项 优100/中70/待改进40
+function openProvSelfEval(i){
+ var p=PROV_PASSAGES[i];
+ openDlg('<div class="h">省赛长篇互译 · 自评（内容60% + 形式40%）<button class="x" onclick="closeDlg()">×</button></div>'+
+  '<div class="qtext" style="font-size:13px;margin-bottom:8px">参考译文：</div>'+
+  '<div class="fc-en" style="max-height:180px;overflow:auto;font-size:13px">'+esc(p.ref)+'</div>'+
+  '<div style="margin-top:12px;font-size:13px;color:#9fc0d8">内容（忠实、无错漏译）权重 60%</div>'+
+  '<div class="btns" style="margin:6px 0 10px">'+
+   '<button class="btn ok sm" onclick="provSelfMark('+i+',\'c\',100)">优</button>'+
+   '<button class="btn cyan outline sm" onclick="provSelfMark('+i+',\'c\',70)">中</button>'+
+   '<button class="btn no sm" onclick="provSelfMark('+i+',\'c\',40)">待改进</button></div>'+
+  '<div style="font-size:13px;color:#9fc0d8">形式（通顺、语域一致）权重 40%</div>'+
+  '<div class="btns" style="margin:6px 0 4px">'+
+   '<button class="btn ok sm" onclick="provSelfMark('+i+',\'f\',100)">优</button>'+
+   '<button class="btn cyan outline sm" onclick="provSelfMark('+i+',\'f\',70)">中</button>'+
+   '<button class="btn no sm" onclick="provSelfMark('+i+',\'f\',40)">待改进</button></div>'+
+  '<div id="provEvalRow" style="margin-top:8px"></div>');
+}
+function provSelfMark(i,which,v){
+ if(which==='c')provPgTimers[i].contentScore=v;
+ else provPgTimers[i].formScore=v;
+ var c=provPgTimers[i].contentScore,f=provPgTimers[i].formScore;
+ if(c==null||f==null){
+  $('#provEvalRow').innerHTML='<div style="font-size:12px;color:#7fa0bb">还需选择另一项…</div>';
+  return;
+ }
+ var total=Math.round(c*0.6+f*0.4);
+ provPgTimers[i].score=total;
+ var sp=provInit();
+ sp.passageAttempts++;sp.passageScore+=total;if(total>=60)sp.passagePass++;save();updateProvStat();
+ closeDlg();
+ renderProvPassage();
+ toast('自评分 '+total+' 分（内容'+c+'×0.6 + 形式'+f+'×0.4）');
 }
 function provPgResultHTML(i){
  var s=provPgTimers[i];var p=PROV_PASSAGES[i];
- var grade=s.score>=85?'优秀':s.score>=70?'良好':s.score>=60?'及格':'需加强';
- var color=s.score>=85?'var(--grn)':s.score>=70?'var(--cy)':s.score>=60?'#ffd166':'var(--pink)';
+ var sc=(typeof s.score==='number'&&s.score!=null)?s.score:0;
+ var grade=sc>=85?'优秀':sc>=70?'良好':sc>=60?'及格':'需加强';
+ var color=sc>=85?'var(--grn)':sc>=70?'var(--cy)':sc>=60?'#ffd166':'var(--pink)';
  var timeStr=(s.elapsed!=null)?'<div class="pg-time">用时 '+fmtTime(s.elapsed)+'（本次练习）</div>':'';
- return '<div class="pg-res"><div class="pg-score"><span class="n" style="color:'+color+'">'+s.score+'%</span><span class="g" style="color:'+color+'">'+grade+'</span></div>'+timeStr+
+ var kwStr=(typeof s.kw==='number')?'<div class="pg-time">关键词覆盖 '+s.kw+'%（仅供参考，非官方评分；官方为内容60%+形式40%人工评审）</div>':'';
+ return '<div class="pg-res"><div class="pg-score"><span class="n" style="color:'+color+'">'+sc+'</span><span class="g" style="color:'+color+'">自评 '+grade+'</span></div>'+timeStr+kwStr+
   '<div class="pg-pair"><div class="pg-lb">你的译文</div><div class="pg-user">'+esc(s.user)+'</div></div>'+
   '<div class="pg-pair"><div class="pg-lb">参考译文</div><div class="pg-ref">'+esc(p.ref)+'</div></div>'+
   '<div class="btns"><button class="btn ghost" onclick="retryProvPg('+i+')">重译一篇</button></div></div>';
 }
-function retryProvPg(i){provPgTimers[i].state='typing';provPgTimers[i].score=null;renderProvPassage();var el=$('#ptg-'+i);if(el)el.focus()}
+function retryProvPg(i){provPgTimers[i].state='typing';provPgTimers[i].score=null;provPgTimers[i].contentScore=null;provPgTimers[i].formScore=null;provPgTimers[i].kw=null;renderProvPassage();var el=$('#ptg-'+i);if(el)el.focus()}
 // 翻译正确率：词元/二元组重合度（0-100）
 function transSim(user,ref,dir){
  var uk=tokenize(user,dir),rk=tokenize(ref,dir);
@@ -1420,7 +1582,7 @@ function toggleProvRef(i){var el=$('#pref-'+i);if(el)el.style.display=el.style.d
 
 // ---- 初始化 ----
 load();
-$('#quizPills').innerHTML=[['mix','MIX 混合'],['term','术语选择'],['cloze','完形填空'],['colloc','搭配选择']].map(function(b){return '<div class="pill'+(quizState.bank===b[0]?' on':'')+'" data-b="'+b[0]+'" onclick="setQuizBank(\''+b[0]+'\')">'+b[1]+'</div>'}).join('');
+$('#quizPills').innerHTML=[['mix','MIX 混合'],['term','术语选择'],['cloze','完形填空'],['colloc','搭配选择'],['clozeP','篇章选词']].map(function(b){return '<div class="pill'+(quizState.bank===b[0]?' on':'')+'" data-b="'+b[0]+'" onclick="setQuizBank(\''+b[0]+'\')">'+b[1]+'</div>'}).join('');
 setSenMode('ce');
 updCountdown();
 renderOverview();
