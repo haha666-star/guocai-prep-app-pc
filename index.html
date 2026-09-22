@@ -422,6 +422,13 @@ body{padding-bottom:80px;min-height:100vh}
     <div id="writeList"></div>
   </section>
 
+  <!-- ===== 视图：语法查询 ===== -->
+  <section class="view" id="view-grammar">
+    <div class="sec-h"><span class="t"><em>//</em> 语法查询 GRAMMAR GUIDE</span></div>
+    <div class="mt" style="text-align:left;margin-bottom:10px">国赛高频语法点速查：时态、从句、非谓语、虚拟语气、倒装、强调、平行结构、主谓一致。点击展开。</div>
+    <div id="grammarList"></div>
+  </section>
+
   <!-- ===== 视图：错题本 ===== -->
   <section class="view" id="view-wrong" data-page-node-id="lrPJhWtkolpRCPZncFQVEV">
     <div class="sec-h" data-page-node-id="HcC4dyfayrLkxShXNutJY2"><span class="t" data-page-node-id="8aGngT49z2Mn6BXQ6aVHjI"><em data-page-node-id="e4T6IoX0sG0cRYyRsT85UB">//</em> 错题本</span><button class="more" onclick="clearWrong()" data-page-node-id="N5FxLuuvfbao1ZgyFT5lD5">清空</button></div>
@@ -440,6 +447,7 @@ body{padding-bottom:80px;min-height:100vh}
   <a data-v="read" onclick="go('read')" data-page-node-id="5MxNX5tAxFp2KJKWJyPJaf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="5GEAkcA6Ur3RoiUiHDANDR"><path d="M12 5c-1.5-1-3-1.5-5-1.5S4 4 3 5.5V19c1-1.5 2.5-2 4-2s4 .5 5 2c1-1.5 2.5-2 4-2s3 .5 4 2V5.5C20 4 18.5 3.5 17 3.5S13.5 4 12 5zm0 0v14" data-page-node-id="bxwLbB2XVLHMt3HV0VPoa8"/></svg>阅读</a>
   <a data-v="trans" onclick="go('trans')" data-page-node-id="JQMA0D1RJNSYUbGgPCQ6lL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="CBQYqSiTyRZYRJyAnMKZT0"><path d="M4 6h16M4 12h10M4 18h7" data-page-node-id="HISeYCAnircPOkxgwP90aX"/><path d="m17 14 3 3-3 3" data-page-node-id="WUMBtfx6wu3PKmCPbvfzpy"/></svg>翻译</a>
   <a data-v="write" onclick="go('write')" data-page-node-id="AR7Ac59nERXbETuYUgR847"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="ZGxX9WKffp44MB0DrRdbUt"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM5 4H3m18 0h-2" data-page-node-id="4cNXEzIkD1pnrEI31IejL7"/></svg>写作</a>
+  <a data-v="grammar" onclick="go('grammar')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>语法</a>
   <a data-v="quiz" onclick="go('quiz')" data-page-node-id="BQo5CbnOK3nwjFgRQSPbxs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="67fVe0edzEJwxyFdUdQJlu"><path d="M9 11l3 3 8-8M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11" data-page-node-id="YOqZjbUkkdWx6EmjvS2JVF"/></svg>刷题</a>
 </nav>
 
@@ -1163,6 +1171,27 @@ questions:[
 {q:'The first argument commits which fallacy?',o:['Ad hominem','Slippery slope','Straw man','Appeal to authority'],a:1,n:'滑坡谬误：允许计算器→经济崩溃，因果链条不成立'},
 {q:'The second argument commits which fallacy?',o:['Slippery slope','Straw man','Circular reasoning','Hasty generalization'],a:1,n:'稻草人：把"改革医疗"歪曲成"废除医院"'}
 ]}
+,
+// ===== 高难度长阅读（国赛水平，400-500词） =====
+{type:'long',title:'China\'s EV Battery Dominance',text:'The world has watched China\'s rise in electric vehicle batteries with a mixture of awe and alarm. A decade ago, batteries were a boutique component; today they are the industrial bedrock of the global energy transition. Chinese firms now produce over 70% of the world\'s battery cells, and their dominance extends upstream into refining lithium, nickel and cobalt — the critical minerals that make the energy transition possible. This concentration is not an accident. It is the product of deliberate policy: early subsidies for EV buyers, long-term contracts with mining nations, and a domestic market large enough to drive factories down the learning curve faster than any competitor.\n\nWestern policymakers have responded with two strategies. The first is subsidies of their own — the United States Inflation Reduction Act and the European Union Green Deal Industrial Plan both aim to rebuild local battery supply chains. The second is anxiety about dependence: if China controls both the materials and the cells, what happens in a geopolitical crisis? Yet the gap is enormous. Building a competitive battery supply chain from scratch takes not just money but skilled workers, industrial ecosystems and years of learning. China\'s advantages are self-reinforcing: as battery production scales, costs fall, which attracts more EV factories, which in turn drives further demand.\n\nCritics argue that this dominance carries its own risks. Environmental groups note that mining the minerals that feed Chinese refineries creates pollution and water stress in countries from Chile to the Democratic Republic of Congo. Labor advocates point to reports of unsafe conditions in some upstream operations. Diplomats worry that countries dependent on Chinese battery imports may find their climate policy hostage to foreign decisions. Defenders of the current structure reply that fragmentation would slow the very decarbonization the world urgently needs, and that a single efficient supply chain — however imperfect — is better than none. The debate is unlikely to resolve soon, but its outcome will shape the next decade of the energy transition.',questions:[
+{q:'What is the main reason for China\'s battery dominance according to the text?',o:['Cheap labor alone','Deliberate policy, large domestic market, and learning curve effects','Western disinterest in batteries','Access to cheap oil'],a:1,n:'policy + domestic market + learning curve'},
+{q:'How have Western nations responded?',o:['They ignored the challenge','Subsidies for local supply chains plus anxiety about dependence','They banned Chinese imports immediately','They bought all Chinese batteries'],a:1,n:'IRA + EU Green Deal'},
+{q:'What concern do environmental groups raise?',o:['Chinese batteries are low quality','Mining causes pollution and water stress in supplier countries','Batteries are too expensive','Recycling is impossible'],a:1,n:'minerals mining pollution'},
+{q:'What is the defenders\' counterargument?',o:['Fragmenting supply chains would slow decarbonization','China should control everything','Batteries are unimportant','The West is better'],a:0,n:'fragmentation would slow decarbonization'},
+{q:'The passage is best described as?',o:['A passionate defense of China','A balanced analysis of costs and benefits of battery concentration','A call for banning Chinese batteries','A technical manual on battery chemistry'],a:1,n:'balanced analysis'}
+]},
+{type:'long',title:'Why Ancient Chinese Philosophy Matters for AI Ethics',text:'When engineers in Silicon Valley debate the ethical limits of artificial intelligence, they rarely cite Confucius. Yet classical Chinese philosophy may offer resources that Western liberal tradition has overlooked. Consider the concept of junzi, the morally cultivated person whose excellence is expressed not through abstract rules but through relational responsibility — to family, to community, to the world. Unlike Kantian ethics, which demands universalizable principles, Confucian ethics asks: what does this situation require of the person I am trying to become?\n\nThis shift matters because AI ethics today is largely rule-based: train models to follow safety guidelines, refuse harmful prompts, align with human preferences. But rules cannot cover every edge case, and they can be gamed. What if an AI had not just instructions but character — a disposition to act well even when no rule applies? The Confucian idea of self-cultivation, of becoming the kind of entity that naturally does the right thing, offers a different template. It is also notably relational: an AI\'s responsibility is not abstract but toward the specific humans and institutions it affects.\n\nSkeptics reply that classical Chinese thought is too culturally specific to guide universal technology. Yet the best ethical traditions have always been translations: the Stoics informed the American founders, the Buddha informs modern psychology. The question is not whether Chinese philosophy is "universal" in some abstract sense, but whether its insights about relational morality, restraint, and harmony with the wider world can complement, not replace, existing frameworks. As AI systems become more autonomous and less rule-bound, engineers may find that they need more than new rules. They may need a different vocabulary of responsibility — one that asks, not "what are the constraints," but "what kind of agent should this be?"',questions:[
+{q:'What is the main argument?',o:['AI should be banned','Confucian ethics may offer resources for AI ethics that rule-based frameworks lack','Chinese philosophy is superior to Western philosophy','AI is already ethical'],a:1,n:'relational morality complements rules'},
+{q:'How does Confucian ethics differ from Kantian ethics according to the passage?',o:['It is more mathematical','It focuses on relational responsibility rather than universalizable rules','It rejects morality entirely','It is only for governments'],a:1,n:'relational vs universal rules'},
+{q:'What problem with rule-based AI ethics does the author identify?',o:['Rules are too strict','Rules cannot cover all cases and can be gamed','Rules are too few','Rules are written in Chinese'],a:1,n:'edge cases + gaming'},
+{q:'How does the author respond to cultural-specificity objections?',o:['He agrees Chinese philosophy is useless','He says ethical traditions have always translated across cultures','He says only Chinese philosophy matters','He says technology is culture-free'],a:1,n:'ethical traditions translate'}
+]},
+{type:'long',title:'The Belt and Road at Ten: What Has Changed?',text:'When the Belt and Road Initiative was announced a decade ago, critics dismissed it as a geopolitical power play dressed as infrastructure. Supporters saw it as a Marshall Plan for the global south. Ten years later, neither caricature holds up cleanly. The BRI has funded ports in Piraeus, railways in Laos, solar farms in Pakistan and telecom networks in Kenya — but it has also left some hosts with debt burdens they did not anticipate, and with projects whose environmental and social impact they did not fully understand at signing.\n\nThe initiative has evolved. Early projects focused on hard infrastructure: roads, rails, ports. The current phase emphasizes the "digital Silk Road," green finance, and health cooperation. Debt sustainability has moved from an afterthought to a formal principle, with China signing on to G20 common frameworks for debt relief. And the conversation has shifted from "who wins" to "what works": which projects deliver shared benefits, which create dependencies, and how host governments can renegotiate terms.\n\nCritics remain. They point to Sri Lanka\'s Hambantota port, leased to China for 99 years after repayment difficulties, as evidence of debt-trap diplomacy. Supporters reply that Hambantota was a Sri Lankan decision, that the project was not originally Chinese-proposed, and that restructuring is a normal part of sovereign lending, not uniquely predatory. The truth is probably that the BRI has been neither the catastrophe its enemies claim nor the gift its friends promised. It is a large, messy, learning-by-doing experiment — one that the next decade will likely refine rather than abandon.',questions:[
+{q:'How has the BRI evolved according to the passage?',o:['It was abandoned','It shifted from hard infrastructure to digital/green/health cooperation','It became purely military','It shrank to nothing'],a:1,n:'digital Silk Road + green finance'},
+{q:'What is the author\'s overall judgment?',o:['The BRI is entirely a failure','The BRI is entirely a success','It is neither catastrophe nor gift, but a messy learning experiment','It should be expanded immediately'],a:2,n:'messy learning-by-doing'},
+{q:'What does the author say about Hambantota?',o:['It proves debt-trap diplomacy entirely','It was a Sri Lankan decision and debt restructuring is normal sovereign lending','It was a Chinese land grab','It is irrelevant'],a:1,n:'balanced view'},
+{q:'What is the "digital Silk Road"?',o:['A new railway','Digital infrastructure cooperation as part of the new BRI phase','A fiber-optic cable inside China','A smartphone brand'],a:1,n:'digital infra cooperation'}
+]}
 ];
 
 // ================= 数据：汉译英段落（省赛 Part IV / 国赛 Part IV） =================
@@ -1204,15 +1233,60 @@ note:'四个超越：estrangement→exchange; conflict→mutual learning; superi
 {cn:'全过程人民民主是最广泛、最真实、最管用的民主，是全链条、全方位、全覆盖的民主，是最广泛、最真实、最管用的社会主义民主。',
 en_ref:'Whole-process people\'s democracy is the broadest, most genuine and most useful democracy, and it is a democracy in the whole process, across all dimensions and with full coverage. It is socialist democracy of the broadest scope, the greatest authenticity and the greatest effectiveness.',
 note:'最广泛最真实最管用=broadest/most genuine/most useful；全链条全方位全覆盖=whole process/all dimensions/full coverage'}
+,
+{cn:'中国坚持对外开放的基本国策，坚定奉行互利共赢的开放战略，不断以中国新发展为世界提供新机遇，推动建设开放型世界经济，更好惠及各国人民。中国坚持经济全球化正确方向，推动贸易和投资自由化便利化，推进双边、区域和多边合作。',
+en_ref:'China remains committed to its fundamental policy of opening up and pursues a mutually beneficial opening-up strategy. It will continue to provide new opportunities for the world through its own development, promote an open world economy, and deliver greater benefits to all peoples. China supports the right direction of economic globalization, promotes trade and investment liberalization and facilitation, and advances bilateral, regional and multilateral cooperation.',
+grammar:'并列结构：provide new opportunities / promote an open world economy / deliver greater benefits 三个动词短语平行；better惠及=deliver greater benefits to',
+tag:'对外开放',
+note:'对外开放=opening up；互利共赢=mutually beneficial；开放型世界经济=open world economy；贸易投资自由化便利化=trade and investment liberalization and facilitation'},
+{cn:'我们要实现好、维护好、发展好最广大人民根本利益，紧紧抓住人民最关心最直接最现实的利益问题，坚持尽力而为、量力而行，深入群众、深入基层，采取更多惠民生、暖民心举措，着力解决好人民群众急难愁盼问题。',
+en_ref:'We must ensure, protect and develop the fundamental interests of the overwhelming majority of the people. We should address their most immediate and practical concerns, do what is possible and practicable, and engage deeply with the people and communities. We should adopt more measures that improve people\'s wellbeing and warm their hearts, and work hard to resolve the pressing difficulties and problems that concern them most.',
+grammar:'并列谓语：ensure, protect and develop 三个动词并列；do what is possible and practicable 名词性从句作宾语；that concern them most 定语从句',
+tag:'民生',
+note:'最广大人民根本利益=fundamental interests of the overwhelming majority of the people；急难愁盼=pressing difficulties and concerns；尽力而为量力而行=do what is possible and practicable'},
+{cn:'科技创新能够催生新产业、新模式、新动能，是发展新质生产力的核心要素。必须深入实施科教兴国战略、人才强国战略、创新驱动发展战略，完善国家创新体系，加快实现高水平科技自立自强。',
+en_ref:'Scientific and technological innovation gives rise to new industries, new models and new growth drivers, and is the core element for developing new quality productive forces. We must thoroughly implement the strategies of invigorating China through science and education, developing a quality workforce, and driving development through innovation, improve the national innovation system, and accelerate self-reliance and strength in science and technology at a higher level.',
+grammar:'三个新产业/新模式/新动能 平行结构 give rise to new industries, new models and new growth drivers；三个战略并列：invigorating China through science and education / developing a quality workforce / driving development through innovation',
+tag:'科教兴国',
+note:'催生=give rise to；科教兴国=invigorating China through science and education；人才强国=developing a quality workforce；创新驱动发展=driving development through innovation'},
+{cn:'中国式现代化，是中国共产党领导的社会主义现代化，既有各国现代化的共同特征，更有基于自己国情的中国特色。中国式现代化是人口规模巨大的现代化，全体人民共同富裕的现代化，物质文明和精神文明相协调的现代化，人与自然和谐共生的现代化，走和平发展道路的现代化。',
+en_ref:'Chinese modernization is the socialist modernization led by the Communist Party of China. It has the common features of modernization in all countries, but more importantly, it has distinctive Chinese features grounded in China\'s own conditions. It is a modernization of a huge population, of common prosperity for all, of material and cultural-ethical advancement, of harmony between humanity and nature, and of peaceful development.',
+grammar:'is the socialist modernization led by ... 过去分词作后置定语；It has ... common features, but more importantly, it has ... distinctive features 并列转折句；五个of短语平行作同位语',
+tag:'中国式现代化',
+note:'中国式现代化五大特征固定译法；中国共产党领导=led by CPC；基于国情=grounded in China\'s own conditions'},
+{cn:'我们要尊重世界文明多样性，坚持平等、互鉴、对话、包容的文明观，以文明交流超越文明隔阂，以文明互鉴超越文明冲突，以文明共存超越文明优越，弘扬中华文明蕴含的全人类共同价值。',
+en_ref:'We should respect the diversity of civilizations and uphold the vision of civilizations as equal, open to mutual learning, ready for dialogue and inclusive. We should replace estrangement with exchange, conflict with mutual learning, and a sense of superiority with coexistence, and champion the common values of humanity embodied in Chinese civilization.',
+grammar:'replace A with B 三次平行：replace estrangement with exchange / conflict with mutual learning / superiority with coexistence；embodied in Chinese civilization 过去分词作后置定语',
+tag:'文明交流互鉴',
+note:'文明观=vision of civilizations；平等互鉴对话包容=equal/open to mutual learning/ready for dialogue/inclusive；全人类共同价值=common values of humanity'},
+{cn:'青年强，则国家强。当代中国青年生逢其时，施展才干的舞台无比广阔，实现梦想的前景无比光明。广大青年要坚定不移听党话、跟党走，怀抱梦想又脚踏实地，敢想敢为又善作善成。',
+en_ref:'A strong youth makes a strong country. The young people of contemporary China are living in a great era: the stage for them to display their talent is vast, and the prospect for them to realize their dreams is bright. They should remain firmly committed to the Party\'s leadership, pursue their dreams while keeping their feet on the ground, dare to try and deliver solid results.',
+grammar:'A strong youth makes a strong country 类比平行；冒号后两个并列句 the stage ... is vast, and the prospect ... is bright；while keeping their feet on the ground 分词作状语',
+tag:'青年',
+note:'生逢其时=living in a great era；施展才干的舞台=stage to display talent；脚踏实地=keep their feet on the ground；善作善成=deliver solid results'},
+{cn:'要繁荣发展文化事业和文化产业，健全现代公共文化服务体系，实施重大文化产业项目带动战略，加大文物和文化遗产保护力度，加强城乡建设中历史文化保护传承，讲好中国故事、传播好中国声音，展现可信、可爱、可敬的中国形象。',
+en_ref:'We will flourish cultural programs and cultural industries, improve the modern public cultural services system, implement strategies led by major cultural projects, strengthen protection of cultural relics and heritage, preserve and pass on historical and cultural heritage in urban and rural development, tell China\'s story well and communicate China\'s voice effectively, and present a credible, appealing and respectable image of China.',
+grammar:'多个动宾短语平行：flourish / improve / implement / strengthen / preserve / tell / present 七个谓语动词并列；可信可爱可敬=credible, appealing and respectable 三个形容词平行',
+tag:'文化事业',
+note:'文化事业=cultural programs；文化产业=cultural industries；公共文化服务体系=public cultural services system；可信可爱可敬=credible, appealing and respectable'},
+{cn:'当前，世界之变、时代之变、历史之变正以前所未有的方式展开，人类社会面临前所未有的挑战。世界又一次站在历史的十字路口，何去何从取决于各国人民的抉择。',
+en_ref:'At present, changes of the world, of our times, and of history are unfolding in ways unseen before. Humanity faces unprecedented challenges. The world stands at another historical crossroads, and which way to go depends on the choices of all peoples.',
+grammar:'changes of the world, of our times, and of history 三个of短语平行；which way to go 疑问词+不定式作主语；unfolding in ways unseen before 过去分词 unseen before 作后置定语',
+tag:'国际形势',
+note:'世界之变时代之变历史之变=changes of the world/our times/history；前所未有的=unprecedented；历史的十字路口=historical crossroads'},
+{cn:'我们要推进美丽中国建设，坚持山水林田湖草沙一体化保护和系统治理，统筹产业结构调整、污染治理、生态保护、应对气候变化，协同推进降碳、减污、扩绿、增长，推进生态优先、节约集约、绿色低碳发展。',
+en_ref:'We will advance the building of a Beautiful China, carry out holistic conservation and systematic governance of mountains, rivers, forests, farmlands, lakes, grasslands and deserts, coordinate industrial restructuring, pollution control, ecological conservation and climate response, and make coordinated progress in carbon reduction, pollution reduction, green expansion and economic growth, pursuing green, low-carbon and efficient development that puts ecological conservation first.',
+grammar:'多个并列宾语：industrial restructuring, pollution control, ecological conservation, climate response；carbon reduction, pollution reduction, green expansion, economic growth 四个名词短语平行；that puts ecological conservation first 定语从句',
+tag:'美丽中国',
+note:'美丽中国=Beautiful China；山水林田湖草沙=mountains/rivers/forests/farmlands/lakes/grasslands/deserts；降碳减污扩绿增长=carbon/pollution/green/growth reduction/expansion'}
 ];
 
 // ================= 数据：写作题（写以言志 / Part V） =================
 var ESSAYS=[
 {title:'HelloTravel 社区回复（200-250词）',prompt:'你在 HelloTravel 在线社区看到 Tom Harris 的提问。给他写一封回复，陈述你的观点并给出理由和例子。200-250词。',min:200,max:250,
-ref_points:'结构：1) 明确立场 2) 两个理由各配一个具体例子 3) 结尾扣题。语言：社区帖子语气，友好但有论据。注意字数。'},
+ref_points:'结构：1) 明确立场 2) 两个理由各配一个具体例子 3) 结尾扣题。语言：社区帖子语气，友好但有论据。注意字数。',keywords:['online community','reason','example','conclusion','however','moreover'],sample:'Hi Tom,\n\nThanks for raising this question. While many travelers prefer the comfort of familiar brands, I personally choose local experiences whenever I travel.\n\nFirst, local food and small hotels give you a sense of place that chain restaurants can never offer. When I visited Chengdu, a tiny street-side noodle shop introduced me to dan dan noodles — a memory I still cherish. Second, local choices are usually cheaper and support the local economy, not distant corporations.\n\nOf course, familiar chains can be reassuring in unfamiliar cities. But the best travel stories always come from stepping out of your comfort zone. Next time you travel, try asking a local for their recommendation — you might be pleasantly surprised.\n\nHope this helps!'},
 {title:'Cultural Mosaic 专栏：中国文学影视作品如何讲好中国故事（350-400词）',prompt:'你为国际杂志 Cultural Mosaic 撰稿，回应这篇短文：近年来《流浪地球》《黑神话：悟空》等改编自中国文学的影视作品风靡全球。请论述"基于中国文学的文化作品在向世界讲述中国故事中的作用"，自拟标题，350-400词。',min:350,max:400,
-ref_points:'结构：引入现象→论点1（科技外壳+中国哲思/道德/想象）→论点2（艺术价值吸引观众深入原作）→论点3（窗口效应：文化产业潜力+理解中国）→结尾。范文方向：The Wandering Earth 的集体主义 vs 好莱坞个人英雄；黑神话的《西游记》东方神话美学；"not only tech, but artistic value + Chinese philosophy"。'}
-,
+ref_points:'结构：引入现象→论点1（科技外壳+中国哲思/道德/想象）→论点2（艺术价值吸引观众深入原作）→论点3（窗口效应：文化产业潜力+理解中国）→结尾。',keywords:['Chinese literature','cultural exports','Wandering Earth','Black Myth','Journey to the West','philosophy','worldview','global audience'],sample:'\n\nWhen The Wandering Earth hit screens worldwide, many Western viewers were surprised: this sci-fi blockbuster did not celebrate a lone hero saving humanity, but a collective effort to tow Earth away from the dying sun. That contrast is the key to understanding how adaptations of Chinese literature speak to global audiences.\n\nFirst, these works wrap universal themes — survival, sacrifice, family — in distinctly Chinese moral frameworks. Where Hollywood often champions individualism, The Wandering Earth asks what a community owes to its home planet. Black Myth: Wukong similarly invites players into a world shaped by Buddhist and Daoist ideas of destiny and redemption.\n\nSecond, their artistic quality drives curiosity about the original texts. Millions who had never heard of Journey to the West found themselves reading the novel after playing the game. This is the window effect: a polished adaptation becomes a door through which global audiences enter Chinese imagination.\n\nIn the end, Chinese literature is not a barrier to global storytelling — it is its most underused asset. When told with craft and sincerity, these stories resonate far beyond China\'s borders.\n'},
 {title:'青年与乡村振兴（250词）',prompt:'越来越多大学毕业生选择回到基层或县域工作。请论述：青年应该在大城市追求机会，还是回到家乡参与乡村振兴？250词，自拟标题。',min:200,max:300,
 ref_points:'结构：引入争议→论点1（大城市提供平台与资源）→论点2（县域同样有空间且乡村振兴需要青年）→结尾（选择因人而异，但无论在哪都要把个人发展与社会需求结合）。语言注意：rural revitalization/grassroots/returning youth/county-level towns。'},
 {title:'AI时代，我们还需要学外语吗？（250词）',prompt:'机器翻译越来越强大，有人认为外语学习已经过时。你的看法？250词。',min:200,max:300,
@@ -1651,7 +1725,7 @@ function dropWrong(i){S.wrong.splice(i,1);save();renderWrong()}
 function clearWrong(){if(!S.wrong.length)return;S.wrong=[];save();renderWrong();toast('错题本已清空')}
 
 // ---- 导航 ----
-var VIEWS=['overview','terms','read','trans','write','quiz','mock','wrong'];
+var VIEWS=['overview','terms','read','trans','write','grammar','quiz','mock','wrong'];
 function go(v){
  VIEWS.forEach(function(x){var el=$('#view-'+x);if(el)el.classList.toggle('on',x===v)});
  $$('#nav a').forEach(function(a){a.classList.toggle('on',a.dataset.v===v)});
@@ -1663,18 +1737,94 @@ function go(v){
  if(v==='read')renderReadList();
  if(v==='trans')renderTransList();
  if(v==='write')renderWriteList();
+ if(v==='grammar')renderGrammar();
  if(v==='wrong')renderWrong();
  if(v==='mock')renderMockLog();
 }
 
 
+
+// ================= 语法查询 =================
+var GRAMMAR=[
+{cat:"时态 Tense",items:[
+ {name:"现在完成时 vs 一般过去时",rule:"have/has + 过去分词 → 强调对现在的影响；一般过去时只陈述过去事实，与现在无关。",eg:"✅ China has lifted 800 million people out of poverty.（影响：现在仍受益）\\n❌ China lifted 800 million people out of poverty in 2020.（只说2020年）",note:"国赛阅读高频：看到since/for/over the past decade用现在完成时"},
+ {name:"过去完成时",rule:"had + 过去分词 → 表示「过去的过去」，两个过去动作有先后时用。",eg:"By the time the policy was introduced, many factories had already closed.",note:"by+过去时间点→过去完成时"},
+ {name:"将来进行时",rule:"will be doing → 预测某事在将来某时刻正在发生。",eg:"This time next year, China will be celebrating the 80th anniversary of the PRC."}
+]},
+{cat:"从句 Clauses",items:[
+ {name:"定语从句（限制性/非限制性）",rule:"who/which/that/whose/where/when。限制性无逗号，非限制性有逗号且不能用that。",eg:"The policy, which was announced in 2020, has transformed rural areas.（非限制定语从句补充说明）",note:"国赛阅读长句主干拆解：找先行词→看关系词→判断从句范围"},
+ {name:"名词性从句",rule:"that/whether/what/who/why/how引导主语/宾语/表语/同位语从句。",eg:"What matters is not how fast we grow, but how green.（主语从句）\\nThe fact that China is still developing remains.（同位语从句）"},
+ {name:"状语从句",rule:"时间(when/while/before/after)、原因(because/since/as)、让步(although/while/despite the fact that)、条件(if/unless/provided that)、目的(so that/in order that)。",eg:"While/Although the West industrialized over two centuries, China is doing so in decades.",note:"while=尽管/然而，不是只有「当……时」"}
+]},
+{cat:"非谓语动词",items:[
+ {name:"不定式 to do",rule:"表目的、未发生、具体动作。",eg:"To achieve common prosperity, China must narrow the urban-rural gap."},
+ {name:"动名词 doing",rule:"表已知事实、抽象概念、介词后。",eg:"Polluting the environment is unsustainable.（主语，抽象概念）"},
+ {name:"分词 doing/done",rule:"doing表主动/进行；done表被动/完成。作状语或定语。",eg:"Driven by innovation, new productive forces are reshaping the economy.（被动，被创新驱动）\\nRising demand for EVs has boosted battery factories.（主动，需求上升）"},
+ {name:"独立主格",rule:"名词+分词，与主句主语不同，作状语表伴随。",eg:"The storm approaching, the flight was cancelled.（=As the storm approached）",note:"国赛阅读长难句常见"}
+]},
+{cat:"虚拟语气",items:[
+ {name:"与现在事实相反",rule:"If + 过去时, would/could/might + do。",eg:"If China followed the old growth model, it would face severe environmental collapse."},
+ {name:"与过去事实相反",rule:"If + had done, would/could have done。",eg:"If China had delayed ecological reforms, the damage would have been irreversible."},
+ {name:"建议/命令类虚拟",rule:"suggest/demand/insist/propose/it is necessary that + (should) do。",eg:"It is essential that every student (should) learn cross-cultural communication."}
+]},
+{cat:"倒装与强调",items:[
+ {name:"否定词开头倒装",rule:"Never/Hardly/Rarely/Seldom/Not only + 助动词+主语。",eg:"Never before has China lifted so many people out of poverty in such a short time."},
+ {name:"Only+状语开头倒装",rule:"Only by working together can we address climate change.",eg:"Only when all nations cooperate will global governance be effective."},
+ {name:"强调句 It is/was ... that ...",rule:"It is + 被强调部分 + that + 其余。",eg:"It is through people-to-people exchange that mutual understanding grows."}
+]},
+{cat:"平行结构",items:[
+ {name:"并列成分语法一致",rule:"and/but/or连接的成分必须词性/形式一致。",eg:"✅ The policy is fair, efficient and sustainable.（三个形容词）\\n❌ The policy is fair, efficient, and it is sustainable.（破坏平行）"},
+ {name:"比较级平行",rule:"more/less than前后结构一致。",eg:"China's modernization is more people-centered than the West's, which prioritizes individualism."}
+]},
+{cat:"主谓一致",items:[
+ {name:"集合名词",rule:"family/team/government/committee表整体用单数，表成员用复数。",eg:"The government has announced a new policy.（整体）\\nThe committee are divided on the issue.（成员意见不一）"},
+ {name:"百分数/分数+of+名词",rule:"谓语与of后名词一致。",eg:"Over 60% of the population lives in cities.（population不可数→lives）"},
+ {name:"either/neither/not only...but also",rule:"就近原则。",eg:"Not only the students but also the teacher was impressed."}
+]},
+{cat:"介词与搭配",items:[
+ {name:"contribute to / lead to / result in",rule:"to是介词，后接doing。",eg:"Investing in green energy contributes to reducing carbon emissions."},
+ {name:"responsible for / capable of / aware of",rule:"固定介词搭配。",eg:"Governments are responsible for ensuring sustainable development."},
+ {name:"in terms of / with regard to / as far as ... is concerned",rule:"衔接短语，用于引出话题。",eg:"In terms of renewable energy capacity, China leads the world."}
+]},
+{cat:"国赛写作高频句型",items:[
+ {name:"引出观点",rule:"It is widely argued that ... / There is a growing consensus that ... / While some argue ..., others maintain that ...",eg:"While some argue that machine translation will make language learning obsolete, others maintain that cross-cultural empathy cannot be automated."},
+ {name:"举例论证",rule:"A case in point is ... / Take ... as an example / This is best illustrated by ...",eg:"A case in point is Black Myth: Wukong, which introduced Journey to the West to millions of global gamers."},
+ {name:"因果推导",rule:"This can be attributed to ... / The root cause lies in ... / Consequently, ...",eg:"This trend can be attributed to rising cultural confidence among young Chinese consumers."},
+ {name:"结尾升华",rule:"In the final analysis, ... / Ultimately, what truly matters is ... / Only in this way can we ...",eg:"Ultimately, what truly matters is not technology itself, but the human values it carries."}
+]}
+];
+function renderGrammar(){
+ var html='<div class="sec-h"><span class="t"><em>//</em> 语法查询 GRAMMAR GUIDE</span></div>';
+ html+='<div class="mt" style="text-align:left;margin-bottom:10px">国赛高频语法点速查。点击分类展开/收起。</div>';
+ GRAMMAR.forEach(function(g,gi){
+  html+='<div class="witem" style="cursor:pointer" onclick="toggleGrammar('+gi+')">';
+  html+='<div class="wq">'+g.cat+'</div><div class="wa">'+g.items.length+' 个点</div>';
+  html+='<div class="gd" id="gd'+gi+'" style="display:none;margin-top:8px">';
+  g.items.forEach(function(it){
+   html+='<div style="margin-top:10px;padding:10px;background:#0d1f30;border-left:3px solid #7fd8ff;border-radius:4px">';
+   html+='<div style="font-size:13px;font-weight:600;color:#e8f4ff">'+esc(it.name)+'</div>';
+   html+='<div style="font-size:12px;margin-top:4px;color:#a0bdd6">'+esc(it.rule)+'</div>';
+   html+='<div style="font-size:12px;margin-top:6px;color:#4ade80;white-space:pre-wrap">'+esc(it.eg)+'</div>';
+   if(it.note)html+='<div style="font-size:11px;margin-top:4px;color:#fbbf24">'+esc(it.note)+'</div>';
+   html+='</div>';
+  });
+  html+='</div></div>';
+ });
+ $('#view-grammar').innerHTML=html;
+}
+function toggleGrammar(i){
+ var el=$('#gd'+i);if(el)el.style.display=el.style.display==='none'?'block':'none';
+}
+
 // ================= 阅读训练 =================
 var readState=null;
 function renderReadList(){
- var types={short:'短篇阅读',long:'中长篇',dual:'双文本对比',chart:'图表判断',logic:'排序/逻辑谬误'};
- $('#readList').innerHTML=READINGS.map(function(r,i){
-  return '<div class="witem" onclick="startRead('+i+')" style="cursor:pointer"><div class="wq">['+(types[r.type]||r.type)+'] '+esc(r.title)+'</div><div class="wa">'+r.questions.length+' 题'+(r.textB?' · 双文本':'')+'</div></div>';
-}).join('');
+ var types={short:'短篇阅读',long:'中长篇',dual:'双文本对比',chart:'图表判断',logic:'逻辑谬误'};
+ $('#view-read').innerHTML='<div class="sec-h"><span class="t"><em>//</em> 阅读训练 READING</span></div>'+
+  '<div class="mt" style="text-align:left;margin-bottom:10px">校赛：读以博闻(短篇+图表T/F)＋读以明理(短篇+中长篇)。省赛/国赛加双文本对比。点题组进入做题，做完自动回顾错题。</div>'+
+  '<div id="readList">'+READINGS.map(function(r,i){
+   return '<div class="witem" onclick="startRead('+i+')" style="cursor:pointer"><div class="wq">['+(types[r.type]||r.type)+'] '+esc(r.title)+'</div><div class="wa">'+r.questions.length+' 题 · '+(r.text?r.text.split(' ').length:(r.textA?r.textA.split(' ').length:r.chartNote.split(' ').length))+' 词'+(r.textB?' · 双文本':'')+'</div></div>';
+  }).join('')+'</div>';
 }
 function startRead(i){
  var r=READINGS[i];
@@ -1684,20 +1834,16 @@ function startRead(i){
 function renderReadQ(){
  var st=readState;if(!st)return;
  var r=st.r;
- if(st.qi>=r.questions.length){
-  $('#view-read').innerHTML='<div class="qcard"><div class="rbig '+(st.score>=r.questions.length*0.8?'grn':'pink')+'">'+st.score+'/'+r.questions.length+'</div>'+
-   '<div class="btns" style="margin-top:14px"><button class="btn ghost" onclick="renderReadList();go(\'read\')">返回列表</button></div></div>';
-  return;
- }
+ if(st.qi>=r.questions.length){renderReadReview();return;}
  var q=r.questions[st.qi];
  var html='<div class="qcard"><div class="qmeta"><span>'+esc(r.title)+'</span><span class="idx">'+(st.qi+1)+' / '+r.questions.length+'</span></div>';
  if(r.type==='dual'){
-  html+='<div class="qtext" style="font-size:13px;line-height:1.9"><b style="color:#7fd8ff">Text A</b><br>'+esc(r.textA)+'</div>';
-  html+='<div class="qtext" style="font-size:13px;line-height:1.9;margin-top:8px"><b style="color:#7fd8ff">Text B</b><br>'+esc(r.textB)+'</div>';
+  html+='<div class="qtext" style="font-size:13px;line-height:1.9;max-height:300px;overflow:auto;border:1px solid #1d3a52;padding:10px;border-radius:6px"><b style="color:#7fd8ff">Text A</b><br>'+esc(r.textA)+'</div>';
+  html+='<div class="qtext" style="font-size:13px;line-height:1.9;max-height:300px;overflow:auto;border:1px solid #1d3a52;padding:10px;border-radius:6px;margin-top:8px"><b style="color:#7fd8ff">Text B</b><br>'+esc(r.textB)+'</div>';
  }else if(r.type==='chart'){
   html+='<div class="qtext" style="font-size:13px;line-height:1.9">'+esc(r.chartNote)+'</div>';
  }else{
-  html+='<div class="qtext" style="font-size:13px;line-height:1.9">'+esc(r.text)+'</div>';
+  html+='<div class="qtext" style="font-size:13px;line-height:1.9;max-height:360px;overflow:auto;border:1px solid #1d3a52;padding:10px;border-radius:6px">'+esc(r.text)+'</div>';
  }
  html+='<div class="qtext" style="margin-top:12px">'+esc(q.q)+'</div>';
  html+='<div class="opts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="readPick('+oi+')"><span class="k">'+('ABCD'[oi]||'TF'[oi])+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div>';
@@ -1707,55 +1853,126 @@ function renderReadQ(){
 function readPick(oi){
  var st=readState,r=st.r,q=r.questions[st.qi];
  var isR=oi===q.a;
+ st.answers.push({u:oi,ok:isR});
  if(isR)st.score++;else pushWrong('read',-1,q.q,q.o[oi],q.o[q.a]);
  var fb=$('#rdFb');
  fb.className='fb show '+(isR?'right':'wrong');
  fb.innerHTML=(isR?'✓ 正确':'✗ 正确答案：'+esc(q.o[q.a]))+(q.n?'<br><span style="font-size:12px;color:#7fa0bb">'+esc(q.n)+'</span>':'');
- setTimeout(function(){st.qi++;renderReadQ()},1500);
+ setTimeout(function(){st.qi++;renderReadQ()},1200);
+}
+function renderReadReview(){
+ var st=readState,r=st.r;
+ var html='<div class="qcard"><div class="qmeta"><span>'+esc(r.title)+'</span><span class="idx">回顾</span></div>';
+ html+='<div class="rbig '+(st.score>=r.questions.length*0.8?'grn':'pink')+'">'+st.score+'/'+r.questions.length+'</div>';
+ r.questions.forEach(function(q,i){
+  var a=st.answers[i]||{};
+  var ok=a.ok;
+  html+='<div style="margin-top:12px;padding:10px;border-radius:6px;background:'+(ok?'rgba(74,222,128,0.08)':'rgba(248,113,113,0.08)')+';border-left:3px solid '+(ok?'#4ade80':'#f87171')+'">';
+  html+='<div style="font-size:13px;font-weight:600">Q'+(i+1)+'. '+esc(q.q)+'</div>';
+  html+='<div style="font-size:12px;margin-top:4px;color:'+(ok?'#4ade80':'#f87171')+'">你的答案：'+esc(q.o[a.u]||'未答')+'</div>';
+  if(!ok)html+='<div style="font-size:12px;color:#7fd8ff">正确答案：'+esc(q.o[q.a])+'</div>';
+  if(q.n)html+='<div style="font-size:12px;color:#7fa0bb;margin-top:4px">解析：'+esc(q.n)+'</div>';
+  html+='</div>';
+ });
+ html+='<div class="btns" style="margin-top:14px"><button class="btn ghost" onclick="renderReadList()">返回列表</button><button class="btn cyan sm" onclick="startRead('+READINGS.indexOf(r)+')">再做一遍</button></div></div>';
+ $('#view-read').innerHTML=html;
 }
 
 // ================= 汉译英段落 =================
 var transState=null;
 function renderTransList(){
- $('#transList').innerHTML=TRANSLATIONS.map(function(t,i){
-  return '<div class="witem"><div class="wq">段落 '+(i+1)+'</div><div class="wa" style="font-size:13px">'+esc(t.cn.slice(0,60))+'…</div>'+
-   '<div class="btns"><button class="btn cyan sm" onclick="startTrans('+i+')">开始翻译</button></div></div>';
- }).join('');
+ $('#view-trans').innerHTML='<div class="sec-h"><span class="t"><em>//</em> 汉译英段落 TRANSLATE &amp; CONNECT</span></div>'+
+  '<div class="mt" style="text-align:left;margin-bottom:10px">省赛/国赛 Part IV：将中国政经文化段落译成英语。写后对照参考译文+语法点讲解。</div>'+
+  '<div id="transList">'+TRANSLATIONS.map(function(t,i){
+   return '<div class="witem"><div class="wq">段落 '+(i+1)+(t.tag?' · '+t.tag:'')+'</div><div class="wa" style="font-size:13px">'+esc(t.cn.slice(0,50))+'…</div>'+
+    '<div class="btns"><button class="btn cyan sm" onclick="startTrans('+i+')">开始翻译</button></div></div>';
+  }).join('')+'</div>';
 }
 function startTrans(i){
  var t=TRANSLATIONS[i];transState={i:i};
- $('#view-trans').innerHTML='<div class="qcard"><div class="qmeta"><span>汉译英 段落 '+(i+1)+'</span></div>'+
+ $('#view-trans').innerHTML='<div class="qcard"><div class="qmeta"><span>汉译英 段落 '+(i+1)+(t.tag?' · '+t.tag:'')+'</span></div>'+
   '<div class="qtext" style="font-size:14px;line-height:2">'+esc(t.cn)+'</div>'+
   '<textarea id="taUser" placeholder="在此输入你的英文译文…" style="width:100%;min-height:140px;background:#0d2237;color:#e8f4ff;border:1px solid #1d3a52;border-radius:8px;padding:10px;font-size:14px;line-height:1.8;margin-top:8px"></textarea>'+
   '<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="showTransRef()">查看参考译文并自评</button>'+
-  '<button class="btn ghost" onclick="renderTransList();go(\'trans\')">返回</button></div>'+
-  '<div id="taRef" style="display:none;margin-top:12px"><div class="fc-en">'+esc(t.en_ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div>'+
+  '<button class="btn ghost" onclick="renderTransList()">返回列表</button></div>'+
+  '<div id="taRef" style="display:none;margin-top:12px"><div class="fc-en" style="white-space:pre-wrap">'+esc(t.en_ref)+'</div>'+
+  (t.grammar?'<div class="fc-note" style="margin-top:10px;padding:10px;background:#0d1f30;border-left:3px solid #7fd8ff;border-radius:4px"><b style="color:#7fd8ff">语法点：</b><br>'+esc(t.grammar)+'</div>':'')+
+  '<div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div>'+
   '<div class="btns" style="margin-top:10px"><button class="btn ok sm" onclick="toast(\'已记录：术语准确\')">术语准确</button><button class="btn cyan outline sm" onclick="toast(\'已记录：部分偏差\')">部分偏差</button><button class="btn no sm" onclick="toast(\'已记录：错漏较多\')">错漏较多</button></div></div></div>';
 }
 function showTransRef(){var el=$('#taRef');if(el)el.style.display='block'}
 
 // ================= 写作 =================
 function renderWriteList(){
- $('#writeList').innerHTML=ESSAYS.map(function(e,i){
-  return '<div class="witem"><div class="wq">'+esc(e.title)+'</div>'+
-   '<div class="wa" style="font-size:13px">'+esc(e.prompt.slice(0,80))+'…</div>'+
-   '<div class="wa" style="font-size:12px;color:#7fa0bb">要求 '+e.min+'-'+e.max+' 词</div>'+
-   '<div class="btns"><button class="btn cyan sm" onclick="startEssay('+i+')">开始写作</button></div></div>';
- }).join('');
+ $('#view-write').innerHTML='<div class="sec-h"><span class="t"><em>//</em> 写以言志 WRITE &amp; CREATE</span></div>'+
+  '<div class="mt" style="text-align:left;margin-bottom:10px">校赛200-250词议论文(40分)；国赛350-400词。写后点"自动评分"看结构/词数/关键词检测，再对照范文。</div>'+
+  '<div id="writeList">'+ESSAYS.map(function(e,i){
+   return '<div class="witem"><div class="wq">'+esc(e.title)+'</div>'+
+    '<div class="wa" style="font-size:13px">'+esc(e.prompt.slice(0,70))+'…</div>'+
+    '<div class="wa" style="font-size:12px;color:#7fa0bb">要求 '+e.min+'-'+e.max+' 词</div>'+
+    '<div class="btns"><button class="btn cyan sm" onclick="startEssay('+i+')">开始写作</button></div></div>';
+  }).join('')+'</div>';
 }
 function startEssay(i){
+ window.__essayIdx=i;
  var e=ESSAYS[i];
  $('#view-write').innerHTML='<div class="qcard"><div class="qmeta"><span>'+esc(e.title)+'</span></div>'+
   '<div class="qtext" style="font-size:13px;line-height:1.9">'+esc(e.prompt)+'</div>'+
-  '<textarea id="esUser" placeholder="在此写作（'+e.min+'-'+e.max+'词）…" style="width:100%;min-height:200px;background:#0d2237;color:#e8f4ff;border:1px solid #1d3a52;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px"></textarea>'+
+  '<textarea id="esUser" placeholder="在此写作（'+e.min+'-'+e.max+'词）…" style="width:100%;min-height:220px;background:#0d2237;color:#e8f4ff;border:1px solid #1d3a52;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px"></textarea>'+
   '<div id="esWC" style="font-size:12px;color:#7fa0bb;margin-top:4px">0 词</div>'+
-  '<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="showEssayRef()">查看评分要点</button>'+
-  '<button class="btn ghost" onclick="renderWriteList();go(\'write\')">返回</button></div>'+
-  '<div id="esRef" style="display:none;margin-top:12px" class="fc-en">'+esc(e.ref_points)+'</div></div>';
+  '<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="gradeEssay()">自动评分</button>'+
+  '<button class="btn ghost" onclick="renderWriteList()">返回列表</button></div>'+
+  '<div id="esGrade" style="display:none;margin-top:12px"></div>'+
+  '<div id="esRef" style="display:none;margin-top:12px"><div class="fc-en" style="white-space:pre-wrap"><b style="color:#7fd8ff">评分要点：</b><br>'+esc(e.ref_points)+'</div>'+
+  (e.sample?'<div class="fc-en" style="white-space:pre-wrap;margin-top:10px;padding:10px;background:#0d1f30;border-left:3px solid #4ade80;border-radius:4px"><b style="color:#4ade80">参考范文：</b><br>'+esc(e.sample)+'</div>':'')+
+  '</div></div>';
  var ta=$('#esUser');
  if(ta)ta.addEventListener('input',function(){$('#esWC').textContent=this.value.trim().split(/\s+/).filter(Boolean).length+' 词'});
 }
-function showEssayRef(){var el=$('#esRef');if(el)el.style.display='block'}
+function gradeEssay(){
+ var ta=$('#esUser');if(!ta)return;
+ var txt=ta.value.trim();
+ var wc=txt?txt.split(/\s+/).filter(Boolean).length:0;
+ var e=ESSAYS[currentEssayIdx()];
+ var issues=[];
+ var score=0;
+ // 词数
+ if(wc>=e.min&&wc<=e.max){score+=25;issues.push('<span style="color:#4ade80">✓ 词数达标（'+wc+'词）</span>');}
+ else if(wc<e.min){score+=Math.max(0,15-wc);issues.push('<span style="color:#f87171">✗ 词数不足：'+wc+'词，要求'+e.min+'-'+e.max+'词</span>');}
+ else{score+=18;issues.push('<span style="color:#fbbf24">⚠ 词数超出：'+wc+'词</span>');}
+ // 段落结构
+ var paras=txt.split(/\n\s*\n/).filter(function(p){return p.trim().length>20});
+ if(paras.length>=3){score+=20;issues.push('<span style="color:#4ade80">✓ 段落结构完整（'+paras.length+'段）</span>');}
+ else{issues.push('<span style="color:#f87171">✗ 段落不足：建议至少3段（开头+主体+结尾）</span>');}
+ // 连接词
+ var connectors=['however','moreover','furthermore','therefore','in addition','for example','in contrast','as a result','consequently','nevertheless','first','second','finally'];
+ var hit=connectors.filter(function(c){return txt.toLowerCase().indexOf(c)>=0}).length;
+ if(hit>=3){score+=20;issues.push('<span style="color:#4ade80">✓ 逻辑连接词丰富（'+hit+'个）</span>');}
+ else{score+=hit*5;issues.push('<span style="color:#fbbf24">⚠ 逻辑连接词偏少（'+hit+'个），建议加however/moreover/therefore</span>');}
+ // 关键词检测
+ if(e.keywords&&e.keywords.length){
+  var khit=e.keywords.filter(function(k){return txt.toLowerCase().indexOf(k.toLowerCase())>=0}).length;
+  var pct=khit/e.keywords.length;
+  if(pct>=0.6){score+=20;issues.push('<span style="color:#4ade80">✓ 关键词覆盖（'+khit+'/'+e.keywords.length+'）</span>');}
+  else{score+=Math.round(pct*20);issues.push('<span style="color:#fbbf24">⚠ 关键词覆盖不足（'+khit+'/'+e.keywords.length+'）：'+e.keywords.filter(function(k){return txt.toLowerCase().indexOf(k.toLowerCase())<0}).join(', ')+'</span>');}
+ }
+ // 句式多样性
+ var longSents=txt.split(/[.!?]/).filter(function(s){return s.trim().split(/\s+/).length>15}).length;
+ if(longSents>=2){score+=15;issues.push('<span style="color:#4ade80">✓ 有复合长句（'+longSents+'个）</span>');}
+ else{issues.push('<span style="color:#fbbf24">⚠ 句式偏简单，建议用定语从句/状语从句/分词结构</span>');}
+ score=Math.min(100,score);
+ var el=$('#esGrade');
+ el.style.display='block';
+ el.innerHTML='<div class="rbig '+(score>=75?'grn':score>=55?'':'pink')+'">'+score+'分</div>'+
+  issues.map(function(i){return '<div style="font-size:12px;margin-top:4px">'+i+'</div>'}).join('')+
+  '<div class="mt" style="margin-top:8px;font-size:11px;color:#45657d">注：自动评分基于结构/词数/关键词检测，仅作自检参考；实际得分以人工评分为准。</div>';
+ $('#esRef').style.display='block';
+}
+function currentEssayIdx(){
+ var ta=$('#esUser');
+ // 简单方案：从view-write里找当前题目index——通过startEssay设置
+ return window.__essayIdx||0;
+}
 
 // ================= 省赛专项 + 术语默写产出 =================
 var termMode='browse';
