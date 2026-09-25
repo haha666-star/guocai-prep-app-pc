@@ -1353,6 +1353,15 @@ function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
 var LEITNER_INTERVALS=[0,86400000,3*86400000,7*86400000,16*86400000,30*86400000];
 function pushWrong(k,id,q,ua,ca){
  var now=Date.now();
+ // 去重：同一道题已在错题本里就重置复习间隔，不重复push
+ for(var i=0;i<S.wrong.length;i++){
+  if(S.wrong[i].k===k && String(S.wrong[i].id)===String(id)){
+   S.wrong[i].ua=ua;S.wrong[i].ca=ca;S.wrong[i].ts=now;
+   S.wrong[i].due=now;S.wrong[i].box=1;S.wrong[i].last=now;
+   S.wrong[i].fails=(S.wrong[i].fails||0)+1;
+   save();return;
+  }
+ }
  S.wrong.push({k:k,id:id,q:q,ua:ua,ca:ca,ts:now,due:now,box:1,last:now,reps:0});
  save();
 }
