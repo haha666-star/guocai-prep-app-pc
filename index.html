@@ -353,6 +353,7 @@ body{padding-bottom:80px;min-height:100vh}
   <section class="view" id="view-terms" data-page-node-id="hImZOBhWcghvqvNVjzgKF5">
     <div class="pills" id="termPills" data-page-node-id="YWl3Nvc4dMkDHQQspXv2Sy"></div>
     <div class="search" data-page-node-id="MZh4QcrsfOR1xD2c4bLjny"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" data-page-node-id="5UWYABeSwBGca0yIRUPecC"><circle cx="11" cy="11" r="7" data-page-node-id="YB0VJSRZKz2ovmHGGa43da"/><path d="m20 20-3.5-3.5" data-page-node-id="MSrIpjGe6mGuZ0pT6qh9wr"/></svg><input id="termSearch" placeholder="搜索术语（中/英）" oninput="renderTerms()" data-page-node-id="brSsoTSroBJR281Vm2mizF"></div>
+    <div class="mt" id="termStat" style="text-align:left;margin:2px 0 8px;font-size:12px;line-height:1.7;color:var(--mut)"></div>
     <div class="seg" id="termSeg" data-page-node-id="OjEtMO9UbrjkrSyftP5az7">
       <div class="seg-i on" onclick="setTermMode('browse')" data-page-node-id="bDIg0Xvcz2omuAY4L7jACJ">浏览识别</div>
       <div class="seg-i" onclick="setTermMode('recall')" data-page-node-id="ZGTKlK352CgZ3TgtyVPjn1">默写产出</div>
@@ -499,7 +500,7 @@ var TERMS=[
 {c:'wh',cn:'天人合一',en:'the unity of Heaven and humanity',note:'人与自然和谐统一的哲学观'},
 {c:'wh',cn:'知行合一',en:'the unity of knowledge and action',note:'认识与实践相统一'},
 {c:'wh',cn:'和为贵',en:'harmony is the most precious',note:'礼之用，和为贵'},
-{c:'wh',cn:'和而不同',en:'harmony without uniformity',note:'君子和而不同，治国理政官方译法'},
+{c:'wh',cn:'和而不同',en:'harmony in diversity',note:'君子和而不同'},
 {c:'wh',cn:'民惟邦本',en:'the people are the foundation of the state',note:'民惟邦本，本固邦宁'},
 {c:'wh',cn:'天下为公',en:'the world is for all',note:'大道之行也，天下为公'},
 {c:'wh',cn:'自强不息',en:'ceaseless self-improvement',note:'天行健，君子以自强不息'},
@@ -598,7 +599,7 @@ var TERMS=[
   {"c":"思想文化","cn":"大同","en":"grand harmony","note":"儒家理想社会"},
   {"c":"思想文化","cn":"天人合一","en":"unity between man and nature","note":"heaven and man in unity"},
   {"c":"思想文化","cn":"知行合一","en":"the unity of knowledge and practice","note":"knowledge and practice"},
-  {"c":"思想文化","cn":"和而不同","en":"harmony without uniformity","note":"君子和而不同"},
+  {"c":"思想文化","cn":"和而不同","en":"harmony in diversity","note":"harmony in diversity"},
   {"c":"思想文化","cn":"天下为公","en":"the world is for all","note":"《礼记》名句"},
   {"c":"思想文化","cn":"自强不息","en":"unceasing self-improvement","note":"《周易》"},
   {"c":"思想文化","cn":"厚德载物","en":"virtue sustains all things","note":"《周易》"},
@@ -787,7 +788,7 @@ var QTERM=[
 {q:'天人合一',o:['the unity of Heaven and humanity','the integration of Heaven and man','the oneness of sky and people','harmony between man and heaven'],a:0,n:'中华思想文化术语库译法'},
 {q:'知行合一',o:['the unity of knowing and doing','the unity of knowledge and action','the combination of knowledge and practice','the oneness of knowledge and action'],a:1,n:'knowledge and action 是关键词'},
 {q:'民惟邦本',o:['the people are the root of the country','the people are the foundation of the state','people are the foundation of the nation','the people are the basis of state power'],a:1,n:'foundation of the state 官方译法'},
-{q:'和而不同',o:['harmony without uniformity','harmony in difference','harmony in diversity','harmonious yet different'],a:0,n:'和而不同=harmony without uniformity（治国理政官方译法）'},
+{q:'和而不同',o:['harmony without uniformity','harmony in difference','harmony in diversity','harmonious yet different'],a:2,n:'harmony in diversity 固定译法'},
 {q:'苟日新，日日新，又日新',o:['if one can renovate oneself day by day, one should do so every day','renewal every day','make progress every day','self-renewal day after day'],a:0,n:'《大学》名句，考试常考阐释题'}
 ,
   {"q":"高质量发展","o":["high-speed development","high-quality development","rapid growth","large-scale development"],"a":1,"n":"high-quality 固定"},
@@ -858,7 +859,7 @@ var QCLOZE=[
   {"q":"We will promote the ______ transformation and innovative development of traditional culture.","o":["creative","create","creation","creator"],"a":0,"n":"creative 形容词"},
   {"q":"The people’s aspiration for a better life is the Party’s ______ mission.","o":["founding","found","founded","find"],"a":0,"n":"founding mission"},
   {"q":"We must uphold fundamental principles and break ______ ground.","o":["new","news","knew","now"],"a":0,"n":"break new ground"},
-  {"q":"Science and technology ____ the primary productive forces.","o":["is","are","was","being"],"a":1,"n":"科技是第一生产力，science and technology 作复数概念，官方译文用 are"},
+  {"q":"Scientific and technological ______ is the primary productive force.","o":["are","is","being","been"],"a":1,"n":"science and technology 单数概念"},
   {"q":"We should write research papers on the motherland’s ______.","o":["soil","soul","solar","sole"],"a":0,"n":"soil 喻体"},
   {"q":"Reform is prompted by problems and ______ by solving them.","o":["deepened","deep","depth","deeply"],"a":0,"n":"deepened 过去分词"},
   {"q":"True multilateralism means respecting the ______ of all countries.","o":["sovereignty","sovereign","sovereignly","sovereignity"],"a":0,"n":"sovereignty 拼写"},
@@ -1020,7 +1021,7 @@ var DISCOURSE=[
 {q:'"全球文明倡议"的英文是？',o:['Global Civilization Initiative','Global Culture Initiative','World Civilization Initiative','Global Dialogue of Civilizations'],a:0,n:'GCI'},
 {q:'"全人类共同价值"是？',o:['peace, development, fairness, justice, democracy, freedom','liberty, equality, fraternity','peace, prosperity, human rights, democracy','unity, peace, justice, progress'],a:0,n:'和平、发展、公平、正义、民主、自由'},
 {q:'"文明因多样而交流，因交流而互鉴，因互鉴而发展"对应？',o:['Civilizations become richer through exchange, mutual learning and development.','Diversity makes civilizations exchange, learn from each other and grow.','Civilizations thrive on diversity, exchange, mutual learning and development.','The world is colorful because of diverse civilizations.'],a:2,n:'文明交流互鉴'},
-{q:'"己所不欲，勿施于人"的官方译法？',o:['Do not do to others what you would not have them do to you.','What you do not want, do not inflict on others.','Treat others as you want to be treated.','Never impose on others what you yourself dislike.'],a:0,n:'《论语》卫灵公，治国理政官方英译：Do not do to others what you would not have them do to you'},
+{q:'"己所不欲，勿施于人"的官方译法？',o:['Do not do to others what you do not want others to do to you.','What you do not want, do not inflict on others.','Treat others as you want to be treated.','Never impose on others what you yourself dislike.'],a:3,n:'孔子名言，官方收录'},
 {q:'"天下兴亡，匹夫有责"对应？',o:['Every person has a duty to the fate of the country.','The rise and fall of the nation concerns everyone.','Everyone is responsible for their country.','A nation\'s fate is everyone\'s business.'],a:1,n:'顾炎武名言'},
 {q:'"己欲立而立人，己欲达而达人"对应？',o:['A man of virtue helps others establish what he himself wishes to establish.','If you want to succeed, help others succeed.','Do unto others as you would have done unto you.','Help others as you help yourself.'],a:0,n:'儒家忠恕之道'},
 {q:'"君子和而不同，小人同而不和"对应？',o:['The virtuous achieve harmony without uniformity; the base conform without harmony.','Gentlemen are harmonious but different; petty people are same but not harmonious.','Superior people agree to disagree; inferior people blindly follow.','A noble mind seeks harmony, not sameness.'],a:0,n:'和而不同=harmony without uniformity'},
@@ -1353,15 +1354,6 @@ function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
 var LEITNER_INTERVALS=[0,86400000,3*86400000,7*86400000,16*86400000,30*86400000];
 function pushWrong(k,id,q,ua,ca){
  var now=Date.now();
- // 去重：同一道题已在错题本里就重置复习间隔，不重复push
- for(var i=0;i<S.wrong.length;i++){
-  if(S.wrong[i].k===k && String(S.wrong[i].id)===String(id)){
-   S.wrong[i].ua=ua;S.wrong[i].ca=ca;S.wrong[i].ts=now;
-   S.wrong[i].due=now;S.wrong[i].box=1;S.wrong[i].last=now;
-   S.wrong[i].fails=(S.wrong[i].fails||0)+1;
-   save();return;
-  }
- }
  S.wrong.push({k:k,id:id,q:q,ua:ua,ca:ca,ts:now,due:now,box:1,last:now,reps:0});
  save();
 }
@@ -1407,12 +1399,16 @@ function updCountdown(){
 function setTarget(){var v=$('#tgInput').value;if(v){S.target=v;save();updCountdown();toast('考试日期已更新')}}
 
 // ---- 数据聚合 ----
-function allTerms(){return TERMS.map(function(t,i){return {id:'t'+i,c:t.c,cn:t.cn,en:t.en,note:t.note}}).concat(S.custom.map(function(t){return {id:'c'+t.id,c:'自定义',cn:t.cn,en:t.en,note:t.note||''}}))}
-function totalCount(){return allTerms().length+PHRASES.length+SENTENCES.length}
+// v7：按内容去重（保留首次出现），且 id 用"全局下标"，筛选/去重都不会串号或错位
+function uniqTerms(){var seen={},o=[];TERMS.forEach(function(t,i){if(t.cn&&seen[t.cn])return;if(t.cn)seen[t.cn]=1;o.push({i:i,t:t})});return o}
+function uniqPhrases(){var seen={},o=[];PHRASES.forEach(function(p,i){if(p.cn&&seen[p.cn])return;if(p.cn)seen[p.cn]=1;o.push({i:i,p:p})});return o}
+function uniqSens(){var seen={},o=[];SENTENCES.forEach(function(s,i){if(s.src&&seen[s.src])return;if(s.src)seen[s.src]=1;o.push({i:i,s:s})});return o}
+function allTerms(){return uniqTerms().map(function(r){return {id:'t'+r.i,c:r.t.c,cn:r.t.cn,en:r.t.en,note:r.t.note}}).concat(S.custom.map(function(t){return {id:'c'+t.id,c:'自定义',cn:t.cn,en:t.en,note:t.note||''}}))}
+function totalCount(){return uniqTerms().length+uniqPhrases().length+uniqSens().length}
 function masteredCount(){var n=0;
  allTerms().forEach(function(t){if(S.terms[t.id]&&S.terms[t.id].st==='m')n++});
- PHRASES.forEach(function(p,i){if(S.phrases['p'+i]&&S.phrases['p'+i].st==='m')n++});
- SENTENCES.forEach(function(s,i){if(S.sentences['s'+i]&&S.sentences['s'+i].st==='m')n++});
+ uniqPhrases().forEach(function(r){if(S.phrases['p'+r.i]&&S.phrases['p'+r.i].st==='m')n++});
+ uniqSens().forEach(function(r){if(S.sentences['s'+r.i]&&S.sentences['s'+r.i].st==='m')n++});
  return n}
 
 // ---- 总览 ----
@@ -1450,12 +1446,12 @@ function renderOverview(){
  $('#mastNote2').innerHTML=mas+' / '+tot;
  $('#mastNote').textContent='整体掌握度 '+pct+'% · 共 '+tot+' 个知识点';
  var at=allTerms(),mp=0;at.forEach(function(t){if(S.terms[t.id]&&S.terms[t.id].st==='m')mp++});
- var pp=0;PHRASES.forEach(function(p,i){if(S.phrases['p'+i]&&S.phrases['p'+i].st==='m')pp++});
- var sp=0;SENTENCES.forEach(function(s,i){if(S.sentences['s'+i]&&S.sentences['s'+i].st==='m')sp++});
+ var pp=0;uniqPhrases().forEach(function(r){if(S.phrases['p'+r.i]&&S.phrases['p'+r.i].st==='m')pp++});
+ var sp=0;uniqSens().forEach(function(r){if(S.sentences['s'+r.i]&&S.sentences['s'+r.i].st==='m')sp++});
  $('#mmods').innerHTML=
   modCard('术语库',at.length,mp,'#00e5ff')+
-  modCard('词组库',PHRASES.length,pp,'#30e89c')+
-  modCard('句子库',SENTENCES.length,sp,'#8b55f6')+
+  modCard('词组库',uniqPhrases().length,pp,'#30e89c')+
+  modCard('句子库',uniqSens().length,sp,'#8b55f6')+
   modCard('刷题',Math.max(q.total,1),q.right,'#f53d7a',q.total?('答对 '+q.right+'/'+q.total+' · 待复习 '+S.wrong.length):'暂未开刷 · 去刷一组');
  if(S.tasks.date!==todayStr()){S.tasks={date:todayStr(),done:TASKS.map(function(){return false})};save()}
  var doneN=S.tasks.done.filter(function(d){return d}).length;
@@ -1469,25 +1465,37 @@ function resetTasks(){S.tasks.done=TASKS.map(function(){return false});save();re
 
 // ---- 术语库 ----
 var termCat='all';
-function termCats(){var s=['all'];TERMS.forEach(function(t){if(s.indexOf(t.c)<0)s.push(t.c)});if(S.custom.length&&s.indexOf('自定义')<0)s.push('自定义');return s}
+var termTodo=false; // 只看未掌握
+function tcat(t){return (_CATMAP[t.c]||t.c)}
+function termCats(){var s=['all'];TERMS.forEach(function(t){var c=tcat(t);if(s.indexOf(c)<0)s.push(c)});if(S.custom.length&&s.indexOf('自定义')<0)s.push('自定义');return s}
 function renderTermPills(){
- $('#termPills').innerHTML=termCats().map(function(x){return '<div class="pill'+(termCat===x?' on':'')+'" onclick="setTermCat(\''+x+'\')">'+(x==='all'?'ALL':x)+'</div>'}).join('');
+ var at=allTerms(),cnt={all:at.length},mas={all:0};
+ at.forEach(function(t){var c=tcat(t);cnt[c]=(cnt[c]||0)+1;var st=S.terms[t.id];if(st&&st.st==='m'){mas[c]=(mas[c]||0)+1;mas.all++}});
+ $('#termPills').innerHTML=termCats().map(function(x){var n=(x==='all'?cnt.all:cnt[x])||0;return '<div class="pill'+(termCat===x?' on':'')+'" onclick="setTermCat(\''+x+'\')">'+(x==='all'?'ALL':x)+' <b style="opacity:.55;font-weight:400">'+n+'</b></div>'}).join('')
+  +'<div class="pill'+(termTodo?' on':'')+'" onclick="toggleTermTodo()">'+(termTodo?'✓ ':'')+'只看未掌握</div>';
+ var tot=at.length,mn=mas.all||0,pct=tot?Math.round(mn/tot*100):0;
+ var st=$('#termStat');if(st)st.innerHTML='术语共 <b>'+tot+'</b> 条（已去重）· 已掌握 <b style="color:#30e89c">'+mn+'</b>（'+pct+'%）· 当前分类 '+(termCat==='all'?'全部':termCat)+' <b>'+((termCat==='all'?tot:cnt[termCat])||0)+'</b> 条 · 未掌握 <b>'+((termCat==='all'?tot:cnt[termCat])||0)-(mas[termCat]||0)+'</b>'+ (termTodo?' · <span style="color:#00e5ff">已过滤已掌握</span>':'');
 }
 function setTermCat(c){termCat=c;renderTermPills();renderTerms()}
+function toggleTermTodo(){termTodo=!termTodo;renderTermPills();renderTerms()}
 function renderTerms(){
  var q=($('#termSearch').value||'').toLowerCase().trim();
- var list=allTerms().filter(function(t){return (termCat==='all'||t.c===termCat)&&(!q||t.cn.toLowerCase().indexOf(q)>=0||t.en.toLowerCase().indexOf(q)>=0)});
+ var list=allTerms().filter(function(t){
+  if(!(termCat==='all'||tcat(t)===termCat))return false;
+  if(termTodo){var _st=S.terms[t.id];if(_st&&_st.st==='m')return false}
+  return !q||t.cn.toLowerCase().indexOf(q)>=0||t.en.toLowerCase().indexOf(q)>=0;
+ });
  if(!list.length){$('#termList').innerHTML='<div class="empty">NO MATCH<br>没有匹配的术语，可添加自定义术语</div>';return}
  if(termMode==='recall'){
   $('#termList').innerHTML=list.map(function(t){
    var st=S.terms[t.id]||{};
-   return '<div class="card"><div class="fc-cat">'+t.c+' · 默写产出 RECALL</div><div class="fc-cn">'+esc(t.cn)+'</div><input class="recall-in" placeholder="写出官方英文译法"><div class="btns"><button class="btn cyan outline sm" onclick="checkRecall(this,\''+t.id+'\')">对答案</button><button class="btn star'+(st.fav?' on':'')+'" onclick="favTerm(\''+t.id+'\')">'+(st.fav?'★':'☆')+'</button></div><div class="reveal"></div></div>';
+   return '<div class="card"><div class="fc-cat">'+esc(tcat(t))+' · 默写产出 RECALL</div><div class="fc-cn">'+esc(t.cn)+'</div><input class="recall-in" placeholder="写出官方英文译法"><div class="btns"><button class="btn cyan outline sm" onclick="checkRecall(this,\''+t.id+'\')">对答案</button><button class="btn star'+(st.fav?' on':'')+'" onclick="favTerm(\''+t.id+'\')">'+(st.fav?'★':'☆')+'</button></div><div class="reveal"></div></div>';
   }).join('');
   return;
  }
  $('#termList').innerHTML=list.map(function(t){
   var st=S.terms[t.id]||{};var mas=st.st==='m';
-  return '<div class="card" onclick="openCard(this)"><div class="fc-cat">'+t.c+' · 术语</div><div class="fc-cn">'+esc(t.cn)+'</div><div class="reveal"><div class="fc-en">'+esc(t.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markTerm(\''+t.id+'\')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favTerm(\''+t.id+'\')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
+  return '<div class="card" onclick="openCard(this)"><div class="fc-cat">'+esc(tcat(t))+' · 术语</div><div class="fc-cn">'+esc(t.cn)+'</div><div class="reveal"><div class="fc-en">'+esc(t.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(t.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markTerm(\''+t.id+'\')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favTerm(\''+t.id+'\')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
 }
 function openCard(el){el.classList.toggle('open')}
 function markTerm(id){S.terms[id]=S.terms[id]||{};S.terms[id].st=(S.terms[id].st==='m'?'l':'m');save();renderTerms();toast(S.terms[id].st==='m'?'已标记掌握':'已改为学习中')}
@@ -1500,15 +1508,17 @@ function addTerm(){var cn=$('#aCn').value.trim(),en=$('#aEn').value.trim();if(!c
 var phraseCat='all';
 function phraseCats(){var s=['all'];PHRASES.forEach(function(p){if(s.indexOf(p.c)<0)s.push(p.c)});return s}
 function renderPhrasePills(){
- $('#phrasePills').innerHTML=phraseCats().map(function(x){return '<div class="pill'+(phraseCat===x?' on':'')+'" onclick="setPhraseCat(\''+x+'\')">'+(x==='all'?'ALL':x)+'</div>'}).join('');
+ var rows=uniqPhrases(),cnt={all:rows.length};
+ rows.forEach(function(r){cnt[r.p.c]=(cnt[r.p.c]||0)+1});
+ $('#phrasePills').innerHTML=phraseCats().map(function(x){var n=(x==='all'?cnt.all:cnt[x])||0;return '<div class="pill'+(phraseCat===x?' on':'')+'" onclick="setPhraseCat(\''+x+'\')">'+(x==='all'?'ALL':x)+' <b style="opacity:.55;font-weight:400">'+n+'</b></div>'}).join('');
 }
 function setPhraseCat(c){phraseCat=c;renderPhrasePills();renderPhrases()}
 function renderPhrases(){
  var q=($('#phraseSearch').value||'').toLowerCase().trim();
- var list=PHRASES.filter(function(p){return (phraseCat==='all'||p.c===phraseCat)&&(!q||p.cn.toLowerCase().indexOf(q)>=0||p.en.toLowerCase().indexOf(q)>=0)});
- if(!list.length){$('#phraseList').innerHTML='<div class="empty">NO MATCH<br>没有匹配的词组</div>';return}
- $('#phraseList').innerHTML=list.map(function(p,i){
-  var id='p'+i;var st=S.phrases[id]||{};var mas=st.st==='m';
+ var rows=uniqPhrases().filter(function(r){var p=r.p;return (phraseCat==='all'||p.c===phraseCat)&&(!q||p.cn.toLowerCase().indexOf(q)>=0||p.en.toLowerCase().indexOf(q)>=0)});
+ if(!rows.length){$('#phraseList').innerHTML='<div class="empty">NO MATCH<br>没有匹配的词组</div>';return}
+ $('#phraseList').innerHTML=rows.map(function(r){
+  var p=r.p;var id='p'+r.i;var st=S.phrases[id]||{};var mas=st.st==='m';
   return '<div class="card" onclick="openCard(this)"><div class="fc-cat">'+p.c+' · 词组</div><div class="fc-cn">'+esc(p.cn)+'</div><div class="reveal"><div class="fc-en">'+esc(p.en)+'</div><div class="fc-note" style="margin-top:6px">'+esc(p.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markPhrase(\''+id+'\')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favPhrase(\''+id+'\')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
 }
 function markPhrase(id){S.phrases[id]=S.phrases[id]||{};S.phrases[id].st=(S.phrases[id].st==='m'?'l':'m');save();renderPhrases();toast(S.phrases[id].st==='m'?'已标记掌握':'已改为学习中')}
@@ -1517,12 +1527,12 @@ function favPhrase(id){S.phrases[id]=S.phrases[id]||{};S.phrases[id].fav=S.phras
 var senMode='ce';
 function setSenMode(m){senMode=m;$$('#senModes .mode').forEach(function(el){el.classList.toggle('on',el.dataset.d===m)});renderSens()}
 function renderSens(){
- var list=SENTENCES.filter(function(s){return senMode==='all'||s.d===senMode});
- if(!list.length){$('#senList').innerHTML='<div class="empty">NO DATA</div>';return}
- $('#senList').innerHTML=list.map(function(s,i){
-  var id='s'+i;var st=S.sentences[id]||{};var mas=st.st==='m';
+ var rows=uniqSens().filter(function(r){return senMode==='all'||r.s.d===senMode});
+ if(!rows.length){$('#senList').innerHTML='<div class="empty">NO DATA</div>';return}
+ $('#senList').innerHTML=rows.map(function(r,pos){
+  var s=r.s;var id='s'+r.i;var st=S.sentences[id]||{};var mas=st.st==='m';
   var dir=s.d==='ce'?'汉译英 C-E':'英译汉 E-C';
-  return '<div class="card" onclick="openSen('+i+')"><div class="fc-cat">'+dir+' · 句子翻译</div><div class="fc-cn">'+esc(s.src)+'</div><div class="reveal"><div class="fc-en">'+esc(s.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(s.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markSen('+i+')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favSen('+i+')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
+  return '<div class="card" onclick="openSen('+pos+')"><div class="fc-cat">'+dir+' · 句子翻译</div><div class="fc-cn">'+esc(s.src)+'</div><div class="reveal"><div class="fc-en">'+esc(s.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(s.note)+'</div></div><div class="btns"><button class="btn ok'+(mas?' on':'')+'" onclick="event.stopPropagation();markSen('+r.i+')">'+(mas?'已掌握':'掌握')+'</button><button class="btn star'+(st.fav?' on':'')+'" onclick="event.stopPropagation();favSen('+r.i+')">'+(st.fav?'★':'☆')+'</button></div></div>'}).join('');
 }
 function openSen(i){var cards=$$('#senList .card');if(cards[i])cards[i].classList.toggle('open')}
 function markSen(i){var id='s'+i;S.sentences[id]=S.sentences[id]||{};S.sentences[id].st=(S.sentences[id].st==='m'?'l':'m');
@@ -2428,8 +2438,11 @@ var X_TERMS=[
 {c:'sz',cn:'四个自信',en:'the confidence in the path, theory, system and culture of socialism with Chinese characteristics',note:'道路、理论、制度、文化自信'},
 {c:'sz',cn:'两个确立',en:'the Two Establishments',note:'确立习近平同志党中央的核心、全党的核心地位，确立习近平新时代中国特色社会主义思想的指导地位'},
 {c:'sz',cn:'全面从严治党',en:'full and rigorous Party self-governance',note:'打铁必须自身硬'},
+{c:'sz',cn:'自我革命',en:'self-reform',note:'跳出治乱兴衰历史周期率的第二个答案'},
 {c:'sz',cn:'不忘初心、牢记使命',en:'stay true to the original aspiration and founding mission',note:'为中国人民谋幸福，为中华民族谋复兴'},
+{c:'sz',cn:'伟大建党精神',en:'the great founding spirit of the Party',note:'坚持真理、坚守理想，践行初心、担当使命，不怕牺牲、英勇斗争，对党忠诚、不负人民'},
 {c:'sz',cn:'三个务必',en:'the three imperatives',note:'务必不忘初心、牢记使命，务必谦虚谨慎、艰苦奋斗，务必敢于斗争、善于斗争'},
+{c:'sz',cn:'全过程人民民主',en:'whole-process people\u2019s democracy',note:'最广泛、最真实、最管用的民主'},
 {c:'sz',cn:'国家治理体系和治理能力现代化',en:'modernizing China\u2019s system and capacity for governance',note:'全面深化改革总目标'},
 {c:'sz',cn:'依宪治国',en:'constitution-based governance',note:'坚持依法治国首先要坚持依宪治国'},
 {c:'sz',cn:'政治生态',en:'political ecosystem',note:'营造风清气正的政治生态'},
@@ -2447,11 +2460,15 @@ var X_TERMS=[
 {c:'jj',cn:'数字经济',en:'the digital economy',note:'数字产业化、产业数字化'},
 {c:'jj',cn:'平台经济',en:'the platform economy',note:'规范健康发展，防止资本无序扩张'},
 {c:'jj',cn:'专精特新',en:'specialized, refined, distinctive and innovative (SRDI) enterprises',note:'培育"小巨人"企业'},
+{c:'jj',cn:'产业链供应链',en:'industrial and supply chains',note:'提升产业链供应链韧性和安全水平'},
+{c:'jj',cn:'扩大内需',en:'expanding domestic demand',note:'把实施扩大内需战略同深化供给侧结构性改革有机结合起来'},
 {c:'jj',cn:'高水平对外开放',en:'high-standard opening up',note:'稳步扩大规则、规制、管理、标准等制度型开放'},
 {c:'jj',cn:'自由贸易试验区',en:'pilot free trade zones',note:'制度创新高地'},
 {c:'jj',cn:'贸易强国',en:'a trading powerhouse',note:'加快建设贸易强国'},
 {c:'jj',cn:'民营经济',en:'the private sector of the economy',note:'民营经济是推进中国式现代化的生力军'},
 {c:'jj',cn:'全国统一的社会信用体系',en:'a unified national social credit system',note:'健全社会信用体系'},
+{c:'kj',cn:'科技自立自强',en:'self-reliance and self-strengthening in science and technology',note:'把科技自立自强作为国家发展的战略支撑'},
+{c:'kj',cn:'关键核心技术',en:'core technologies in key fields',note:'坚决打赢关键核心技术攻坚战'},
 {c:'kj',cn:'卡脖子技术',en:'bottleneck technologies',note:'突破"卡脖子"难题'},
 {c:'kj',cn:'人工智能',en:'artificial intelligence (AI)',note:'加快形成新质生产力'},
 {c:'kj',cn:'量子信息',en:'quantum information',note:'量子通信、量子计算、量子测量'},
@@ -2487,11 +2504,15 @@ var X_TERMS=[
 {c:'gj',cn:'人类文明新形态',en:'a new form of human advancement',note:'中国式现代化创造的人类文明新形态'},
 {c:'gj',cn:'单边主义',en:'unilateralism',note:'反对单边主义、保护主义'},
 {c:'gj',cn:'霸权主义',en:'hegemonism',note:'反对一切形式的霸权主义和强权政治'},
+{c:'wh',cn:'文化自信',en:'cultural confidence',note:'更基础、更广泛、更深厚的自信'},
+{c:'wh',cn:'中华优秀传统文化',en:'fine traditional Chinese culture',note:'创造性转化、创新性发展'},
 {c:'wh',cn:'创造性转化、创新性发展',en:'creative transformation and innovative development',note:'"两创"方针'},
 {c:'wh',cn:'第二个结合',en:'the \u201csecond integration\u201d',note:'把马克思主义基本原理同中华优秀传统文化相结合'},
 {c:'wh',cn:'文化强国',en:'a country with a strong socialist culture',note:'2035年建成文化强国'},
 {c:'wh',cn:'非物质文化遗产',en:'intangible cultural heritage',note:'保护第一、合理利用'},
 {c:'wh',cn:'文明探源工程',en:'the project to trace the origins of Chinese civilization',note:'中华文明五千多年'},
+{c:'wh',cn:'讲好中国故事',en:'tell China\u2019s stories well',note:'展现可信、可爱、可敬的中国形象'},
+{c:'wh',cn:'国际传播能力',en:'international communication capacity',note:'构建中国话语和中国叙事体系'},
 {c:'wh',cn:'网络文明',en:'internet civilization',note:'共建网上美好精神家园'},
 {c:'sh',cn:'多层次社会保障体系',en:'the multi-tiered social security system',note:'覆盖全民、统筹城乡、公平统一、可持续'},
 {c:'sh',cn:'基本公共服务均等化',en:'equal access to basic public services',note:'推进城乡、区域基本公共服务均等化'},
@@ -2576,9 +2597,158 @@ var X_SENTENCES=[
 {d:'ec',src:'A country can only prosper when it keeps pace with the times.',ref:'一个国家只有与时俱进才能兴旺发达。',note:'only...when 结构'},
 {d:'ec',src:'The digital economy is reshaping the way people work, live and communicate.',ref:'数字经济正在重塑人们工作、生活和沟通的方式。',note:'reshaping the way + 从句省略'}
 ];
-X_TERMS.forEach(function(x){TERMS.push(x)});
-X_PHRASES.forEach(function(x){PHRASES.push(x)});
-X_SENTENCES.forEach(function(x){SENTENCES.push(x)});
+// ============ v7 新增权威词条（已按内容键去重，不会与旧库重复） ============
+var Y_TERMS=[
+{c:'政治',cn:'党的全面领导',en:'the Party’s overall leadership',note:'党政军民学，东西南北中，党是领导一切的'},
+{c:'政治',cn:'民主集中制',en:'democratic centralism',note:'民主基础上的集中和集中指导下的民主相结合'},
+{c:'政治',cn:'全国人民代表大会',en:'the National People’s Congress',note:'最高国家权力机关，简称全国人大'},
+{c:'政治',cn:'中国人民政治协商会议',en:'the Chinese People’s Political Consultative Conference',note:'爱国统一战线组织，简称政协'},
+{c:'政治',cn:'群众路线',en:'the mass line',note:'一切为了群众，一切依靠群众，从群众中来，到群众中去'},
+{c:'政治',cn:'政治判断力、政治领悟力、政治执行力',en:'political judgement, political understanding, and political execution',note:'领导干部的政治能力'},
+{c:'政治',cn:'党内法规体系',en:'the system of intraparty rules and regulations',note:'全面从严治党的制度之基'},
+{c:'政治',cn:'巡视监督',en:'inspection-based supervision',note:'党内监督的重要方式'},
+{c:'政治',cn:'纪检监察',en:'discipline inspection and supervision',note:'合署办公，一体推进'},
+{c:'政治',cn:'三严三实',en:'the Three Stricts and Three Earnests',note:'严以修身、严以用权、严以律己；谋事要实、创业要实、做人要实'},
+{c:'政治',cn:'五个必由之路',en:'the five paths we must take',note:'党的全面领导、中国特色社会主义、团结奋斗、贯彻新发展理念、全面从严治党'},
+{c:'政治',cn:'党的建设新的伟大工程',en:'the great new project of Party building',note:'推进伟大工程'},
+{c:'政治',cn:'四个伟大',en:'the four greats',note:'伟大斗争、伟大工程、伟大事业、伟大梦想'},
+{c:'思想',cn:'十个明确',en:'the “ten clarifications”',note:'新时代坚持和发展中国特色社会主义的基本方略'},
+{c:'思想',cn:'十四个坚持',en:'the “fourteen commitments”',note:'新时代坚持和发展中国特色社会主义的基本方略'},
+{c:'思想',cn:'中国式现代化的本质要求',en:'the essential requirements of Chinese modernization',note:'坚持中国共产党领导，坚持中国特色社会主义等'},
+{c:'经济',cn:'现代化产业体系',en:'a modernized industrial system',note:'高质量发展的重要任务'},
+{c:'经济',cn:'新型工业化',en:'a new type of industrialization',note:'信息化和工业化深度融合'},
+{c:'经济',cn:'有效市场和有为政府',en:'an efficient market and a well-functioning government',note:'市场在资源配置中起决定性作用，更好发挥政府作用'},
+{c:'经济',cn:'高标准市场体系',en:'a high-standard market system',note:'产权保护、市场准入、公平竞争、社会信用'},
+{c:'经济',cn:'要素市场化配置',en:'market-based allocation of production factors',note:'土地、劳动力、资本、技术、数据'},
+{c:'经济',cn:'混合所有制经济',en:'the mixed-ownership economy',note:'各种所有制资本交叉持股、相互融合'},
+{c:'经济',cn:'粮食安全',en:'food security',note:'把饭碗牢牢端在自己手中'},
+{c:'经济',cn:'耕地红线',en:'the red line for farmland',note:'严守18亿亩耕地红线'},
+{c:'经济',cn:'种业振兴',en:'the seed industry revitalization',note:'农业的芯片'},
+{c:'经济',cn:'农业强国',en:'a strong agricultural country',note:'农业农村现代化'},
+{c:'经济',cn:'三次分配',en:'three types of distribution',note:'初次分配、再分配、第三次分配'},
+{c:'经济',cn:'扩大中等收入群体',en:'expanding the middle-income group',note:'共同富裕的重要途径'},
+{c:'经济',cn:'自由贸易港',en:'a free trade port',note:'如海南自由贸易港'},
+{c:'经济',cn:'制度型开放',en:'institutional opening up',note:'规则、规制、管理、标准等开放'},
+{c:'经济',cn:'京津冀协同发展',en:'coordinated development of the Beijing-Tianjin-Hebei region',note:'重大国家战略'},
+{c:'经济',cn:'长江经济带',en:'the Yangtze Economic Belt',note:'共抓大保护、不搞大开发'},
+{c:'经济',cn:'粤港澳大湾区',en:'the Guangdong-Hong Kong-Macao Greater Bay Area',note:'重大国家战略'},
+{c:'经济',cn:'长三角一体化发展',en:'integrated development of the Yangtze River Delta',note:'重大国家战略'},
+{c:'经济',cn:'黄河流域生态保护和高质量发展',en:'ecological conservation and high-quality development of the Yellow River basin',note:'重大国家战略'},
+{c:'经济',cn:'雄安新区',en:'Xiongan New Area',note:'千年大计、国家大事'},
+{c:'经济',cn:'东北全面振兴',en:'full revitalization of northeast China',note:'区域重大战略'},
+{c:'经济',cn:'西部大开发',en:'large-scale development of the western region',note:'区域重大战略'},
+{c:'经济',cn:'中部地区崛起',en:'the rise of the central region',note:'区域重大战略'},
+{c:'科技',cn:'国家战略科技力量',en:'national strategic scientific and technological strength',note:'国家实验室、国家科研机构、高水平研究型大学、科技领军企业'},
+{c:'科技',cn:'新型举国体制',en:'a new type of nationwide system',note:'集中力量攻关关键核心技术'},
+{c:'科技',cn:'基础研究',en:'basic research',note:'科技创新的源头活水'},
+{c:'科技',cn:'集成电路',en:'integrated circuits',note:'重点攻关的关键核心技术领域'},
+{c:'科技',cn:'工业互联网',en:'the industrial internet',note:'新一代信息技术与制造业融合'},
+{c:'科技',cn:'智能制造',en:'intelligent manufacturing',note:'制造业数字化转型'},
+{c:'科技',cn:'区块链',en:'blockchain',note:'核心技术自主创新的重要突破口'},
+{c:'科技',cn:'东数西算',en:'the East-to-West Computing Resource Transfer Project',note:'全国一体化算力网络'},
+{c:'科技',cn:'数据要素',en:'data as a production factor',note:'与土地、劳动力、资本、技术并列'},
+{c:'科技',cn:'数字人民币',en:'the digital RMB',note:'法定数字货币'},
+{c:'科技',cn:'北斗导航系统',en:'the BeiDou Navigation Satellite System',note:'自主建设运行的卫星导航系统'},
+{c:'科技',cn:'载人航天',en:'crewed spaceflight',note:'天宫空间站'},
+{c:'科技',cn:'探月工程',en:'the lunar exploration program',note:'嫦娥工程'},
+{c:'科技',cn:'深海探测',en:'deep-sea exploration',note:'奋斗者号载人潜水器'},
+{c:'科技',cn:'国家实验室',en:'national laboratories',note:'国家战略科技力量的核心'},
+{c:'生态',cn:'河长制湖长制',en:'the river chief and lake chief systems',note:'水环境治理责任到人'},
+{c:'生态',cn:'荒漠化防治',en:'desertification prevention and control',note:'防沙治沙'},
+{c:'生态',cn:'生态产品价值实现',en:'realizing the value of ecological products',note:'把绿水青山转化为金山银山'},
+{c:'生态',cn:'生物多样性保护',en:'biodiversity conservation',note:'COP15 昆明宣言'},
+{c:'生态',cn:'国家公园',en:'national parks',note:'以国家公园为主体的自然保护地体系'},
+{c:'生态',cn:'蓝天保卫战',en:'the blue sky defense',note:'污染防治攻坚战之一'},
+{c:'生态',cn:'净土保卫战',en:'the clean soil defense',note:'污染防治攻坚战之一'},
+{c:'生态',cn:'绿色转型',en:'green transformation',note:'经济社会发展全面绿色转型'},
+{c:'生态',cn:'循环经济',en:'the circular economy',note:'减量化、再利用、资源化'},
+{c:'文化',cn:'文化事业和文化产业',en:'cultural programs and cultural industries',note:'繁荣发展文化事业和文化产业'},
+{c:'文化',cn:'国家文化数字化战略',en:'the national cultural digitalization strategy',note:'实施国家文化数字化战略'},
+{c:'文化',cn:'文物活化利用',en:'revitalization and utilization of cultural relics',note:'让文物活起来'},
+{c:'文化',cn:'中华文明',en:'the Chinese civilization',note:'五千多年文明史'},
+{c:'文化',cn:'文化软实力',en:'cultural soft power',note:'提升国家文化软实力'},
+{c:'文化',cn:'公共文化服务',en:'public cultural services',note:'公共文化服务体系建设'},
+{c:'文化',cn:'书香社会',en:'a society of readers',note:'深入推进全民阅读'},
+{c:'民生',cn:'三孩生育政策',en:'the three-child policy',note:'一对夫妻可以生育三个子女'},
+{c:'民生',cn:'积极应对人口老龄化',en:'proactively responding to population aging',note:'国家战略'},
+{c:'民生',cn:'养老服务',en:'elderly care services',note:'居家社区机构相协调、医养康养相结合'},
+{c:'民生',cn:'医疗保障',en:'medical security',note:'覆盖全民的医疗保障体系'},
+{c:'民生',cn:'住房保障',en:'housing security',note:'多主体供给、多渠道保障、租购并举'},
+{c:'民生',cn:'城乡融合发展',en:'integrated urban-rural development',note:'城乡要素双向流动'},
+{c:'民生',cn:'转移支付',en:'transfer payments',note:'促进基本公共服务均等化'},
+{c:'外交',cn:'人类卫生健康共同体',en:'a global community of health for all',note:'全球公共卫生合作'},
+{c:'外交',cn:'网络空间命运共同体',en:'a community with a shared future in cyberspace',note:'网络空间治理的中国主张'},
+{c:'外交',cn:'海洋命运共同体',en:'a maritime community with a shared future',note:'推动海洋合作'},
+{c:'外交',cn:'中国方案',en:'the Chinese approach',note:'为全球治理贡献中国智慧'},
+{c:'外交',cn:'大国担当',en:'the responsibility of a major country',note:'做负责任大国'},
+{c:'外交',cn:'南南合作',en:'South-South cooperation',note:'发展中国家之间的合作'},
+{c:'外交',cn:'亚洲基础设施投资银行',en:'the Asian Infrastructure Investment Bank',note:'简称亚投行 AIIB'},
+{c:'外交',cn:'上海合作组织',en:'the Shanghai Cooperation Organization',note:'简称上合组织 SCO'},
+{c:'外交',cn:'金砖国家',en:'BRICS',note:'巴西、俄罗斯、印度、中国、南非'},
+{c:'外交',cn:'联合国宪章',en:'the UN Charter',note:'以联合国宪章为基础的国际秩序'},
+{c:'外交',cn:'全球治理体系改革和建设',en:'reform and development of the global governance system',note:'共商共建共享的全球治理观'},
+{c:'军事',cn:'强军目标',en:'the goal of building a strong military',note:'建设一支听党指挥、能打胜仗、作风优良的人民军队'},
+{c:'军事',cn:'国防和军队现代化',en:'modernization of national defense and the armed forces',note:'三步走战略'},
+{c:'军事',cn:'军民融合',en:'military-civilian integration',note:'军民融合深度发展'},
+{c:'军事',cn:'网络安全',en:'cybersecurity',note:'没有网络安全就没有国家安全'},
+{c:'军事',cn:'数据安全',en:'data security',note:'数据安全法'},
+{c:'教育',cn:'教育公平',en:'educational equity',note:'促进教育公平'},
+{c:'教育',cn:'一流大学和一流学科',en:'first-class universities and disciplines',note:'双一流建设'},
+{c:'教育',cn:'素质教育',en:'quality-oriented education',note:'促进学生全面发展'},
+{c:'教育',cn:'师德师风',en:'the professional ethics of teachers',note:'师德师风建设'}
+];
+var Y_PHRASES=[
+{c:'治理',cn:'四项基本原则',en:'the Four Cardinal Principles',note:'坚持社会主义道路、人民民主专政、党的领导、马列主义毛泽东思想'},
+{c:'治理',cn:'一个中心、两个基本点',en:'one central task and two basic points',note:'党的基本路线核心'},
+{c:'发展',cn:'摸着石头过河',en:'crossing the river by feeling the stones',note:'改革方法论的生动表达'},
+{c:'治理',cn:'空谈误国，实干兴邦',en:'Empty talk harms the country, while solid work makes it flourish.',note:'实干导向'},
+{c:'治理',cn:'抓铁有痕、踏石留印',en:'leaving our mark in iron and our print on stone',note:'抓工作落实的力度'},
+{c:'治理',cn:'打虎、拍蝇、猎狐',en:'taking out tigers, swatting flies, and hunting down foxes',note:'反腐败全覆盖'},
+{c:'治理',cn:'不敢腐、不能腐、不想腐',en:'no tolerance, no opportunity, and no desire for corruption',note:'一体推进三不腐'},
+{c:'治理',cn:'大道至简，实干为要',en:'The greatest truths are the simplest; action is what matters.',note:'实干精神'},
+{c:'治理',cn:'打铁必须自身硬',en:'To forge iron, one must be strong.',note:'全面从严治党'},
+{c:'治理',cn:'刀刃向内',en:'turning the blade inward',note:'自我革命'},
+{c:'治理',cn:'壮士断腕',en:'cutting one’s own wrist like a warrior',note:'改革的决心与勇气'},
+{c:'发展',cn:'爬坡过坎',en:'climbing hills and crossing ridges',note:'攻坚克难的形象表达'},
+{c:'发展',cn:'稳字当头、稳中求进',en:'prioritizing stability while pursuing progress',note:'经济工作总基调'},
+{c:'治理',cn:'一分部署，九分落实',en:'deployment is one part, implementation nine',note:'抓落实'},
+{c:'治理',cn:'不驰于空想、不骛于虚声',en:'not indulging in empty fantasy or empty repute',note:'求真务实'},
+{c:'发展',cn:'行百里者半九十',en:'the last leg of a journey is half the journey',note:'越是接近目标越不能松懈'},
+{c:'发展',cn:'只争朝夕',en:'seizing the day',note:'时不我待的紧迫感'},
+{c:'治理',cn:'一诺千金',en:'a promise is worth a thousand pieces of gold',note:'守信重诺'},
+{c:'文化',cn:'功崇惟志，业广惟勤',en:'Great achievements come from great aspirations; great undertakings from great diligence.',note:'立志与勤奋'},
+{c:'外交',cn:'互相尊重主权和领土完整',en:'mutual respect for sovereignty and territorial integrity',note:'和平共处五项原则之一'}
+];
+var Y_DISCOURSE=[
+{q:'“新质生产力”的官方译法是？',o:['new quality productive forces','new qualitative productive forces','new quality production power','high-quality productive forces'],a:0,n:'新质生产力=new quality productive forces（官方统一译法）'},
+{q:'“高质量发展”的官方译法是？',o:['high-quality development','high-quality growth','high-standard development','quality development'],a:0,n:'高质量发展=high-quality development'},
+{q:'“中国式现代化”的官方译法是？',o:['Chinese modernization','Chinese-style modernization','China-style modernization','modernization with Chinese characteristics'],a:0,n:'二十大后官方统一为 Chinese modernization'},
+{q:'“人类命运共同体”的官方译法是？',o:['a community with a shared future for mankind','a community of common destiny','the community of shared destiny','a shared-future community'],a:0,n:'a community with a shared future for mankind'},
+{q:'“共同富裕”的官方译法是？',o:['common prosperity','shared prosperity','common wealth','collective prosperity'],a:0,n:'共同富裕=common prosperity'},
+{q:'“双循环”的官方译法是？',o:['dual circulation','double circulation','twofold circulation','dual cycle'],a:0,n:'双循环=dual circulation'},
+{q:'“乡村振兴”的官方译法是？',o:['rural revitalization','rural rejuvenation','village revitalization','rural renewal'],a:0,n:'乡村振兴=rural revitalization'},
+{q:'“碳达峰碳中和”的官方译法是？',o:['carbon peaking and carbon neutrality','carbon peak and carbon neutralization','carbon maximum and carbon zero','carbon capping and carbon neutrality'],a:0,n:'碳达峰碳中和=carbon peaking and carbon neutrality'},
+{q:'“科教兴国战略”的官方译法是？',o:['the strategy of invigorating the country through science and education','the strategy of revitalizing the country by science','science and education powering the nation','the science-education national strategy'],a:0,n:'科教兴国战略=the strategy of invigorating the country through science and education'},
+{q:'“总体国家安全观”的官方译法是？',o:['a holistic approach to national security','the overall national security outlook','the overall national security concept','a comprehensive national security view'],a:0,n:'总体国家安全观=a holistic approach to national security'},
+{q:'“全过程人民民主”的官方译法是？',o:['whole-process people’s democracy','whole-process democracy of the people','full-process people’s democracy','people’s democracy in the whole process'],a:0,n:'全过程人民民主=whole-process people’s democracy'},
+{q:'“全球发展倡议”的官方译法是？',o:['the Global Development Initiative','the Global Development Proposal','the World Development Initiative','the Global Growth Initiative'],a:0,n:'全球发展倡议=the Global Development Initiative（GDI）'},
+{q:'“绿水青山就是金山银山”的官方译法是？',o:['Lucid waters and lush mountains are invaluable assets.','Green waters and green mountains are golden mountains.','Clear water and green hills are gold and silver.','Clean waters and green mountains are real wealth.'],a:0,n:'官方：Lucid waters and lush mountains are invaluable assets.'},
+{q:'“守正创新”的官方译法是？',o:['upholding fundamental principles and breaking new ground','keeping integrity and innovating','sticking to tradition and innovating','maintaining correctness and innovation'],a:0,n:'守正创新=upholding fundamental principles and breaking new ground'},
+{q:'“新发展理念”的官方译法是？',o:['the new development philosophy','the new development concept','the new development idea','the new development notion'],a:0,n:'新发展理念=new development philosophy（创新、协调、绿色、开放、共享）'},
+{q:'“共商共建共享”的官方译法是？',o:['extensive consultation, joint contribution and shared benefits','consultation, construction and sharing','joint discussion, joint building and joint sharing','shared consultation, contribution and benefit'],a:0,n:'共商共建共享=extensive consultation, joint contribution and shared benefits'},
+{q:'“以人民为中心”的官方译法是？',o:['people-centered','people-oriented','centering on the people','people-first'],a:0,n:'以人民为中心=people-centered'},
+{q:'“文化自信”的官方译法是？',o:['cultural confidence','confidence in culture','culture self-confidence','cultural self-reliance'],a:0,n:'文化自信=cultural confidence'},
+{q:'“人民至上”的官方译法是？',o:['the people first','people above all','the people are supreme','putting the people first'],a:0,n:'人民至上=the people first / people first'},
+{q:'“人类文明新形态”的官方译法是？',o:['a new form of human advancement','a new form of human civilization','a new model of human culture','a new type of human society'],a:0,n:'人类文明新形态=a new form of human advancement'}
+];
+// ============ v7 去重合并（按内容键去重，保留首条 → 原库下标不变，已掌握进度不错位） ============
+var _CATMAP={sz:'时政',wh:'文化',jj:'经济',kj:'科技',st:'生态',jy:'教育',gj:'国际',sh:'社会'};
+function _dedupe(target,extra,key){if(!extra)return;var seen={};target.forEach(function(x){if(x&&x[key]!=null)seen[x[key]]=1});extra.forEach(function(x){var k=x&&x[key];if(k==null){target.push(x);return}if(seen[k])return;seen[k]=1;target.push(x)})}
+_dedupe(TERMS,X_TERMS,'cn');
+_dedupe(TERMS,Y_TERMS,'cn');
+_dedupe(PHRASES,X_PHRASES,'cn');
+_dedupe(PHRASES,Y_PHRASES,'cn');
+_dedupe(SENTENCES,X_SENTENCES,'src');
 
 // ================= 扩容题库 v6-B：术语选择（话语）+ 阅读题组 =================
 var X_DISCOURSE=[
@@ -2587,7 +2757,7 @@ var X_DISCOURSE=[
 {q:'"知行合一"的官方译法是？',o:['unity of knowledge and action','combination of knowing and doing','merging of theory and practice','integration of thought and deed'],a:0,n:'王阳明心学核心命题'},
 {q:'"格物致知"的官方译法是？',o:['to attain knowledge by investigating things','to study objects in order to gain wisdom','to observe nature and obtain truth','to explore the world and acquire learning'],a:0,n:'《礼记·大学》八条目之一'},
 {q:'"和而不同"的官方译法是？',o:['harmony without uniformity','harmony in diversity','peace with differences','agreement without sameness'],a:0,n:'孔子：君子和而不同'},
-{q:'"己所不欲，勿施于人"的官方译法是？',o:['Do not do to others what you would not have them do to you.','Do not impose on others what you yourself do not desire.','Never treat others as you would not be treated.','Do not force on others what you dislike.'],a:0,n:'官方英译：Do not do to others what you would not have them do to you'},
+{q:'"己所不欲，勿施于人"的官方译法是？',o:['Do not do to others what you do not want done to yourself.','Do not impose on others what you yourself do not desire.','Never treat others as you would not be treated.','Do not force on others what you dislike.'],a:1,n:'官方英译（理雅各/当代版本），注意 impose on 搭配'},
 {q:'"亲仁善邻"的官方译法是？',o:['be benevolent and friendly to neighbors','love the good and be kind to neighbors','cherish virtue and good-neighborliness','value benevolence and neighborly friendship'],a:0,n:'《左传》：亲仁善邻，国之宝也'},
 {q:'"协和万邦"的官方译法是？',o:['peace and harmony among all nations','coordinate and unite all countries','bring concord to all states','harmonize relations with all nations'],a:0,n:'《尚书·尧典》'},
 {q:'"道阻且长，行则将至"的官方译法是？',o:['The road ahead is long and obstructed, but we will get there as long as we keep going.','The way is long and hard, yet walking leads to arrival.','Though the journey is arduous, persistence brings success.','Long as the road is, we shall arrive.'],a:0,n:'常用于外交/发展主题'},
@@ -2705,8 +2875,9 @@ questions:[
 {q:'Which question can be answered from BOTH texts?',o:['Why is misunderstanding inevitable? \u2460','How should creators balance foreign audiences and their own roots? \u2461','Only \u2460','Only \u2461'],a:1,n:'两文正好对应①' }
 ]}
 ];
-X_DISCOURSE.forEach(function(x){DISCOURSE.push(x)});
-X_READINGS.forEach(function(x){READINGS.push(x)});
+_dedupe(DISCOURSE,X_DISCOURSE,'q');
+_dedupe(DISCOURSE,Y_DISCOURSE,'q');
+_dedupe(READINGS,X_READINGS,'title');
 
 // ================= 扩容题库 v6-C：翻译段落 + 写作范文 =================
 var X_TRANSLATIONS=[
@@ -2778,8 +2949,8 @@ keywords:['volunteering','civic responsibility','community','solidarity','partic
 ref_points:'结构：引入（志愿服务被鼓励却难持续）→意义1（补公共服务之缺、增进社会资本）→意义2（个人成长与共情）→可持续（制度支持：学分、保障、时间、认可）→结尾（志愿服务是文明社会的黏合剂）。关键词：volunteering / social capital / civic engagement / solidarity / recognition。',
 sample:'The Ties That Volunteer\n\nVolunteering is universally praised and unreliably practised. We applaud the idea, yet find reasons to postpone it: too busy, too far, too uncertain. Understanding why it matters—and why it so often fades—tells us how to keep it alive.\n\nIts value is twofold. For society, volunteers fill gaps that neither markets nor governments reach: caring for the isolated elderly, tutoring children in struggling schools, responding when disaster strikes. Their efforts also weave social capital, the trust and reciprocity that hold communities together long before formal institutions arrive.\n\nFor the individual, the benefits are just as real. Volunteers gain confidence, perspective, and a kind of empathy that cannot be taught from a textbook. Many describe it as the most meaningful hours of their week.\n\nSo why does it lapse? Usually because good intentions meet bad design. Unpaid work still costs time, transport and energy, and it competes with paid work and family. Sustainability therefore depends on support: flexible schedules, training, insurance, recognition, and simple respect. When volunteering is treated as a privilege reserved for the well-off, it will always be fragile.\n\nA society is not measured only by its economy but by how many of its members are willing to give without being told. Volunteering is one of the strongest threads in that fabric. We should make it easier to pull.'}
 ];
-X_TRANSLATIONS.forEach(function(x){TRANSLATIONS.push(x)});
-X_ESSAYS.forEach(function(x){ESSAYS.push(x)});
+_dedupe(TRANSLATIONS,X_TRANSLATIONS,'cn');
+_dedupe(ESSAYS,X_ESSAYS,'title');
 
 // ---- 初始化 ----
 load();
@@ -2795,10 +2966,12 @@ renderMockLog();
 </script>
 </body>
 <script>
+/* v7：不再注册 Service Worker，并主动注销旧 SW + 清缓存 —— 修复"部署了新版本却打不开/更新不了" */
 if('serviceWorker' in navigator){
   window.addEventListener('load',function(){
-    navigator.serviceWorker.register('sw.js').then(function(){console.log('SW_OK')}).catch(function(e){console.log('SW_FAIL:'+e)});
+    navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})}).catch(function(){});
   });
+  if(window.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k)})}).catch(function(){});}
 }
 </script>
 </html>
