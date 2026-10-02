@@ -2029,6 +2029,7 @@ function startTrans(i){
   '<div class="qtext" style="font-size:14px;line-height:2">'+esc(t.cn)+'</div>'+
   '<textarea id="taUser" placeholder="在此输入你的英文译文…" style="width:100%;min-height:140px;background:#0d2237;color:#e8f4ff;border:1px solid #1d3a52;border-radius:8px;padding:10px;font-size:14px;line-height:1.8;margin-top:8px"></textarea>'+
   '<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="gradeTrans()">自动评分</button>'+
+  '<button class="btn ghost" onclick="resetTrans()">重新翻译</button>'+
   '<button class="btn ghost" onclick="renderTransList()">返回列表</button></div>'+
   '<div id="taRef" style="display:none;margin-top:12px"><div class="fc-en" style="white-space:pre-wrap">'+esc(t.en_ref)+'</div>'+
   (t.grammar?'<div class="fc-note" style="margin-top:10px;padding:10px;background:#0d1f30;border-left:3px solid #7fd8ff;border-radius:4px"><b style="color:#7fd8ff">语法点：</b><br>'+esc(t.grammar)+'</div>':'')+
@@ -2036,6 +2037,11 @@ function startTrans(i){
   '<div id="taScore" style="display:none;margin-top:12px"></div></div>';
 }
 function showTransRef(){var el=$('#taRef');if(el)el.style.display='block'}
+function resetTrans(){
+ var ta=$('#taUser');if(ta){ta.value='';ta.focus()}
+ var ref=$('#taRef');if(ref)ref.style.display='none';
+ var sc=$('#taScore');if(sc){sc.style.display='none';sc.innerHTML=''}
+}
 function gradeTrans(){
  var ta=$('#taUser');if(!ta)return;
  var user=ta.value.trim();
