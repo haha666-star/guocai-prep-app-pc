@@ -2045,7 +2045,6 @@ function resetTrans(){
 function gradeTrans(){
  var ta=$('#taUser');if(!ta)return;
  var user=ta.value.trim();
- if(user.split(/\s+/).filter(Boolean).length<8){toast('译文过短，请先完整翻译');return}
  var t=TRANSLATIONS[transState.i];
  var ref=t.en_ref.toLowerCase();
  var refWords=ref.split(/[^a-z]+/).filter(function(w){return w.length>=5});
