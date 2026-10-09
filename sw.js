@@ -1,4 +1,4 @@
-﻿var CACHE = 'gcprep-pc-v16';
+﻿var CACHE = 'gcprep-pc-v17';
 self.addEventListener('install', function (e) {
   self.skipWaiting();
 });
