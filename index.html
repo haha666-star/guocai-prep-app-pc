@@ -298,6 +298,11 @@ body{padding-bottom:80px;min-height:100vh}
 .sprint-list i{font-style:normal;color:var(--pur);font-weight:800;font-family:Consolas,"Courier New",monospace;margin-right:5px}
 .sprint-list .done{color:#5d7d66;text-decoration:line-through}
 .sprint-list .done i{color:var(--grn)}
+/* ===== 图表题 · 内联 SVG 图表 ===== */
+.chart-box{background:#fbfdfb;border:1px solid #cde3d3;border-radius:10px;padding:8px 8px 4px;margin:10px 0}
+.chart-box svg{display:block;max-width:100%;height:auto}
+.chart-cap{font-size:11.5px;color:#5d7d66;line-height:1.7;padding:4px 4px 6px;border-top:1px dashed #dcebe0;margin-top:4px}
+.chart-note{font-size:12.5px;line-height:1.85;color:#34473b;background:#f2f9f4;border-left:3px solid #c8dfcc;border-radius:0 8px 8px 0;padding:8px 10px;margin:8px 0}
 </style>
 </head>
 <body data-page-node-id="901OcHdFMhNOOUXQ4SVGW1">
@@ -1167,8 +1172,11 @@ questions:[
 {q:'Common theme on factors affecting longevity?',o:['Both emphasize treating individual diseases.','Both highlight positive emotions.','Both suggest focusing on biology of aging may improve healthspan.','Both argue happiness has little impact.'],a:2,n:'A讲幸福的生理机制，B讲衰老生物学'}
 ]},
 // --- 图表判断 T/F（读以博闻 12-15） ---
-{type:'chart',title:'全球可再生与不可再生发电装机容量（示意）',
-chartNote:'根据官方样题图表（2001-2020年全球新增电力装机容量构成）：可再生新增装机容量整体稳步增长、占比持续走高并于2020年达到峰值；非可再生新增装机容量存在波动、后期下降，并非持续下降。',
+{type:'chart',title:'全球可再生与不可再生发电装机容量（2001-2020）',
+chartData:{kind:'bar',unit:'GW',h:320,labels:['2001','2005','2010','2015','2020'],
+ series:[{name:'可再生',color:'#17995f',data:[30,42,55,95,250]},{name:'非可再生',color:'#dd3d6d',data:[40,66,80,78,52]}],
+ caption:'全球新增电力装机容量构成（单位：GW，示意数据，用于读图判断练习）。可再生整体稳步上升；非可再生先升后降、存在波动。'},
+chartNote:'全球新增电力装机容量构成（2001—2020 年）：可再生新增装机整体稳步增长、占比持续走高并于 2020 年达到峰值；非可再生新增装机存在波动、后期下降，并非持续下降。',
 questions:[
 {q:'The chart shows steady growth in renewables AND continuous decline in the growth of non-renewable capacity.（判断正误）',o:['True','False'],a:1,n:'样题答案False：非可再生容量是增速放缓，不是"持续下降"本身'},
 {q:'Renewable capacity in 2020 was more than six times non-renewable.（判断正误）',o:['True','False'],a:1,n:'样题答案False：未到6倍'},
@@ -1231,7 +1239,11 @@ questions:[
 {q:'What can be concluded about the two texts?',o:['Both reject the Western model entirely','Both question the universalism of a single modernization template','Both praise China\'s political system','Both call for Western-style democracy'],a:1,n:'都质疑单一模板普世性'}
 ]},
 // —— 图表判断补充 ——
-{type:'chart',title:'中国可再生能源装机（示意）',chartNote:'根据官方数据：中国光伏+风电装机已超10亿千瓦，占全球新能源装机30%以上；电动车销量占全球60%；新能源汽车渗透率2024年超40%。',questions:[
+{type:'chart',title:'中国风电与光伏累计装机（2015-2024）',
+chartData:{kind:'line',unit:'GW',h:320,labels:['2015','2018','2020','2022','2024'],
+ series:[{name:'风电＋光伏累计装机',color:'#0e7048',data:[170,360,530,760,1400]}],
+ caption:'中国风电与光伏累计装机（单位：GW）。十年间由 1.7 亿千瓦增至超 14 亿千瓦，稳居全球第一。'},
+chartNote:'中国光伏＋风电装机已超 14 亿千瓦（1.4 TW），占全球新能源装机 30% 以上；电动车销量占全球约 60%；新能源汽车渗透率 2024 年超 40%。',questions:[
 {q:'China now accounts for over 60% of global EV sales.（判断正误）',o:['True','False'],a:0,n:'正确'},
 {q:'China\'s renewable energy capacity is the smallest in the world.（判断正误）',o:['True','False'],a:1,n:'错误，全球最大'},
 {q:'NEV penetration in China exceeded 40% in 2024.（判断正误）',o:['True','False'],a:0,n:'正确'},
@@ -1413,8 +1425,9 @@ var LS='gcprep_pc_v1';
 var S={};
 function load(){var raw=null;try{raw=localStorage.getItem(LS)}catch(e){}
  try{S=raw?JSON.parse(raw):null}catch(e){S=null}
- if(!S){S={target:'2026-10-11',terms:{},phrases:{},sentences:{},quiz:{total:0,right:0},wrong:[],tasks:{date:'',done:[]},custom:[],mocks:[],prov:{termAttempts:0,termTransPass:0,termExpPass:0}}}
+ if(!S){S={target:'2026-10-11',terms:{},phrases:{},sentences:{},quiz:{total:0,right:0},wrong:[],tasks:{date:'',done:[]},custom:[],mocks:[],prov:{termAttempts:0,termTransPass:0,termExpPass:0},seen:{}}}
  if(!S.wrong)S.wrong=[];
+ if(!S.seen)S.seen={};
  var now=Date.now();
  S.wrong.forEach(function(w){if(typeof w.due!=='number')w.due=now;if(typeof w.box!=='number')w.box=1;if(typeof w.last!=='number')w.last=now;if(typeof w.reps!=='number')w.reps=0});
  if(!S.mock)S.mock={wrongFilter:'all'};
@@ -1747,40 +1760,50 @@ var MOCK_RUBRIC=[
  {lb:'语言准确 · 句式词汇多样',opts:[8,6,3]}
 ];
 var mockState={items:[],i:0,right:0,objScore:0,secRight:{},rb:{},marks:0,
-  essayDraft:'',essayRefOpen:false,endAt:0,pauseRemain:0,paused:false,
+  essayDraft:'',essayRefOpen:false,autoEssay:null,endAt:0,pauseRemain:0,paused:false,
   active:false,started:0,timer:null};
 
-function takeShort(need,sec,per,used){
- var ps=shuffle(READINGS.filter(function(r){return r.type==='short'&&!used[r.title]}));
+// —— 抽题去重：优先抽"历史没出过"的篇目；整轮出完自动重置，避免反复考同几篇 ——
+function freshOrder(pool,seenKey,keyOf){
+ if(!S.seen)S.seen={};
+ var seen=S.seen[seenKey]||(S.seen[seenKey]={});
+ keyOf=keyOf||function(x){return x.title};
+ var fresh=shuffle(pool.filter(function(x){return !seen[keyOf(x)]}));
+ var old=shuffle(pool.filter(function(x){return !!seen[keyOf(x)]}));
+ if(!fresh.length&&pool.length){Object.keys(seen).forEach(function(k){delete seen[k]});fresh=shuffle(pool.slice());old=[];}
+ return {list:fresh.concat(old),mark:function(x){if(x!=null)seen[keyOf(x)]=1}};
+}
+function takeRead(need,sec,per,type){
+ var fo=freshOrder(READINGS.filter(function(r){return r.type===type}),sec+'Pool',function(x){return x.title});
  var out=[];
- for(var i=0;i<ps.length&&need>0;i++){
-  var p=ps[i],take=p.questions.slice(0,need);
+ for(var i=0;i<fo.list.length&&need>0;i++){
+  var p=fo.list[i],take=p.questions.slice(0,need);
   for(var j=0;j<take.length;j++){
    out.push({k:'qread',sec:sec,per:per,q:{q:take[j].q,o:take[j].o,a:take[j].a,n:take[j].n,src:p.text}});
   }
-  used[p.title]=1;need-=take.length;
+  fo.mark(p);need-=take.length;
  }
  return out;
 }
 function buildMock(){
- var used={},items=[];
- shuffle(DISCOURSE).slice(0,5).forEach(function(x){items.push({k:'qdisc',sec:'disc',per:2,q:x})});
- items=items.concat(takeShort(6,'shortA',2,used));
- var charts=shuffle(READINGS.filter(function(r){return r.type==='chart'}));
- if(charts.length){
-  var c=charts[0];used[c.title]=1;
-  c.questions.slice(0,4).forEach(function(q){items.push({k:'qread',sec:'chart',per:2,q:{q:q.q,o:q.o,a:q.a,n:q.n,src:c.chartNote||c.text||''}})});
+ var items=[];
+ if(!S.seen)S.seen={};
+ var df=freshOrder(DISCOURSE,'discPool',function(x){return x.q});
+ df.list.slice(0,5).forEach(function(x){items.push({k:'qdisc',sec:'disc',per:2,q:x})});
+ df.list.slice(0,5).forEach(df.mark);
+ items=items.concat(takeRead(6,'shortA',2,'short'));
+ var cf=freshOrder(READINGS.filter(function(r){return r.type==='chart'}),'chartPool',function(x){return x.title});
+ if(cf.list.length){
+  var c=cf.list[0];cf.mark(c);
+  c.questions.slice(0,4).forEach(function(q){items.push({k:'qread',sec:'chart',per:2,q:{q:q.q,o:q.o,a:q.a,n:q.n,src:c.chartNote||c.text||'',cd:c.chartData}})});
  }
- items=items.concat(takeShort(3,'shortB',3,used));
- var longs=shuffle(READINGS.filter(function(r){return r.type==='long'})),need=7;
- for(var i=0;i<longs.length&&need>0;i++){
-  var L=longs[i],tk=L.questions.slice(0,need);
-  for(var j=0;j<tk.length;j++){
-   items.push({k:'qread',sec:'long',per:3,q:{q:tk[j].q,o:tk[j].o,a:tk[j].a,n:tk[j].n,src:L.text}});
-  }
-  need-=tk.length;
- }
- items.push({k:'essay',sec:'essay',per:40,q:Object.assign({},shuffle(ESSAYS)[0],{min:200,max:250})});
+ items=items.concat(takeRead(3,'shortB',3,'short'));
+ items=items.concat(takeRead(7,'long',3,'long'));
+ var pool=ESSAYS.filter(function(e){return !e.min||e.min<=250});
+ if(!pool.length)pool=ESSAYS;
+ var ef=freshOrder(pool,'essayPool',function(x){return x.title});
+ var es=ef.list[0]||shuffle(ESSAYS)[0];ef.mark(es);
+ items.push({k:'essay',sec:'essay',per:40,q:Object.assign({},es,{min:200,max:250})});
  return items;
 }
 function mockObjN(){return mockState.items.filter(function(x){return x.k!=='essay'}).length}
@@ -1791,7 +1814,7 @@ function startMock(){
  if(mockState.active&&!window.confirm('已有一次模考正在进行，重新开始将丢弃当前进度，确定？'))return;
  mockState.items=buildMock();
  mockState.i=0;mockState.right=0;mockState.objScore=0;mockState.secRight={};mockState.rb={};
- mockState.marks=0;mockState.essayDraft='';mockState.essayRefOpen=false;
+ mockState.marks=0;mockState.essayDraft='';mockState.essayRefOpen=false;mockState.autoEssay=null;
  mockState.paused=false;mockState.active=true;mockState.started=Date.now();
  mockState.endAt=Date.now()+MOCK_SECONDS*1000;
  $('#mockHome').style.display='none';$('#mockRes').style.display='none';$('#mockRun').style.display='block';
@@ -1838,6 +1861,45 @@ function mockEssayRef(){
  var ta=$('#esUser');if(ta)mockState.essayDraft=ta.value;
  mockState.essayRefOpen=!mockState.essayRefOpen;renderMockQ();
 }
+// —— 模考作文自动评分：调用内置规则+统计引擎（100分制），折算 40 分并同步填入自评档位 ——
+function mockAutoEssay(){
+ var st=mockState,it=st.items[st.i];
+ if(!it||it.k!=='essay')return;
+ var ta=$('#esUser');if(ta)st.essayDraft=ta.value;
+ var txt=(st.essayDraft||'').trim();
+ if(!txt){toast('请先写作，再点自动评分');return}
+ var r=gradeEssayLocal(txt,it.q);
+ var th=+r.thesis||0,ev=+r.evidence||0,org=+r.org||0,lang=+r.lang||0,gr=+r.gram||0;
+ var t=th+ev+org+lang+gr;
+ var band=t>=85?'优秀':t>=70?'良好':t>=55?'及格':'需改进';
+ var c1=th>=16?12:th>=11?9:6, c2=ev>=16?12:ev>=11?9:6;
+ var c3=org>=24?8:org>=16?6:3;
+ var ls=lang+gr; var c4=ls>=23?8:ls>=15?6:3;
+ st.rb={0:c1,1:c2,2:c3,3:c4};
+ st.autoEssay={total100:t,band:band,wc:r.wc,min:it.q.min,max:it.q.max,score40:c1+c2+c3+c4,
+  dims:[{n:'内容·论点',v:th,m:20,c:r.comments.thesis},{n:'内容·论证',v:ev,m:20,c:r.comments.evidence},
+   {n:'组织·结构',v:org,m:30,c:r.comments.org},{n:'语言·用词句式',v:lang,m:20,c:r.comments.lang},{n:'语言·语法规范',v:gr,m:10,c:r.comments.gram}],
+  sug:r.suggestions||[],errs:r.errs||[]};
+ toast('自动评分完成：'+t+'/100（折算 '+(c1+c2+c3+c4)+'/40）');
+ renderMockQ();
+}
+function mockAutoEssayHtml(a){
+ if(!a)return '';
+ var rows=a.dims.map(function(d){
+  var pct=Math.round((+d.v||0)/d.m*100);
+  var col=pct>=80?'#17995f':pct>=60?'#159b66':'#dd3d6d';
+  return '<div style="margin-top:8px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#46604f"><span>'+d.n+' <span style="color:#5d7d66">（满分'+d.m+'）</span></span><b style="color:'+col+'">'+(+d.v||0)+'/'+d.m+'</b></div>'+
+   '<div style="height:6px;background:#e0efe3;border-radius:4px;margin-top:4px;overflow:hidden"><div style="height:100%;width:'+pct+'%;background:'+col+'"></div></div>'+
+   (d.c?'<div style="font-size:11px;color:#557f66;margin-top:4px;line-height:1.65">'+esc(d.c)+'</div>':'')+'</div>';
+ }).join('');
+ var errs=(a.errs&&a.errs.length)?'<div style="margin-top:9px;padding:8px;background:#fdf0f3;border-left:3px solid #dd3d6d;border-radius:4px;font-size:11.5px;color:#c9879b;line-height:1.7">'+a.errs.map(function(x){return '· '+esc(x.msg)+(x.sample?('（例：'+esc(x.sample)+'）'):'')}).join('<br>')+'</div>':'';
+ var sg=(a.sug&&a.sug.length)?'<div style="margin-top:9px;padding:8px;background:#fdf6ec;border-left:3px solid #d9822b;border-radius:4px;font-size:11.5px;color:#8a5a1f;line-height:1.8">改进：'+a.sug.map(function(s){return esc(s)}).join('；')+'</div>':'';
+ var col2=a.total100>=70?'#0e7048':'#dd3d6d';
+ return '<div class="rb-block"><div class="fc-cat">⚡ 自动评分（离线规则引擎）· 100 分制 → 折算 40 分</div>'+
+  '<div style="display:flex;align-items:baseline;gap:8px;margin-top:6px;flex-wrap:wrap"><b style="font-size:24px;color:'+col2+';font-family:Consolas,monospace">'+a.total100+'</b><span style="font-size:12px;color:#5d7d66">/100 · '+a.band+' · 写作折算 '+a.score40+'/40 · '+a.wc+' 词（要求 '+a.min+'-'+a.max+'）</span></div>'+
+  rows+errs+sg+
+  '<div style="font-size:10.5px;color:#7d9c88;margin-top:8px">依据官方标准：内容（论点＋论证）40%＋组织30%＋语言（用词句式＋语法）30%。结果已同步填入下方自评档位，可手动微调。</div></div>';
+}
 function mockWordCount(){
  var st=mockState,it=st.items[st.i];if(!it)return;
  var ta=$('#esUser'),el=$('#esWc'),rb=$('#esRbSum');
@@ -1862,7 +1924,8 @@ function renderMockQ(){
   body='<div class="qtext" style="font-size:14px;line-height:1.9">'+esc(e.prompt)+'</div>'+
    '<textarea id="esUser" oninput="mockWordCount()" style="width:100%;min-height:220px;background:#ffffff;color:#1f332a;border:1px solid #c8dfcc;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px" placeholder="在此写作…">'+esc(st.essayDraft||'')+'</textarea>'+
    '<div class="wc-note" id="esWc">词数：0 / 目标 '+e.min+'-'+e.max+'</div>'+
-   '<button class="btn ghost sm" style="width:100%;margin-top:8px" onclick="mockEssayRef()">'+(st.essayRefOpen?'收起':'查看')+'评分要点 / 参考范文</button>'+
+   '<div class="btns" style="margin-top:8px;display:flex;gap:8px"><button class="btn cyan sm" style="flex:1" onclick="mockAutoEssay()">⚡ 自动评分</button><button class="btn ghost sm" style="flex:1" onclick="mockEssayRef()">'+(st.essayRefOpen?'收起':'查看')+'评分要点 / 范文</button></div>'+
+   mockAutoEssayHtml(st.autoEssay)+
    '<div style="display:'+(st.essayRefOpen?'block':'none')+';margin-top:10px"><div class="fc-note" style="line-height:1.85;color:#34473b">'+esc(e.ref_points||'')+'</div>'+(e.sample?'<div class="fc-note" style="margin-top:10px;line-height:1.9;white-space:pre-wrap;border-top:1px dashed #cfe2d2;padding-top:10px">'+esc(e.sample)+'</div>':'')+'</div>'+
    '<div class="rb-block"><div class="fc-cat">自评 · 内容60%＋形式40%（满分40）</div>'+
    MOCK_RUBRIC.map(function(r,ri){
@@ -1870,7 +1933,9 @@ function renderMockQ(){
    '<div class="wc-note" id="esRbSum">已选 0/4 项 · 写作得分 0/40</div></div>';
  }else{
   var q=it.q;
-  var srcHtml=(it.k==='qread'&&q.src)?'<div class="qtext" style="font-size:13px;line-height:1.9;margin-bottom:10px;padding:10px;background:#eef6ef;border-left:3px solid #c8dfcc;font-weight:400">'+esc(q.src)+'</div>':'';
+  var srcHtml='';
+  if(it.k==='qread'&&q.cd){srcHtml=svgChart(q.cd)+(q.src?'<div class="chart-note">'+esc(q.src)+'</div>':'');}
+  else if(it.k==='qread'&&q.src){srcHtml='<div class="qtext" style="font-size:13px;line-height:1.9;margin-bottom:10px;padding:10px;background:#eef6ef;border-left:3px solid #c8dfcc;font-weight:400">'+esc(q.src)+'</div>';}
   body=srcHtml+'<div class="qtext">'+esc(q.q)+'</div><div class="opts" id="mOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="mockPick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="mFb"></div>';
  }
  $('#mockRun').innerHTML='<div class="timer'+(left<=600?' warn':'')+'" id="mockTimer">'+fmtTime(left)+'</div>'+
@@ -2161,6 +2226,64 @@ function toggleGrammar(i){
  var el=$('#gd'+i);if(el)el.style.display=el.style.display==='none'?'block':'none';
 }
 
+// ================= 图表渲染（内联 SVG·无外部依赖） =================
+function _tw(s){var w=0;s=String(s);for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>255?11:6.4}return w}
+function _tick(v){
+ if(v>=10000)return (v/10000).toFixed(v%10000?1:0)+'万';
+ if(v>=1000)return (v/1000).toFixed(v%1000?1:0)+'k';
+ if(v<1&&v>0)return (Math.round(v*100)/100).toString();
+ return (Math.round(v*10)/10).toString();
+}
+// cd = {kind:'bar'|'line', labels:[], series:[{name,color,data:[]}], unit:'', caption:'', h:320}
+function svgChart(cd){
+ if(!cd||!cd.labels||!cd.series||!cd.series.length)return '';
+ var W=660,H=cd.h||320,pl=58,pr=18,pt=30,pb=52;
+ var iw=W-pl-pr,ih=H-pt-pb,n=cd.labels.length,ns=cd.series.length;
+ var vals=[];cd.series.forEach(function(s){(s.data||[]).forEach(function(v){vals.push(+v||0)})});
+ var max=Math.max.apply(null,vals.concat([1]));
+ var mag=Math.pow(10,Math.floor(Math.log10(max)||0)),nrm=max/mag;
+ var mult=nrm<=1?0.2:nrm<=2?0.5:nrm<=5?1:2;
+ var top=Math.ceil(max/(mag*mult))*(mag*mult); if(!(top>0))top=1;
+ function xC(i){return pl+iw*(i+0.5)/n}
+ function yV(v){return pt+ih*(1-(+v||0)/top)}
+ var g='',t,ticks=4;
+ for(t=0;t<=ticks;t++){
+  var y=pt+ih*t/ticks,val=top*(1-t/ticks);
+  g+='<line x1="'+pl+'" y1="'+y.toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+y.toFixed(1)+'" stroke="#d7e6db" stroke-width="1"'+(t===ticks?'':' stroke-dasharray="3 3"')+'/>';
+  g+='<text x="'+(pl-8)+'" y="'+(y+3.5).toFixed(1)+'" text-anchor="end" font-size="10.5" fill="#557f66">'+_tick(val)+'</text>';
+ }
+ cd.labels.forEach(function(L,i){
+  g+='<text x="'+xC(i).toFixed(1)+'" y="'+(pt+ih+16)+'" text-anchor="middle" font-size="10" fill="#557f66">'+esc(String(L))+'</text>';
+ });
+ if(cd.kind==='line'){
+  cd.series.forEach(function(s){
+   var pts=[];(s.data||[]).forEach(function(v,i){pts.push([xC(i),yV(v)])});
+   var d=pts.map(function(p,j){return (j?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' ');
+   g+='<path d="'+d+'" fill="none" stroke="'+(s.color||'#17995f')+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
+   pts.forEach(function(p){g+='<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3.1" fill="#ffffff" stroke="'+(s.color||'#17995f')+'" stroke-width="2"/>'});
+  });
+ }else{
+  var gw=iw/n,bw=Math.min(24,(gw*0.74)/ns);
+  cd.series.forEach(function(s,si){
+   (s.data||[]).forEach(function(v,i){
+    var x=xC(i)-((ns*bw+(ns-1)*3)/2)+si*(bw+3);
+    var y=yV(v),hgt=Math.max(1.5,(pt+ih)-y);
+    g+='<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+hgt.toFixed(1)+'" rx="2" fill="'+(s.color||'#17995f')+'" opacity="0.92"/>';
+   });
+  });
+ }
+ g+='<line x1="'+pl+'" y1="'+pt+'" x2="'+pl+'" y2="'+(pt+ih)+'" stroke="#a9c9b3" stroke-width="1.2"/>';
+ g+='<line x1="'+pl+'" y1="'+(pt+ih)+'" x2="'+(pl+iw)+'" y2="'+(pt+ih)+'" stroke="#a9c9b3" stroke-width="1.2"/>';
+ if(cd.unit)g+='<text x="'+(pl-8)+'" y="'+(pt-11)+'" text-anchor="end" font-size="10" fill="#7d9c88">'+esc(cd.unit)+'</text>';
+ var lx=pl,ly=13,lg='';
+ cd.series.forEach(function(s){
+  lg+='<g><rect x="'+lx+'" y="'+(ly-7)+'" width="11" height="11" rx="2" fill="'+(s.color||'#17995f')+'"/><text x="'+(lx+15)+'" y="'+(ly+2)+'" font-size="11" fill="#3a5245">'+esc(s.name)+'</text></g>';
+  lx+=18+_tw(s.name)+16;
+ });
+ var cap=cd.caption?'<div class="chart-cap">'+esc(cd.caption)+'</div>':'';
+ return '<div class="chart-box"><svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img">'+g+lg+'</svg>'+cap+'</div>';
+}
+
 // ================= 阅读训练 =================
 var readState=null;
 function renderReadList(){
@@ -2168,7 +2291,8 @@ function renderReadList(){
  $('#view-read').innerHTML='<div class="sec-h"><span class="t"><em>//</em> 阅读训练 READING</span></div>'+
   '<div class="mt" style="text-align:left;margin-bottom:10px">校赛：读以博闻(术语5+短篇4篇6题+图表1篇4题)＋读以明理(短篇3篇3题+中篇2篇7题)。省赛/国赛加双文本对比。点题组进入做题，做完自动回顾错题。</div>'+
   '<div id="readList">'+READINGS.map(function(r,i){
-   return '<div class="witem" onclick="startRead('+i+')" style="cursor:pointer"><div class="wq">['+(types[r.type]||r.type)+'] '+esc(r.title)+'</div><div class="wa">'+r.questions.length+' 题 · '+(r.text?r.text.split(' ').length:(r.textA?r.textA.split(' ').length:r.chartNote.split(' ').length))+' 词'+(r.textB?' · 双文本':'')+'</div></div>';
+   var info=(r.type==='chart')?('图表题 · '+r.questions.length+' 题 · 含图表'):(r.questions.length+' 题 · '+(r.text?r.text.split(' ').length:0)+' 词'+(r.textB?' · 双文本':''));
+   return '<div class="witem" onclick="startRead('+i+')" style="cursor:pointer"><div class="wq">['+(types[r.type]||r.type)+'] '+esc(r.title)+'</div><div class="wa">'+info+'</div></div>';
   }).join('')+'</div>';
 }
 function startRead(i){
@@ -2186,7 +2310,8 @@ function renderReadQ(){
   html+='<div class="qtext" style="font-size:13px;line-height:1.9;max-height:300px;overflow:auto;border:1px solid #c8dfcc;padding:10px;border-radius:6px"><b style="color:#1a8f5f">Text A</b><br>'+esc(r.textA)+'</div>';
   html+='<div class="qtext" style="font-size:13px;line-height:1.9;max-height:300px;overflow:auto;border:1px solid #c8dfcc;padding:10px;border-radius:6px;margin-top:8px"><b style="color:#1a8f5f">Text B</b><br>'+esc(r.textB)+'</div>';
  }else if(r.type==='chart'){
-  html+='<div class="qtext" style="font-size:13px;line-height:1.9">'+esc(r.chartNote)+'</div>';
+  html+=svgChart(r.chartData);
+  html+='<div class="chart-note">'+esc(r.chartNote||'')+'</div>';
  }else{
   html+='<div class="qtext" style="font-size:13px;line-height:1.9;max-height:360px;overflow:auto;border:1px solid #c8dfcc;padding:10px;border-radius:6px">'+esc(r.text)+'</div>';
  }
@@ -3068,7 +3193,11 @@ var X_READINGS=[
 {q:'What does trade policy do in shortages?',o:['Lowers prices','Export restrictions can raise prices everywhere','Increases food supply','Has no effect'],a:1,n:'push prices up everywhere'},
 {q:'What is the author\u2019s conclusion?',o:['One breakthrough will solve everything','Resilient systems matter more than a single breakthrough','Technology is useless','Waste should be ignored'],a:1,n:'less about a single breakthrough than about resilient systems'}
 ]},
-{type:'chart',title:'中国新能源汽车与充电设施（示意）',chartNote:'根据公开数据：2020—2024年中国新能源汽车销量从约137万辆增至950万辆以上；2024年渗透率超过40%；公共充电桩保有量已超300万台；但三、四线城市及乡镇充电设施仍相对不足。',questions:[
+{type:'chart',title:'中国新能源汽车销量与渗透率（2020-2024）',
+chartData:{kind:'bar',unit:'万辆',h:320,labels:['2020','2021','2022','2023','2024'],
+ series:[{name:'新能源汽车销量（万辆）',color:'#17995f',data:[137,352,688,950,1290]}],
+ caption:'中国新能源汽车销量（单位：万辆）。五年增长近 10 倍，渗透率由约 5% 升至 41% 以上，产销量连续多年全球第一。'},
+chartNote:'2020—2024 年中国新能源汽车销量从约 137 万辆增至 1290 万辆以上；2024 年渗透率超过 40%；公共充电桩保有量已超 300 万台；但三、四线城市及乡镇充电设施仍相对不足。',questions:[
 {q:'China\u2019s NEV sales have grown sharply from 2020 to 2024.（判断正误）',o:['True','False'],a:0,n:'137万→950万，增长迅猛'},
 {q:'NEV penetration in China exceeded 40% in 2024.（判断正误）',o:['True','False'],a:0,n:'正确'},
 {q:'Charging facilities are evenly distributed across all regions.（判断正误）',o:['True','False'],a:1,n:'错误：城乡分布不均'},
@@ -3092,7 +3221,72 @@ questions:[
 ];
 _dedupe(DISCOURSE,X_DISCOURSE,'q');
 _dedupe(DISCOURSE,Y_DISCOURSE,'q');
+// ================= 图表题扩容 v7：真实数据 + 内联 SVG 图表（读以博闻·图表） =================
+var CHART_READINGS=[
+{type:'chart',title:'中国 GDP 总量（2000-2024）',chartData:{kind:'bar',unit:'万亿元',h:320,labels:['2000','2005','2010','2015','2020','2024'],series:[{name:'GDP（万亿元）',color:'#17995f',data:[10.0,18.7,41.2,68.9,101.6,134.9]}],caption:'中国国内生产总值（单位：万亿元）。2000 年约 10 万亿元，2024 年超 134 万亿元，稳居世界第二。'},chartNote:'中国 GDP 总量持续增长：2010 年超过日本成为世界第二大经济体；2020 年突破 100 万亿元；近年增速由高速转向中高速，强调高质量发展。',questions:[
+ {q:'China\u2019s GDP in 2024 was more than ten times that of 2000.（判断正误）',o:['True','False'],a:0,n:'134.9 / 10 ≈ 13.5 倍'},
+ {q:'China\u2019s GDP has grown at the same high speed every single year without any slowdown.（判断正误）',o:['True','False'],a:1,n:'总量增长，但增速已由高速转为中高速'},
+ {q:'China\u2019s GDP exceeded 100 trillion yuan around 2020.（判断正误）',o:['True','False'],a:0,n:'2020 年约 101.6 万亿元'},
+ {q:'China\u2019s GDP in 2010 was larger than in 2020.（判断正误）',o:['True','False'],a:1,n:'2010 约 41.2，2020 约 101.6'}
+]},
+{type:'chart',title:'中国农村贫困人口（2012-2020）',chartData:{kind:'bar',unit:'万人',h:320,labels:['2012','2014','2016','2018','2020'],series:[{name:'农村贫困人口（万人）',color:'#0e7048',data:[9899,7017,4335,1660,0]}],caption:'按现行标准衡量的中国农村贫困人口（单位：万人）。2012 年近 9900 万，2020 年底实现全部脱贫，历史性消除绝对贫困。'},chartNote:'2012—2020 年，中国农村贫困人口由 9899 万降至 0，年均减贫超 1000 万人，2020 年底如期完成脱贫攻坚目标，提前十年实现联合国减贫目标。',questions:[
+ {q:'Nearly 100 million rural poor were lifted out of poverty between 2012 and 2020.（判断正误）',o:['True','False'],a:0,n:'9899 万 ≈ 近 1 亿'},
+ {q:'Poverty reduction stalled after 2016, with numbers rising again.（判断正误）',o:['True','False'],a:1,n:'曲线持续下降，2016 后仍未回升'},
+ {q:'China eliminated absolute poverty by the end of 2020.（判断正误）',o:['True','False'],a:0,n:'2020 年底全部脱贫'},
+ {q:'The number of rural poor increased steadily over the whole period.（判断正误）',o:['True','False'],a:1,n:'持续下降，不是上升'}
+]},
+{type:'chart',title:'中国常住人口城镇化率（2000-2024）',chartData:{kind:'line',unit:'%',h:320,labels:['2000','2010','2015','2020','2024'],series:[{name:'城镇化率（%）',color:'#2cb37e',data:[36.2,49.9,56.1,63.9,67.0]}],caption:'中国常住人口城镇化率（单位：%）。二十余年稳步上升，2024 年约 67%，城镇常住人口超过 9 亿。'},chartNote:'中国城镇化率由 2000 年约 36% 升至 2024 年约 67%。城镇化被视为现代化的必由之路，但同时也带来大城市病、城乡差距等挑战，政策强调"以人为核心的新型城镇化"。',questions:[
+ {q:'China\u2019s urbanization rate had exceeded 50% before 2010.（判断正误）',o:['True','False'],a:1,n:'2010 年约 49.9%，尚未过半'},
+ {q:'By 2024 more than two-thirds of Chinese people lived in cities and towns.（判断正误）',o:['True','False'],a:0,n:'约 67% > 2/3'},
+ {q:'The urbanization rate has risen steadily since 2000.（判断正误）',o:['True','False'],a:0,n:'曲线单调上升'},
+ {q:'China\u2019s urban population has been shrinking in recent years.（判断正误）',o:['True','False'],a:1,n:'城镇化率仍在上升，城镇人口未减少'}
+]},
+{type:'chart',title:'中国高铁运营里程（2012-2024）',chartData:{kind:'bar',unit:'万公里',h:320,labels:['2012','2015','2018','2021','2024'],series:[{name:'高铁里程（万公里）',color:'#17995f',data:[0.94,1.9,2.9,4.0,4.8]}],caption:'中国高速铁路运营里程（单位：万公里）。2012 年不足 1 万公里，2024 年约 4.8 万公里，占全球高铁总里程三分之二以上。'},chartNote:'中国高铁运营里程由 2012 年约 0.94 万公里增至 2024 年约 4.8 万公里，稳居世界第一，占全球高铁总里程三分之二以上，成为"中国名片"。',questions:[
+ {q:'China\u2019s high-speed rail network has more than quadrupled since 2012.（判断正误）',o:['True','False'],a:0,n:'4.8 / 0.94 ≈ 5.1 倍'},
+ {q:'China accounts for the largest high-speed rail network in the world.（判断正误）',o:['True','False'],a:0,n:'占全球三分之二以上'},
+ {q:'China\u2019s high-speed rail mileage shrank between 2015 and 2024.（判断正误）',o:['True','False'],a:1,n:'持续增长'},
+ {q:'By 2024 China had less than 30,000 km of high-speed rail.（判断正误）',o:['True','False'],a:1,n:'4.8 万公里 = 48000 公里 > 30000'}
+]},
+{type:'chart',title:'中国研发（R&D）经费投入（2012-2024）',chartData:{kind:'line',unit:'万亿元',h:320,labels:['2012','2015','2018','2021','2024'],series:[{name:'R&D 经费（万亿元）',color:'#0e7048',data:[1.03,1.42,1.97,2.79,3.6]}],caption:'中国全社会研发经费投入（单位：万亿元）。2024 年约 3.6 万亿元，投入强度（占 GDP 比重）超过 2.6%，总量居世界第二。'},chartNote:'中国研发经费投入由 2012 年约 1.03 万亿元增至 2024 年约 3.6 万亿元，投入强度超过 2.6%，总量稳居世界第二，仅次于美国。科技自立自强成为国家战略。',questions:[
+ {q:'China\u2019s R&D spending more than tripled between 2012 and 2024.（判断正误）',o:['True','False'],a:0,n:'3.6 / 1.03 ≈ 3.5 倍'},
+ {q:'China\u2019s R&D intensity as a share of GDP has been rising.（判断正误）',o:['True','False'],a:0,n:'投入强度持续上升，超过 2.6%'},
+ {q:'China spends less on R&D today than it did a decade ago.（判断正误）',o:['True','False'],a:1,n:'经费与强度均上升'},
+ {q:'China\u2019s total R&D investment ranks among the world\u2019s top two.（判断正误）',o:['True','False'],a:0,n:'总量世界第二'}
+]},
+{type:'chart',title:'中美国碳排放对比（2000-2022）',chartData:{kind:'line',unit:'亿吨',h:320,labels:['2000','2008','2015','2020','2022'],series:[{name:'中国',color:'#dd3d6d',data:[34,70,102,110,114]},{name:'美国',color:'#0e7048',data:[59,58,51,45,46]}],caption:'中国与美国二氧化碳排放量（单位：亿吨，示意）。中国约在 2006—2007 年前后超过美国；美国整体呈下降趋势，中国近年趋于平稳。'},chartNote:'中美国碳排放对比：中国排放总量在 2006—2007 年前后超过美国，近年增速放缓并趋于平稳；美国排放自 2000 年以来整体下降。中国提出"双碳"目标（2030 年前碳达峰、2060 年前碳中和）。',questions:[
+ {q:'China\u2019s CO2 emissions surpassed those of the US around 2006-2007.（判断正误）',o:['True','False'],a:0,n:'曲线在 2008 年前后交叉'},
+ {q:'US carbon emissions have declined overall since 2000.（判断正误）',o:['True','False'],a:0,n:'59 → 46，整体下降'},
+ {q:'China\u2019s carbon emissions have been falling sharply since 2015.（判断正误）',o:['True','False'],a:1,n:'近年趋于平稳，并非大幅下降'},
+ {q:'The US still emits more CO2 than China today.（判断正误）',o:['True','False'],a:1,n:'中国排放总量已高于美国'}
+]},
+{type:'chart',title:'中国森林覆盖率（1990-2024）',chartData:{kind:'bar',unit:'%',h:320,labels:['1990','2000','2010','2020','2024'],series:[{name:'森林覆盖率（%）',color:'#2cb37e',data:[13.9,16.6,20.4,23.0,25.0]}],caption:'中国森林覆盖率（单位：%）。由 1990 年约 14% 升至 2024 年约 25%，人工林面积居世界第一，是全球增绿最多的国家。'},chartNote:'中国森林覆盖率由 1990 年约 13.9% 升至 2024 年约 25%，人工林面积世界第一。三北防护林、退耕还林等重大生态工程推动"绿水青山就是金山银山"理念落地。',questions:[
+ {q:'China\u2019s forest coverage has increased steadily since 1990.（判断正误）',o:['True','False'],a:0,n:'曲线单调上升'},
+ {q:'China\u2019s forest coverage has roughly doubled between 1990 and 2024.（判断正误）',o:['True','False'],a:0,n:'13.9% → 25%，接近翻倍'},
+ {q:'China\u2019s forest area has decreased because of urbanization.（判断正误）',o:['True','False'],a:1,n:'覆盖率上升，人工林世界第一'},
+ {q:'Nearly a quarter of China\u2019s land was covered by forest by 2020.（判断正误）',o:['True','False'],a:0,n:'2020 年约 23%，接近四分之一'}
+]},
+{type:'chart',title:'中国与共建"一带一路"国家货物贸易额（2013-2023）',chartData:{kind:'line',unit:'万亿美元',h:320,labels:['2013','2016','2019','2021','2023'],series:[{name:'货物贸易额（万亿美元）',color:'#17995f',data:[1.04,0.95,1.34,1.8,2.7]}],caption:'中国与共建"一带一路"国家的货物贸易额（单位：万亿美元，示意）。十年间翻倍以上，2023 年约 2.7 万亿美元。'},chartNote:'2013—2023 年，中国与共建"一带一路"国家的货物贸易额由约 1.04 万亿美元增至约 2.7 万亿美元，翻了一倍多。合作内容已从基础设施扩展到绿色、数字、健康等领域。',questions:[
+ {q:'Trade between China and BRI partners more than doubled in a decade.（判断正误）',o:['True','False'],a:0,n:'2.7 / 1.04 ≈ 2.6 倍'},
+ {q:'BRI cooperation covers only infrastructure projects.（判断正误）',o:['True','False'],a:1,n:'已扩展到绿色、数字、健康等领域'},
+ {q:'The trade volume declined every year since 2013.（判断正误）',o:['True','False'],a:1,n:'整体上升，并非逐年下降'},
+ {q:'By 2023 China\u2019s trade with BRI partners had exceeded 2 trillion US dollars.（判断正误）',o:['True','False'],a:0,n:'约 2.7 万亿美元'}
+]},
+{type:'chart',title:'全球与中国电动汽车销量（2020-2024）',chartData:{kind:'bar',unit:'万辆',h:320,labels:['2020','2021','2022','2023','2024'],series:[{name:'全球（万辆）',color:'#8fb8a0',data:[300,660,1000,1400,1700]},{name:'中国（万辆）',color:'#0e7048',data:[137,352,688,950,1290]}],caption:'全球与中国电动汽车销量（单位：万辆，示意）。全球销量五年增长约 5 倍，中国占比持续上升，2024 年超过七成。'},chartNote:'2020—2024 年全球电动汽车销量由约 300 万辆增至约 1700 万辆；同期中国销量由约 137 万辆增至约 1290 万辆，占全球比重由不足半升至七成以上，动力电池产能全球领先。',questions:[
+ {q:'China accounted for the majority of global EV sales in 2024.（判断正误）',o:['True','False'],a:0,n:'1290 / 1700 ≈ 76%'},
+ {q:'Global EV sales declined between 2020 and 2024.（判断正误）',o:['True','False'],a:1,n:'五年增长约 5 倍'},
+ {q:'China\u2019s share of global EV sales has been rising.（判断正误）',o:['True','False'],a:0,n:'占比由不足半升至七成以上'},
+ {q:'EV sales fell by half in 2024.（判断正误）',o:['True','False'],a:1,n:'2024 年继续增长'}
+]},
+{type:'chart',title:'中国数字经济规模（2016-2024）',chartData:{kind:'bar',unit:'万亿元',h:320,labels:['2016','2018','2020','2022','2024'],series:[{name:'数字经济规模（万亿元）',color:'#17995f',data:[22.6,31.3,39.2,50.2,62.0]}],caption:'中国数字经济规模（单位：万亿元，示意）。八年增长近两倍，占 GDP 比重超过 40%，成为经济增长的重要引擎。'},chartNote:'中国数字经济规模由 2016 年约 22.6 万亿元增至 2024 年约 62 万亿元，占 GDP 比重超过 40%。数字经济不仅包括电商，还涵盖云计算、人工智能、工业互联网等，是"新质生产力"的重要载体。',questions:[
+ {q:'China\u2019s digital economy has roughly tripled since 2016.（判断正误）',o:['True','False'],a:0,n:'62 / 22.6 ≈ 2.7 倍，接近三倍'},
+ {q:'The digital economy now accounts for over 40% of China\u2019s GDP.（判断正误）',o:['True','False'],a:0,n:'占比超 40%'},
+ {q:'China\u2019s digital economy has been shrinking in recent years.（判断正误）',o:['True','False'],a:1,n:'规模持续扩大'},
+ {q:'The digital economy includes only e-commerce.（判断正误）',o:['True','False'],a:1,n:'还包括云计算、AI、工业互联网等'}
+]}
+];
+
 _dedupe(READINGS,X_READINGS,'title');
+_dedupe(READINGS,CHART_READINGS,'title');
 
 // ================= 扩容题库 v6-C：翻译段落 + 写作范文 =================
 var X_TRANSLATIONS=[
@@ -3165,7 +3359,60 @@ ref_points:'结构：引入（志愿服务被鼓励却难持续）→意义1（�
 sample:'The Ties That Volunteer\n\nVolunteering is universally praised and unreliably practised. We applaud the idea, yet find reasons to postpone it: too busy, too far, too uncertain. Understanding why it matters—and why it so often fades—tells us how to keep it alive.\n\nIts value is twofold. For society, volunteers fill gaps that neither markets nor governments reach: caring for the isolated elderly, tutoring children in struggling schools, responding when disaster strikes. Their efforts also weave social capital, the trust and reciprocity that hold communities together long before formal institutions arrive.\n\nFor the individual, the benefits are just as real. Volunteers gain confidence, perspective, and a kind of empathy that cannot be taught from a textbook. Many describe it as the most meaningful hours of their week.\n\nSo why does it lapse? Usually because good intentions meet bad design. Unpaid work still costs time, transport and energy, and it competes with paid work and family. Sustainability therefore depends on support: flexible schedules, training, insurance, recognition, and simple respect. When volunteering is treated as a privilege reserved for the well-off, it will always be fragile.\n\nA society is not measured only by its economy but by how many of its members are willing to give without being told. Volunteering is one of the strongest threads in that fabric. We should make it easier to pull.'}
 ];
 _dedupe(TRANSLATIONS,X_TRANSLATIONS,'cn');
+// ================= 作文扩容 v7：真题情景型（社区回帖/书信/倡议书/图表评论） =================
+var Z_ESSAYS=[
+{title:'HelloStudy 社区回帖：AI 让学习变懒了吗（200-250词）',
+prompt:'HelloStudy 在线社区里，网友 Lucy 发帖问："现在 AI 一秒就能给出答案，我们还需要自己思考和学习吗？"请给她写一封回复，陈述你的观点并给出理由和例子。200-250词。',
+min:200,max:250,
+keywords:['AI tools','thinking','learning','rely on','critical','understanding','example','however'],
+ref_points:'结构：① 表明立场（AI 是工具，不能替代思考）② 理由一：AI 给答案但给不了理解过程 ③ 理由二：举具体例子（数学推导 / 写作修改）④ 结尾：善用 AI 但不外包大脑。语言：社区回帖语气，友好但有论据。',
+sample:'Hi Lucy,\n\nThanks for raising such a timely question. My answer is simple: we still need to think, perhaps more than ever.\n\nAI can hand you an answer in a second, but it cannot hand you understanding. When I ask a chatbot to solve a math problem, I get the result - yet if I never work through the steps, I have learned nothing I can reuse. The struggle is not waste; it is the learning. Skipping it is like watching someone swim and calling yourself a swimmer.\n\nThere is a second risk: over-reliance quietly weakens our judgement. A model can sound confident while being wrong. Only a mind trained to question can catch that. Last month a classmate copied an AI summary of a novel and was caught out in discussion - he could not explain a single character.\n\nThat said, I am no technophobe. AI is a wonderful assistant: it brainstorms, translates and checks grammar so we can focus on the hard, human part. The key is who leads - you or the tool.\n\nSo keep using AI. Just do not let it use you. Ask it questions, then argue with its answers. That is how a tool becomes a teacher.\n\nBest,\nChen'},
+{title:'回信给外国笔友：介绍一个中国传统节日（200-250词）',
+prompt:'你的英国笔友 James 来信说，他想了解一个最能代表中国的传统节日。请回信介绍一个中国传统节日，说明它的习俗与意义，并邀请他有机会来中国体验。200-250词。',
+min:200,max:250,
+keywords:['traditional festival','Spring Festival','customs','reunion','meaning','invite','experience'],
+ref_points:'结构：① 问候并选定节日 ② 习俗描写（扫尘、贴春联、年夜饭、红包、饺子）③ 提炼意义（团圆、家庭优先）④ 邀请与收尾。语言：书信体，亲切自然，避免堆砌生僻词。',
+sample:'Dear James,\n\nGreat to hear from you! Among all our festivals, I would pick the Spring Festival - it is the one that best captures what "home" means to Chinese people.\n\nIt falls on the first day of the lunar year, but the celebration starts weeks earlier. Families clean the house to sweep away bad luck, hang red couplets, and prepare food together. On New Year Eve, however far we live, we travel back for a reunion dinner. My grandmother always keeps a fish on the table, because its name sounds like "surplus" - a wish for a plentiful year.\n\nChildren receive red envelopes with lucky money, and we make dumplings that look like silver ingots. Behind all these customs is one idea: family comes first. The festival is not really about food or gifts; it is about the journey home and the people who wait there.\n\nYou would love it, especially the street lanterns at night. If you can visit one winter, I will take you to my hometown. Bring an appetite - my grandmother has already decided you need feeding.\n\nLooking forward to seeing you,\nLi Hua'},
+{title:'图表评论：移动支付改变生活（200-250词）',
+prompt:'下图显示，2016-2024 年中国移动支付用户由约 5 亿增至 10 亿以上，占网民比例超过 85%。请写一篇 200-250 词的短文，描述该趋势并谈谈它对生活的影响，自拟标题。',
+min:200,max:250,
+keywords:['mobile payment','chart','trend','convenience','small business','elderly','access','impact'],
+ref_points:'结构：① 描述趋势（引用图中数据）② 分析原因（智能手机普及＋生态闭环）③ 影响（小微商户受益、出行便利，但也有老年人被排除、单一设备依赖风险）④ 结论（总体进步，但须"不让任何人掉队"）。',
+sample:'A Wallet in the Phone\n\nThe chart tells a striking story: in less than a decade, mobile payment users in China grew from about 500 million to over one billion, now used by more than 85% of internet users. Cash, once king, has become a rare sight.\n\nTwo developments explain the surge. First, smartphones and cheap data made the technology accessible to almost everyone, from students to street vendors. Second, platforms lowered the barrier further by linking payments to everyday apps - ordering food, riding a bus, paying a bill - so using it became easier than not using it.\n\nThe effects reach far beyond convenience. Small businesses benefit most: a vegetable seller can accept payment with a printed code and no expensive terminal. Travelers no longer fear losing a wallet. Even the elderly are learning, helped by simpler interfaces and patient family members.\n\nYet the trend has a shadow. Some older people feel excluded, and depending on a single device is risky if a phone dies or a network fails. Cash, therefore, should not vanish entirely.\n\nOn balance, the shift is a genuine improvement. The question is no longer whether we can pay by phone, but whether we remember to leave no one behind.'},
+{title:'Cultural Mosaic 短评：纪录片如何改变外国人的中国印象（200-250词）',
+prompt:'你为国际杂志 Cultural Mosaic 的 Viewpoint 栏目撰稿。最近一部关于中国乡村教师的纪录片在国外走红。请写一篇 200-250 词的短评，谈谈"纪录片如何改变外国人对中国的印象"，自拟标题。',
+min:200,max:250,
+keywords:['documentary','impression','empathy','story','ordinary life','honesty','stereotype'],
+ref_points:'结构：① 现象切入（一部中国纪录片海外走红）② 论点一：纪录片用人替代数字，共情靠故事传递 ③ 论点二：诚实呈现比宣传更有说服力 ④ 结尾：要被理解先要被看见。',
+sample:'Seeing China Through a Lens\n\nWhen a quiet documentary about a village teacher in Yunnan began trending abroad, the comments surprised me. Many viewers wrote that they had never imagined such a place existed. That reaction says something important: documentaries do not just inform; they replace a picture with a person.\n\nThe reason is simple. News headlines offer statistics; a documentary offers a face. We can read that millions of children live in rural areas and feel nothing. But watching one teacher walk two hours to class, we remember her name. Empathy travels through stories, not numbers.\n\nThis is where documentaries beat slogans. They show contradictions - hardship and hope, poverty and pride - and trust viewers to draw their own conclusions. A nation presented only through successes feels like propaganda; a nation shown honestly feels real.\n\nThat does not mean every film must be flattering. Truth persuades more than polish. The documentaries that move foreign audiences are rarely the ones that list achievements; they are the ones that reveal an ordinary life.\n\nFor China, the lesson is clear. To be understood, it helps to be seen - not as a headline, but as a story told with honesty and craft.'},
+{title:'倡议书：校园光盘行动（200-250词）',
+prompt:'世界粮食日临近，学生会拟发起"光盘行动"（Clean Plate Campaign）。请以学生会名义写一封 200-250 词的倡议书，号召同学反对餐饮浪费，自拟标题。',
+min:200,max:250,
+keywords:['food waste','Clean Plate','campaign','portion','leftovers','attention','responsibility'],
+ref_points:'结构：① 称呼与发起缘由 ② 数据（全球约三分之一粮食被浪费）③ 三条具体行动（按量取餐、剩菜打包、互相提醒）④ 结尾升华（最小的日常行动）。语言：倡议书体，正式而诚恳，有号召力。',
+sample:'Dear fellow students,\n\nFor most of us, a meal is never far away. Precisely for that reason, we forget what it costs to produce one. On World Food Day, the Student Union calls on every one of us to join the Clean Plate Campaign.\n\nThe facts are uncomfortable. Across the world, roughly one third of the food produced is wasted, while hundreds of millions still go to bed hungry. The loss is not only food; it is the water, land and labour that went into growing it. What we scrape into the bin is someone else lost harvest.\n\nThe campaign asks three simple things. First, order only what you can finish, and take leftovers home. Second, when you cook with friends, plan portions instead of guessing. Third, speak up kindly: a small reminder at the table changes habits faster than a poster on the wall.\n\nNone of this requires sacrifice - only attention. Wasting less is not about being poor; it is about being thoughtful. It is the smallest daily action a person can take for the planet.\n\nLet us begin with this meal, on this plate.\n\nThe Student Union'},
+{title:'CityTalk 回帖：大城市该不该限制私家车（200-250词）',
+prompt:'CityTalk 论坛上有人发帖："为了缓解拥堵和污染，大城市应该严格限制私家车。"请回帖表达你的看法并给出理由。200-250词。',
+min:200,max:250,
+keywords:['private cars','restriction','public transport','alternative','congestion','policy','choice'],
+ref_points:'结构：① 提出真正的问题不是"限不限"而是"替代方案够不够好" ② 单靠禁令易反弹（买第二辆车、通勤者被惩罚）③ 有效做法是提供真实选择（地铁、公交、自行车道、换乘枢纽）④ 承认部分限制合理（排放标准、拥堵费、低排放区）⑤ 结论：先给胡萝卜再谈鞭子。',
+sample:'Hi everyone,\n\nThis is a debate worth having, but I think the question is slightly wrong. Rather than asking whether to restrict private cars, we should ask how to make the alternatives so good that people choose them.\n\nRestrictions alone tend to backfire. When a city simply bans cars on certain days, wealthier residents buy a second vehicle, and pollution shifts rather than shrinks. Commuters forced off the road feel punished, not persuaded. Policy that ignores how people actually live rarely sticks.\n\nWhat works is offering a real choice. In cities like Shenzhen and Hangzhou, the answer was not a ban but a system: fast, cheap metro lines; reliable buses; safe cycling lanes; and clear park-and-ride hubs. When the alternative is faster and cheaper, driving stops being attractive - no slogan required.\n\nThat said, some restrictions are legitimate. Clean-air standards, congestion charges and low-emission zones are fair tools, provided the revenue funds public transport rather than general budgets.\n\nSo my position is: do not lead with the whip. Lead with the carrot. Build a city where the bus beats the car, and most people will happily leave the car at home. The rest will follow.\n\n- posted by Chen'},
+{title:'致校长的一封信：开设跨文化交际课程（200-250词）',
+prompt:'学校正在征求课程改革意见。请给校长写一封信（200-250词），建议开设"跨文化交际"课程，并说明理由。',
+min:200,max:250,
+keywords:['intercultural communication','course','misunderstanding','two-way','global','elective','skills'],
+ref_points:'结构：① 写信目的 ② 问题（英语课重应试轻交际，会语法仍会误解）③ 课程能补什么（礼貌、时间观、异议、沉默的文化差异）④ 双向价值（也帮我们讲清自己）⑤ 请求与收尾。语言：书信体，礼貌、有说服力。',
+sample:'Dear President Wang,\n\nI am writing to suggest a course that I believe our school urgently needs: Intercultural Communication.\n\nBy the time we graduate, most of us will work with people from other countries - perhaps on a project, in an online team, or in a company that exports. Yet our English classes have trained us mainly to pass exams, not to understand people. We can conjugate verbs perfectly and still misread a joke, or offend a colleague without knowing why.\n\nIntercultural Communication would fill this gap. It teaches how politeness, time, disagreement and even silence carry different meanings in different cultures. It explains why a direct "no" can seem rude in some places and refreshing in others. These lessons cannot be learned from a grammar book.\n\nCritically, this is a two-way skill. Understanding others also helps us explain ourselves - our festivals, our customs, our way of reasoning - to those who have never met a Chinese student. In a world quick to stereotype, the ability to speak for yourself matters.\n\nI therefore hope the school will consider adding such a course, perhaps as an elective open to all majors. Many of us would sign up on the first day.\n\nYours sincerely,\nLi Ming'},
+{title:'内卷与躺平之间：第三种选择（200-250词）',
+prompt:'有人努力竞争（"内卷"），有人选择退出（"躺平"）。请写一篇 200-250 词的议论文，谈谈年轻人应如何在二者之间自处，自拟标题。',
+min:200,max:250,
+keywords:['involution','lying flat','competition','meaning','burnout','balance','self-defined'],
+ref_points:'结构：① 引入两种心态 ② 论点一：内卷伤所有人（无终点的竞争）③ 论点二：躺平也不是出路（换来空虚）④ 论点三：改变提问方式——"什么值得我投入"⑤ 结论：在重要处竞争，在不重要处休整，自己定义成功。',
+sample:'The Third Path\n\nTwo words have captured the mood of a generation: involution, the exhaustion of endless competition, and lying flat, the quiet refusal to compete at all. Both are understandable. Neither is a way to live well.\n\nInvolution punishes everyone. When a race has no finish line, effort buys no reward - only anxiety. Students study until dawn to hold a rank that means less each year. Yet lying flat is no escape either; it trades burnout for emptiness. A life without aims is not peaceful for long.\n\nThe way out is to change the question. Instead of asking how to beat others, ask what is worth my effort. Competition for its own sake is a treadmill; competition in service of something - a craft, a cause, a person - is meaningful.\n\nThis means choosing our battles. Let the rankings go where they do not matter, and pour energy where they do. Learn a skill deeply, build something small, help someone sincerely. Growth measured against yesterday is sustainable; growth measured against everyone else never is.\n\nSo: neither burn out nor switch off. Compete where it counts, rest where it does not, and define success yourself.'}
+];
+
 _dedupe(ESSAYS,X_ESSAYS,'title');
+_dedupe(ESSAYS,Z_ESSAYS,'title');
 
 // ---- 初始化 ----
 load();
