@@ -1047,8 +1047,8 @@ var DISCOURSE=[
 // ================= 数据：阅读题组（短篇/中长篇/双文本/图表） =================
 var READINGS=[
 // --- 短篇阅读（读以博闻 6-11，4篇） ---
-{type:'short',title:'Tiger King 动物园案',text:'A federal judge found the owner of a big-cat zoo guilty of violating the Animal Welfare Act. The zoo, which had become known after the documentary series Tiger King, had kept hundreds of lions, tigers and other cats in cramped conditions. The judge ordered the animals to be transferred to accredited sanctuaries.',questions:[
-{q:'What do we know from the news?',o:['The zoo was built specifically for filming Tiger King.','Tiger King was an extremely successful documentary about animal rights.','A federal judge found the cat zoo owner guilty of violating the animal welfare law.','All the big cats in the zoo were ordered to be transferred to the federal government.'],a:2,n:'原文首句直接对应C'}
+{type:'short',title:'Tiger King 动物园案',text:'An Oklahoma judge found the owner of a big-cat zoo guilty of violating the Animal Welfare Act. The zoo, which had become known after the hit Netflix docuseries Tiger King, had kept hundreds of lions, tigers and other cats in cramped conditions. The judge ordered the zoo to surrender all big cats less than a year old, as well as the cubs’ mothers, to the federal government.',questions:[
+{q:'What do we know from the news?',o:['The zoo was built specifically for filming Tiger King.','Tiger King was an extremely successful documentary about animal rights.','A federal judge found the cat zoo owner guilty of violating the animal welfare law.','All the big cats in the zoo were ordered to be transferred to the federal government.'],a:1,n:'正解 B：原文 the hit Netflix docuseries → hit 对应 extremely successful；A 错（非为拍摄 Tiger King 而建）；C 错（原文为 Oklahoma judge，非 federal judge）；D 错（仅不到一岁大猫＋幼崽母亲，非所有大猫）'}
 ]},
 {type:'short',title:'超加工食品',text:'As the saying goes: If your granny doesn\'t recognise what\'s in it, it\'s probably not real food. Yet half the food we take home is made in factories from a list of ingredients and additives as long as your arm. The UK is a nation of ultra-processed-food eaters. Our lives have become too fast-paced to cook from scratch and our taste buds now crave the sweet and salty flavors ultra-processed foods deliver.',questions:[
 {q:'What is the author\'s attitude toward ultra-processed food?',o:['Critical.','Impartial.','Defensive.','Mixed.'],a:0,n:'granny不认识、工厂添加剂、快餐节奏——批判态度'}
@@ -1423,11 +1423,11 @@ var HOT=[
  ['省赛提前量：术语阐释','每天用自己的话解释2个术语，练"翻译＋阐释"']
 ];
 var TASKS=[
- {t:'过50张术语卡',d:'掌握/再练，重点官方译法'},
- {t:'过20条词组卡',d:'固定搭配辨析'},
- {t:'汉译英2句＋英译汉1句',d:'先译再看参考译文'},
- {t:'刷1组客观题（10题）',d:'术语/完形/搭配'},
- {t:'复盘错题本',d:'重做错题，直到掌握'}
+ {t:'限时模考 1 套（官方 26 题 / 90min）',d:'校准时间分配，先客观后写作'},
+ {t:'错题本智能重练（优先逾期+高频）',d:'9 成错在没回原文，重练固化'},
+ {t:'写作模板默写 1 篇（200-250 词）',d:'内容60%+形式40%，模板保下限'},
+ {t:'省赛专项·术语 + 图表保分',d:'读以博闻 30 分最易拿满'},
+ {t:'术语库速过未掌握项',d:'术语 5 题×2 分，零成本拿分'}
 ];
 function todayStr(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
 function modCard(name,total,done,color,detail){
@@ -1459,6 +1459,25 @@ function renderOverview(){
   return '<div class="taskrow'+(S.tasks.done[i]?' done':'')+'" onclick="toggleTask('+i+')"><div class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></div><div class="tk">'+t.t+'<small>'+t.d+'</small></div></div>'}).join('');
  $('#hotList').innerHTML=HOT.map(function(h,i){return '<div class="ht"><div class="num">'+(i+1)+'</div><div class="tx">'+h[0]+'<small>'+h[1]+'</small></div></div>'}).join('');
  var _now=Date.now();var _due=S.wrong.filter(function(w){return (w.due||0)<=_now}).length;$('#wrongCnt').textContent=_due+' 道今日待复习 / 共 '+S.wrong.length;
+ renderSprint();
+}
+function renderSprint(){
+ var cd=$('#sprintCd'),tip=$('#sprintTip'),list=$('#sprintList');
+ if(!cd||!list)return;
+ var exam=new Date('2026-10-11T09:00:00');
+ var days=Math.ceil((exam-Date.now())/86400000);
+ cd.textContent=(days>0?('D-'+days):(days===0?'D-DAY':'已开考'));
+ var items=[
+  {t:'限时模考 ×1（官方 26 题 / 90min）',g:'mock',w:'校准时间分配，练“先客观后写作”'},
+  {t:'错题本智能重练（优先逾期+高频）',g:'wrong',w:'9 成错在没回原文，重练固化回文习惯'},
+  {t:'省赛专项 · 术语 + 语篇翻译',g:'prov',w:'读以博闻 30 分里术语/图表最易拿满'},
+  {t:'写作模板默写（200–250 词议论文）',g:'write',w:'写作 40 分＝内容60%＋形式40%，模板保下限'},
+  {t:'术语库速过未掌握项',g:'terms',w:'术语 5 题×2 分，零成本拿分'}
+ ];
+ if(tip)tip.textContent=days<=1?'明日开考：今晚只过模板+错题，不刷新题':'两天：先模考定位，再错题+写作';
+ list.innerHTML=items.map(function(it,i){
+  return '<div style="display:flex;gap:8px;align-items:flex-start;margin:7px 0;cursor:pointer" onclick="go(\''+it.g+'\')"><i>'+(i+1)+'</i><div style="flex:1"><div>'+esc(it.t)+'</div><small style="color:#5d7d66">'+esc(it.w)+'</small></div></div>';
+ }).join('');
 }
 function toggleTask(i){S.tasks.done[i]=!S.tasks.done[i];save();renderOverview()}
 function resetTasks(){S.tasks.done=TASKS.map(function(){return false});save();renderOverview();toast('今日任务已重置')}
@@ -1641,98 +1660,216 @@ function showQuizRes(){
 }
 function backQuizHome(){$('#quizHome').style.display='block';$('#quizRun').style.display='none';$('#quizRes').style.display='none'}
 
-// ---- 模考 ----
-var mockState={items:[],i:0,right:0,left:7200,timer:null,marks:0,transScores:[]};
+// ---- 全真模考（官方结构：25 客观题 + 1 篇写作 = 26 题 / 100 分 / 90 分钟）----
+var MOCK_SECONDS=5400;
+var MOCK_PLAN=[
+ {sec:'disc',   label:'读以博闻·术语', n:5, per:2},
+ {sec:'shortA', label:'读以博闻·短篇', n:6, per:2},
+ {sec:'chart',  label:'读以博闻·图表', n:4, per:2},
+ {sec:'shortB', label:'读以明理·短篇', n:3, per:3},
+ {sec:'long',   label:'读以明理·中篇', n:7, per:3}
+];
+var SEC_LABEL={disc:'读以博闻·术语',shortA:'读以博闻·短篇',chart:'读以博闻·图表',shortB:'读以明理·短篇',long:'读以明理·中篇',essay:'写以言志'};
+var MOCK_RUBRIC=[
+ {lb:'内容切题 · 要点完整',opts:[12,9,6]},
+ {lb:'论证充分 · 例证支撑',opts:[12,9,6]},
+ {lb:'结构清晰 · 段落衔接',opts:[8,6,3]},
+ {lb:'语言准确 · 句式词汇多样',opts:[8,6,3]}
+];
+var mockState={items:[],i:0,right:0,objScore:0,secRight:{},rb:{},marks:0,
+  essayDraft:'',essayRefOpen:false,endAt:0,pauseRemain:0,paused:false,
+  active:false,started:0,timer:null};
+
+function takeShort(need,sec,per,used){
+ var ps=shuffle(READINGS.filter(function(r){return r.type==='short'&&!used[r.title]}));
+ var out=[];
+ for(var i=0;i<ps.length&&need>0;i++){
+  var p=ps[i],take=p.questions.slice(0,need);
+  for(var j=0;j<take.length;j++){
+   out.push({k:'qread',sec:sec,per:per,q:{q:take[j].q,o:take[j].o,a:take[j].a,n:take[j].n,src:p.text}});
+  }
+  used[p.title]=1;need-=take.length;
+ }
+ return out;
+}
+function buildMock(){
+ var used={},items=[];
+ shuffle(DISCOURSE).slice(0,5).forEach(function(x){items.push({k:'qdisc',sec:'disc',per:2,q:x})});
+ items=items.concat(takeShort(6,'shortA',2,used));
+ var charts=shuffle(READINGS.filter(function(r){return r.type==='chart'}));
+ if(charts.length){
+  var c=charts[0];used[c.title]=1;
+  c.questions.slice(0,4).forEach(function(q){items.push({k:'qread',sec:'chart',per:2,q:{q:q.q,o:q.o,a:q.a,n:q.n,src:c.chartNote||c.text||''}})});
+ }
+ items=items.concat(takeShort(3,'shortB',3,used));
+ var longs=shuffle(READINGS.filter(function(r){return r.type==='long'})),need=7;
+ for(var i=0;i<longs.length&&need>0;i++){
+  var L=longs[i],tk=L.questions.slice(0,need);
+  for(var j=0;j<tk.length;j++){
+   items.push({k:'qread',sec:'long',per:3,q:{q:tk[j].q,o:tk[j].o,a:tk[j].a,n:tk[j].n,src:L.text}});
+  }
+  need-=tk.length;
+ }
+ items.push({k:'essay',sec:'essay',per:40,q:Object.assign({},shuffle(ESSAYS)[0],{min:200,max:250})});
+ return items;
+}
+function mockObjN(){return mockState.items.filter(function(x){return x.k!=='essay'}).length}
+function mockObjMax(){var s=0;mockState.items.forEach(function(x){if(x.k!=='essay')s+=x.per});return s}
+function mockLeft(){return mockState.paused?mockState.pauseRemain:Math.max(0,Math.round((mockState.endAt-Date.now())/1000))}
+
 function startMock(){
- // 校赛客观题池：5话语术语 + 短篇/图表/中长篇阅读题（不含双文本/逻辑，后者为省赛/国赛加试）
- var objs=shuffle(DISCOURSE).slice(0,5).map(function(x){return {k:'qdisc',q:x}});
- READINGS.forEach(function(r){
-  if(r.type==='dual'||r.type==='logic')return;
-  r.questions.forEach(function(q){
-   objs.push({k:'qread',q:{q:q.q,o:q.o,a:q.a,n:q.n,src:(r.text||r.textA||r.chartNote||'')}});
-  });
- });
- objs=shuffle(objs);
- // 写作题
- var wr=[{k:'essay',q:shuffle(ESSAYS)[0]}];
- mockState.items=objs.concat(wr);
- mockState.i=0;mockState.right=0;mockState.marks=0;mockState.transScores=[];mockState.left=5400;mockState.started=Date.now();
+ if(mockState.active&&!window.confirm('已有一次模考正在进行，重新开始将丢弃当前进度，确定？'))return;
+ mockState.items=buildMock();
+ mockState.i=0;mockState.right=0;mockState.objScore=0;mockState.secRight={};mockState.rb={};
+ mockState.marks=0;mockState.essayDraft='';mockState.essayRefOpen=false;
+ mockState.paused=false;mockState.active=true;mockState.started=Date.now();
+ mockState.endAt=Date.now()+MOCK_SECONDS*1000;
  $('#mockHome').style.display='none';$('#mockRes').style.display='none';$('#mockRun').style.display='block';
  clearInterval(mockState.timer);
- mockState.timer=setInterval(function(){
-  mockState.left--;
-  var el=$('#mockTimer');
-  if(el){el.textContent=fmtTime(mockState.left);if(mockState.left<=600)el.classList.add('warn')}
-  if(mockState.left<=0)finishMock(true);
- },1000);
+ mockState.timer=setInterval(mockTick,250);
  renderMockQ();
 }
+function mockTick(){
+ if(!mockState.active||mockState.paused)return;
+ var left=Math.max(0,Math.round((mockState.endAt-Date.now())/1000));
+ var el=$('#mockTimer');
+ if(el){el.textContent=fmtTime(left);if(left<=600)el.classList.add('warn');else el.classList.remove('warn')}
+ if(left<=0)finishMock(true);
+}
+function mockPause(){
+ if(!mockState.active)return;
+ var ta=$('#esUser');if(ta)mockState.essayDraft=ta.value;
+ if(!mockState.paused){
+  mockState.pauseRemain=Math.max(0,Math.round((mockState.endAt-Date.now())/1000));
+  mockState.paused=true;toast('已暂停 · 计时冻结');
+ }else{
+  mockState.endAt=Date.now()+mockState.pauseRemain*1000;
+  mockState.paused=false;toast('继续计时');
+ }
+ renderMockQ();
+}
+function mockQuit(){
+ if(!mockState.active)return;
+ var ta=$('#esUser');if(ta)mockState.essayDraft=ta.value;
+ var objN=mockObjN(),unanswered=objN-Math.min(mockState.i,objN);
+ if(!window.confirm('确认交卷结算？\n未作答客观题：'+unanswered+' 题（计 0 分）\n剩余时间：'+fmtTime(mockLeft())))return;
+ finishMock(false);
+}
+function mockRestore(){
+ if(!mockState.active)return;
+ $('#mockHome').style.display='none';$('#mockRes').style.display='none';$('#mockRun').style.display='block';
+ renderMockQ();
+}
+function mockRb(ri,v){
+ var ta=$('#esUser');if(ta)mockState.essayDraft=ta.value;
+ mockState.rb[ri]=v;renderMockQ();
+}
+function mockEssayRef(){
+ var ta=$('#esUser');if(ta)mockState.essayDraft=ta.value;
+ mockState.essayRefOpen=!mockState.essayRefOpen;renderMockQ();
+}
+function mockWordCount(){
+ var st=mockState,it=st.items[st.i];if(!it)return;
+ var ta=$('#esUser'),el=$('#esWc'),rb=$('#esRbSum');
+ if(ta&&el&&it.q){
+  var w=(ta.value.match(/[A-Za-z0-9'\u2019-]+/g)||[]).length;
+  el.textContent='词数：'+w+' / 目标 '+it.q.min+'-'+it.q.max;
+  el.classList.toggle('bad',w>0&&(w<Math.round(it.q.min*0.8)||w>Math.round(it.q.max*1.15)));
+ }
+ if(rb){var n=0,sum=0;MOCK_RUBRIC.forEach(function(r,i){if(st.rb[i]){n++;sum+=st.rb[i]}});
+  rb.textContent='已选 '+n+'/4 项 · 写作得分 '+sum+'/40';}
+}
 function renderMockQ(){
+ if(!mockState.active)return;
  var st=mockState;
  if(st.i>=st.items.length){finishMock(false);return}
- var it=st.items[st.i];
- var objTotal=st.items.filter(function(x){return x.k!=='essay'}).length;
- var label=it.k==='essay'?('写作题 1 / 1'):('客观题 '+(st.i+1)+' / '+objTotal);
- $('#mockRun').innerHTML='<div class="timer" id="mockTimer">'+fmtTime(st.left)+'</div>'+
-  '<div class="qcard"><div class="qmeta"><span>'+label+'</span><span class="idx">'+qLabel(it.k)+'</span></div>';
- if(it.k==='tran'){
-  var dir=it.q.d==='ce'?'汉译英 C-E':'英译汉 E-C';
-  $('#mockRun').innerHTML+='<div class="qtext">'+esc(it.q.src)+'</div>'+
-   '<div class="reveal" id="mSenR" style="display:none"><div class="fc-en">'+esc(it.q.ref)+'</div><div class="fc-note" style="margin-top:6px">'+esc(it.q.note||'')+'</div></div>'+
-   '<button class="btn ghost sm" style="width:100%;margin-top:10px" onclick="showMockSen()">查看参考译文并自评</button>'+
-   '<div class="btns" style="margin-top:8px"><button class="btn ok" onclick="mockMark(1)">优（内容完整+通顺）</button><button class="btn cyan outline" onclick="mockMark(0.5)">中（基本达意）</button><button class="btn no" onclick="mockMark(0)">待改进（错漏译）</button></div></div>';
- }else if(it.k==='essay'){
+ var it=st.items[st.i],objN=mockObjN(),left=mockLeft();
+ var objDone=Math.min(st.i,objN);
+ var label=it.k==='essay'?('写作题 · 客观题已答 '+objDone+'/'+objN):('客观题 '+(st.i+1)+' / '+objN);
+ var body='';
+ if(it.k==='essay'){
   var e=it.q;
-  $('#mockRun').innerHTML='<div class="timer" id="mockTimer">'+fmtTime(st.left)+'</div>'+
-   '<div class="qcard"><div class="qmeta"><span>写作题</span><span class="idx">'+e.min+'-'+e.max+'词</span></div>'+
-   '<div class="qtext" style="font-size:14px;line-height:1.9">'+esc(e.prompt)+'</div>'+
-   '<textarea id="esUser" placeholder="在此写作…" style="width:100%;min-height:220px;background:#ffffff;color:#1f332a;border:1px solid #c8dfcc;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px"></textarea>'+
-   '<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="showMockEssayRef()">查看评分要点并交卷</button></div>'+
-   '<div id="esRef" style="display:none;margin-top:10px" class="fc-en">'+esc(e.ref_points)+'</div></div>';
+  body='<div class="qtext" style="font-size:14px;line-height:1.9">'+esc(e.prompt)+'</div>'+
+   '<textarea id="esUser" oninput="mockWordCount()" style="width:100%;min-height:220px;background:#ffffff;color:#1f332a;border:1px solid #c8dfcc;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px" placeholder="在此写作…">'+esc(st.essayDraft||'')+'</textarea>'+
+   '<div class="wc-note" id="esWc">词数：0 / 目标 '+e.min+'-'+e.max+'</div>'+
+   '<button class="btn ghost sm" style="width:100%;margin-top:8px" onclick="mockEssayRef()">'+(st.essayRefOpen?'收起':'查看')+'评分要点 / 参考范文</button>'+
+   '<div style="display:'+(st.essayRefOpen?'block':'none')+';margin-top:10px"><div class="fc-note" style="line-height:1.85;color:#34473b">'+esc(e.ref_points||'')+'</div>'+(e.sample?'<div class="fc-note" style="margin-top:10px;line-height:1.9;white-space:pre-wrap;border-top:1px dashed #cfe2d2;padding-top:10px">'+esc(e.sample)+'</div>':'')+'</div>'+
+   '<div class="rb-block"><div class="fc-cat">自评 · 内容60%＋形式40%（满分40）</div>'+
+   MOCK_RUBRIC.map(function(r,ri){
+    return '<div class="rb-row"><span class="rb-lb">'+r.lb+'</span>'+r.opts.map(function(v){return '<button class="rb-opt'+(st.rb[ri]===v?' on':'')+'" onclick="mockRb('+ri+','+v+')">'+v+'分</button>'}).join('')+'</div>'}).join('')+
+   '<div class="wc-note" id="esRbSum">已选 0/4 项 · 写作得分 0/40</div></div>';
  }else{
   var q=it.q;
-  var srcHtml=(it.k==='qread'&&q.src)?'<div class="qtext" style="font-size:13px;line-height:1.9;margin-bottom:10px;padding:10px;background:#eef6ef;border-left:3px solid #c8dfcc">'+esc(q.src)+'</div>':'';
-  $('#mockRun').innerHTML+=srcHtml+'<div class="qtext">'+esc(q.q)+'</div><div class="opts" id="mOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="mockPick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="mFb"></div></div>';
+  var srcHtml=(it.k==='qread'&&q.src)?'<div class="qtext" style="font-size:13px;line-height:1.9;margin-bottom:10px;padding:10px;background:#eef6ef;border-left:3px solid #c8dfcc;font-weight:400">'+esc(q.src)+'</div>':'';
+  body=srcHtml+'<div class="qtext">'+esc(q.q)+'</div><div class="opts" id="mOpts">'+q.o.map(function(o,oi){return '<div class="opt" onclick="mockPick('+oi+')"><span class="k">'+'ABCD'[oi]+'</span><span>'+esc(o)+'</span></div>'}).join('')+'</div><div class="fb" id="mFb"></div>';
  }
+ $('#mockRun').innerHTML='<div class="timer'+(left<=600?' warn':'')+'" id="mockTimer">'+fmtTime(left)+'</div>'+
+  '<div class="mprog"><i style="width:'+Math.round(objDone/Math.max(1,objN)*100)+'%"></i></div>'+
+  '<div class="qcard"><div class="qmeta"><span>'+label+'</span><span class="idx">'+esc(SEC_LABEL[it.sec]||'')+' · '+it.per+'分</span></div>'+body+'</div>'+
+  '<div class="btns" style="margin-top:12px"><button class="btn ghost sm" onclick="mockPause()">'+(st.paused?'继续':'暂停')+'</button><button class="btn no sm" onclick="mockQuit()">交卷结算</button></div>';
+ mockWordCount();
 }
-function showMockEssayRef(){var el=$('#esRef');if(el){el.style.display='block';setTimeout(function(){mockState.marks=2;finishMock()},800)}}
-function showMockSen(){var el=$('#mSenR');if(el){el.style.display=el.style.display==='none'?'block':'none'}}
 function mockPick(oi){
- var st=mockState,it=st.items[st.i],q=it.q;
- var opts=$$('#mOpts .opt'),fb=$('#mFb');
+ var st=mockState,it=st.items[st.i];if(!it||it.k==='essay')return;
+ var q=it.q,opts=$$('#mOpts .opt'),fb=$('#mFb');
  var isR=oi===q.a;
- if(isR)st.right++;
+ if(isR){st.right++;st.objScore+=it.per;st.secRight[it.sec]=(st.secRight[it.sec]||0)+1}
  else{pushWrong(it.k,-1,q.q,q.o[oi],q.o[q.a])}
  for(var i=0;i<opts.length;i++){opts[i].classList.add('dim');if(i===q.a)opts[i].classList.add('right');if(i===oi&&!isR)opts[i].classList.add('wrong')}
  fb.className='fb show '+(isR?'right':'wrong');
- fb.innerHTML=(isR?'回答正确':'回答错误，已加入错题本')+'<br><b>'+esc(q.o[q.a])+'</b>';
- setTimeout(function(){st.i++;renderMockQ()},1100);
-}
-function mockMark(score){
- var st=mockState,it=st.items[st.i];
- st.marks+=score;st.transScores.push(score);
- save();st.i++;renderMockQ();
+ fb.innerHTML=(isR?'回答正确':'回答错误，已加入错题本')+'<br><b>'+esc(q.o[q.a])+'</b><br><span style="color:#5d7d66">'+esc(q.n||'')+'</span>';
+ setTimeout(function(){if(!mockState.active)return;mockState.i++;renderMockQ()},1100);
 }
 function finishMock(force){
+ if(!mockState.active)return;
+ mockState.active=false;
  clearInterval(mockState.timer);
- var st=mockState;var used=Math.round((Date.now()-st.started)/1000)||0;
- var objN=st.items.filter(function(x){return x.k!=='essay'}).length;
- var objAcc=Math.round(st.right/objN*100);
- S.mocks.push({ts:Date.now(),obj:st.right+'/'+objN,acc:objAcc,marks:st.marks,used:used});
+ var st=mockState;
+ var objN=0,objMax=0,bySec={};
+ st.items.forEach(function(it){
+  if(it.k==='essay')return;
+  objN++;objMax+=it.per;
+  if(!bySec[it.sec])bySec[it.sec]={label:SEC_LABEL[it.sec],n:0,max:0};
+  bySec[it.sec].n++;bySec[it.sec].max+=it.per;
+ });
+ var objDone=Math.min(st.i,objN),unanswered=objN-objDone;
+ var writeScore=0;MOCK_RUBRIC.forEach(function(r,i){if(st.rb[i])writeScore+=st.rb[i]});
+ st.marks=writeScore;
+ var total=st.objScore+writeScore;
+ var used=Math.round((Date.now()-st.started)/1000);
+ var grade=total>=85?'优秀':total>=70?'良好':total>=60?'及格':'需加强';
+ S.mocks.push({ts:Date.now(),obj:st.right+'/'+objN,acc:Math.round(st.right/Math.max(1,objN)*100),
+  score:total,objScore:st.objScore,objMax:objMax,write:writeScore,marks:writeScore,used:used,grade:grade});
  save();
+ var secBars=Object.keys(bySec).map(function(k){
+  var s=bySec[k],per=s.n?s.max/s.n:0;
+  return '<div class="secbar"><span>'+s.label+'</span><b>'+Math.round((st.secRight[k]||0)*per)+' / '+s.max+'</b></div>';
+ }).join('');
+ secBars+='<div class="secbar"><span>'+SEC_LABEL.essay+'（议论文自评）</span><b>'+writeScore+' / 40</b></div>';
  $('#mockRun').style.display='none';$('#mockRes').style.display='block';
- $('#mockRes').innerHTML='<div class="result"><div class="lab" style="font-size:11px;color:#5d7d66;font-family:Consolas,monospace;letter-spacing:2px">'+(force?'时间到 · 模考结束':'模考完成 MOCK RESULT')+'</div><div class="rbig'+(objAcc<60?' red':'')+'">'+objAcc+'%</div><div style="font-size:12px;color:#5d7d66">客观题正确率（'+st.right+'/'+objN+'）</div><div class="rrow"><span>写作<b>'+(st.marks?'已完成':'未写')+'</b></span><span>用时<b>'+fmtTime(used)+'</b></span></div><div style="display:flex;gap:9px;margin-top:16px"><button class="btn ghost" onclick="backMockHome()">返回</button><button class="btn cyan" onclick="startMock()">再考一次</button></div></div>';
+ $('#mockRes').innerHTML='<div class="result"><div class="lab" style="font-size:11px;color:#5d7d66;font-family:Consolas,monospace;letter-spacing:2px">'+(force?'时间到 · 自动交卷 TIME UP':'模考完成 MOCK RESULT')+'</div>'+
+  '<div class="rbig'+(total<60?' red':'')+'">'+total+'<span style="font-size:18px;color:var(--mut);font-weight:700"> / 100</span></div>'+
+  '<div style="font-size:12px;color:#5d7d66">等级 <b style="color:'+(total<60?'#b3324f':'#0e7048')+'">'+grade+'</b> · 用时 '+fmtTime(used)+'</div>'+
+  '<div style="margin-top:16px;text-align:left">'+
+   '<div class="secbar"><span>客观题</span><b>'+st.objScore+' / '+objMax+'（答对 '+st.right+'/'+objN+(unanswered?' · 未答 '+unanswered:'')+'）</b></div>'+
+   secBars+
+  '</div>'+
+  '<div style="display:flex;gap:9px;margin-top:16px"><button class="btn ghost" onclick="backMockHome()">返回</button><button class="btn cyan" onclick="startMock()">再考一次</button></div></div>';
  renderMockLog();
 }
-function backMockHome(){clearInterval(mockState.timer);$('#mockHome').style.display='block';$('#mockRun').style.display='none';$('#mockRes').style.display='none';renderMockLog()}
+function backMockHome(){
+ clearInterval(mockState.timer);mockState.active=false;
+ $('#mockHome').style.display='block';$('#mockRun').style.display='none';$('#mockRes').style.display='none';
+ renderMockLog();
+}
 function renderMockLog(){
- var m=S.mocks.slice(-6).reverse();
+ var m=S.mocks.slice(-8).reverse();
  $('#mockLog').innerHTML=m.length?('<div class="sec-h"><span class="t" style="font-size:12px"><em>//</em> 模考记录</span></div>'+m.map(function(x){
   var d=new Date(x.ts);
-  return '<div class="ht"><div class="num" style="background:rgba(21,155,102,.1);border-color:rgba(21,155,102,.35)">'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2)+'</div><div class="tx">客观题正确率 '+x.acc+'%<small>翻译得分 '+x.marks+'/2 · 用时 '+fmtTime(x.used)+'</small></div></div>'}).join(''))
+  var has=(typeof x.score==='number');
+  return '<div class="ht"><div class="num" style="background:rgba(21,155,102,.1);border-color:rgba(21,155,102,.35)">'+('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2)+'</div><div class="tx">'+(has?('总分 '+x.score+'/100 · '+x.grade):('客观题正确率 '+x.acc+'%'))+'<small>客观 '+(has?x.objScore:'—')+'/'+(has?x.objMax:60)+' · 写作 '+(has?x.write:'—')+'/40 · 用时 '+fmtTime(x.used)+'</small></div></div>'}).join(''))
   :'<div class="empty" style="padding:16px 0">NO LOG<br>暂无模考记录</div>';
 }
-
 // ---- 错题本 ----
 function renderWrong(){
  var now=Date.now();
