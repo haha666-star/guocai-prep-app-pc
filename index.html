@@ -1172,16 +1172,21 @@ questions:[
 {q:'Common theme on factors affecting longevity?',o:['Both emphasize treating individual diseases.','Both highlight positive emotions.','Both suggest focusing on biology of aging may improve healthspan.','Both argue happiness has little impact.'],a:2,n:'A讲幸福的生理机制，B讲衰老生物学'}
 ]},
 // --- 图表判断 T/F（读以博闻 12-15） ---
-{type:'chart',title:'全球可再生与不可再生发电装机容量（2001-2020）',
-chartData:{kind:'bar',unit:'GW',h:320,labels:['2001','2005','2010','2015','2020'],
- series:[{name:'可再生',color:'#17995f',data:[30,42,55,95,250]},{name:'非可再生',color:'#dd3d6d',data:[40,66,80,78,52]}],
- caption:'全球新增电力装机容量构成（单位：GW，示意数据，用于读图判断练习）。可再生整体稳步上升；非可再生先升后降、存在波动。'},
-chartNote:'全球新增电力装机容量构成（2001—2020 年）：可再生新增装机整体稳步增长、占比持续走高并于 2020 年达到峰值；非可再生新增装机存在波动、后期下降，并非持续下降。',
+{type:'chart',title:'Global Added Electricity Generating Capacity, by Source (GW and %)',
+chartData:{kind:'combo',unit:'GW',unit2:'%',axisMax:270,axis2Max:100,ticksL:6,ticksR:5,h:344,
+ labels:['2012','2014','2015','2018','2019','2020'],
+ series:[
+  {name:'Non-renewable additions',type:'bar',color:'#c9d6cc',data:[99,134,97,113,64,56]},
+  {name:'Renewable additions',type:'bar',color:'#2f6fb0',data:[113,129,153,178,180,260]},
+  {name:'Renewable share',type:'line',axis:2,color:'#e0892e',data:[52,51,59,62,71,81]}
+ ],
+ caption:'Global added electricity generating capacity by source. Bars (left axis, GW): non-renewable vs renewable additions. Line (right axis, %): renewable share of all additions. Source: the official test chart.'},
+chartNote:'Read the two axes separately. The left axis (GW) applies to the bars; the right axis (%) applies only to the line. Never compare a bar with the line directly.',
 questions:[
-{q:'The chart shows steady growth in renewables AND continuous decline in the growth of non-renewable capacity.（判断正误）',o:['True','False'],a:1,n:'样题答案False：非可再生容量是增速放缓，不是"持续下降"本身'},
-{q:'Renewable capacity in 2020 was more than six times non-renewable.（判断正误）',o:['True','False'],a:1,n:'样题答案False：未到6倍'},
-{q:'Renewable capacity has accounted for over half of total since 2015.（判断正误）',o:['True','False'],a:0,n:'样题答案True'},
-{q:'Renewable capacity has been greater than non-renewable since 2012.（判断正误）',o:['True','False'],a:1,n:'样题答案False：2012年前后才交叉'}
+{q:'Non-renewable capacity additions declined continuously throughout the period shown.',o:['True','False'],a:1,n:'False. Non-renewable additions rose in 2014 (134 GW), so the fall was not continuous.'},
+{q:'In 2020, renewable capacity additions were more than six times non-renewable additions.',o:['True','False'],a:1,n:'False. 260 / 56 \u2248 4.6 times \u2014 less than six.'},
+{q:'In the years after 2015, renewables accounted for more than half of all added capacity.',o:['True','False'],a:0,n:'True. The share line stays above 50% (59, 62, 71, 81).'},
+{q:'Renewable additions have exceeded non-renewable additions every year since 2012.',o:['True','False'],a:1,n:'False. In 2014 non-renewable additions (134) were larger than renewable (129).'}
 ]},
 // --- 句子排序与逻辑谬误（读以明理 16-18） ---
 {type:'logic',title:'晨练利弊·句子排序与逻辑谬误',
@@ -1239,16 +1244,6 @@ questions:[
 {q:'What can be concluded about the two texts?',o:['Both reject the Western model entirely','Both question the universalism of a single modernization template','Both praise China\'s political system','Both call for Western-style democracy'],a:1,n:'都质疑单一模板普世性'}
 ]},
 // —— 图表判断补充 ——
-{type:'chart',title:'中国风电与光伏累计装机（2015-2024）',
-chartData:{kind:'line',unit:'GW',h:320,labels:['2015','2018','2020','2022','2024'],
- series:[{name:'风电＋光伏累计装机',color:'#0e7048',data:[170,360,530,760,1400]}],
- caption:'中国风电与光伏累计装机（单位：GW）。十年间由 1.7 亿千瓦增至超 14 亿千瓦，稳居全球第一。'},
-chartNote:'中国光伏＋风电装机已超 14 亿千瓦（1.4 TW），占全球新能源装机 30% 以上；电动车销量占全球约 60%；新能源汽车渗透率 2024 年超 40%。',questions:[
-{q:'China now accounts for over 60% of global EV sales.（判断正误）',o:['True','False'],a:0,n:'正确'},
-{q:'China\'s renewable energy capacity is the smallest in the world.（判断正误）',o:['True','False'],a:1,n:'错误，全球最大'},
-{q:'NEV penetration in China exceeded 40% in 2024.（判断正误）',o:['True','False'],a:0,n:'正确'},
-{q:'China relies entirely on coal for electricity.（判断正误）',o:['True','False'],a:1,n:'错误'}
-]},
 // —— 逻辑与批判性思维 ——
 {type:'logic',title:'稻草人谬误与滑坡谬误',text:'An online commentator argued: "If we allow students to use calculators in class, soon they will forget how to add, then they cannot count money, and finally the entire economy will collapse." Another wrote: "You say we should reform healthcare—so you want to abolish hospitals and leave people to die in the streets."',questions:[
 {q:'The first argument commits which fallacy?',o:['Ad hominem','Slippery slope','Straw man','Appeal to authority'],a:1,n:'滑坡谬误：允许计算器→经济崩溃，因果链条不成立'},
@@ -2234,51 +2229,61 @@ function _tick(v){
  if(v<1&&v>0)return (Math.round(v*100)/100).toString();
  return (Math.round(v*10)/10).toString();
 }
-// cd = {kind:'bar'|'line', labels:[], series:[{name,color,data:[]}], unit:'', caption:'', h:320}
+// cd = {kind:'bar'|'line'|'combo', unit, unit2, axisMax, axis2Max, ticksL, ticksR, h,
+//       labels:[], series:[{name,color,type:'bar'|'line',axis:1|2,data:[]}], caption}
+// 双轴：柱状走左轴(axis1)，折线可走右轴(axis2)。兼容旧的 kind:'bar'/'line'（无 type 时按 kind 处理）。
+function _niceMax(m){
+ if(!(m>0))return 1;
+ var mag=Math.pow(10,Math.floor(Math.log10(m))), n=m/mag;
+ var k=n<=1?1:n<=1.2?1.2:n<=1.5?1.5:n<=2?2:n<=2.5?2.5:n<=3?3:n<=4?4:n<=5?5:n<=6?6:n<=8?8:10;
+ return k*mag;
+}
 function svgChart(cd){
  if(!cd||!cd.labels||!cd.series||!cd.series.length)return '';
- var W=660,H=cd.h||320,pl=58,pr=18,pt=30,pb=52;
- var iw=W-pl-pr,ih=H-pt-pb,n=cd.labels.length,ns=cd.series.length;
- var vals=[];cd.series.forEach(function(s){(s.data||[]).forEach(function(v){vals.push(+v||0)})});
- var max=Math.max.apply(null,vals.concat([1]));
- var mag=Math.pow(10,Math.floor(Math.log10(max)||0)),nrm=max/mag;
- var mult=nrm<=1?0.2:nrm<=2?0.5:nrm<=5?1:2;
- var top=Math.ceil(max/(mag*mult))*(mag*mult); if(!(top>0))top=1;
+ var W=680,H=cd.h||340,pl=66,pr=64,pt=36,pb=56;
+ var iw=W-pl-pr,ih=H-pt-pb,n=cd.labels.length;
+ var S=cd.series.map(function(s){return {
+  name:s.name,color:s.color||'#17995f',type:s.type||cd.kind||'bar',axis:s.axis||1,
+  data:(s.data||[]).map(function(v){return +v||0})};});
+ function maxAxis(ax){var m=0;S.forEach(function(s){if(s.axis===ax)s.data.forEach(function(v){if(v>m)m=v})});return m}
+ var topL=cd.axisMax||_niceMax(maxAxis(1)), topR=cd.axis2Max||_niceMax(maxAxis(2));
+ var tL=cd.ticksL||5, tR=cd.ticksR||5, hasR=S.some(function(s){return s.axis===2});
  function xC(i){return pl+iw*(i+0.5)/n}
- function yV(v){return pt+ih*(1-(+v||0)/top)}
- var g='',t,ticks=4;
- for(t=0;t<=ticks;t++){
-  var y=pt+ih*t/ticks,val=top*(1-t/ticks);
-  g+='<line x1="'+pl+'" y1="'+y.toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+y.toFixed(1)+'" stroke="#d7e6db" stroke-width="1"'+(t===ticks?'':' stroke-dasharray="3 3"')+'/>';
-  g+='<text x="'+(pl-8)+'" y="'+(y+3.5).toFixed(1)+'" text-anchor="end" font-size="10.5" fill="#557f66">'+_tick(val)+'</text>';
+ function yV(v,ax){var top=ax===2?topR:topL;return pt+ih*(1-(+v||0)/top)}
+ var g='',i;
+ for(i=0;i<=tL;i++){
+  var y=pt+ih*i/tL, lv=topL*(1-i/tL);
+  g+='<line x1="'+pl+'" y1="'+y.toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+y.toFixed(1)+'" stroke="#d7e6db" stroke-width="1"'+(i===tL?'':' stroke-dasharray="3 3"')+'/>';
+  g+='<text x="'+(pl-8)+'" y="'+(y+3.5).toFixed(1)+'" text-anchor="end" font-size="10.5" fill="#557f66">'+_tick(lv)+'</text>';
  }
- cd.labels.forEach(function(L,i){
-  g+='<text x="'+xC(i).toFixed(1)+'" y="'+(pt+ih+16)+'" text-anchor="middle" font-size="10" fill="#557f66">'+esc(String(L))+'</text>';
+ if(hasR){for(i=0;i<=tR;i++){var yr=pt+ih*i/tR,rv=topR*(1-i/tR);
+  g+='<text x="'+(pl+iw+8)+'" y="'+(yr+3.5).toFixed(1)+'" text-anchor="start" font-size="10.5" fill="#c07a2a">'+_tick(rv)+'</text>';}}
+ cd.labels.forEach(function(L,i){g+='<text x="'+xC(i).toFixed(1)+'" y="'+(pt+ih+18)+'" text-anchor="middle" font-size="10.5" fill="#557f66">'+esc(String(L))+'</text>';});
+ var bars=S.filter(function(s){return s.type==='bar'});
+ var gw=iw/n, bw=bars.length?Math.min(26,(gw*0.68)/bars.length):0;
+ bars.forEach(function(s,si){
+  s.data.forEach(function(v,i){
+   var x=xC(i)-((bars.length*bw+(bars.length-1)*3)/2)+si*(bw+3);
+   var y=yV(v,1), hgt=Math.max(1.5,(pt+ih)-y);
+   g+='<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+hgt.toFixed(1)+'" rx="2" fill="'+s.color+'" opacity="0.9"/>';
+  });
  });
- if(cd.kind==='line'){
-  cd.series.forEach(function(s){
-   var pts=[];(s.data||[]).forEach(function(v,i){pts.push([xC(i),yV(v)])});
-   var d=pts.map(function(p,j){return (j?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' ');
-   g+='<path d="'+d+'" fill="none" stroke="'+(s.color||'#17995f')+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
-   pts.forEach(function(p){g+='<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3.1" fill="#ffffff" stroke="'+(s.color||'#17995f')+'" stroke-width="2"/>'});
-  });
- }else{
-  var gw=iw/n,bw=Math.min(24,(gw*0.74)/ns);
-  cd.series.forEach(function(s,si){
-   (s.data||[]).forEach(function(v,i){
-    var x=xC(i)-((ns*bw+(ns-1)*3)/2)+si*(bw+3);
-    var y=yV(v),hgt=Math.max(1.5,(pt+ih)-y);
-    g+='<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+hgt.toFixed(1)+'" rx="2" fill="'+(s.color||'#17995f')+'" opacity="0.92"/>';
-   });
-  });
- }
+ S.filter(function(s){return s.type==='line'}).forEach(function(s){
+  var pts=[];s.data.forEach(function(v,i){pts.push([xC(i),yV(v,s.axis)])});
+  var d=pts.map(function(p,j){return (j?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' ');
+  g+='<path d="'+d+'" fill="none" stroke="'+s.color+'" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>';
+  pts.forEach(function(p){g+='<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3.2" fill="#ffffff" stroke="'+s.color+'" stroke-width="2"/>'});
+ });
  g+='<line x1="'+pl+'" y1="'+pt+'" x2="'+pl+'" y2="'+(pt+ih)+'" stroke="#a9c9b3" stroke-width="1.2"/>';
  g+='<line x1="'+pl+'" y1="'+(pt+ih)+'" x2="'+(pl+iw)+'" y2="'+(pt+ih)+'" stroke="#a9c9b3" stroke-width="1.2"/>';
- if(cd.unit)g+='<text x="'+(pl-8)+'" y="'+(pt-11)+'" text-anchor="end" font-size="10" fill="#7d9c88">'+esc(cd.unit)+'</text>';
+ if(hasR)g+='<line x1="'+(pl+iw)+'" y1="'+pt+'" x2="'+(pl+iw)+'" y2="'+(pt+ih)+'" stroke="#e6c79a" stroke-width="1.2"/>';
+ if(cd.unit)g+='<text x="'+(pl-8)+'" y="'+(pt-12)+'" text-anchor="end" font-size="10" fill="#7d9c88">'+esc(cd.unit)+'</text>';
+ if(cd.unit2&&hasR)g+='<text x="'+(pl+iw+8)+'" y="'+(pt-12)+'" text-anchor="start" font-size="10" fill="#c07a2a">'+esc(cd.unit2)+'</text>';
  var lx=pl,ly=13,lg='';
- cd.series.forEach(function(s){
-  lg+='<g><rect x="'+lx+'" y="'+(ly-7)+'" width="11" height="11" rx="2" fill="'+(s.color||'#17995f')+'"/><text x="'+(lx+15)+'" y="'+(ly+2)+'" font-size="11" fill="#3a5245">'+esc(s.name)+'</text></g>';
-  lx+=18+_tw(s.name)+16;
+ S.forEach(function(s){
+  if(s.type==='line')lg+='<g><line x1="'+lx+'" y1="'+ly+'" x2="'+(lx+13)+'" y2="'+ly+'" stroke="'+s.color+'" stroke-width="2.6"/><circle cx="'+(lx+6.5)+'" cy="'+ly+'" r="3" fill="#fff" stroke="'+s.color+'" stroke-width="2"/><text x="'+(lx+18)+'" y="'+(ly+2)+'" font-size="11" fill="#3a5245">'+esc(s.name)+'</text></g>';
+  else lg+='<g><rect x="'+lx+'" y="'+(ly-7)+'" width="11" height="11" rx="2" fill="'+s.color+'"/><text x="'+(lx+15)+'" y="'+(ly+2)+'" font-size="11" fill="#3a5245">'+esc(s.name)+'</text></g>';
+  lx+=(s.type==='line'?20:18)+_tw(s.name)+18;
  });
  var cap=cd.caption?'<div class="chart-cap">'+esc(cd.caption)+'</div>':'';
  return '<div class="chart-box"><svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img">'+g+lg+'</svg>'+cap+'</div>';
@@ -3193,16 +3198,6 @@ var X_READINGS=[
 {q:'What does trade policy do in shortages?',o:['Lowers prices','Export restrictions can raise prices everywhere','Increases food supply','Has no effect'],a:1,n:'push prices up everywhere'},
 {q:'What is the author\u2019s conclusion?',o:['One breakthrough will solve everything','Resilient systems matter more than a single breakthrough','Technology is useless','Waste should be ignored'],a:1,n:'less about a single breakthrough than about resilient systems'}
 ]},
-{type:'chart',title:'中国新能源汽车销量与渗透率（2020-2024）',
-chartData:{kind:'bar',unit:'万辆',h:320,labels:['2020','2021','2022','2023','2024'],
- series:[{name:'新能源汽车销量（万辆）',color:'#17995f',data:[137,352,688,950,1290]}],
- caption:'中国新能源汽车销量（单位：万辆）。五年增长近 10 倍，渗透率由约 5% 升至 41% 以上，产销量连续多年全球第一。'},
-chartNote:'2020—2024 年中国新能源汽车销量从约 137 万辆增至 1290 万辆以上；2024 年渗透率超过 40%；公共充电桩保有量已超 300 万台；但三、四线城市及乡镇充电设施仍相对不足。',questions:[
-{q:'China\u2019s NEV sales have grown sharply from 2020 to 2024.（判断正误）',o:['True','False'],a:0,n:'137万→950万，增长迅猛'},
-{q:'NEV penetration in China exceeded 40% in 2024.（判断正误）',o:['True','False'],a:0,n:'正确'},
-{q:'Charging facilities are evenly distributed across all regions.（判断正误）',o:['True','False'],a:1,n:'错误：城乡分布不均'},
-{q:'The data suggest NEV growth has stopped. （判断正误）',o:['True','False'],a:1,n:'错误：仍在高速增长'}
-]},
 {type:'logic',title:'论证结构与常见谬误',text:'Rapid urbanisation has been criticised for erasing local culture. Yet the residents of many towns describe the process differently: they welcome better schools, hospitals and transport, and see tradition as something to be adapted, not frozen. The assumption that modernisation necessarily destroys culture therefore confuses change with loss. A city can preserve memory while building new metro lines—Wuhan\u2019s repaired historic district, now connected by subway, is a case in point.',questions:[
 {q:'What is the author\u2019s argument?',o:['Urbanisation always destroys culture','Modernisation does not necessarily destroy culture','Tradition should be frozen','Residents oppose development'],a:1,n:'confuses change with loss'},
 {q:'The author mainly relies on which of the following?',o:['Circular reasoning','A counterexample (Wuhan\u2019s historic district)','Appeal to authority','Attacking the opponents'],a:1,n:'case in point'},
@@ -3221,72 +3216,9 @@ questions:[
 ];
 _dedupe(DISCOURSE,X_DISCOURSE,'q');
 _dedupe(DISCOURSE,Y_DISCOURSE,'q');
-// ================= 图表题扩容 v7：真实数据 + 内联 SVG 图表（读以博闻·图表） =================
-var CHART_READINGS=[
-{type:'chart',title:'中国 GDP 总量（2000-2024）',chartData:{kind:'bar',unit:'万亿元',h:320,labels:['2000','2005','2010','2015','2020','2024'],series:[{name:'GDP（万亿元）',color:'#17995f',data:[10.0,18.7,41.2,68.9,101.6,134.9]}],caption:'中国国内生产总值（单位：万亿元）。2000 年约 10 万亿元，2024 年超 134 万亿元，稳居世界第二。'},chartNote:'中国 GDP 总量持续增长：2010 年超过日本成为世界第二大经济体；2020 年突破 100 万亿元；近年增速由高速转向中高速，强调高质量发展。',questions:[
- {q:'China\u2019s GDP in 2024 was more than ten times that of 2000.（判断正误）',o:['True','False'],a:0,n:'134.9 / 10 ≈ 13.5 倍'},
- {q:'China\u2019s GDP has grown at the same high speed every single year without any slowdown.（判断正误）',o:['True','False'],a:1,n:'总量增长，但增速已由高速转为中高速'},
- {q:'China\u2019s GDP exceeded 100 trillion yuan around 2020.（判断正误）',o:['True','False'],a:0,n:'2020 年约 101.6 万亿元'},
- {q:'China\u2019s GDP in 2010 was larger than in 2020.（判断正误）',o:['True','False'],a:1,n:'2010 约 41.2，2020 约 101.6'}
-]},
-{type:'chart',title:'中国农村贫困人口（2012-2020）',chartData:{kind:'bar',unit:'万人',h:320,labels:['2012','2014','2016','2018','2020'],series:[{name:'农村贫困人口（万人）',color:'#0e7048',data:[9899,7017,4335,1660,0]}],caption:'按现行标准衡量的中国农村贫困人口（单位：万人）。2012 年近 9900 万，2020 年底实现全部脱贫，历史性消除绝对贫困。'},chartNote:'2012—2020 年，中国农村贫困人口由 9899 万降至 0，年均减贫超 1000 万人，2020 年底如期完成脱贫攻坚目标，提前十年实现联合国减贫目标。',questions:[
- {q:'Nearly 100 million rural poor were lifted out of poverty between 2012 and 2020.（判断正误）',o:['True','False'],a:0,n:'9899 万 ≈ 近 1 亿'},
- {q:'Poverty reduction stalled after 2016, with numbers rising again.（判断正误）',o:['True','False'],a:1,n:'曲线持续下降，2016 后仍未回升'},
- {q:'China eliminated absolute poverty by the end of 2020.（判断正误）',o:['True','False'],a:0,n:'2020 年底全部脱贫'},
- {q:'The number of rural poor increased steadily over the whole period.（判断正误）',o:['True','False'],a:1,n:'持续下降，不是上升'}
-]},
-{type:'chart',title:'中国常住人口城镇化率（2000-2024）',chartData:{kind:'line',unit:'%',h:320,labels:['2000','2010','2015','2020','2024'],series:[{name:'城镇化率（%）',color:'#2cb37e',data:[36.2,49.9,56.1,63.9,67.0]}],caption:'中国常住人口城镇化率（单位：%）。二十余年稳步上升，2024 年约 67%，城镇常住人口超过 9 亿。'},chartNote:'中国城镇化率由 2000 年约 36% 升至 2024 年约 67%。城镇化被视为现代化的必由之路，但同时也带来大城市病、城乡差距等挑战，政策强调"以人为核心的新型城镇化"。',questions:[
- {q:'China\u2019s urbanization rate had exceeded 50% before 2010.（判断正误）',o:['True','False'],a:1,n:'2010 年约 49.9%，尚未过半'},
- {q:'By 2024 more than two-thirds of Chinese people lived in cities and towns.（判断正误）',o:['True','False'],a:0,n:'约 67% > 2/3'},
- {q:'The urbanization rate has risen steadily since 2000.（判断正误）',o:['True','False'],a:0,n:'曲线单调上升'},
- {q:'China\u2019s urban population has been shrinking in recent years.（判断正误）',o:['True','False'],a:1,n:'城镇化率仍在上升，城镇人口未减少'}
-]},
-{type:'chart',title:'中国高铁运营里程（2012-2024）',chartData:{kind:'bar',unit:'万公里',h:320,labels:['2012','2015','2018','2021','2024'],series:[{name:'高铁里程（万公里）',color:'#17995f',data:[0.94,1.9,2.9,4.0,4.8]}],caption:'中国高速铁路运营里程（单位：万公里）。2012 年不足 1 万公里，2024 年约 4.8 万公里，占全球高铁总里程三分之二以上。'},chartNote:'中国高铁运营里程由 2012 年约 0.94 万公里增至 2024 年约 4.8 万公里，稳居世界第一，占全球高铁总里程三分之二以上，成为"中国名片"。',questions:[
- {q:'China\u2019s high-speed rail network has more than quadrupled since 2012.（判断正误）',o:['True','False'],a:0,n:'4.8 / 0.94 ≈ 5.1 倍'},
- {q:'China accounts for the largest high-speed rail network in the world.（判断正误）',o:['True','False'],a:0,n:'占全球三分之二以上'},
- {q:'China\u2019s high-speed rail mileage shrank between 2015 and 2024.（判断正误）',o:['True','False'],a:1,n:'持续增长'},
- {q:'By 2024 China had less than 30,000 km of high-speed rail.（判断正误）',o:['True','False'],a:1,n:'4.8 万公里 = 48000 公里 > 30000'}
-]},
-{type:'chart',title:'中国研发（R&D）经费投入（2012-2024）',chartData:{kind:'line',unit:'万亿元',h:320,labels:['2012','2015','2018','2021','2024'],series:[{name:'R&D 经费（万亿元）',color:'#0e7048',data:[1.03,1.42,1.97,2.79,3.6]}],caption:'中国全社会研发经费投入（单位：万亿元）。2024 年约 3.6 万亿元，投入强度（占 GDP 比重）超过 2.6%，总量居世界第二。'},chartNote:'中国研发经费投入由 2012 年约 1.03 万亿元增至 2024 年约 3.6 万亿元，投入强度超过 2.6%，总量稳居世界第二，仅次于美国。科技自立自强成为国家战略。',questions:[
- {q:'China\u2019s R&D spending more than tripled between 2012 and 2024.（判断正误）',o:['True','False'],a:0,n:'3.6 / 1.03 ≈ 3.5 倍'},
- {q:'China\u2019s R&D intensity as a share of GDP has been rising.（判断正误）',o:['True','False'],a:0,n:'投入强度持续上升，超过 2.6%'},
- {q:'China spends less on R&D today than it did a decade ago.（判断正误）',o:['True','False'],a:1,n:'经费与强度均上升'},
- {q:'China\u2019s total R&D investment ranks among the world\u2019s top two.（判断正误）',o:['True','False'],a:0,n:'总量世界第二'}
-]},
-{type:'chart',title:'中美国碳排放对比（2000-2022）',chartData:{kind:'line',unit:'亿吨',h:320,labels:['2000','2008','2015','2020','2022'],series:[{name:'中国',color:'#dd3d6d',data:[34,70,102,110,114]},{name:'美国',color:'#0e7048',data:[59,58,51,45,46]}],caption:'中国与美国二氧化碳排放量（单位：亿吨，示意）。中国约在 2006—2007 年前后超过美国；美国整体呈下降趋势，中国近年趋于平稳。'},chartNote:'中美国碳排放对比：中国排放总量在 2006—2007 年前后超过美国，近年增速放缓并趋于平稳；美国排放自 2000 年以来整体下降。中国提出"双碳"目标（2030 年前碳达峰、2060 年前碳中和）。',questions:[
- {q:'China\u2019s CO2 emissions surpassed those of the US around 2006-2007.（判断正误）',o:['True','False'],a:0,n:'曲线在 2008 年前后交叉'},
- {q:'US carbon emissions have declined overall since 2000.（判断正误）',o:['True','False'],a:0,n:'59 → 46，整体下降'},
- {q:'China\u2019s carbon emissions have been falling sharply since 2015.（判断正误）',o:['True','False'],a:1,n:'近年趋于平稳，并非大幅下降'},
- {q:'The US still emits more CO2 than China today.（判断正误）',o:['True','False'],a:1,n:'中国排放总量已高于美国'}
-]},
-{type:'chart',title:'中国森林覆盖率（1990-2024）',chartData:{kind:'bar',unit:'%',h:320,labels:['1990','2000','2010','2020','2024'],series:[{name:'森林覆盖率（%）',color:'#2cb37e',data:[13.9,16.6,20.4,23.0,25.0]}],caption:'中国森林覆盖率（单位：%）。由 1990 年约 14% 升至 2024 年约 25%，人工林面积居世界第一，是全球增绿最多的国家。'},chartNote:'中国森林覆盖率由 1990 年约 13.9% 升至 2024 年约 25%，人工林面积世界第一。三北防护林、退耕还林等重大生态工程推动"绿水青山就是金山银山"理念落地。',questions:[
- {q:'China\u2019s forest coverage has increased steadily since 1990.（判断正误）',o:['True','False'],a:0,n:'曲线单调上升'},
- {q:'China\u2019s forest coverage has roughly doubled between 1990 and 2024.（判断正误）',o:['True','False'],a:0,n:'13.9% → 25%，接近翻倍'},
- {q:'China\u2019s forest area has decreased because of urbanization.（判断正误）',o:['True','False'],a:1,n:'覆盖率上升，人工林世界第一'},
- {q:'Nearly a quarter of China\u2019s land was covered by forest by 2020.（判断正误）',o:['True','False'],a:0,n:'2020 年约 23%，接近四分之一'}
-]},
-{type:'chart',title:'中国与共建"一带一路"国家货物贸易额（2013-2023）',chartData:{kind:'line',unit:'万亿美元',h:320,labels:['2013','2016','2019','2021','2023'],series:[{name:'货物贸易额（万亿美元）',color:'#17995f',data:[1.04,0.95,1.34,1.8,2.7]}],caption:'中国与共建"一带一路"国家的货物贸易额（单位：万亿美元，示意）。十年间翻倍以上，2023 年约 2.7 万亿美元。'},chartNote:'2013—2023 年，中国与共建"一带一路"国家的货物贸易额由约 1.04 万亿美元增至约 2.7 万亿美元，翻了一倍多。合作内容已从基础设施扩展到绿色、数字、健康等领域。',questions:[
- {q:'Trade between China and BRI partners more than doubled in a decade.（判断正误）',o:['True','False'],a:0,n:'2.7 / 1.04 ≈ 2.6 倍'},
- {q:'BRI cooperation covers only infrastructure projects.（判断正误）',o:['True','False'],a:1,n:'已扩展到绿色、数字、健康等领域'},
- {q:'The trade volume declined every year since 2013.（判断正误）',o:['True','False'],a:1,n:'整体上升，并非逐年下降'},
- {q:'By 2023 China\u2019s trade with BRI partners had exceeded 2 trillion US dollars.（判断正误）',o:['True','False'],a:0,n:'约 2.7 万亿美元'}
-]},
-{type:'chart',title:'全球与中国电动汽车销量（2020-2024）',chartData:{kind:'bar',unit:'万辆',h:320,labels:['2020','2021','2022','2023','2024'],series:[{name:'全球（万辆）',color:'#8fb8a0',data:[300,660,1000,1400,1700]},{name:'中国（万辆）',color:'#0e7048',data:[137,352,688,950,1290]}],caption:'全球与中国电动汽车销量（单位：万辆，示意）。全球销量五年增长约 5 倍，中国占比持续上升，2024 年超过七成。'},chartNote:'2020—2024 年全球电动汽车销量由约 300 万辆增至约 1700 万辆；同期中国销量由约 137 万辆增至约 1290 万辆，占全球比重由不足半升至七成以上，动力电池产能全球领先。',questions:[
- {q:'China accounted for the majority of global EV sales in 2024.（判断正误）',o:['True','False'],a:0,n:'1290 / 1700 ≈ 76%'},
- {q:'Global EV sales declined between 2020 and 2024.（判断正误）',o:['True','False'],a:1,n:'五年增长约 5 倍'},
- {q:'China\u2019s share of global EV sales has been rising.（判断正误）',o:['True','False'],a:0,n:'占比由不足半升至七成以上'},
- {q:'EV sales fell by half in 2024.（判断正误）',o:['True','False'],a:1,n:'2024 年继续增长'}
-]},
-{type:'chart',title:'中国数字经济规模（2016-2024）',chartData:{kind:'bar',unit:'万亿元',h:320,labels:['2016','2018','2020','2022','2024'],series:[{name:'数字经济规模（万亿元）',color:'#17995f',data:[22.6,31.3,39.2,50.2,62.0]}],caption:'中国数字经济规模（单位：万亿元，示意）。八年增长近两倍，占 GDP 比重超过 40%，成为经济增长的重要引擎。'},chartNote:'中国数字经济规模由 2016 年约 22.6 万亿元增至 2024 年约 62 万亿元，占 GDP 比重超过 40%。数字经济不仅包括电商，还涵盖云计算、人工智能、工业互联网等，是"新质生产力"的重要载体。',questions:[
- {q:'China\u2019s digital economy has roughly tripled since 2016.（判断正误）',o:['True','False'],a:0,n:'62 / 22.6 ≈ 2.7 倍，接近三倍'},
- {q:'The digital economy now accounts for over 40% of China\u2019s GDP.（判断正误）',o:['True','False'],a:0,n:'占比超 40%'},
- {q:'China\u2019s digital economy has been shrinking in recent years.（判断正误）',o:['True','False'],a:1,n:'规模持续扩大'},
- {q:'The digital economy includes only e-commerce.（判断正误）',o:['True','False'],a:1,n:'还包括云计算、AI、工业互联网等'}
-]}
-];
+
 
 _dedupe(READINGS,X_READINGS,'title');
-_dedupe(READINGS,CHART_READINGS,'title');
 
 // ================= 扩容题库 v6-C：翻译段落 + 写作范文 =================
 var X_TRANSLATIONS=[
