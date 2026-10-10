@@ -2756,16 +2756,23 @@ function startEssay(i){
  var e=ESSAYS[i];
  $('#view-write').innerHTML='<div class="qcard"><div class="qmeta"><span>'+esc(e.title)+'</span></div>'+
   '<div class="qtext" style="font-size:13px;line-height:1.9">'+esc(e.prompt)+'</div>'+
-  '<textarea id="esUser" placeholder="在此写作（'+e.min+'-'+e.max+'词）…" style="width:100%;min-height:220px;background:#ffffff;color:#1f332a;border:1px solid #c8dfcc;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px"></textarea>'+
-  '<div id="esWC" style="font-size:12px;color:#557f66;margin-top:4px">0 词</div>'+
+  '<textarea id="wsUser" oninput="writeWordCount()" onpaste="setTimeout(writeWordCount,0)" onkeyup="writeWordCount()" placeholder="在此写作（'+e.min+'-'+e.max+'词）…" style="width:100%;min-height:220px;background:#ffffff;color:#1f332a;border:1px solid #c8dfcc;border-radius:8px;padding:10px;font-size:14px;line-height:1.9;margin-top:8px"></textarea>'+
+  '<div id="wsWC" style="font-size:12px;color:#557f66;margin-top:4px">0 词</div>'+
   '<div class="btns" style="margin-top:10px"><button class="btn cyan" onclick="gradeEssay()">自动评分</button>'+
   '<button class="btn ghost" onclick="renderWriteList()">返回列表</button></div>'+
-  '<div id="esGrade" style="display:none;margin-top:12px"></div>'+
-  '<div id="esRef" style="display:none;margin-top:12px"><div class="fc-en" style="white-space:pre-wrap"><b style="color:#1a8f5f">评分要点：</b><br>'+esc(e.ref_points)+'</div>'+
+  '<div id="wsGrade" style="display:none;margin-top:12px"></div>'+
+  '<div id="wsRef" style="display:none;margin-top:12px"><div class="fc-en" style="white-space:pre-wrap"><b style="color:#1a8f5f">评分要点：</b><br>'+esc(e.ref_points)+'</div>'+
   (e.sample?'<div class="fc-en" style="white-space:pre-wrap;margin-top:10px;padding:10px;background:#eef6ef;border-left:3px solid #22a873;border-radius:4px"><b style="color:#22a873">参考范文：</b><br>'+esc(e.sample)+'</div>':'')+
   '</div></div>';
- var ta=$('#esUser');
- if(ta)ta.addEventListener('input',function(){$('#esWC').textContent=this.value.trim().split(/\s+/).filter(Boolean).length+' 词'});
+ writeWordCount();
+}
+// 独立写作练习页的词数统计：直接读写 wsUser，避免与模考卷内作文(#esUser)串号
+function writeWordCount(){
+ var ta=$('#wsUser'),el=$('#wsWC');if(!ta||!el)return;
+ var words=ta.value.replace(/\s+/g,' ').trim().split(' ').filter(Boolean).length;
+ var e=ESSAYS[currentEssayIdx()]||{};
+ el.textContent=words+' 词'+(e.min?(' / 目标 '+e.min+'-'+e.max):'');
+ el.style.color=(words>0&&(words<e.min*0.8||words>e.max*1.15))?'#dd3d6d':'#557f66';
 }
 // ===== 写作批改：官方评分标准 5 维度（内容40% 拆论点/论证 + 组织30% + 语言30% 拆用词句式/语法） =====
 var ESSAY_DIMS=[
@@ -2890,20 +2897,20 @@ function renderEssayReport(r,e,txt,note){
  var sg=(r.suggestions&&r.suggestions.length)?('<div style="margin-top:12px;padding:10px;background:#eef6ef;border-left:3px solid #d9822b;border-radius:4px"><b style="color:#d9822b;font-size:12px">改进建议</b>'+r.suggestions.map(function(s){return '<div style="font-size:12px;margin-top:5px;color:#34473b">· '+esc(s)+'</div>'}).join('')+'</div>'):'';
  var errHtml='';
  if(r.errs&&r.errs.length){errHtml='<div style="margin-top:10px;padding:9px;background:#fdf0f3;border-left:3px solid #dd3d6d;border-radius:4px"><b style="color:#dd3d6d;font-size:12px">语法/规范明细</b>'+r.errs.map(function(x){return '<div style="font-size:11.5px;margin-top:4px;color:#c9879b">· '+esc(x.msg)+(x.sample?('　例：'+esc(x.sample)):'')+'</div>'}).join('')+'</div>'}
- var el=$('#esGrade');el.style.display='block';
+ var el=$('#wsGrade');el.style.display='block';
  el.innerHTML='<div class="rbig '+band[1]+'">'+total+'<span style="font-size:14px">/100</span></div>'+
   '<div style="font-size:12px;color:#557f66;text-align:center;margin-top:-4px">'+band[0]+'　·　'+r.wc+' 词（要求 '+e.min+'-'+e.max+'）　·　'+(r.ai?'AI 批改':(aiCfg().enabled&&aiCfg().key?'AI 失败，内置批改':'内置批改'))+'</div>'+
   rows+errHtml+sg+
   '<div class="mt" style="margin-top:10px;font-size:11px;color:#5d7d66">评分依据官方「写以言志」标准：内容40%（论点+论证）＋组织30%＋语言30%（用词句式+语法）。'+(note?('　'+esc(note)):'')+'</div>';
- $('#esRef').style.display='block';
+ $('#wsRef').style.display='block';
  try{S.essayLog=S.essayLog||[];S.essayLog.push({ts:Date.now(),idx:currentEssayIdx(),total:total,ai:!!r.ai});save()}catch(e){}
 }
 function gradeEssay(){
- var ta=$('#esUser');if(!ta)return;
+ var ta=$('#wsUser');if(!ta)return;
  var txt=ta.value.trim();
  if(!txt){toast('请先写作，再点批改');return}
  var e=ESSAYS[currentEssayIdx()];
- var el=$('#esGrade');el.style.display='block';el.innerHTML='<div class="mt" style="padding:12px 0">正在按官方标准批改…</div>';
+ var el=$('#wsGrade');el.style.display='block';el.innerHTML='<div class="mt" style="padding:12px 0">正在按官方标准批改…</div>';
  var cfg=aiCfg();
  if(cfg.enabled&&cfg.key&&cfg.base){
   gradeEssayAI(txt,e,cfg,function(res,err){
@@ -2915,7 +2922,7 @@ function gradeEssay(){
  }
 }
 function currentEssayIdx(){
- var ta=$('#esUser');
+ var ta=$('#wsUser');
  // 简单方案：从view-write里找当前题目index——通过startEssay设置
  return window.__essayIdx||0;
 }
