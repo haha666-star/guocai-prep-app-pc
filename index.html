@@ -1275,6 +1275,324 @@ questions:[
 {q:'How do policymakers reframe aging?',o:['As a pure burden','As a silver-economy opportunity with exploding demand','As a foreign problem','As temporary'],a:1,n:'silver economy opportunity'},
 {q:'What is the workforce challenge?',o:['Too many young people','Shrinking caregivers vs rising need, driving robotics/telehealth','Robots replace all jobs','No challenge exists'],a:1,n:'shrinking caregivers + tech'}
 ]}
+,
+// ====== 新增图表题（真实公开数据 · 来源可查 · 练习用仿真图，非官方真题） ======
+{type:'chart',title:'Global Electric Car Sales and Market Share (IEA)',
+chartData:{kind:'combo',unit:'million',unit2:'%',axisMax:16,axis2Max:20,ticksL:5,ticksR:5,h:344,
+ labels:['2019','2020','2021','2022','2023'],
+ series:[
+  {name:'EV sales',type:'bar',color:'#2f6fb0',data:[2.1,3.0,6.5,10.2,14.0]},
+  {name:'Sales share',type:'line',axis:2,color:'#e0892e',data:[2.6,4.2,8.7,14.0,18.0]}
+ ],
+ caption:'Global electric car sales (left axis, million vehicles) and their share of total car sales (right axis, %). Source: IEA, Global EV Outlook 2023.'},
+chartNote:'Read the two axes separately. The left axis (million) applies to the bars; the right axis (%) applies only to the line.',
+questions:[
+{q:'From 2019 to 2023, global EV sales grew more than sixfold.',o:['True','False'],a:0,n:'True. 14.0 / 2.1 ≈ 6.7 times.'},
+{q:'In 2023, electric cars accounted for about 18% of all car sales worldwide.',o:['True','False'],a:0,n:'True. The sales share line reaches 18% in 2023.'},
+{q:'The sales share fell every year between 2019 and 2023.',o:['True','False'],a:1,n:'False. The share rose from 2.6% to 18%.'},
+{q:'2021 sales (6.5 million) were more than double 2020 sales (3.0 million).',o:['True','False'],a:0,n:'True. 6.5 / 3.0 ≈ 2.17 times.'}
+]},
+{type:'chart',title:'Annual Renewable Power Capacity Additions (IEA)',
+chartData:{kind:'combo',unit:'GW',unit2:'%',axisMax:560,axis2Max:100,ticksL:6,ticksR:5,h:344,
+ labels:['2020','2021','2022','2023'],
+ series:[
+  {name:'Additions',type:'bar',color:'#2f9e5e',data:[280,295,340,510]},
+  {name:'Solar share',type:'line',axis:2,color:'#e0892e',data:[55,60,65,75]}
+ ],
+ caption:'Annual net renewable power capacity additions (left axis, GW) and the solar PV share of those additions (right axis, %). Source: IEA, Renewables 2023.'},
+chartNote:'Left axis = total renewable additions in GW; right axis = share of additions that were solar PV.',
+questions:[
+{q:'In 2023 the world added nearly 510 GW of renewable capacity, about 1.8 times the 2020 level.',o:['True','False'],a:0,n:'True. 510 / 280 ≈ 1.82.'},
+{q:'The solar share of renewable additions rose from 2020 to 2023.',o:['True','False'],a:0,n:'True. 55% → 75%.'},
+{q:'Renewable additions in 2022 were lower than in 2021.',o:['True','False'],a:1,n:'False. 340 GW > 295 GW.'},
+{q:'In 2023, solar PV made up roughly three-quarters of new renewable capacity.',o:['True','False'],a:0,n:'True. Solar share ≈ 75% in 2023.'}
+]},
+{type:'chart',title:'Global Energy-related CO2 Emissions vs Renewable Power Share',
+chartData:{kind:'combo',unit:'Gt',unit2:'%',axisMax:40,axis2Max:40,ticksL:5,ticksR:5,h:344,
+ labels:['2019','2020','2021','2022','2023'],
+ series:[
+  {name:'CO2 emissions',type:'bar',color:'#c0504d',data:[36.7,34.8,36.3,36.8,37.4]},
+  {name:'Renewable share',type:'line',axis:2,color:'#2f9e5e',data:[26,28,28,30,30]}
+ ],
+ caption:'Global energy-related CO2 emissions (left axis, Gt CO2) and the renewable share of electricity generation (right axis, %). Sources: IEA (emissions); Ember (renewable share).'},
+chartNote:'Left axis = CO2 in gigatonnes; right axis = renewables as % of global electricity generation.',
+questions:[
+{q:'CO2 emissions dipped in 2020, the pandemic year, to 34.8 Gt.',o:['True','False'],a:0,n:'True. 34.8 < 36.7 (2019) and 36.3 (2021).'},
+{q:'The renewable share of electricity generation kept rising from 2019 to 2023.',o:['True','False'],a:0,n:'True. 26% → 30%.'},
+{q:'CO2 emissions fell steadily every year from 2019 to 2023.',o:['True','False'],a:1,n:'False. They rose after the 2020 dip.'},
+{q:'2023 had the highest emissions in the period shown (37.4 Gt).',o:['True','False'],a:0,n:'True. 37.4 is the peak among the five years.'}
+]},
+{type:'chart',title:'Internet Users Worldwide (ITU)',
+chartData:{kind:'combo',unit:'billion',unit2:'%',axisMax:6,axis2Max:80,ticksL:5,ticksR:5,h:344,
+ labels:['2019','2020','2021','2022','2023'],
+ series:[
+  {name:'Users',type:'bar',color:'#3b6fb0',data:[4.1,4.6,4.9,5.1,5.3]},
+  {name:'Share of population',type:'line',axis:2,color:'#e0892e',data:[60,65,68,70,72]}
+ ],
+ caption:'Number of people using the Internet (left axis, billion) and their share of the world population (right axis, %). Source: ITU, Facts and Figures 2024.'},
+chartNote:'Left axis = users in billions; right axis = share of global population online.',
+questions:[
+{q:'In 2023 about 5.3 billion people, or 72% of the world, were online.',o:['True','False'],a:0,n:'True. 5.3 billion and 72% match the 2023 figures.'},
+{q:'The number of users grew every year from 2019 to 2023.',o:['True','False'],a:0,n:'True. 4.1 → 5.3 billion.'},
+{q:'The online share in 2023 was lower than in 2020.',o:['True','False'],a:1,n:'False. 72% > 65%.'},
+{q:'In 2020 roughly 4.6 billion people used the Internet.',o:['True','False'],a:0,n:'True. 4.6 billion, 65%.'}
+]},
+{type:'chart',title:'Global Extreme Poverty Rate and Headcount (World Bank)',
+chartData:{kind:'combo',unit:'%',unit2:'100m',axisMax:12,axis2Max:8,ticksL:5,ticksR:5,h:344,
+ labels:['2015','2019','2020','2021','2022'],
+ series:[
+  {name:'Poverty rate',type:'bar',color:'#b5651d',data:[10.1,8.5,9.3,8.9,8.4]},
+  {name:'Headcount',type:'line',axis:2,color:'#3b6fb0',data:[7.36,6.48,7.19,6.97,6.70]}
+ ],
+ caption:'Share of the world living in extreme poverty (left axis, %) and the number of extremely poor people (right axis, 100 million). Source: World Bank, PovcalNet.'},
+chartNote:'Left axis = poverty rate %; right axis = headcount in hundreds of millions.',
+questions:[
+{q:'The extreme-poverty rate fell to 8.5% in 2019, a pre-pandemic low.',o:['True','False'],a:0,n:'True. 8.5% is the lowest shown before 2020.'},
+{q:'The rate rebounded to 9.3% in 2020 as the pandemic hit.',o:['True','False'],a:0,n:'True. 9.3% > 8.5%.'},
+{q:'In 2022 the poverty rate (8.4%) was below the 2019 rate (8.5%).',o:['True','False'],a:0,n:'True. 8.4% < 8.5%.'},
+{q:'In 2015 the extreme-poverty rate was above 10%.',o:['True','False'],a:0,n:'True. 10.1% > 10%.'}
+]},
+{type:'chart',title:'Global Renewable Energy Investment (IEA)',
+chartData:{kind:'combo',unit:'$ trillion',unit2:'%',axisMax:0.7,axis2Max:40,ticksL:5,ticksR:5,h:344,
+ labels:['2020','2021','2022','2023'],
+ series:[
+  {name:'Investment',type:'bar',color:'#2f9e5e',data:[0.30,0.37,0.50,0.62]},
+  {name:'Annual growth',type:'line',axis:2,color:'#c0504d',data:[null,23,35,24]}
+ ],
+ caption:'Annual global investment in renewable energy (left axis, trillion US dollars) and year-on-year growth (right axis, %). Source: IEA, World Energy Investment. The 2020 bar has no prior year for a growth rate.'},
+chartNote:'Left axis = investment in $ trillion; right axis = annual growth %. The line has no 2020 point (no base year).',
+questions:[
+{q:'Renewable investment reached about 0.62 trillion US dollars in 2023.',o:['True','False'],a:0,n:'True. 0.62 on the left axis.'},
+{q:'Investment rose every year from 2020 to 2023.',o:['True','False'],a:0,n:'True. 0.30 → 0.62.'},
+{q:'The 2022 growth rate (+35%) was higher than the 2021 rate (+23%).',o:['True','False'],a:0,n:'True. 35% > 23%.'},
+{q:'Investment in 2023 was lower than in 2022.',o:['True','False'],a:1,n:'False. 0.62 > 0.50.'}
+]},
+// ====== 新增短篇阅读（中国主题优先 · factual） ======
+{type:'short',title:'中国空间站全面建成',
+text:'In late 2022, China completed the in-orbit assembly of its Tiangong space station, making it the only operational space station built and run by a single country. The station, formed by the Tianhe core module and two lab modules Wentian and Mengtian, can host three astronauts for long stays and supports experiments in microgravity biology, materials and fluid physics. With the retirement of the International Space Station expected later this decade, Tiangong will become one of the few destinations where crews can live and work in orbit. China has also opened parts of the station’s research to foreign scientists, reflecting its stated aim of using space for peaceful, shared progress.',
+questions:[
+{q:'What makes Tiangong distinctive?',o:['It is the largest station ever built.','It is built and run by a single country.','It was built with NASA.','It replaced the ISS in 2021.'],a:1,n:'only operational station built and run by a single country'},
+{q:'What can the station support?',o:['Tourism flights.','Microgravity experiments.','Lunar mining.','Satellite repair only.'],a:1,n:'hosts experiments in microgravity biology, materials, fluid physics'},
+{q:'What is China’s stated aim for the station?',o:['Winning the space race.','Peaceful, shared progress.','Military dominance.','Replacing all other stations.'],a:1,n:'using space for peaceful, shared progress'}
+]},
+{type:'short',title:'中国高铁运营里程',
+text:'China’s high-speed rail network has grown from a single line in 2008 to more than 45,000 km today—about two-thirds of the world’s total. The network connects almost every provincial capital and major city, cutting travel between Beijing and Shanghai to about four and a half hours. Beyond convenience, it has reshaped economic geography: smaller cities along the lines have attracted investment, while same-day business travel across regions has become routine. Chinese engineers also export the technology, building or financing lines in Indonesia, Laos and Europe. Critics note the heavy debt some local networks carry, but few dispute that the system has made long-distance travel in China faster and cheaper than almost anywhere else.',
+questions:[
+{q:'Roughly what share of the world’s high-speed rail is in China?',o:['One-third.','One-half.','Two-thirds.','Nine-tenths.'],a:2,n:'more than 45,000 km, about two-thirds of the world total'},
+{q:'How long is the Beijing–Shanghai trip by high-speed rail?',o:['Two hours.','Four and a half hours.','Eight hours.','Twelve hours.'],a:1,n:'about four and a half hours'},
+{q:'What downside do critics note?',o:['Safety failures.','Heavy debt of some local networks.','No foreign interest.','High ticket prices only.'],a:1,n:'Critics note the heavy debt some local networks carry'}
+]},
+{type:'short',title:'北斗三号全球组网',
+text:'In 2020, China finished deploying Beidou-3, its third-generation satellite navigation system, giving the country a fully independent global positioning service. With about 30 satellites in orbit, Beidou now provides positioning, navigation and timing to users worldwide, and competes with America’s GPS, Russia’s GLONASS and Europe’s Galileo. Unlike earlier systems, Beidou adds a two-way messaging function that lets users send short texts without mobile coverage—useful at sea or in disasters. Chinese smartphones, cars and tractors increasingly use Beidou chips, and the system is promoted for agriculture, transport and emergency response across Belt and Road countries.',
+questions:[
+{q:'When was Beidou-3 completed?',o:['2018','2020','2022','2024'],a:1,n:'In 2020, China finished deploying Beidou-3'},
+{q:'What function sets Beidou apart from GPS?',o:['Faster speed.','Two-way messaging.','Free service.','Higher orbit.'],a:1,n:'adds a two-way messaging function'},
+{q:'Who can use Beidou’s services?',o:['China only.','Users worldwide.','Europe only.','Military only.'],a:1,n:'provides positioning to users worldwide'}
+]},
+{type:'short',title:'东数西算工程',
+text:'The “East Data, West Computing” project moves computing power from China’s crowded eastern cities to its energy-rich, cooler west. Western regions such as Guizhou and Inner Mongolia have cheap renewable electricity and low temperatures that cut the cost of cooling data centers. Eastern hubs like Shanghai and Shenzhen generate huge amounts of data but face high land and power prices. By building server farms in the west and linking them with dedicated optical fibers, the plan aims to balance regional development while lowering the carbon footprint of the nation’s fast-growing digital economy. It is often compared to the south-to-north water diversion in scale and strategic intent.',
+questions:[
+{q:'What is the project’s main goal?',o:['Move factories west.','Shift computing to the energy-rich west.','Ban eastern data.','Build dams.'],a:1,n:'moves computing power from east to west'},
+{q:'Why is the west suitable for data centers?',o:['Cheap renewable power and a cool climate.','More engineers.','Closer to users.','Lower taxes only.'],a:0,n:'cheap renewable electricity and low temperatures cut cooling cost'},
+{q:'It is often compared to which project?',o:['Belt and Road.','South-to-north water diversion.','Made in China 2025.','Dual carbon.'],a:1,n:'compared to the south-to-north water diversion'}
+]},
+{type:'short',title:'中国光伏产业',
+text:'Chinese factories make more than 80% of the world’s solar panels, from polysilicon to finished modules. The industry grew behind early government support and fierce competition that drove costs down decade after decade, until solar became the cheapest new power source in most markets. Today, even as some Western governments worry about dependence, Chinese panels dominate both domestic rooftops and overseas mega-plants. The scale has helped global renewables expand fast, though it also created gluts that squeezed makers’ profits. China’s lead rests on complete supply chains, not just assembly—a lesson often cited in debates about industrial policy.',
+questions:[
+{q:'What share of the world’s solar panels does China make?',o:['Under 30%.','About half.','Over 80%.','Nearly 100%.'],a:2,n:'more than 80% of the world’s solar panels'},
+{q:'What drove solar costs down?',o:['Subsidies only.','Competition and scale.','Tariffs.','Imports.'],a:1,n:'fierce competition drove costs down decade after decade'},
+{q:'What downside is mentioned?',o:['No demand.','Profit-squeezing gluts.','A ban on export.','Weak quality.'],a:1,n:'gluts that squeezed makers’ profits'}
+]},
+{type:'short',title:'双减政策',
+text:'In 2021, China introduced the “double reduction” policy to ease the burden on schoolchildren: less homework and fewer off-campus tutoring classes. The move targeted an industry of cram schools that had turned childhood into a race of evening and weekend classes, widening gaps between rich and poor families who could pay. Tutoring firms were reined in, and schools were told to offer more activities after class. Supporters say children finally have time to play and sleep; critics warn that demand for private tutoring has simply gone underground, and that exams still decide a student’s future. The reform remains a work in progress.',
+questions:[
+{q:'What does “double reduction” target?',o:['School meals.','Homework and tutoring burden.','Sports.','Teacher pay.'],a:1,n:'less homework and fewer off-campus tutoring classes'},
+{q:'What inequality aim did it have?',o:['Help rich families.','Narrow the gap from paid tutoring.','Ban exams.','Fund private schools.'],a:1,n:'widening gaps between rich and poor families who could pay'},
+{q:'What criticism is noted?',o:['Too little homework.','Demand went underground.','No effect.','Schools closed.'],a:1,n:'demand for private tutoring has simply gone underground'}
+]},
+{type:'short',title:'三孩政策与普惠托育',
+text:'China ended its one-child policy in 2016 and now allows three children per couple, hoping to slow rapid population ageing. But many young couples hesitate, citing the cost of housing, education and childcare. In response, local governments are building public childcare places and extending parental leave, while employers are pressed to be more family-friendly. Demographers note that policy alone rarely reverses fertility trends; what matters more is affordable child-rearing and gender-equal parenting. The gap between the permission to have three children and the willingness to do so captures a wider tension in modern Chinese family life.',
+questions:[
+{q:'The three-child policy aims to?',o:['Boost births.','Cut migration.','Raise retirement age.','Ban adoption.'],a:0,n:'hoping to slow rapid population ageing'},
+{q:'What makes couples hesitate?',o:['Lack of permission.','Cost of housing, education, childcare.','No schools.','Health worries.'],a:1,n:'citing the cost of housing, education and childcare'},
+{q:'What matters more for fertility?',o:['Policy alone.','Affordable child-rearing.','Media.','Tax only.'],a:1,n:'what matters more is affordable child-rearing'}
+]},
+{type:'short',title:'灵活就业与平台劳动者',
+text:'Food-delivery riders and ride-hailing drivers are the face of China’s gig economy, which now covers tens of millions of workers. Platforms offer flexible income and meet urban demand for speed, but riders often lack social insurance and face pressure from algorithm-driven quotas that punish delays. Recent rules require platforms to provide accident cover and let riders rest, while courts have affirmed that some drivers count as employees. The debate mirrors global arguments over whether algorithms manage fairly. For many workers, the gig remains a vital, if insecure, ladder into the city’s economy.',
+questions:[
+{q:'Gig workers are often said to lack?',o:['Customers.','Social insurance.','Smartphones.','Cars.'],a:1,n:'riders often lack social insurance'},
+{q:'What are algorithms criticized for?',o:['Paying too much.','Quota pressure that punishes delays.','Slow apps.','Few orders.'],a:1,n:'algorithm-driven quotas that punish delays'},
+{q:'Recent rules require platforms to?',o:['Ban platforms.','Provide accident cover.','Fix wages.','End delivery.'],a:1,n:'require platforms to provide accident cover'}
+]},
+{type:'short',title:'银发经济',
+text:'As China’s population ages, the “silver economy”—goods and services for older adults—is becoming a major market. Beyond pensions and hospitals, it spans senior-friendly phones, wearable health monitors, age-friendly housing and travel tailored to a slower pace. Local governments court private firms to build care homes and community centers, while tech companies design apps with larger fonts. The challenge is that many elderly live on modest incomes, so affordable, not just premium, services are needed. Getting the silver economy right is less a business opportunity than a test of how a rapidly ageing society cares for its old.',
+questions:[
+{q:'The silver economy serves?',o:['Teenagers.','Older adults.','Tourists.','Students.'],a:1,n:'goods and services for older adults'},
+{q:'It includes which of the following?',o:['Senior phones, monitors, care homes.','Toys.','Schools.','Factories.'],a:0,n:'senior-friendly phones, monitors, housing, travel'},
+{q:'What is the key challenge?',o:['Too many users.','Affordable services for modest incomes.','No demand.','Few firms.'],a:1,n:'many elderly live on modest incomes'}
+]},
+{type:'short',title:'县域医共体',
+text:'China is building county-level medical alliances to bring good care closer to rural residents. Under the model, a leading county hospital manages township clinics and village stations as one network, sharing doctors, records and equipment. The goal is graded care: minor cases stay local, serious ones are referred up, reversing the habit of rushing to big city hospitals for every ailment. Early results show shorter waits and lower costs in pilot areas, though gaps in the rural doctor supply remain. The reform speaks to a core promise of universal health coverage—that where you live should not decide whether you get treated well.',
+questions:[
+{q:'What do county medical alliances aim to do?',o:['Close villages.','Bring care closer to rural residents.','Build big city hospitals.','Cut doctors.'],a:1,n:'bring good care closer to rural residents'},
+{q:'“Graded care” means?',o:['All patients to cities.','Minor cases local, serious referred up.','No referrals.','Private only.'],a:1,n:'minor cases stay local, serious ones are referred up'},
+{q:'What gap remains?',o:['Too many hospitals.','Rural doctor supply.','No records.','High fees only.'],a:1,n:'gaps in the rural doctor supply remain'}
+]},
+{type:'short',title:'国潮兴起',
+text:'“Guochao”, or “national tide”, describes the surge of Chinese youth pride in home-grown brands that blend tradition with modern design. From sportswear printed with oracle-bone motifs to makeup inspired by Forbidden City hues, these products turn cultural symbols into daily style. Unlike earlier admiration for foreign labels, guochao reframes Chinese heritage as cool rather than old-fashioned. Marketers credit a generation confident in its identity, yet also note that slogans alone fade fast; lasting brands must pair story with quality. The trend shows how culture, once consumed passively, now helps define what young China buys.',
+questions:[
+{q:'“Guochao” means?',o:['Foreign brands.','Pride in home-grown Chinese brands.','Rural crafts.','Old policies.'],a:1,n:'pride in home-grown brands that blend tradition with modern design'},
+{q:'How does it differ from the past?',o:['Copying abroad.','Reframing heritage as cool.','Cheaper price.','No design.'],a:1,n:'reframes Chinese heritage as cool rather than old-fashioned'},
+{q:'What do lasting brands need?',o:['Slogans only.','Story plus quality.','A foreign logo.','Low cost.'],a:1,n:'must pair story with quality'}
+]},
+{type:'short',title:'中国网络文学出海',
+text:'Chinese web novels—serialized, mobile-first fiction—have found large readers abroad through translation platforms. Fantasies of cultivation and rebirth, once niche, now top charts in English, Indonesian and Thai markets. The format’s strength is sheer volume and reader feedback that shapes plots week by week. While Western publishers were slow to notice, fan translators built the first bridges, and firms later turned this into business. Critics say the prose is rough, but the stories travel because they offer fresh myths beyond Hollywood templates. Web literature has become, quietly, a soft-power export as real as film.',
+questions:[
+{q:'How did Chinese web novels spread abroad?',o:['Cinema.','Translation platforms.','Radio.','Newspapers.'],a:1,n:'found large readers abroad through translation platforms'},
+{q:'What is the format’s strength?',o:['Short length.','Volume and reader-shaped plots.','High cost.','No feedback.'],a:1,n:'sheer volume and reader feedback that shapes plots'},
+{q:'It is seen as?',o:['A weak export.','A soft-power export.','Local only.','Banned.'],a:1,n:'a soft-power export as real as film'}
+]},
+{type:'short',title:'短视频与非遗传播',
+text:'Short-video apps have become unexpected guardians of intangible cultural heritage. Craftspeople who once feared their skills would die now film themselves making lacquerware, embroidery or shadow puppets for millions of viewers. A single clip can spark orders and apprenticeships that years of local promotion could not. The format favors the visible and the hands-on, turning quiet workshops into small stages. Purists worry that performance crowds out meaning, yet for many traditions the choice is no longer obscurity or purity but visibility or disappearance. The screen, for better or worse, is now part of how heritage survives.',
+questions:[
+{q:'How do short videos help heritage?',o:['Banning crafts.','Reaching millions of viewers.','Replacing masters.','Closing shops.'],a:1,n:'film themselves making crafts for millions of viewers'},
+{q:'A single clip can spark?',o:['Fines.','Orders and apprenticeships.','Bans.','Taxes.'],a:1,n:'spark orders and apprenticeships'},
+{q:'What do purists worry about?',o:['Too few viewers.','Performance crowding out meaning.','Low pay.','No apps.'],a:1,n:'performance crowds out meaning'}
+]},
+{type:'short',title:'非遗活态传承',
+text:'Intangible cultural heritage is not museum glass but living practice—skills, rituals and knowledge passed hand to hand. China lists thousands of items, from Kunqu opera to tie-dye, and backs masters who train apprentices with state stipends. The idea is transmission, not preservation in amber: a craft survives only while people keep doing it. Tourism and short video bring audiences, but the harder task is paying new generations to learn slowly in a fast economy. Success looks less like a relic saved than a workshop still humming, where an old hand guides a young one through the same move done for centuries.',
+questions:[
+{q:'Intangible cultural heritage is?',o:['Museum objects.','Living practice passed hand to hand.','Books.','Buildings.'],a:1,n:'living practice—skills passed hand to hand'},
+{q:'The state backs?',o:['Tourists.','Masters training apprentices.','Collectors.','Foreigners.'],a:1,n:'backs masters who train apprentices with state stipends'},
+{q:'What is the harder task?',o:['Finding items.','Paying youth to learn slowly.','Filming.','Selling.'],a:1,n:'paying new generations to learn slowly'}
+]},
+{type:'short',title:'双碳目标',
+text:'China pledged to peak carbon dioxide emissions before 2030 and reach carbon neutrality before 2060—the “dual carbon” goals. The pledge recasts energy, industry and transport around cutting fossil use and scaling renewables, EVs and nuclear. Achieving it demands more than clean power: factories must retool, cities must build transit, and behavior must shift. Analysts call the 2060 deadline ambitious for an economy still coal-heavy, yet note that the target has already bent investment toward green growth. The goals are less a single switch than a decades-long rewrite of how the world’s factory is powered.',
+questions:[
+{q:'“Dual carbon” means?',o:['Peak before 2030, neutral before 2060.','Zero coal by 2030.','No cars by 2060.','Net zero by 2030.'],a:0,n:'peak before 2030 and neutral before 2060'},
+{q:'What does it require beyond clean power?',o:['Only solar.','Retooling factories, transit, behavior.','Banning cities.','Imports.'],a:1,n:'factories must retool, cities build transit, behavior shift'},
+{q:'The 2060 deadline is seen as?',o:['Easy.','Ambitious for a coal-heavy economy.','Already missed.','Optional.'],a:1,n:'ambitious for an economy still coal-heavy'}
+]},
+{type:'short',title:'长江十年禁渔',
+text:'In 2021, China began a ten-year fishing ban across the Yangtze, its longest river and once-rich fishery, to let stocks recover from decades of overcatch and pollution. Millions of small boats were taken off the water, and former fishers were resettled with jobs or pensions on shore. The ban is unusual for its length and reach, reflecting alarm that the river’s ecology was near collapse. Early signs show some fish returning, though full recovery also needs cleaner water. The policy frames nature not as a free pantry but as infrastructure that, once spent, must be rebuilt with patience.',
+questions:[
+{q:'How long is the Yangtze fishing ban?',o:['One year.','Ten years.','Forever.','Two months.'],a:1,n:'a ten-year fishing ban'},
+{q:'What happened to former fishers?',o:['Jailed.','Resettled with jobs or pensions.','Ignored.','Moved abroad.'],a:1,n:'resettled with jobs or pensions on shore'},
+{q:'What is the ban’s goal?',o:['More boats.','Let fish stocks recover.','Raise prices.','Ban rivers.'],a:1,n:'let stocks recover from overcatch and pollution'}
+]},
+{type:'short',title:'生活垃圾分类',
+text:'Many Chinese cities now require households to sort waste into kitchen, recyclable, hazardous and other bins, with fines for mistakes. The rules aim to raise recycling and cut landfill and incineration, but early days brought confusion over what goes where and complaints about steep learning curves. Cities tuned the system with clearer labels, timed collection and apps that scan an item’s barcode to tell you the bin. The habit, once alien, is settling in, showing how behavior change at scale depends as much on patient design as on rules.',
+questions:[
+{q:'Which bins are used?',o:['One bin.','Kitchen, recyclable, hazardous, other.','Only paper.','None.'],a:1,n:'kitchen, recyclable, hazardous and other bins'},
+{q:'How do apps help?',o:['Fining users.','Scanning a barcode to name the bin.','Selling items.','Blocking waste.'],a:1,n:'apps scan an item’s barcode to tell you the bin'},
+{q:'Behavior change at scale depends on?',o:['Fines only.','Patient design and rules.','Ads.','Imports.'],a:1,n:'depends as much on patient design as on rules'}
+]},
+{type:'short',title:'新能源汽车渗透率',
+text:'New energy vehicles—mostly electric—have raced from curiosity to mainstream in China, with their share of new car sales passing 30% and still climbing. Generous subsidies, plate quotas in big cities, and a flood of models from BYD to start-ups drove adoption faster than in most markets. Charging points spread from homes to highway rest stops. The shift curbs oil import reliance and urban smog, though grids must green up to make the cars truly clean. China’s EV surge is now less a policy bet than a consumer choice already made.',
+questions:[
+{q:'NEV share of new car sales has passed?',o:['5%.','Over 30%.','50%.','80%.'],a:1,n:'passing 30% and still climbing'},
+{q:'What drove adoption?',o:['Only bans.','Subsidies, plate quotas, many models.','No choice.','Imports.'],a:1,n:'subsidies, plate quotas, and a flood of models'},
+{q:'What condition remains?',o:['Fewer cars.','Grids must green up.','No charging.','Higher oil use.'],a:1,n:'grids must green up to make the cars truly clean'}
+]},
+// ====== 新增中篇阅读（更深展开） ======
+{type:'long',title:'人工智能治理的中国方案',
+text:'As artificial intelligence moves from lab to daily life, China has moved early to govern it, issuing rules on algorithms, deepfakes and generative models. The approach blends hard limits—against illegal content and social-rating abuse—with support for innovation, reflecting a state that sees AI both as a strategic asset and a risk to manage. Companies must label synthetic media and audit recommendation systems for harm. Critics abroad call some rules tools of control; domestic users often welcome curbs on scammy feeds. The harder question is global: with the U.S. and E.U. choosing different paths, will the world split into incompatible AI regimes, or converge on shared safety floors? China’s bet is that rules set early beat rules set late, when habits and markets are fixed.',
+questions:[
+{q:'China’s AI rules blend which two things?',o:['Ban and subsidy.','Limits with innovation support.','No rules.','Foreign control.'],a:1,n:'hard limits with support for innovation'},
+{q:'What must companies do?',o:['Hide data.','Label synthetic media and audit algorithms.','Exit the market.','Copy the U.S.'],a:1,n:'label synthetic media and audit recommendation systems'},
+{q:'What global concern is raised?',o:['No AI at all.','Split versus convergent AI regimes.','One world rule.','A ban on export.'],a:1,n:'split into incompatible AI regimes, or converge'}
+]},
+{type:'long',title:'乡村振兴与数字乡村',
+text:'Rural revitalization seeks to narrow the town-country gap not by moving everyone to cities but by making villages livable. Beyond poverty relief, it funds rural industry—e-commerce for farm goods, tourism in pretty hamlets, and clean energy on idle roofs. “Digital villages” bring broadband, telemedicine and online schooling to places once cut off, while returning migrants start workshops using live-stream sales. The task is hard: young people still leave for wages, and not every village can be saved. Yet the aim is clear—let people choose the countryside without sacrificing income or care. Success would mean development that does not require abandoning the village, a quiet reversal of a century of rural outflow.',
+questions:[
+{q:'What does revitalization aim to do?',o:['Empty the villages.','Make villages livable and narrow the gap.','Urbanize all.','Ban migration.'],a:1,n:'making villages livable, narrowing the gap'},
+{q:'What do “digital villages” bring?',o:['Factories.','Broadband, telemedicine, online schooling.','Cities.','No networks.'],a:1,n:'broadband, telemedicine and online schooling'},
+{q:'What hard task is noted?',o:['Too many funds.','Young people still leave for wages.','No policy.','Few villages.'],a:1,n:'young people still leave for wages'}
+]},
+{type:'long',title:'数字经济成为增长引擎',
+text:'The digital economy—built on e-commerce, platforms, 5G and cloud—now rivals traditional industry as an engine of Chinese growth. It created jobs from delivery to coding, smoothed logistics during shocks, and let small firms reach national markets overnight. Yet it also concentrated power in a few platforms, prompted antitrust action, and raised fears that data, not land or labor, became the asset that matters most. Regulators now push “orderly” expansion: innovate, but share data and treat workers fairly. The lesson is that a digital lead is not just speed but trust—systems people use only if they believe the rules are fair. Balancing dynamism with guardrails is the open question of the next decade.',
+questions:[
+{q:'The digital economy is now?',o:['Tiny.','A major growth engine.','Declining.','Banned.'],a:1,n:'rivals traditional industry as an engine of growth'},
+{q:'What problem did it also cause?',o:['No jobs.','Platform power concentration and antitrust action.','Low growth.','Peace.'],a:1,n:'concentrated power in a few platforms, antitrust action'},
+{q:'What do regulators now push?',o:['Ban all platforms.','Orderly expansion with fair data and labor.','No rules.','State-only.'],a:1,n:'orderly expansion: innovate but share data, treat workers fairly'}
+]},
+{type:'long',title:'中医药走向世界',
+text:'Traditional Chinese medicine, from acupuncture to herbal formulae, is gaining users well beyond China, carried by diaspora communities and a global turn to wellness. The WHO now lists TCM in its diagnostic compendium, and Chinese hospitals run joint centers abroad. Yet acceptance meets doubt: many herbs lack the randomized trials Western medicine demands, and quality varies. Chinese authorities respond by setting standards and funding research, while practitioners stress prevention and whole-body balance over symptom-killing. The meeting of TCM and modern science is less a clash than a slow translation, where efficacy must be shown, not assumed. How the two systems blend will shape not just health care but what the world accepts as evidence.',
+questions:[
+{q:'How does TCM spread abroad?',o:['By ban.','Diaspora communities and a wellness trend.','By war.','By isolation.'],a:1,n:'carried by diaspora and a global turn to wellness'},
+{q:'Why does it meet doubt?',o:['Its popularity.','Lack of randomized trials and variable quality.','Its low cost.','Few users.'],a:1,n:'lack the randomized trials Western medicine demands'},
+{q:'How does China respond?',o:['Reject science.','Set standards and fund research.','Ban herbs.','Take no action.'],a:1,n:'setting standards and funding research'}
+]},
+{type:'long',title:'嫦娥探月与深空探测',
+text:'China’s lunar program, named Chang’e after a moon goddess, has landed rovers, returned the first samples from the moon’s far side, and is preparing a crewed base with Russia. Each mission built on the last, turning political ambition into steady engineering. Beyond prestige, lunar work tests tech for deeper space—sample return, remote ops, radiation shielding—that a Mars trip would need. Scientists value the far-side samples, unreachable by earlier powers, for what they say about the moon’s early history. The program shows a long-game style: set a decade-spanning plan, fund it steadily, and let each success bank the next. Whether it sparks a new space race or shared science depends on how openly the data is shared.',
+questions:[
+{q:'Chang’e returned samples from?',o:['The near side only.','The far side.','Mars.','The Sun.'],a:1,n:'first samples from the moon’s far side'},
+{q:'What does lunar work test tech for?',o:['Cars.','Deeper space like Mars.','Ships.','Farms.'],a:1,n:'tests tech for deeper space—a Mars trip would need'},
+{q:'What style does the program show?',o:['Short bursts.','A decade-spanning steady plan.','No plan.','A rush.'],a:1,n:'set a decade-spanning plan, fund it steadily'}
+]},
+{type:'long',title:'碳中和路径与能源转型',
+text:'Reaching carbon neutrality means balancing the gases a country emits with those it removes, and for China that path runs through energy above all. Coal still fires most power and steel, so the shift leans on a trio: build renewables at scale, electrify transport and heat, and keep nuclear and cleaner coal as bridges. Carbon markets price emissions, while grids must stretch to where wind and sun are strong. The cost is real—trillions in new kit—but so is the prize: energy security and cleaner air. The hard part is timing: cut too fast and industry stalls; too slow and warming bites. Neutrality is thus less a date than a direction, steered year by year by what the grid, the weather and the economy allow.',
+questions:[
+{q:'The path to neutrality runs through?',o:['Cars only.','Energy above all.','Farming.','Trade.'],a:1,n:'for China that path runs through energy above all'},
+{q:'The trio includes which measures?',o:['Build renewables, electrify, keep nuclear/cleaner coal.','Ban all power.','Import only.','No nuclear.'],a:0,n:'build renewables, electrify, keep nuclear and cleaner coal as bridges'},
+{q:'What is the hard part?',o:['No cost.','Timing the cut.','The public.','The weather only.'],a:1,n:'the hard part is timing'}
+]},
+{type:'long',title:'积极应对人口老龄化',
+text:'China is ageing fast: by mid-century nearly a third of its people could be over 60, a shift that took Western nations a century and China a few decades. The strain hits pensions, health care and a shrinking workforce that must support more retirees. Responses mix raising the retirement age, encouraging births, and “age-friendly” cities with step-free transit and elderly care. Robots and telehealth ease worker shortages, yet no tech replaces the care deficit. The deeper point is cultural: a society that prized large young families must learn to value long life well lived. Successful ageing will be measured not by how few old people there are, but by how well they are kept able, connected and dignified.',
+questions:[
+{q:'China’s ageing is?',o:['Slow.','Fast—a few decades, not a century.','Nonexistent.','Stable.'],a:1,n:'took Western nations a century and China a few decades'},
+{q:'What does it strain?',o:['Schools.','Pensions, health care, workforce.','Sports.','Farms.'],a:1,n:'strains pensions, health care and a shrinking workforce'},
+{q:'Success is measured by?',o:['How few old people there are.','How well the old are kept able and dignified.','Wealth only.','Youth only.'],a:1,n:'how well they are kept able, connected and dignified'}
+]},
+{type:'long',title:'教育公平与双一流',
+text:'China’s “double first-class” plan backs a cluster of universities to world standing, yet equity remains the tougher test: a rural child’s odds of reaching a top school still lag a city peer’s by a wide margin. Reforms widen access—admissions quotas favoring less-developed regions, free compulsory education, and better rural pay to keep teachers. The tension is real: excellence and fairness pull in different directions when seats are scarce. The aim is not equal outcomes but a ladder that works wherever you start. Whether the double first-class lifts the nation’s science or mainly the coastal few will decide if the policy is seen as a rise for all or a rise for some.',
+questions:[
+{q:'The “double first-class” plan backs?',o:['All schools.','A cluster of universities to world standing.','No schools.','Foreign schools.'],a:1,n:'backs a cluster of universities to world standing'},
+{q:'A rural child’s odds of a top school?',o:['Are equal.','Lag a city peer’s.','Are higher.','Are best.'],a:1,n:'lag a city peer’s by a wide margin'},
+{q:'What is the aim?',o:['Equal outcomes.','A ladder that works wherever you start.','City only.','No reform.'],a:1,n:'a ladder that works wherever you start'}
+]},
+{type:'long',title:'文化自信的当代内涵',
+text:'“Cultural confidence” in today’s China means more than pride in the past; it is a claim that Chinese paths and ideas have value on their own terms, not as copies of others. It shows in the return of traditional motifs in design, in scholarly interest in native thought, and in a willingness to set standards—from payments to EVs—once set elsewhere. Supporters see maturity after a century of import; skeptics warn it can slide into rejection of useful outside learning. The balanced reading is selective strength: learn widely, yet trust local judgment where it works. Confidence, in this view, is not closing the door but opening it on one’s own hinge, deciding what to take and what to keep.',
+questions:[
+{q:'“Cultural confidence” means?',o:['Copy others.','Value on China’s own terms.','Reject the past.','No pride.'],a:1,n:'Chinese paths and ideas have value on their own terms'},
+{q:'It shows in?',o:['Isolation.','Traditional motifs, native thought, setting standards.','Imports.','War.'],a:1,n:'traditional motifs, native thought, setting standards'},
+{q:'The balanced reading is?',o:['Reject the outside.','Selective strength: learn widely, trust local.','Copy all.','Close the door.'],a:1,n:'selective strength: learn widely, yet trust local judgment'}
+]},
+{type:'long',title:'全球发展倡议',
+text:'China’s Global Development Initiative, launched in 2021, reframes its foreign aid around the U.N. Sustainable Development Goals—poverty, health, digital access—rather than only flagship infrastructure. It courts the Global South with projects small and practical: clinics, satellites for farming, training. Backers say it fills gaps left by slow multilateral funds; critics see soft power and debt risk in a greener wrapper. The test is delivery: whether promises turn into clinics that open and data that farmers use, not just speeches. As the old aid order strains, the GDI is Beijing’s bid to shape what “development” means for the many countries that feel left behind by both Washington and Brussels.',
+questions:[
+{q:'The GDI reframes aid around?',o:['Infrastructure only.','U.N. Sustainable Development Goals.','Military.','Trade only.'],a:1,n:'around the U.N. Sustainable Development Goals'},
+{q:'How does it court the Global South?',o:['Debt only.','Clinics, satellites, training.','War.','Sanctions.'],a:1,n:'clinics, satellites for farming, training'},
+{q:'What is the real test?',o:['Speeches.','Delivery of real projects.','Size.','Speed.'],a:1,n:'whether promises turn into clinics that open'}
+]},
+{type:'long',title:'科技自立自强',
+text:'After export curbs on chips and tools, China placed “self-reliance” at the heart of science policy: build the parts it cannot buy, from lithography to aircraft engines, while still trading where it can. The push funds basic research, not just assembly, and courts talent with labs and pay. Risk is duplication and waste if every firm chases the same gap; gain is resilience if supply is cut. History says autarky fails but dependence on a single source is fragile. The pragmatic line is selective self-reliance—master the chokepoints, stay open elsewhere—so that a blockade hurts but does not halt. The strategy is less isolation than insurance.',
+questions:[
+{q:'“Self-reliance” means?',o:['Buy everything.','Build what cannot be bought.','No trade.','Copy only.'],a:1,n:'build the parts it cannot buy'},
+{q:'What does the push fund?',o:['Assembly only.','Basic research and talent.','Nothing.','Imports.'],a:1,n:'funds basic research, courts talent'},
+{q:'The pragmatic line is?',o:['Full isolation.','Selective mastery, stay open.','No chips.','Ban trade.'],a:1,n:'selective self-reliance—master chokepoints, stay open'}
+]},
+{type:'long',title:'生物多样性保护与国家公园',
+text:'China has set up a system of national parks—from giant-panda habitats to tropical forests—to protect nature at landscape scale, not just single species. The move follows studies showing that joined, guarded corridors let wildlife roam and breed better than isolated reserves. Local herders are hired as rangers, turning a conflict over land into shared stewardship. The parks signal a shift from growth-at-any-cost to valuing ecosystems as assets, though balancing tourism jobs with true protection stays tricky. For a country that lifted hundreds of millions out of poverty, the next proof of progress may be not fewer poor but more panda, more tiger, more wild river left intact.',
+questions:[
+{q:'The national parks protect?',o:['One species.','Nature at landscape scale.','Cities.','Farms.'],a:1,n:'protect nature at landscape scale'},
+{q:'What do local herders become?',o:['Removed.','Rangers and shared stewards.','Banned.','Tourists.'],a:1,n:'hired as rangers, shared stewardship'},
+{q:'What shift do the parks signal?',o:['Cost only.','Valuing ecosystems as assets.','No nature.','Growth only.'],a:1,n:'valuing ecosystems as assets'}
+]},
+{type:'long',title:'智慧城市与基层治理',
+text:'Smart-city projects wire urban services with sensors and data—traffic that eases jams, cameras that flag accidents, apps that book care. Done well, they save time and lives; done as tech for its own sake, they pile dashboards nobody reads. The harder gain is in governance: data that lets a district act before a flood, not after. Yet concentration of data raises privacy and who-decides questions. The promising model keeps decisions local—residents flag potholes, the system routes them—so technology serves the street, not just the screen. A smart city is less a set of gadgets than a way of hearing a place and answering faster.',
+questions:[
+{q:'Smart cities wire which services?',o:['Farms.','Urban services with sensors and data.','Schools.','No tech.'],a:1,n:'wire urban services with sensors and data'},
+{q:'What is the harder gain?',o:['Dashboards.','Governance that acts before a crisis.','Cars.','Ads.'],a:1,n:'data that lets a district act before a flood'},
+{q:'The promising model keeps?',o:['Decisions central only.','Decisions local, tech serving the street.','No data.','Foreign control.'],a:1,n:'keeps decisions local—tech serves the street'}
+]},
+{type:'long',title:'制造业转型升级',
+text:'China’s factories, long the world’s workshop for cheap goods, are moving up the ladder toward higher value—robots, chips, planes, advanced materials. The “Made in China 2025” plan named sectors to master at home, met with both pride and foreign pushback over subsidies. The shift is real: Chinese EVs and drones lead, yet many core parts still come from abroad, and an ageing workforce trims the labor edge. The bet is that automation and design, not low wages, will carry the next phase. Whether “world’s factory” becomes “world’s innovator” hinges on research that turns patents into products people buy—not just on building more, but building better.',
+questions:[
+{q:'Factories are moving toward?',o:['Cheaper goods.','Higher value and advanced tech.','Closure.','Imports.'],a:1,n:'moving up the ladder toward higher value'},
+{q:'Where does China already lead?',o:['Nothing.','EVs and drones.','Toys only.','Textiles only.'],a:1,n:'Chinese EVs and drones lead'},
+{q:'The next phase hinges on?',o:['Wages.','Research turning patents into products.','More lines.','Exports.'],a:1,n:'research that turns patents into products people buy'}
+]}
 ];
 
 // ================= 数据：汉译英段落（省赛 Part IV / 国赛 Part IV） =================
@@ -1756,7 +2074,7 @@ function freshOrder(pool,seenKey,keyOf){
  return {list:fresh.concat(old),mark:function(x){if(x!=null)seen[keyOf(x)]=1}};
 }
 function takeRead(need,sec,per,type){
- var fo=freshOrder(READINGS.filter(function(r){return r.type===type}),sec+'Pool',function(x){return x.title});
+ var fo=freshOrder(READINGS.filter(function(r){return r.type===type}),type+'Pool',function(x){return x.title});
  var out=[];
  for(var i=0;i<fo.list.length&&need>0;i++){
   var p=fo.list[i],take=p.questions.slice(0,need);
